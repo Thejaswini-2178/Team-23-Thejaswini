@@ -36,6 +36,13 @@
             <l1>checkbox</l1>
             <l1>img</l1>
         </ul>
+        <ul>
+            <li>DROUP DOWN LIST</li>
+            <UL>
+                <LI>Select tag</LI>
+                <li>Data list tag</li>
+            </UL>
+        </ul>
         <form method="">
             <label for="name">First name </label>
             <input type="text" id="name" > <br><br>
@@ -55,31 +62,71 @@
             <input type="time" id="time"> 
             <label for="birth">DOB </label>
             <input type="month" id="birth"><br><br>
-           <label for="Resume">File</label>
-           <input type="file" id="Resume"><br><br>
-           <label for="url"> linkdin URL</label>
-           <input type="url" id="url"><br><br>
-           <label for="range">UR COMMUNICATION</label>
-           <input type="range" id="range"><br><br>
-           <label for="range"> Reset</label>
-           <input type="reset" id="range"> <br><br>
-           <label for="hide">HIDE</label>
-           <input type="hidden" id="hide"> <br><br>
-           <input type="checkbox" id="agree">
-           <label for="agree">I agree thi all</label><br> <br>
-           <label for="button">SAVE BUTTON</label>
-           <input type="button"id=buttoon><br><br>
-           <label for="button">SUBMIT</label>
-           <input type="submit"id=button>
+            <label for="Resume">File</label>
+            <input type="file" id="Resume"><br><br>
+            <label for="url"> linkdin URL</label>
+            <input type="url" id="url"><br><br>
+            <input type="image" src="../DIV/GILL.jpg"> <br><br>
+            <label for="range">UR COMMUNICATION</label>
+            <input type="range" id="range"><br><br>
+            <label for="range"> Reset</label>
+            <input type="reset" id="range"> <br><br>
+            <label for="colle"> college</label>
+            <input type="search" id="colle"> <p><b>WE CAN DISCUSS FURTHER MORE ABOUT SEARCH TAG</b></p> <BR>
+            <label for="hide">HIDE</label>
+            <input type="hidden" id="hide"> <br><br>
 
-           <hr><br><hr>
-           <label for="name">First name </label>
-           <input type="text"  > <br><br>
-           <label for="name">Middle name </label>
-           <input type="text"> <br><br>
-           <lebel for="email">Email</lebel>
-           <input type="email" ><br><br>
-           <h1>Note: so there is n nee to use the id for perticularly. when we want to link all those thing the only we canuse the id attribue </h1>
+            <label for="fb"> Feddback</label> <br>
+            <textarea name="" cols="50" rows="6"> start from here.. </textarea><br>
+ 
+            <input type="checkbox" id="agree">
+            <label for="agree">I agree thi all</label><br> <br>
+            <label for="button">SAVE BUTTON</label>
+            <input type="button"id=buttoon><br><br>
+            <label for="button">SUBMIT</label>
+            <input type="submit"id=button><hr><br><hr>
+            
+            <h2>NOTE:here teir are two option are available for that ,inths multipul selection input types attributes we can select all at a time or else we can select any one oppetion</h2>
+            <h1>ALL SELECTION OPTION</h1>  
+            <label for="Gender" > Gender</label> <br>
+            <input type="radio" >Female
+            <input type="radio">Male <br>
+           
+
+           <label for="clg"><b> skills</b></label> <br>
+           <input type="checkbox" name="sk"> HTML <br> 
+           <input type="checkbox" name="sk">JS <br> 
+           <input type="checkbox" name="sk">CSS <br>
+           <input type="checkbox" name="sk">REACTJS <br>
+
+          
+           <h2>FOR ONLY ONE SELECTION</h2>
+           <label for="Gender" name="gender"> Gender</label> <br>
+           <input type="radio" name="gender">Female
+           <input type="radio" name="gender">Male
+           <input type="radio" name="gender">Others <br>
+           <hr><hr><hr>
+           <H2>DROUP DOWN LIST</H2>
+           <p>TWO METHOEDS</p>
+           <UL>
+            <li>SELECT-OPTION</li>
+            <li>Data list</li>
+           </UL>
+           <label for="CLG">Select your college</label>
+           <select name="clg" id="clg">
+            <option> SVCET</option>
+            <option> SVCE</option>
+            <option> SVU</option>
+           </select> <br>
+         
+           <label for="CLG">Select your college</label>
+           <input list="branch" id="clg">
+           <datalist name="clg" id="branch">
+            <option> SVCET</option>
+            <option> SVCE</option>
+            <option> SVU</option>
+           </datalist>
+           <h1>Note: so there is no nee to use the id for perticularly. when we want to link all those thing the only we canuse the id attribue </h1>
         </form>
     </body>
 </html>
