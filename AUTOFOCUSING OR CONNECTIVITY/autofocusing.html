@@ -5,12 +5,11 @@
             #demo:hover{
               border:2px solid rgb(147, 147, 252);
               }
-              #demo1:hover{
-                color:aqua
+              #ra:hover{
+              border:2px solid rgb(147, 147, 252);
               }
         </style>
     </head>
-    
     <body>
         <form action="post">
             <label for="demo">First name</label> &nbsp;&nbsp; &nbsp;&nbsp;
@@ -33,9 +32,22 @@
             <label for="demo">MBL NO</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text" id="demo"><br><br> <br><br>
             <lable for="sub">SUBMIT Data</lable>
-            <input type="submit">
+            <input type="submit"><br><br>
+        
+            <h1>NOW FOR RADIO TYPE </h1>
 
-            <h1>Autofocusing is aplicable for text type attribu</h1>
+
+            <label for="ra "> gender</label>
+            <input type="radio" id="ra">male
+            <input type="radio" id="ra">female <br><br>
+            <h1 >if we want only select one option then we should specify the only "name attribute. in radio only but not in the check box init is not applicable</h1>
+            <label for="ra "> gender</label> 
+            <input type="radio" id="ra" name="male">male
+            <input type="radio" id="ra" name="male">female <br><br>
+            <lable for="cou"> Which country</lable><BR>
+            <input type="radio"  id="con" name="con">India <br>
+            <input type="radio"  id="con" name="con">UK <br>
+            <input type="radio"  id="con" name="con">JAPAN <br>
         </form>
     </body>
 </html>
