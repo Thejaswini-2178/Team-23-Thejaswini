@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Droupdown</title>
+        <style>
+            #d1,#d2{
+                overflow: auto;
+                float: left;
+                padding: 10px;
+            select{
+                border-color: red;background-color: rgb(238, 211, 234);
+            }
+            option{
+                color: rgb(0, 26, 255);
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <h1>DROUP DOWN- using DIV TAG</h1>
+        <H4> BY using the only select tag</H4>
+        <form action="">
+         <div id="d1">
+            <label for="it1">Select an item</label>
+            <select id="it1">
+                <option></option>
+                <option>Item1</option>
+                <option value="1">car</option>
+                <option value="2">bick</option>
+                <option value="3">aeroplane</option>
+            </select>
+        </div>
+        <div id="d2">
+            <label for="it2">Select Item2</label>
+            <select id="it2">
+                <option value=""></option>
+                <option>Mahendhra</option>
+                <option>BMW</option>
+                <option>Tata</option>
+                <option>Trid</option>
+            </select>
+        </div>
+        <br><br><br>
+        <h4>DROUP DOWN USING THE DATA LIST TAG</H4>
+            <label for="it">Select an item</label>
+                <input list="list" id="it">
+                <datalist id="list">
+                    <option value="4">Fruits</option>
+                    <option value="1">Animals</option>
+                    <option value="2">Birds</option>
+                    <option value="3">Veg</option>
+                </datalist>
+                <label for="it1">Select an item</label>
+                <input list="list1" id="it1">
+                <datalist id="list1">
+                    <option >Fruits</option>
+                    <option >Animals</option>
+                    <option >Birds</option>
+                    <option >Veg</option>
+                </datalist><br><br><br>
+                <label for="itl">Submityour data</label> &nbsp;&nbsp;&nbsp;
+                <input type="submit" id="itl">
+
+
+            
+
+        </form>
+    </body>
+</html>
