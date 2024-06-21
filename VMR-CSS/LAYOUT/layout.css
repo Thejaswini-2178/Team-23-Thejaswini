@@ -1,0 +1,39 @@
+div#subpar-1 {
+    background-color: black;
+    color: white;
+    width: 800px;
+    margin: auto;
+    height: 120px;
+}
+div#text {
+    padding: 20px;
+    overflow: auto;
+    float: left;
+    padding-right: 300px;
+}
+b {
+    font-size: 29px;
+    margin: 0px;
+}
+p {
+    margin: 0px;
+    font-size: 15px;
+}
+nav {
+    overflow: auto;
+    width: 300;
+}
+li {
+    display: inline;
+    font-size: 12;
+    float: left;
+    margin-right: 13px;
+    padding: 1px;
+    background: gray;
+    margin-top: 40px;
+}
+ul {
+    padding: 0px;
+    margin: auto;
+    background-color: gray;
+}

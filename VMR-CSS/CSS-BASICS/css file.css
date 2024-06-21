@@ -1,0 +1,17 @@
+body{
+    background: rgb(160, 236, 74);
+}
+H1{ color:rgb(226, 29, 29);}
+h1{color: black;}
+H1{ color:gray}
+h2{
+    color: pink;
+}
+
+ul{
+    color: rgb(223, 40, 55);
+    background-color: yellow;
+}
+ol{
+    background-color: aqua;
+}
