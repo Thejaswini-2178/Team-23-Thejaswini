@@ -38,7 +38,7 @@ nav {
 ul {
     padding: 0px;
     margin: auto;
-    background-color: gray;
+    background-color: rgb(224, 222, 222);
 }
 li {
     display: inline;
