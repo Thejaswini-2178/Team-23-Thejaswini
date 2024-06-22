@@ -3,25 +3,42 @@ div#subpar-1 {
     color: white;
     width: 800px;
     margin: auto;
-    height: 120px;
+    height: 140px;
+    border:840px;
+    padding:0px;
+}
+div#parent1 {
+    margin: auto;
+    width: 800px;
+    padding: 10px;
+}
+div#parent1 {
+    margin: auto;
+    width: 800px;
+    padding: 10px;
 }
 div#text {
     padding: 20px;
     overflow: auto;
     float: left;
-    padding-right: 300px;
+    padding-right: 120px;
 }
 b {
-    font-size: 29px;
+    font-size: 35px;
     margin: 0px;
 }
 p {
     margin: 0px;
-    font-size: 15px;
+    font-size: 11px;
 }
 nav {
     overflow: auto;
-    width: 300;
+    width: 400px;
+}
+ul {
+    padding: 0px;
+    margin: auto;
+    background-color: gray;
 }
 li {
     display: inline;
@@ -32,8 +49,69 @@ li {
     background: gray;
     margin-top: 40px;
 }
-ul {
-    padding: 0px;
+div#parant2 {
     margin: auto;
-    background-color: gray;
+    padding: 10px;
+}
+figure {
+    margin: 0px 10px 0px 10px;
+    border: 2px;
+}
+img#img1 {
+    padding: 0px 50px 0px 80px;
+    width: 600px;
+    margin: auto;
+    overflow: auto;
+}
+div#parent3 {
+    margin-left: 90px;
+    overflow: auto;
+}
+div#child1 {
+    float: left;
+    overflow: auto;
+}
+figure {
+    margin: 0px 10px 0px 10px;
+    border: 2px;
+}
+img {
+    width: 170px;
+    height: 180px;
+}
+figcaption {
+    overflow: auto;
+    width: 150px;
+}
+h4 {
+    margin: 10px;
+}
+p {
+    margin: 0px;
+    font-size: 11px;
+}
+h4 {
+    margin: 10px;
+}
+div#child2 {
+    float: left;
+    overflow: auto;
+    padding: 0px 10px;
+    margin: 0px 20px;
+}
+figure {
+    margin: 0px 10px 0px 10px;
+    border: 2px;
+}
+img {
+    width: 170px;
+    height: 180px;
+}
+figcaption {
+    overflow: auto;
+    width: 150px;
+}
+p {
+    margin: 0px;
+    font-size: 11px;
 }
