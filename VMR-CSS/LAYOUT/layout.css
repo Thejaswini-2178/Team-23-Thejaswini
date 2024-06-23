@@ -157,7 +157,7 @@ li {
     list-style-type: none;
     background: none;
 }
-    i {
+    .ital {
         color: yellow;
  }
  .sections {
