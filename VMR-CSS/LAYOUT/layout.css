@@ -35,7 +35,7 @@ nav {
     overflow: auto;
     width: 400px;
 }
-ul {
+ol {
     padding: 0px;
     margin: auto;
     background-color: rgb(224, 222, 222);
@@ -115,3 +115,82 @@ p {
     margin: 0px;
     font-size: 11px;
 }
+article {
+    width: 300px;
+    border: 1px;
+    margin: 0px 15px 0px 80px;
+    float: left;
+    overflow: auto;
+}
+img#jpeg {
+    width: 310px;
+    height: 250;
+}
+div#parent4 {
+    border: 2px;
+    margin: 20px;
+}
+
+
+
+div#parent5 {
+    width: 800px;
+    margin: auto;
+    overflow: auto;
+    background: #0e0101;
+}
+   ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  section ul li {
+    line-height: 1;
+    border-bottom: 1px solid;
+    font-size: 13px;
+    color: #756617;
+    margin: 9px;
+}
+li {
+    display: inline;
+    float: left;
+    padding: 1px;
+    list-style-type: none;
+    background: none;
+}
+    i {
+        color: yellow;
+ }
+ .sections {
+    width: 180px;
+    float: left;
+    margin-right: 15px;
+    overflow: auto;;
+  }
+ .sections4 {
+    width: 180px;
+    float: right;
+    margin: 0px 16;
+}
+
+  div#footerContainer-6 {
+    background: #1c0f0f;
+    margin: 0;
+  }
+  footer {
+    width: 800px;
+    margin: auto;
+    overflow: auto;
+    background: #686363;
+    color: white;
+}
+  p#rightPara {
+    float: left;
+    margin: 20;
+}
+p#leftPara {
+    float: right;
+    margin: 20;
+}
+
+
+
