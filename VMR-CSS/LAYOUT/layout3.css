@@ -24,7 +24,8 @@ div {
 nav#div2 {
     overflow: auto;
     width: 1000px;
-    margin: auto;
+    float: left;
+    margin: 0px 0px 0px 170px;
 }
 
 img#img {
@@ -33,8 +34,6 @@ img#img {
     margin: auto;
     padding: 10px 0px;
 }
-
-
 figure {
     margin-left: auto;
     margin-top: 1px;
@@ -45,11 +44,28 @@ img {
     width: 50px;
     display: inline;
     overflow: auto;
+    float:left;
     padding-right: 5px;
 }
 figcaption {
     font-size: 12px;
     text-align: start;
+    
 }
+a {
+    list-style: none;
+    color: orange;
+}
+article {
+    width: 100px;
+}
+.p1 {
+    width: 500px;
+    float: left;
+    margin-left: 170px;
+    padding-right: 50px;
+}
+
+
 
 
