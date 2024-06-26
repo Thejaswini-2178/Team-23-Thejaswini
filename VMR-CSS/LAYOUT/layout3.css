@@ -1,92 +1,133 @@
-body {
-    border: 3px ;
+div#parent1 {
+    margin: auto;
+    width: 900px;
+    padding: 10px;
 }
-header {
-    margin:auto;
+div#subpar-1 {
+    background-color: black;
     color: white;
-    height: 100px;
-    width: 1000px;
-    background-color: purple;
-}
-div#div1 {
+    width: 900px;
     margin: auto;
-    width: 1000px;
-    background-color: purple;
+    height: 140px;
+    border: 840px;
+    padding: 0px;
 }
-h1,h3 {
-    text-align: center;
-    font-style: italic;
-}
-div {
-    margin: auto;
-    width: 1000px;
-}
-nav#div2 {
+div#text {
+    padding: 20px;
     overflow: auto;
-    width: 1000px;
     float: left;
-    margin: 0px 0px 0px 170px;
-    
+    padding-right: 120px;
+}
+b {
+    font-size: 35px;
+    margin: 0px;
+}
+p {
+    margin: 0px;
+    font-size: 11px;
+}
+nav {
+    overflow: auto;
+    width: 500px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: inline;
+    float: left;
+    padding: 5px;
+    list-style-type: none;
+    background: none;
+    margin: 20px 1px 0px 10px;
+}
+div#text {
+    padding: 20px;
+    overflow: auto;
+    float: left;
+    padding-right: 120px;
+}
+div#im {
+    width: 900px;
+    margin: auto;
 }
 img#img {
-    width: 1000px;
-    height: 200px;
+    width: 900px;
+    height:200px;
     margin: auto;
-    padding: 10px 0px;
-    
+}
+nav {
+    overflow: auto;
+    width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+.c1 {
+    width: 900px;
 }
 figure {
-    margin-left: auto;
-    margin-top: 1px;
-    width: 100px;
-    float: inline-start;
-    border: 0.5px solid wheat;
-    padding: 2px;
+    width: 210;
+    margin: auto;
+    float: left;
+    padding: 5px 15px 10px 0px;
 }
-img {
-    width: 50px;
-    display: inline;
-    overflow: auto;
-    float:left;
-    padding-right: 5px;
-}
-figcaption {
+b {
     font-size: 12px;
-    text-align: start;
-    
+    margin: 0px;
 }
 a {
-    list-style: none;
+    font-size: 10px;
+    float: right;
     color: orange;
 }
-article {
+img {
     width: 100px;
-}
-.p1 {
-    width: 500px;
-    float: left;
-    margin-left: 170px;
-    padding-right: 50px;
-}
-footer {
     margin: auto;
-    width: 1000px;
-    background: #201f1f;
-    color: white;
-    height: 90px;
 }
-p#para1 {
-    text-align: left;
-    padding-top: 20px;
+hr {
+    width: 900px;
+}
+article {
+    width: 900px;
+    margin: auto;
     overflow: auto;
+}
+img.p1 {
+    width: 270px;
+    height: 250px;
     float: left;
-    padding-left: 30px;
+    margin: auto;
+    padding: 2px 30px 10px 0px;
 }
-p#para2 {
-    padding-top: 35px;
-    text-align: right;
-    padding-right: 30px;
+figure.fig {
+    width: 500px;
+    margin: auto;
 }
-
-
-
+img.m1 {
+    width: 300px;
+    float: left;
+    padding-right: 40px;
+}
+figcaption {
+    text-align: justify;
+    margin: 40px 0px;
+}
+nav#nav1 {
+    width: 100px;
+    float: right;
+    margin: 0px 120px;
+    overflow: auto;
+}
+p.fl_left{
+margin-left: 20px;
+font-size: 14px;
+padding-left: 20px;
+padding-top:10px;
+}
+p.fl_right{
+    margin-right: 20px;
+    font-size: 14px;
+    padding-right: 20px;
+   
+    }
