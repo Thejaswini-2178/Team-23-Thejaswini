@@ -17,16 +17,21 @@ h3{
 p{
     color:blue;
 }
-
-
 /* grouping selector by using(,) */
 h4,h5{
+    color:green;
+}
+/* id */
+#h4{
+    color:rgb(248, 33, 43);
+}
+#p{
     color:green;
 }
 /* class  */
 ul{
     li{
-        color:rgb(228, 76, 49)
+        color:rgb(228, 49, 79)
     }
 }
 ol{
