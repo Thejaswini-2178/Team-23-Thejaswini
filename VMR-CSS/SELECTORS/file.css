@@ -1,0 +1,11 @@
+/* this is by using the id selector */
+h1{
+    color:rgb(221, 25, 25);
+
+}
+ul{
+    color:green;
+}
+h1 #h1,#h2{
+    color:blue;
+}
