@@ -1,0 +1,49 @@
+h1{
+  color:brown;
+  background-color: aqua;
+}
+h2{
+    color:rgb(255, 0, 212);
+    background-color: rgba(221, 255, 127, 0.616);
+}
+/* globle or univesal selectors */
+*{
+    background-color: antiquewhite;
+}
+/* tag selecror */
+h3{
+    color:red;
+}
+p{
+    color:blue;
+}
+
+
+/* grouping selector by using(,) */
+h4,h5{
+    color:green;
+}
+/* class  */
+ul{
+    li{
+        color:rgb(228, 76, 49)
+    }
+}
+ol{
+    li{
+        color:green;
+    }
+}
+.odd{
+    color:rgb(13, 240, 43);
+    .even{
+        color:black;
+    }
+}
+.c1{
+    color:rgb(238, 62, 185);
+}
+.c2{
+    color:greenyellow
+}
+
