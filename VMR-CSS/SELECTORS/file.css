@@ -3,9 +3,29 @@ h1{
     color:rgb(221, 25, 25);
 
 }
-ul{
+
+/* class selectors */
+.c2{
     color:green;
 }
-h1 #h1,#h2{
+
+/* space ,separator values */
+body  #h1,#h2{
     color:blue;
+}
+div#h1,div#h2{
+    color:magenta;
+}
+div #p #h3{
+    color:purple;
+}
+
+/* space separators for value class */
+.even,.odd{
+    color:rgb(0, 17, 255);
+}
+
+/* using 2 at a time */
+#div3,.cls{
+    background-color: aqua;
 }
