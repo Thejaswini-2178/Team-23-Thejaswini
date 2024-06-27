@@ -35,7 +35,8 @@ nav {
     overflow: auto;
     width: 400px;
 }
-ol {
+#listul:hover {
+    color:red;
     padding: 0px;
     margin: auto;
     background-color: rgb(224, 222, 222);
@@ -192,5 +193,7 @@ p#leftPara {
     margin: 20;
 }
 
-
-
+/* p-seudo elements and class */
+:hover{
+    color:red;
+}

@@ -26,6 +26,12 @@ div #p #h3{
 }
 
 /* using 2 at a time */
-#div3,.cls{
-    background-color: aqua;
+article #div,.cls{   /* but #div ,(ie #div space) and space id( #div) are not acceptable in div.*/
+    background-color:aqua;
+}
+
+/* <!-- space separators are not allowed with actuval  meaning --> */
+.cls1 {
+    background-color: yellow;
+    color:black;
 }
