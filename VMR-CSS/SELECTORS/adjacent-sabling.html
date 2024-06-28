@@ -1,0 +1,49 @@
+<head>
+    <head>
+        <title>Sabling Selector</title>
+        <style>
+            div+p{
+                color:red;
+            }
+            div+ul{
+                color:green;
+            }
+        </style>
+        <body>
+            <h1>Sabling selector</h1>
+            <h1>It will only select for  css property for the aafter closing the tages,</h1>
+            <div id="div1">
+                <p>child</p>
+                <div>
+                    <p>child</p>
+                    <p>child</p>
+                </div>
+                <p>child-1</p>
+                <p>child</p>
+                <div>
+                    <p>sabling</p>
+                    <p>subling</p>
+                </div>
+                <p>child-2</p>
+                <p>Child</p>
+            </div>
+
+             <!-- List type adjacent type -->
+        <h2>List Type </h2>
+        <div id="id2">
+            <p>By default in list css proparty will acept to all.</p>
+            <ul>
+                <li>List-1</li>
+                <li>List-2</li>
+                <li>List-3</li>
+            <ul>
+                <li>ORDER-1</li>
+                <li>Order-2</li>
+                <li>Order-3</li>
+            </ul>
+            <li>LIST....</li>
+            <li>List....t</li>
+        </ul>
+        </body>
+    </head>
+</head>

@@ -1,0 +1,16 @@
+#id1>p{
+    color:red;
+}
+
+/* list type data */
+#id2>ul{
+    color:blue;
+}
+
+/*un-orderlist  */
+#un-list>ul{
+    color:green;
+}
+#ter-li>ul{
+    color:magenta;
+}

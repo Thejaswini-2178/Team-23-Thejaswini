@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Adjacent</title>
+        <link rel="stylesheet" href="./child.css">
+    </head>
+    <body>
+        <H1>Child selector</H1>
+        <p>It means only it will gives the css property to the  element which is present after closing of any tag. </p>
+        <div id="id1">
+            <p>Unit-1</p>
+            <p>Unit-2</p>
+            <div>
+                <p>Chapter-2.1</p>
+                <p>Chapter-2.2</p>
+            </div>
+            <p>Unit-3</p>
+            <div>
+                <p>Chapter-3.1</p>
+                <p>Chapter-3.2</p>
+            </div>
+        </div>
+        <HR></HR>
+       <!-- List type adjacent type -->
+        <h2>List Type </h2>
+        <div id="id2">
+            <p>By default in list css proparty will acept to all.</p>
+            <ul>
+                <li>List-1</li>
+                <li>List-2</li>
+                <li>List-3</li>
+            </ul>
+            <ol>
+                <li>ORDER-1</li>
+                <li>Order-2</li>
+                <li>Order-3</li>
+            </ol>
+<hr>
+            <!-- nestedordered list -->
+             <h2>Though we are giving the nested list without inter fearing to other list at middle  css will take the entair list.  </h2>
+             <div id="un-list">
+             <ul>
+                <li>chapter-1</li>
+                <li>chapter-1</li>
+                <li>chapter-1</li>
+                <li>chapter-1</li>
+                <ul>
+                   <li>unit-1</li>
+                   <li>unit-1</li>
+                   <li>unit-1</li>
+                   <li>unit-1</li>
+                   <li>unit-1</li>
+                    <ul>
+                       <li>Topic-1</li>
+                       <li>Topic-1</li>
+                       <li>Topic-1</li> 
+                       <li>Topic-1</li>
+                    </ul>
+                </ul>
+            </ul>
+            <div id="ter-li">
+                <ul>
+                    <li>unit-1</li>
+                    <ul>
+                        <li>Chapter-1</li>
+                        <li>Chapter-2</li>
+                        </ul>
+                    <li>Unit-2</li>
+                    <ul>
+                        <li>Unit-3</li>
+                        <ul>
+                           <li>Chapter-3.1</li>
+                           <li>Chapter-3.2</li>
+                        </ul>
+                        <li>Chapter-3.3</li>
+                    </ul>
+                    </ul>
+                </ul>
+
+            </div>
+            </div>
+        </ul>
+    </body>
+</html>
