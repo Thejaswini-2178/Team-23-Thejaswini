@@ -1,0 +1,105 @@
+header {
+    width:90%;
+    height: 150px;
+    background-color: green;
+    margin:auto;
+}
+div {
+    width: 400px;
+    margin: 10px;
+    padding: 0px;
+    float: left;
+    overflow: auto;
+}
+ header div h1 {
+    padding: 0px;
+    margin: 0px;
+}
+ header div p {
+    color: yellow;
+    margin: 0px;
+    padding: 0px;
+    font-size: 19px;
+}
+ul#un-li {
+    display: inline;
+    background-color: black;
+    color: white;
+    padding:10px 2px;
+}
+nav#div1 {
+    width: 650px;
+    background-color: #d90fd9;
+    padding: 10px;
+    float: left;
+    margin-top: 70px;
+   
+}
+div#image {
+    width: 100%;
+    padding: 20px;
+    overflow: auto;
+    float: left;
+    padding-right: 120px;
+}
+img#nature {
+    margin: auto;
+    width: 800px;
+    padding-left:20%;
+}
+hr {
+    width: 900px;
+    margin:auto;
+}
+nav#div2 {
+    overflow: auto;
+    padding-left: 10%;
+    margin: auto;
+}
+.c2 {
+    width: 210px;
+    text-align: justify;
+}
+.c1 {
+    width: 210px;
+    text-align: justify;
+}
+a {
+    color: red;
+    font-size: 12px;
+    float: right;
+    text-decoration: none;
+}
+figcaption::first-letter{
+    color:red;
+    font-size:25px;
+}
+figcaption p::first-letter{
+    color:blue;
+    font-size: 35px;
+}
+figcaption::after{
+    symbols: #e80808;;
+}
+ul {
+    display: grid;
+    float: left;
+    border: 1px solid gray;
+}
+li {
+    display: inline;
+    padding: 8px;
+    text-align: left;
+    text-decoration-line: overline;
+}
+#div2 li:hover{
+    color:red;
+}
+#div2 ul:focus{
+    color:blue;
+
+}
+li:hover{
+    color:red;
+
+}
