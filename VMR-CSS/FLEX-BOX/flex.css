@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+  }
+  .container {
+    border: 5px solid;
+    display: flex;
+    flex-direction:column; 
+    /* in direxction their are:row,column ,row,rowreverse,intial, inherit, unset   */
+    margin:10px;
+  }
+  .item-1 {
+    background-color: yellow;
+    width:100px;
+    height:60px;
+   
+  }
+  .item-2 {
+    background-color: brown;
+    width:100px;
+    height:60px;
+  }
+  .item-3 {
+    background-color: blue;
+    width:100px;
+    height:60px;
+  }
+  .item-4 {
+    background-color: aquamarine;
+    width:100px;
+    height:60px;
+  }
+  .item-5 {
+    background-color: chartreuse;
+    width:100px;
+    height:60px;
+  }
+  .item-6 {
+    background-color: darkmagenta;
+    width:100px;
+    height:60px;
+  }
+  .item-7 {
+    background-color: darkolivegreen;
+    width:100px;
+    height:60px;
+  }
+  .item-8 {
+    background-color: chocolate;
+    width:100px;
+    height:60px;
+  }
+  .item-9 {
+    background-color: dodgerblue;
+    width:100px;
+    height:60px;
+  }
+  .container2{
+    border: 5px solid;
+    display: flex;
+    flex-wrap:unset;
+    margin:10px;
+  /*there will be also flex align is wich is  proparty ,that haviing: center ,left right,start,end */
+  }
+    .item-1 {
+        background-color: yellow;
+        width:100px;
+        height:60px;
+
+      }
+      .item-2 {
+        background-color: brown;
+        width:100px;
+        height:60px;
+      }
+      .item-3 {
+        background-color: blue;
+        width:100px;
+    height:60px;
+      }
+      .item-4 {
+        background-color: aquamarine;
+        width:100px;
+    height:60px;
+      }
+      .item-5 {
+        background-color: chartreuse;
+        width:100px;
+    height:60px;
+      }
+      .item-6 {
+        background-color: darkmagenta;
+        width:100px;
+    height:60px;
+      }
+      .item-7 {
+        background-color: darkolivegreen;
+        width:100px;
+    height:60px;
+      }
+      .item-8 {
+        background-color: chocolate;
+        width:100px;
+    height:60px;
+      }
+      .item-9 {
+        background-color: dodgerblue;
+        width:100px;
+        height:60px;
+      }
+
