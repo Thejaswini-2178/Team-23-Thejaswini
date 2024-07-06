@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Counteres</title>
+    </head>
+    <style>
+        div #sub{
+            counter-reset:section;
+        }
+             #sub h1::before{
+                counter-increment:section;
+                content: "sub" counter(section) " : ";
+             }
+          div #sylabus{
+            counter-reset:reversed(section);
+            list-style-type: none;
+          }
+          #sylabus li::before{
+            list-style-type: none;
+            counter-increment: section;
+            content:"  " counter(section) ":"; 
+          }
+    </style>
+    <body>
+        <div id="sub">
+            <h1>subjects</h1>
+            <p> MATHS</p>
+            <p>Telugu</p>
+            <p>English</p>
+            <p>Hindi</p>
+            <p>physics</p>
+            <p>Chemistry</p>
+            <p>Biology</p>
+        </div>
+        <div id="sylabus">
+            <h1>sylabus</h1>
+            <ol>
+                <li>Maths</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+                <li>Telugu</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>                
+                <li>English</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+                <li>Hindi</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+                <li>Pysics</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+                <li>Physics</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+                <li>Chemistry</li>
+                <ol>
+                    <li>unit1</li>
+                    <li>unit2</li>
+                    <li>unit3</li>
+                    <li>unit4</li>
+                </ol><br>
+            </ol><br>
+        </div>
+    </body>
+</html>
