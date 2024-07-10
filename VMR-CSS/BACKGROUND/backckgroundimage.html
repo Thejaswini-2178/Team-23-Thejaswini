@@ -6,13 +6,49 @@
                 width:500px;
                 background-image: url(../DIV/ms.jpg); /* by default it wiil occupi some space*/
                 background-color:gray;
-                background-repeat: no-repeat;
-                background-position: center ;
-                background-size: auto;
-                background-attachment:fixed ;
+                background-repeat: ;
+                background-position: top  ;
+                background-size:contain;
+          /*contain >> which can occupies the top and bottem of the image.... */
+          /* cover>>> which can occupies the entair the uior body */
+                background-attachment:scroll ;
+                background-clip:padding-box;
             }
+            h1{
+                width:100vh;
+                color:red;
+                text-align: center;
+            }
+            /* backgrond-repeat:
+                    1.norepeat
+                    2.repeat
+                    3.repeat-x
+                    4.repeat-y
+                    5.round
+                    6.space  
+                background-size:
+                    1.auto
+                    2.cover
+                    3.contai
+                background-position: 
+                    1.top left
+                    2.top right
+                       3.top..>>>>>default
+                    4.center left
+                    5.center right
+                       6.center...>>>default
+                    7.bottom left
+                    8.bottom right
+                       9.bottom...>>>>default
+                background-attachments: 
+                    1.scroll
+                    2.fixed
+                    3.scrole
+                background-image:
+                    1.url
+                    2.linera-gradient
+                    3.radiat-gradient*/
         </style>
-
     </head>
     <body>
        <div>

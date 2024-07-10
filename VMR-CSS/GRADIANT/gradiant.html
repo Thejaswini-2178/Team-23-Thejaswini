@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Gradiant</title>
+        <style>
+            #div1{
+                float:left;
+                overflow: auto;
+                padding:40px
+            }
+            body h1{
+                height:300px;
+                width: 300px;
+                background-image:linear-gradient( to left,red,green,blue );
+            }
+            h2{
+                height:300px;
+                width: 300px;
+                background-image:linear-gradient( to right,red,green,blue );
+            }
+            h3{
+                height:300px;
+                width: 300px;
+                background-image:linear-gradient( to top,red,green,blue );
+            }
+            #div2{
+                float: left;
+                overflow: auto;
+                padding:40px;
+            }
+            #div2 h1{
+                height:300px;
+                width: 300px;
+                background-image:radial-gradient( circle,red,green,blue );
+            }
+            #div2 h2{
+                height:300px;
+                width: 300px;
+                background-image: radial-gradient(red 5%, green 15%, blue 60%);
+            }
+            #div2 h3{
+                height:300px;
+                width: 300px;
+                background-image: radial-gradient(yellow 5%, green 15%, blue 60%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">
+           <h1>Lineargradiant-to left</h1>
+           <h2>lineargradiant-to right</h2>
+           <h3>lineargradiant-to top</h3>
+        </div>
+        <div id="div2">
+            <h1>Lineargradiant-to left</h1>
+            <h2>lineargradiant-to right</h2>
+            <h3>lineargradiant-to top</h3>
+
+        </div> 
+    </body>
+</html>

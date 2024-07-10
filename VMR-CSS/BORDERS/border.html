@@ -2,15 +2,110 @@
     <head>
         <title>Border</title>
         <style>
+            #div1{
+                float: left;
+                overflow: auto;
+                padding:40px
+            }
             h1{
                 border:2px solid;
                 width:100px;
                 height: 100px;
                 border-radius: 20px;
             }
+            h2{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-top-left-radius: 20px;
+            }
+            h3{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-top-right-radius: 20px;
+            }
+            h4{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-bottom:20px;
+            }
+            h5{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-top:20px;
+            }
+            h6{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-left:20px;
+            }
+            
+            #div2 h1{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-right:  20px;
+            }
+           #div2 h2{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-bottom-right-radius:  20px;
+            }
+            #div2{
+                float: left;
+                overflow: auto;
+                padding:40px
+            }
+           #div2 h3{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-bottom-left-radius: 20px;
+            }
+           #div2 h4{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-bottom:20px;
+            }
+            #div2 h5{
+                background-color: red;
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-style: none ;
+            }
+            #div2 h6{
+                border:2px solid;
+                width:100px;
+                height: 100px;
+                border-left:20px;
+            }
+
         </style>
     </head>
     <body>
-        <h1>border</h1>
+        <div id="div1">
+        <h1>radius</h1>
+        <h2>topleft-rdius</h2>
+        <h3> border-top-right-radius</h3>
+        <h4> bottom</h4>
+        <h5>TOP</h5>
+        <h6>left</h6>
+    </div>
+    <div id="div2">
+        <h1>radius</h1>
+        <h2>topleft-rdius</h2>
+        <h3> border-top-right-radius</h3>
+        <h4> bottom</h4>
+        <h5>TOP</h5>
+        <h6>left</h6>
+    </div>
+    <p>heloo</p>
     </body>
 </html>
