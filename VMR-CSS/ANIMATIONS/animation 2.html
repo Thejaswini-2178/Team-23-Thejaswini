@@ -1,0 +1,96 @@
+<ht<html>
+    <head>
+        <title>animations</title>
+        <style>
+            body{
+                background-color:white;
+                width:100vw;
+                height:100vh;
+            }
+            div#mymove1{
+                border:2px solid white;
+                width:90px;
+                height:20px;
+                margin-top:70px;
+                background-color: white;
+                border-radius: 40px;
+                position: relative;
+                animation: slide 5s ease-in-out infinite;
+            }
+            @keyframes slide {
+        0% {
+          left: 0;
+          background-color: red;
+        }
+        50% {
+          background-color: blue;
+          left: 400px;
+        }
+        100% {
+          background-color: chartreuse;
+          left: 800px;
+        }
+        150%{
+            background-color: rgb(255, 0, 162);
+            left: 1200px;
+        }
+         0% {
+          left: 0;
+          background-color: red;
+        }
+        50% {
+          background-color: blue;
+          left: 400px;
+        }
+        100% {
+          background-color: chartreuse;
+          left: 800px;
+        }
+        150%{
+            background-color: rgb(255, 0, 162);
+            left: 1200px;
+        }
+      }
+      #mymove2{
+        border:2px solid white;
+        width:90px;
+        height:50px;
+        background-color: rgb(13, 13, 13);
+        margin-left: 50px;
+        margin-top:30px;
+        position: relative;
+        animation: mymove 5s alternate-reverse infinite;
+      }
+      h1 {
+    text-align: center;
+    margin: auto;
+    font-family: 'Times New Roman', Times, serif;
+    text-shadow: 5px 7px 2px blue;
+    font-size: 100px;
+    margin-top: 200px;;
+}
+      
+      @keyframes mymove{
+        0% {
+          left: 0;
+          background-color: rgb(225, 234, 127);
+        }
+        50% {
+          background-color: rgb(35, 113, 19);
+          left: 400px;
+        }
+        100% {
+          background-color: rgb(12, 12, 12);
+          left: 800px;
+        }
+      }
+        </style>
+    </head>
+    <body>
+       
+        <div id="mymove1"><img src="https://tse1.mm.bing.net/th?id=OIP.IwQSXcnxKULqFS52FmNMKwHaH7&pid=Api&P=0&h=180" alt=""></div>
+        <h1>TOM & JERRY</h1>
+        <div id="mymove2"><img src="https://tse2.mm.bing.net/th?id=OIP.pPobLRQTuOWznpg86LLvJAHaGL&pid=Api&P=0&h=180" alt=""></div>
+        </div>
+    </body>
+</html>

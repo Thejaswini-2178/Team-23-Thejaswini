@@ -1,0 +1,28 @@
+<html>
+<head>
+<style> 
+#myDIV {
+  inline-size: 70%;
+  block-size: 200px;
+  box-sizing: border-box;
+  border-block: 100px solid rgb(23, 1, 1);
+  background-color: rgb(214, 202, 30);
+  animation: mymove 5s infinite;
+  text-align: center;
+  margin: auto;
+}
+p{
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+}
+
+@keyframes mymove {
+  50% {border-block: 15px solid rgb(109, 18, 18);}
+}
+</style>
+</head>
+<body>
+<div id="myDIV"> <p>Welcome to CSS animation</p></div>
+</body>
+</html>
