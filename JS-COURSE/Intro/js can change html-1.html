@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Javascript can chane html</title>
+    </head>
+    <body>
+        <h1 id="h1">what can a javascript can doo...</h1>
+        <script>
+            document.getElementById("h1").innerHTML="Javascript can do change the HTML content."
+        </script>
+        <P>It will chage the h1 and place the  new content.
+            We can also give the tag name dirrectly and also spacifies wher it should be placed.
+        </P><hr>
+        <h2>Can js changes the html content..</h2>
+        <h3 id="h3"></h3>
+        <script>
+            document.getElementById("h3").innerHTML="yes"
+        </script>
+        <h4 style="color:red;">This can be done by  spacifing the tag name als. </h4>
+        <script>
+            document.getElementsByTagName(h4).innerHTML="my Javascript"
+        </script>
+    </body>
+</html>
