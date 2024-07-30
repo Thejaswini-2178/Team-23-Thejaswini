@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Datatype</title>
+    </head>
+    <body>
+        <h1>This is  onother method:</h1>
+        
+        <script>
+            var method2=function(){
+                document.write("Hello this is onther function.. <br>can also prefor  for windows write,console,and alret every thing is same as the name function which is privieous function.")
+            } 
+            method2()
+        </script>
+
+        <h2>Using the two names as a function names  let we see:</h2>
+        <p id="p"></p>
+        <h5 >thoughu you are calling the secondfunction name it wont give output,if we want we assign it supperatli.</h5>
+        <h2>Assigun it suppertly if we want exeicutr it both ways </h2>
+        <p id="par1"></p>
+        <script>
+            var first =function second(){
+                document.getElementById("p").innerHTML=("though we are using the two names as a function names but it only takes the one name. <br> which is only aloted a space for a memory to it  and onther name will not have any  memory space .<br> so the first function name will consider as the function name here.")
+            }
+            first()
+
+            function add(){
+                document.write(20+30)
+            }
+            var answer=add
+            add()
+            answer()
+        </script>
+    </body>
+</html>
