@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>argument num</title>
+    </head>
+    <body>
+        <h1>Argument with numbers</h1>
+        <h4>Let us do in all methods</h4>
+        <h4 id="h4"></h4>
+        <hr>
+        <h4 id="nh4"></h4>
+        <hr>
+        <script>
+            function n(n1,n2){
+                var nu=n1+n2
+                document.write(nu)
+            }
+            n(20,30)
+
+            var number=function(n1,n2){
+            var num=n1+n2
+            document.getElementById("h4").innerHTML=num
+            }
+            number(20,40)
+
+            function number2(n1,n2){
+            var num=n1+n2
+            document.getElementById("nh4").innerHTML=("this addition of this two number is",num)
+            }
+            var number=number2
+            number2( 50,40)
+        </script>
+        <h1>note:   we canot use the same function valvue and var value but we can repeat the numbers.</h1>
+    </body>
+</html>

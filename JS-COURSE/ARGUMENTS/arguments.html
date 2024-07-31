@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>arguments</title>
+    </head>
+    <body>
+        <h1>Arguments or parameters</h1>
+        <h4>Arguments in string</h4>
+        <h4>This is like string concatination</h4>
+        <script>
+            function calculate(a,b){
+                var string= a+b
+                document.write("The string will be:",string)
+            }
+            calculate("<br> This is the first string <br>" , "This is second string")
+        </script>
+                <hr>
+                <p id="h4"></p>
+        <script>
+            var  string2=function (str1,str2){
+                var  strings=str1+str2
+                document.getElementById("h4").innerHTML=("the concatination is:",strings)
+            }
+            string2("first <br>","second")
+        </script>
+        <hr>
+        <h4>This is one method</h4>
+        <p id="p"></p>
+        <script>
+            function str(s1,s2){
+                var mainstr=s1+s2
+                document.write(mainstr)
+            }
+            var st=str
+            st("hello ","this is first JS")
+        </script>
+        <hr>
+        <h4>This arrowmethod</h4>
+        <script>
+            var stri= ( st1,st2 )=>{
+                var strin=st1+st2
+                document.write(strin)
+            }
+            stri("hello"," javascript")
+        </script>
+        <hr>
+        <h4>This is self invocate method</h4>
+        <script>
+            (function(st1,st2){
+                var Strin=("Hello"+" this is string")
+                document.write(Strin)
+            })()
+        
+        </script>
+    </body>
+</html>
