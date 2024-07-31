@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>return statements</title>
+    </head>
+    <body>
+        <h1>Return statements</h1>
+        <script>
+            function number(n1,n2){
+                var total=n1+n2;
+                return total
+            }
+             var total=number(30,20)
+             document.write("the number a+b:  " ,total)
+
+             function number(n1,n2){
+                var total=(n1-n2);
+                return total
+             }
+             var total=number(20,60)
+             document.write("<br> the subtraction of two numbers:  ",total )
+        </script>
+        <h1>Return statements of default number</h1>
+        <script>
+            function number(n1=20,n2){
+                var total=(n1*n2)
+                return total
+            }
+            var total=number( undefined,20)
+            document.write("the multiplicaton of the two numbers is:",total )
+        </script>
+        <h4>If in case we didnt give the n1 value it means it is given as undefined,thenthe default value will take plave <br><br>if we give n1 valu and n2 value then it will take the nornmal value which is var value and it will not take the default value.</h4>
+    </body>
+</html>
