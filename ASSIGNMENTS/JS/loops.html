@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>LOPS</title>
+    </head>
+    <body>
+        <h1>LOOPS</h1>
+        <script>
+            document.write(" 1)).The first 10 numbers <br>")
+            for(i=0;i<=10;i++){
+                document.write(i+"<br>")
+            }
+            
+            document.write("2)).First 10 even numbers<br>")
+            // for(i=0;i<11;i++){
+            //     if(i%2==0){
+            //         document.write(i+"<br>")
+            //     }
+            // }
+            var i=0
+            while (i<=10) {
+                if(i%2==0){
+                document.write(i+"<br>")
+                }
+                i++
+            }
+
+            document.write("3)).the first odd numbers<br>")
+            var i=0
+            do {
+                if(i%2 !==0){
+                document.write(i+"<br>")
+                }
+                i++
+            } while (i<=11);
+
+            document.write("4)).The first 5 numbers product is")
+            sum=1
+            for(i=1;i<=5;i++){
+                sum*=i
+            }
+            document.write(" <br>1*2*3*4*5="+sum)
+            
+
+            document.write("<br><br><br>6)).The digit of first number <br>")
+            document.write("input:123 <br> output: <br>")
+            for(i=1;i<=3;i++){
+                document.write(i+"<br>") 
+            }
+           
+            
+            
+        </script>
+    </body>
+</html>
