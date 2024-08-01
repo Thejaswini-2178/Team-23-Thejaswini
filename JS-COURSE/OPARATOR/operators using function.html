@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Functions</title>
+    </head>
+    <body>
+        <h1>Functions</h1>
+        <script>    
+// method-1
+        function name(){
+            document.write("The sum of two numbers is: ",5+10)
+        }
+         name()    
+// method-2
+        var name=function(){
+            document.write(" <br> Difference between two numbers is: ",10-6)
+        }
+        name()
+// method-3
+        var name1=function name2(){
+            document.write(' <br> Multiplication of the given numbers is: ',2*12)
+        }
+        var name2=name1
+        name2()
+// method-4(arrow or fat arrow function)
+        var name=()=>{
+            document.write(' <br>devision of the given numbers: ',20/5)
+         }
+         name()
+// method-5(self closing funcction) it should be unianimmus function.
+</script>
+       <script>
+        (function(){
+            document.write(" <br>The modulus of the given number: ",71%2)
+        })()
+        </script>
+        <script>
+        (function(){
+                document.write(" <br> the modulus of the given number: ",50%20)
+            })()
+        </script>
+    </body>
+</html>
