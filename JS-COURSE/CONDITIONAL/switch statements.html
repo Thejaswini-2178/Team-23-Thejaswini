@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>SWITCH STATEMENTS</title>
+    </head>
+    <body>
+        <H1>swich case statements</H1>
+        <h2>JOB application</h2>
+        <h3>Discription</h3>
+        <p>Age should be +22 or 22 <br> Gender:only for women <br> Experience:MINof 2 years and above</p>
+        <script>
+            var age=23
+            var gender="female"
+            var exp=4
+            if(age>=22 && gender=="female" && exp>=2){
+                document.write(" congratulations!!!..Your eligible to this job")
+            }
+            else if(age>=22 && gender!=="female" && exp>=2){
+                document.write("your gender is not excepted!! sorry!!")
+            }
+            else if(age>=22 && gender=="female" && exp<2){
+                document.write("your Experiene criteriya is not matched for this job")
+            }
+            else if(age<22 && gender=="female" && exp>=2){
+                document.write("Your age is not acepted")
+            }
+            else{
+                document.write("sorry you  are not eligible to this job")
+            } 
+        </script>
+    </body>
+</html>
