@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <h1>Sum of digits in a number</h1>
+    <script>
+        // var sum=0
+        // for( var i=0;i<=10;i++){
+        //     sum+=i
+        // }
+        // console.log(sum)
+
+        var sum=0//sum is 0
+        var num=prompt('enter the number: ') //let num=1234
+        while (num!=0) {           //1234!=0(t),now the num is updated here so num=123!=0(t),12!=0(t),1!=0(t),0!=0(f)>. stopes
+            var last=num%10        //1234%10=4, 123%10=3,12%10=2,1%10=1,0%10
+            num=parseInt(num/10) //1234%10=123,123/10=12,12/10=1,1/10=0
+            console.log(num)   // prints=123,12,1,0
+            sum+=last          //sum=sum+last=0+4,4+3=7,7+2=9.9+1=10
+            console.log("sum is :"+sum)//4,7,9,10
+        } 
+        
+
+        
+        
+    </script>
+</html>

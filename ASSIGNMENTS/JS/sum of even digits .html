@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <tiltle>Sum of even digits in a number</tiltle>
+    </head>
+    <body>
+        <h1> TO FIND the sum of  even digit of a gien number<h1>
+        <script>
+            var sum=0
+            var num=prompt("Enter your number: ")
+            while (num!=0) {
+                var last=num%10
+                num=parseInt(num/10)
+                // console.log(num)
+                if(last%2==0){
+                sum+=last
+            }
+            console.log("sum of even digits in a given number: " +sum)
+            }
+        </script>
+    </body>
+</html>
