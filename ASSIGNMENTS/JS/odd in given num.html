@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <tiltle>Sum of odd digits in a number</tiltle>
+    </head>
+    <body>
+        <h1>  odd digit of a gien number<h1>
+        <script>
+
+            var num=prompt("Enter your number: ")
+            console.log("Find and print the odd digites in this number: "+num)
+            while (num!=0) {
+                var last=num%10
+                num=parseInt(num/10)
+                if(last%2!=0){
+                 console.log( "odd number in a given number is: "+last)
+            }
+            }
+            
+            
+        </script>
+    </body>
+</html>
