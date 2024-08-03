@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>objects</title>
+    </head>
+    <body>
+        <h1>object creation in normal method</h1>
+        <script>
+            var data={
+                name:"Theju",
+                age:23,
+                place:"mpl",
+            }
+    // method-1 output display
+            console.log(data)
+    // method-2 diclaring a one  element
+            document.write(data.name+"<br>")
+                       //  method-3 declaring the element is not worked
+                       //  document.write(data)
+    // method-3
+            for(i in data){
+               document.write(i+"<br>") 
+            }
+
+            // deleting the one single object
+            delete data.place;
+            // adding the one single objects
+            data.state="Andhra";
+            data.place="MPL"
+            data[email]="theju@gmail.com"
+            
+        </script>
+    </body>
+</html>
