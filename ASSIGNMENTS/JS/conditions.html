@@ -5,53 +5,61 @@
     <body>
         <h1>Conditions</h1>
         <script>
-            document.write("8)).First 100 numbers which are divisible by 2 and 3")
+            console.log("8)).First 100 numbers which are divisible by 2 and 3")
+            
             for( var i=0;i<=100;i++){
                 if(i%2==0){
                     if(i%3==0){
-                    document.write(i+"<br>")
+                    console.log(i)
                     }
-                document.write(i+"<br>")
+                    console.log(i)
+                }
+            }
+             
+        //  only print 3 and 2 multipules
+            for( var i=0;i<=100;i++){
+                if(i%2==0){
+                    if(i%3==0){
+                        if(i%2==0 && i%3==0){
+                            console.log(i)
+                        }
+                    console.log(i)
+                    }
+                    console.log(i)
                 }
             }
             
-            document.write("even or odd <br>")
-             var a=12
-             b=21
-                if(a%2==0 ){
-                    document.write(a+"are even <br>")
+         
+
+            var num=prompt("enter the numbe: ")
+            if(num%2==0 ){
+                    console.log(num+" are even ")
                 }
-                else if(b%2!=0){
-                    document.write(a+'are odd <br>')
+                 else {
+                    console.log(num+' are odd <br>')
                 }
+
                 
-            
-
-
             // var a=13
             // if(a%2==0){
-            //     document.write(" <br>20 is even")
+            //     console.log(" <br>20 is even")
             // }
             // else{
-            //     document.write("20 is odd")
+            //     console.log(" 20 is odd")
             // }
 
             
-            var a=0
-            // a=-123
-            // a=0
-                if (a>1){
-                 document.write(a+"  number is positive")
+            var a=prompt("number")
+                if (a>=1){
+                 console.log(a+"  number is positive")
                 }
                  else if(a==0){
-                    document.write(a+" number is  zero ")
-                 }
-                 else if(a<0){
-                    document.write(" the give number is negetive")
+                    console.log(a+" number is  zero ")
                  }
                  else{
-                    document.write("none")
+                    console.log(a+" the give number is negetive")
                  }
+                
         </script>
     </body>
 </html>
