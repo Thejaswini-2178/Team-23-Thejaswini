@@ -1,0 +1,19 @@
+<html>
+    <head>
+    <title>Product of sum</title>
+</head>
+<body>
+    <script>
+        "<h1> TO FIND the product of digit of a gien number<h1>"
+            var product=1
+            var num=prompt("Enter your number: ")
+            while (num!=0) {
+                var last=num%10
+                num=parseInt(num/10)
+                console.log(num)
+                product*=last
+                console.log("product of a digits in a given number: " +product)
+            }
+    </script>
+</body>
+</html>
