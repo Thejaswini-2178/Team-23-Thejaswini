@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>ASSIGNMENT</title>
+    </head>
+    <body>
+        <!--Build an object to manage a music band including properties like band members, upcoming gigs
+        , setlist, and methods to add members, schedule gigs, and update the setlist-->
+        <script>
+            var musicBand={
+                bandMembers:"BANG-BANG",
+                upcomingGigs:"04",
+                setList:"10",
+                addMembers:function(){},
+                scheduleGige:function(){},
+                upComing:function(){},
+            }
+            console.log(musicBand)
+
+
+            function MusicBand(bandMembers,upcomingGigs,setList){
+                this.bandMembers=bandMembers,
+                this.upcomingGigs=upcomingGigs,
+                this.setList=setList,
+                this.addMembers=function(){},
+                this.scheduleGige=function(){},
+                this.upComing=function(){}        
+            }
+            var music= new MusicBand("Opura-Brand","05",23)
+            console.log(music)
+
+
+            var MusicBand=new Object({
+                bandMembers:"BANG-BANG",
+                upcomingGigs:"04",
+                setList:"10",
+                addMembers:function(){},
+                scheduleGige:function(){},
+                upComing:function(){},
+            })
+            console.log(musicBand)
+
+
+
+            class MusicBand3{
+                construct(bandMembers,upcomingGigs,setList){
+                    this.bandMembers=bandMembers,
+                    this.upcomingGigs=upcomingGigs,
+                    this.setList=setList,
+                    this.addMembers=function(){},
+                    this.scheduleGige=function(){},
+                    this.upComing=function(){} 
+                }
+            }
+            var music1= new MusicBand3("Opura-Brand","05",23)
+            console.log(music1)
+        </script>
+    </body>
+</html>
