@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Assignments</title>
+    </head>
+    <body>
+        <!-- 
+   Design an object representing a music player with properties like current song, playlist, and methods to play,
+    pause, skip, and shuffle songs.
+ -->
+        <script>
+            //1.literal way
+            var musicplayer={
+                currentsong:"Hara hara mahadev",
+                playlist:"Lard mahadev songs",
+                playNewSong:function(){
+
+                },
+                pushCurrentSong:function(){
+                    
+                },
+                skipCurrentSong:function(){
+
+                },
+                shufflePlayList:function(){
+
+                }
+            }
+            console.log(musicplayer)
+
+            //2.constructor way
+            function MusicPlayer(currentsong,playlist){
+                this.currentsong=currentsong
+                this.playlist=playlist
+                this.PlayNewSong=function(){}
+                this.skipCurrentSong=function(){}
+                this.shufflePlayList=function(){}
+            }
+            var song1=new MusicPlayer("Mahadevshambu...","Omkaram play list")
+            var song2=new MusicPlayer("Om namashivaya..","Prarthana play list")
+            console.log(song1)
+            console.log(song2)
+            
+            //3.built in constructor function
+            var MusicPlayer2=new Object({
+                currentsong:"Om Deva Deva..",
+                playlist:"Devotional songs",
+                playNewSong:function(){},
+                pushCurrentSong:function(){},
+                shufflePlayList:function(){}
+            })
+           for (i in MusicPlayer2){
+            document.write(i+"<br>")
+           }
+
+
+            //4. by using the class
+            class MusicPlayer1{
+                constructor(currentsong,playlist){
+                    this.currentsong=currentsong,
+                    this.playlist=playlist,
+                    this.playNewSong=function(){},
+                    this.pushSong2=function(){},
+                    this.shufflePlayList=function(){}
+                }
+            }
+            var songlist1=new MusicPlayer1("thriyambakesha...","bhakthi play list")
+            var songlist2=new MusicPlayer1("Kalasavasa","kaasi play list")
+            console.log(songlist1)
+            console.log(songlist2)
+        </script>
+    </body>
+</html>

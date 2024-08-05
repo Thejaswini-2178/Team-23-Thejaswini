@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <!--  Build an object to manage a shopping cart with properties like items, quantity, price, 
+          and methods to add items,remove items, update quantities, and calculate total price -->
+          <script>
+            var shopping={
+                item:"kurthaset",
+                quntity:"good",
+                price:500,
+                addItem:function(){},
+                removeItem:function(){},
+                UpdateQulity:function(){},
+                calculateTotalPrice:function(){}
+            }
+            console.log(shopping)
+
+            function Shopping(item,quntity,price){
+                this.item=item,
+                this.quntity=quntity,
+                this.price=price,
+                this.addItem=function(){},
+                this.removeItem=function(){},
+                this.UpdateQulity=function(){},
+                this.calculateTotalPrice=function(){}
+            }
+            var item1=new Shopping("Plaza set","Excellent",400)
+            console.log(item1)
+
+
+            var Shopping= new Object({
+                item:"Jeens",
+                quntity:"good",
+                price:900,
+                addItem:function(){},
+                removeItem:function(){},
+                UpdateQulity:function(){},
+                calculateTotalPrice:function(){}
+            })
+            console.log(shopping) 
+
+            class Shopping1{
+                constructor(item,quntity,price){
+                    this.item=item,
+                    this.quntity=quntity,
+                    this.price=price,
+                    this.addItem=function(){},
+                    this.removeItem=function(){},
+                    this.UpdateQulity=function(){},
+                    this.calculateTotalPrice=function(){}
+            }
+        }
+            var item2=new Shopping1("Anarkhali","Excellent",2400)
+            console.log(item2) 
+                
+            
+        
+</script>
+    </body>
+</html>

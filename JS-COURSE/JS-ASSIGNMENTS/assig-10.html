@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <!-- Create an object to track tasks with properties like task name, due date, priority, 
+         and methods to add tasks, mark tasks as complete, and filter tasks by priority.-->
+         <script>
+            var tasks={
+                name:"assignment",
+                dueDate:"Monday",
+                priority:"Main",
+                addTask:function(){},
+                marktask:function(){},
+                filterTaskByPriority:function(){}
+            }
+            console.log(tasks)
+
+            function Task1(name,dueData,priority){
+                this.name=name,
+                this.dueDate=dueData,
+                this.priority=priority,
+                this. addTask=function(){},
+                this.marktask=function(){},
+                this.filterTaskByPriority=function(){}
+            }
+            var task=new Task1("Project","saturday","importent")
+            console.log(task)
+
+            var Tasks1=new Object({
+                name:"Test",
+                dueDate:"Monday",
+                priority:"Main",
+                addTask:function(){},
+                marktask:function(){},
+                filterTaskByPriority:function(){}
+            })
+            console.log(Tasks1)
+
+            class Task2{
+                constructor(name,dueData,priority){
+                    this.name=name,
+                    this.dueDate=dueData,
+                    this.priority=priority,
+                    this.addTask=function(){},
+                    this.marktask=function(){},
+                    this.filterTaskByPriority=function(){}  
+                }
+            }
+            var task2=new Task2("Testing","Wednesday","importent")
+            console.log(task2)
+
+         </script>
+    </body>
+</html>

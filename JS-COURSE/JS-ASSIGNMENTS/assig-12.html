@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Assignment-1</title>
+    </head>
+    <body>
+    <!--Build an object to manage hotel reservations with properties like room number, guest name,check-in date,
+     check-out date, and methods to add reservations, cancel reservations, and check availability.-->
+    <script>
+     var reservation={
+        roomNo:"201",
+        guistName:"Theju",
+        chickInDate:21-10-2024,
+        checkOutDate:28-11-2024,
+        addReservation:function(){},
+        cancleReservation:function(){},
+        checkAvailability:function(){},
+     }
+     console.log(reservation)
+
+     function Reservation(roomNo,guistName,chickInDate,checkOutDate){
+        this.roomNo=roomNo,
+        this.guistName=guistName,
+        this.checkInDate=checkInDate,
+        this.checkOutDate=checkOutDate,
+        this.addReservation=function(){},
+        this.cancleReservation=function(){},
+        this.checkAvailability=function(){}
+     }
+     var data1=new Reservation(203,"Gayathri",21-7-2024,22-8-2024)
+     console.log(data1)
+
+     var Reservation=new Object({
+        roomNo:"501",
+        guistName:"Ramya",
+        chickInDate:21-10-2024,
+        checkOutDate:28-11-2024,
+        addReservation:function(){},
+        cancleReservation:function(){},
+        checkAvailability:function(){},
+     })
+     console.log(reservation)
+
+
+
+     class Reservation2{
+        constructor(roomNo,guistName,chickInDate,checkOutDate){
+            this.roomNo=roomNo,
+            this.guistName=guistName,
+            this.checkInDate=checkInDate,
+            this.checkOutDate=checkOutDate,
+            this.addReservation=function(){},
+            this.cancleReservation=function(){},
+            this.checkAvailability=function(){}
+        }
+     }
+     var constructor=new Reservation2(542,"Anjum",1-3-2024,23-3-2024)
+    </script>
+    </body>
+</html>

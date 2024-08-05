@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Resipr</title>
+    </head>
+    <body>
+    <!-- Build an object to store recipes including properties like recipe name, ingredients, instructions,
+      and methods to add new recipes, remove recipes, and search for recipes by ingredients. -->
+      <script>
+        //literal way
+        var recipes={
+            recipename:"Making coffee",
+            ingridients:"milk,coffee,powder,sugur,",
+            instuctions:"On the stow.Pour some milk and boil it untill it rises up.Add some suger in to it.Again boil it.Finally ade the coffy powder and trilled it completly.Pour it in a cup",
+            addNewResipes:function(){},
+            removerecipes:function(){},
+            searchIngridents:function(){},
+        }
+        console.log(recipes)
+
+        //2.constructor way
+        function Recipe(recipename,ingredients,instructions){
+            this.name=recipename,
+            this.ingredients=ingredients,
+            this.instructions=instructions,
+            this.addNewResipes=function(){},
+            this.removeRecipes=function(){},
+            this.searchIngridents=function(){}
+        }
+        var recipe1=new Recipe("Making Tea","milk,Tea powder,sugur,On the stow.Pour some water and add tea power and boil it.Pour milk and boil it untill it rises up.Add some suger in to it.Pour it in a cup")
+        console.log(recipe1)
+        
+        //3.built in constructor function
+        var Recipe=new Object({
+            recipename:"Making potato chips",
+            ingridients:"potato,salt,mirchipowder,oil",
+            instuctions:"On the stow.Pour oil in apan and boil it some time. Make the potato into small slices and then add some salt and mirchi power and dump it into oil and trill it and remove after it get crisbe",
+            addNewResipes:function(){},
+            removerecipes:function(){},
+            searchIngridents:function(){},   
+            })
+            console.log(Recipe)
+
+
+            //4. by using the class
+            class Recipe1{
+                constructor(recipename, ingredients, instructions) {
+                    this.name = recipename,
+                    this.ingredients = ingredients,
+                    this.instructions = instructions,
+                    this.addNewResipes = function () { },
+                    this.removeRecipes = function () { },
+                    this.searchIngridents = function () { }
+                }
+            }
+            var recipe1= new Recipe1("Making Tea","milk,Tea powder,sugur,On the stow.Pour some water and add tea power and boil it.Pour milk and boil it untill it rises up.Add some suger in to it.Pour it in a cup")
+            console.log(recipe1)
+      </script>
+    </body>
+</html>
