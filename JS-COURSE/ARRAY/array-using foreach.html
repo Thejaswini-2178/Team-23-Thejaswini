@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>FOREAACH</title>
+    </head>
+    <body>
+        <script>
+            var list=["Mnjula","andhra","21345","Chittoor","mpl","pincode","india"]
+            // list.forEach((data,i) => {
+            //    document.write(data+"<br>")  // for using the function we can create the uninamus function by nameing it differt name.
+            // });
+
+
+
+            //map funnction using :: it is also same as creating the unianimus function in side the function
+            list.map (function(std) {
+                document.write(std+"  belongs to  india <br>")
+            })
+
+
+            //find function
+            var list=["Mnjula","andhra","21345","Chittoor","mpl","pincode","india"]
+            var charName=list.find(function(std2){  //unanimus function
+                return std2.length===3
+            })
+            console.log(charName)
+            ///it means it will check the length of the string until it will get only one element is matches then automatically stops
+
+
+            //filter method
+            var list=["Mnjula","andhra","21345","Chittoor","mpl","pincode","india","ccp",123]
+            var charName=list.filter(function(std2){  //unanimus function
+                return std2.length===3
+            })
+            console.log(charName)
+            ///it means it will check the  elements length of which is equal to 3 then it if any matches is there it will prent that all matched all elemts it donst stope ifit get one element
+
+          //here....mpl,ccp, is equal to length of 3 but ine element is also their that ids 231 but it is different datatype. so we are using === operators so it mens the valu and tha data type should be same then only it wii print
+
+        </script>
+    </body>
+</html>
