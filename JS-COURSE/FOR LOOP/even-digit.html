@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>EVEN </title>
+    </head>
+    <body>
+        <script>
+            // var num=parseInt(prompt("enter the number:"))
+            // while (num!=0){ //num>
+            //     var last=num%10
+            //     num=parseInt(num/10)
+            //     if(last%2==0){
+            //         console.log(last)   
+            //     }
+            // }
+
+            var num=parseInt(prompt("Enter the number:"))
+            for(;num>0;num=parseInt(num/10)){ //num>=0 ... is   not possible also possible 
+                var last=num%10
+                if(last%2==0){
+                    console.log(last)
+                }
+            }
+
+            
+            
+        </script>
+    </body>
+</html>

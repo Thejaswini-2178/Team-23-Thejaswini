@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Assign</title>
+    </head>
+    <body>
+        <script>
+            var n=parseInt(prompt("enter the number:"))
+            var count=0
+            for(;n!=0;n=parseInt(n/10)){
+                var last=n%10
+                if(last%2==1){
+                    count++
+                }
+            }
+            console.log(count)
+
+
+            var n=parseInt(prompt("enter num"))
+            var count=0
+            while(n!=0){
+                var last=n%10
+                if(last%2==1){
+                count++
+            }
+                n=parseInt(n/10)
+            }
+            console.log(count)
+        </script>
+    </body>
+</html>
