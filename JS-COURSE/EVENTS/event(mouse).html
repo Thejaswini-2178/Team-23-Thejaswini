@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>EVENTS</title>
+    </head>
+    <ul>
+        <li id="myElement">Keyboad Events</li>
+        <li>Mouse Events</li>
+        <li>Browser Events</li>
+    </ul>
+    <!-- <button onclick="handleClick()" >Click Me</button> -->
+    <!-- <button ondblclick="handleClick()" >Click Me</button> -->
+    <!-- <button onmouseover="handleClick()" >Click Me</button> -->
+    <!-- <button onmouseout="handleClick()" >Click Me</button> -->
+    <!-- <button onmousedown="handleClick()" >Click Me</button> -->
+    <!-- <button onmouseenter="handleClick()" >Click Me</button> -->
+    <!-- <button onmousemove="handleClick()" >Click Me</button> -->
+    <button id="demo">Click me</button>
+    <script>
+        function handleClick() {
+            alert("Welcome to Events And Event Handlers in Javascript !!")
+        }
+
+        document.getElementById("demo").addEventListener('click',function(){
+            alert("Welcome to Events And Event Handlers in Javascript !!")
+        })
+    </script>
+</body>
+</html>
