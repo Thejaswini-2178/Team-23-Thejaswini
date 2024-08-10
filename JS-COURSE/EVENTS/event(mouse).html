@@ -2,27 +2,86 @@
     <head>
         <title>EVENTS</title>
     </head>
-    <ul>
-        <li id="myElement">Keyboad Events</li>
-        <li>Mouse Events</li>
-        <li>Browser Events</li>
-    </ul>
-    <!-- <button onclick="handleClick()" >Click Me</button> -->
-    <!-- <button ondblclick="handleClick()" >Click Me</button> -->
-    <!-- <button onmouseover="handleClick()" >Click Me</button> -->
-    <!-- <button onmouseout="handleClick()" >Click Me</button> -->
-    <!-- <button onmousedown="handleClick()" >Click Me</button> -->
-    <!-- <button onmouseenter="handleClick()" >Click Me</button> -->
-    <!-- <button onmousemove="handleClick()" >Click Me</button> -->
-    <button id="demo">Click me</button>
-    <script>
-        function handleClick() {
-            alert("Welcome to Events And Event Handlers in Javascript !!")
-        }
 
-        document.getElementById("demo").addEventListener('click',function(){
-            alert("Welcome to Events And Event Handlers in Javascript !!")
+        
+     
+    <!-- onclick -->
+      <label for="">Enter your name:</label>
+      <input type="text">
+      <label for="">Enter your place:</label>
+      <input type="text">
+      <button onclick="clicking()">Click on me</button><br><br>
+      <script>
+          function clicking(){
+              alert("YOU ARE CLICING THE MOUSE")
+          }
+      </script>
+
+      <!-- ondbclick -->
+      <button ondblclick="clickingdouble()">DOUBLE CLICKING THE MOUSE</button><br><br>
+      <script>
+          function clickingdouble(){
+              alert("YOU ARE DOUBLE CLICKING THE MOUSE")
+          }
+      </script>
+
+      <!-- onmouseover-->
+      <button onmouseover="mouseover()">DOING MOUSE OVER THE MOUSE</button><br><br>
+      <script>
+          function mouseover(){
+              alert("YOU ARE DOING MOUSE OVER THE MOUSE")
+          }
+      </script>
+
+      <!--onmousedown  -->
+      <button onmousedown="mousedown()">DONE MOUSEDOWN THE MOUSE</button><br><br>
+      <script>
+          function mousedown(){
+              alert("YOU ARE DONE MOUSEDOWN THE MOUSE")
+          }
+      </script>
+
+      <!-- onouseout -->
+      <button onmouseout="mouseout()">CMOUSE OUT THE MOUSE</button><br><br>
+      <script>
+          function mouseout(){
+              alert("YOU ARE DONE MOUSE OUT THE MOUSE")
+          }
+      </script>
+
+      <!-- onmouseenter -->
+      <button onmouseenter="mouseenter()">MOUSE ENTER THE MOUSE</button><br><br>
+      <script>
+          function mouseenter(){
+              alert("YOU ARE DOING MOUSE ENTER THE MOUSE")
+          }
+      </script>
+
+      <!-- onmouse move  -->
+      <button onmousemove="mousemove()">COUSE move THE MOUSE</button><br><br>
+      <script>
+          function mousemove(){
+              alert("YOU ARE DOING MOUSE move THE MOUSE")
+          }
+      </script>
+
+      <!-- onother method -->
+      <h1>mouse events by using the functiions</h1>
+      <button id="button1"> click and watch</button>
+       <script>
+        document.getElementById("button1").addEventListener('dbclick',function(){
+             document.write("Welcome to Events And Event Handlers in Javascript !!")
         })
-    </script>
+       </script>
+
+
+
+
+
+
+      
+
+    
+
 </body>
 </html>

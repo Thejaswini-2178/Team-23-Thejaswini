@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Flate</title>
+    </head>
+    <body>
+        <!-- -	"How can you flatten the nested array `[1, [2, 3], [[4]], [[[5]]]]` to a depth of 2?"
+       	"How can you convert the array `[[1, 2], [3, 4], [5, [6, 7]]]` into a single-level array?" 
+        "How can you flatten an array `[['a'], [['b']], ['c', ['d']]]` into a one-dimensional array?"-->
+        <script>
+            var list=[1, [2, 3], [[4]], [[[5]]]]
+            console.log(list.flat(Infinity))
+
+
+            var list2=[[1, 2], [3, 4], [5, [6, 7]]]
+            console.log(list2.flat(Infinity))
+
+            var list3=[['a'], [['b']], ['c', ['d']]]
+            console.log(list3.flat(Infinity))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>FIND</title>
+    </head>
+    <body>
+        <!-- -	"How can you find the first number greater than 50 in the array `[10, 60, 30, 80]`?"
+               "How can you identify the first string in the array `['cat', 'dog', 'elephant']` longer 
+               than three letters?"
+                locate the first element in `[10, 20, 30, 40]` that is an even number?"-->
+
+
+        <script>
+            var array=[10, 60, 30, 80]
+            var newArray=array.find(function(num){
+                return num>50
+            })
+            console.log(newArray)
+
+
+            var array1=['cat', 'dog', 'elephant']
+            var newArray1=array1.find(function(leng){
+                return leng.length>3
+            })
+            console.log(newArray1)
+
+            var array3=[10, 20, 30, 40]
+            var newArray2=array3.find(function(leng){
+                return leng%2==0
+            })
+            console.log(newArray2)
+
+        </script>
+    </body>
+</html>

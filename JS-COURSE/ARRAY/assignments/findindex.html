@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>FINDindex</title>
+    </head>
+    <body>
+        <!-- . findIndex():
+-	"How can you find the index of the first element greater than 5 in the array `[3, 7, 5, 9]`?"
+-	"How can you find the index of the first string that contains the letter 'e' in `['bat', 'cat',
+'elephant']`?"
+-	"How can you determine the position of the first negative number in `[4, -1, 2, -3]`?"
+ -->
+       <script>
+        var list=[3, 7, 5, 9]
+        var index = list.findIndex(num => num > 5)
+        console.log(index)
+
+
+        var array=['bat', 'cat','elephant']
+        var array1 = array.findIndex(letter => letter.includes('e'))
+        console.log(array1)
+
+
+        var lists=[4, -1, 2, -3]
+        var list1 = lists.findIndex(letter => letter<0)
+        console.log(list1)
+       </script>
+    </body>
+</html>
