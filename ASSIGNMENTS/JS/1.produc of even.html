@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>product of even</title>
+    </head>
+    <body>
+        <script>
+            var n= parseInt(prompt("enter the number"))
+            var proOfEven=1
+            var proOfOdd=1
+            for(var i=1;i<n;i++){
+                if(i%2==0){
+                    proOfEven*=i//2*4=8
+                }
+                else{
+                    proOfOdd*=i//1*3*5=15
+                }
+            }
+            console.log("product of even= "+proOfEven)
+            console.log("product of odd= "+proOfOdd)
+        </script>
+    </body>
+</html>
