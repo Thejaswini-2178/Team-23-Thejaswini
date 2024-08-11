@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <!-- How can you check if there is at least one number greater than 10 in the array `[5, 9, 11,3]`?"
+	"How can you determine if any word in the array `['dog', 'cat', 'bird']` contains the letter 'o'?"
+	"How can you verify if any element in `[0, 2, 4, 6]` is odd?"-->
+        <script>
+            var list=[5, 9, 11,3]
+            var list2=list.some(function(num){
+                return num>10
+            })
+            console.log(list2)
+
+            var list2=['dog', 'cat', 'bird']
+            var list3=list2.some(function(item){
+                return item.includes('o')
+            })
+            console.log(list3)
+
+            var array=[0, 2, 4, 6]
+            var array2=array.some(function(n){
+                return n%2==1
+            })
+            console.log(array2)
+
+        </script>
+    </body>
+</html>
