@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Reverse of the number</title>
+    </head>
+    <body>
+        <script>
+            var n=parseInt(prompt("enter the number:"))
+            var rev=0
+            while(n!=0){
+                var last=n%10
+                rev=rev*10+last
+                n=parseInt(n/10)
+            }
+            console.log(rev)
+        </script>
+    </body>
+</html>
+
