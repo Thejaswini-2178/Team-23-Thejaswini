@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Digit of a number in revers</title>
+    </head>
+    <body>
+        <script>
+            var n=parseInt(prompt("enter the nuumber"))
+            while(n!=0){
+                var last=n%10
+                console.log(last)
+                n=parseInt(n/10)
+        }
+
+        //digit which is greater than 4
+
+        var n=parseInt(prompt("enter the number:"))
+        while(n!=0){
+            var last=n%10
+            if(last>4){
+                console.log("grater than 4 is"+last)
+            }
+            n=parseInt(n/10)
+        }
+        </script>
+    </body>
+</html>
