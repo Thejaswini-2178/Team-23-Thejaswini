@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Asisignment</title>
+    </head>
+    <body>
+        <!-- "How can you calculate the product of all numbers in the array `[2, 3, 4]`?"
+    	"How can you use `reduce()` to concatenate strings in the array `['a', 'b', 'c']`?"
+     	"How can you sum all the elements in the array `[10, 20, 30, 40]`?"
+ -->
+        <script>
+            var a=[2, 3, 4]
+            var b=a.reduce(function(){
+                console.log(2*3*4)
+            })
+
+
+            var list=['a', 'b', 'c']
+            var list2=list.reduce((l1)=>{
+                return list+list
+            }) 
+            console.log(list2)
+
+            var array=[10, 20, 30, 40]
+            var array2=array.reduce(array1=>{
+                return (10*20*30*40) 
+            })
+            console.log(array2)
+
+
+           
+           
+
+           
+        </script>
+    </body>
+</html>

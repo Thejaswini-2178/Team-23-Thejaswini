@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Creating the dom/assiging the dom elements</title>
+    </head>
+    <body>
+        <h3 id="element">Finding the html elements by ID</h3>
+        <h3>Finding the html elements for DOM element by Quaryselector</h3>
+        <h3>Finding the html elements for DOM element by getbyQuaryselectorall</h3>
+        <h3>Finding the html elements for DOM element by the getbyTagname</h3>
+        <h3 class="element2">Finding the html elements by the getbyclassname</h3>
+        <h3 name="name1">Finding the  html element through the getbyname</h3>
+
+        <script>
+            document.getElementById("element").style.color="red"
+            document.querySelector("h3").style.color="orange"
+            document.querySelectorAll("h3")[2].style.color="blue"
+            document.getElementsByTagName("h3")[3].style.color="brown"//array
+            // console.log(document.getElementsByTagName("h3"))//Wher as if their is any apperence of the "ELEMENT"S""..>the it is treated as an array
+            document.getElementsByClassName("element2")[0].style.color="red"//array
+            document.getElementByName("name1").color.style="magenta"
+        </script>
+    </body>
+</html>
