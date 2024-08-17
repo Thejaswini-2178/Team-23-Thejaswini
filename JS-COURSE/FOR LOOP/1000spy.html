@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = parseInt(prompt("num: "))
+        for (var i = 1; i <= n; i++) {
+            var temp = i
+            var sum = 0
+            var pro = 1
+            while (temp != 0) {
+                var last = (temp % 10)
+                temp = parseInt(temp / 10)
+                sum += last
+                pro *= last
+            }
+            if (sum == pro) {
+                console.log(i)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

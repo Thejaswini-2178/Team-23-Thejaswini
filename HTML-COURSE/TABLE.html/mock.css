@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(197, 200, 201);
+}
+input{
+    height:40px;
+}
+#span1 div{
+    display:inline-block;
+}
+#main{
+    margin:100px 400px;
+}
+.cl{
+    width:366px
+}
+div{
+    margin: 10px;
+}
+#sub{
+    width:100px;
+    background-color: rgba(13, 97, 13, 0.664);
+}
