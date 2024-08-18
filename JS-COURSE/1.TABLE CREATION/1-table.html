@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Table</title>
+</head>
+
+<body>
+    <table border="1" cellspacing="0" cellpadding="0">
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>AGE</th>
+            <th>CITY</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        var people = [
+            {
+                id: 1,
+                name: "Alice Johnson",
+                email: "alice.johnson@example.com",
+                age: 29,
+                city: "New York"
+            },
+            {
+                id: 2,
+                name: "Bob Smith",
+                email: "bob.smith@example.com",
+                age: 34,
+                city: "San Francisco"
+            },
+            {
+                id: 3,
+                name: "Charlie Brown",
+                email: "charlie.brown@example.com",
+                age: 28,
+                city: "Los Angeles"
+            },
+            {
+                id: 4,
+                name: "Diana Prince",
+                email: "diana.prince@example.com",
+                age: 32,
+                city: "Chicago"
+            },
+            {
+                id: 5,
+                name: "Evan Stone",
+                email: "evan.stone@example.com",
+                age: 45,
+                city: "Houston"
+            }
+        ]
+
+        for(i=0;i<people.length;i++){
+            var myTr=document.createElement("tr")
+            for(a in people[i]){
+            var myTd=document.createElement("td")
+            myTd.innerHTML=people[i][a]
+            myTr.appendChild(myTd);
+        }
+        document.querySelector("tbody").appendChild(myTr)
+    }
+    </script>
+</body>
+
+</html>
