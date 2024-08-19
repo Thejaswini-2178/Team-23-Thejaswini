@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //no of terms in febonosis series
+    //0,(0+1)1,(1+2)3,(3+4)7,(7+5)12,(12+6)18,(18+7)25,(25+8)......
+
+    var n = parseInt(prompt("num: "))
+    var a = 0
+    var b = 1
+    while (n > 0) {
+        console.log(a)
+        var c = a + b
+        a = b
+        b = c
+        n--
+    }
+</script>
+</body>
+</html>
