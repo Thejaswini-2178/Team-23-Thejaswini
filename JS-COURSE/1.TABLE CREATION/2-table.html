@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>table2</title>
+    </head>
+    <body>
+        <table border="1" cellspacing="0" cellpadding="0">
+            <thead>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>TYPEL</th>
+                <th>VALUE</th>
+                <th>IsActive</th>
+                <th>createdAt</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            var objectsArray = [
+                {
+                    id: 1,
+                    name: "Object1",
+                    type: "TypeA",
+                    value: 100,
+                    isActive: true,
+                    createdAt: "2024-01-01T10:00:00Z"
+                },
+                {
+                    id: 2,
+                    name: "Object2",
+                    type: "TypeB",
+                    value: 200,
+                    isActive: false,
+                    createdAt: "2024-01-02T11:00:00Z"
+                },
+                {
+                    id: 3,
+                    name: "Object3",
+                    type: "TypeC",
+                    value: 300,
+                    isActive: true,
+                    createdAt: "2024-01-03T12:00:00Z"
+                },
+                {
+                    id: 4,
+                    name: "Object4",
+                    type: "TypeA",
+                    value: 400,
+                    isActive: false,
+                    createdAt: "2024-01-04T13:00:00Z"
+                },
+                {
+                    id: 5,
+                    name: "Object5",
+                    type: "TypeB",
+                    value: 500,
+                    isActive: true,
+                    createdAt: "2024-01-05T14:00:00Z"
+                },
+                {
+                    id: 6,
+                    name: "Object6",
+                    type: "TypeC",
+                    value: 600,
+                    isActive: false,
+                    createdAt: "2024-01-06T15:00:00Z"
+                }
+            ];
+    
+    
+            for (i = 0; i < objectsArray.length; i++) {
+                var myTableRow = document.createElement("tr")
+                for (a in objectsArray[i]) {
+                    var myTableData = document.createElement("td")
+                    myTableData.innerHTML = objectsArray[i][a]
+                    myTableRow.appendChild(myTableData);
+                }
+                document.querySelector("tbody").appendChild(myTableRow)
+            }
+        </script>
+    </body>
