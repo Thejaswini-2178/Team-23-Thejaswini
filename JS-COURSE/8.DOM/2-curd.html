@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>Create update retrive/read  Delet(curd)</title>
+    </head>
+    <body>
+        <form action="">
+            <label for="">Id:</label><br>
+            <input type="text"><br>
+            <label for="">Name:</label><br>
+            <input type="text"><br>
+            <label for="">Branch:</label><br>
+            <input type="text"><br>
+            <label for="">Year:</label><br>
+            <input type="number"><br>
+            <label for="">section:</label><br>
+            <input type="text"><br>
+            <button type="button" onclick="addUser()" id="addBtn">Add User</button>
+            <button type="button" onclick="updateUser()" id="updateBtn">Update User</button>
+        </form>
+        <table border="1">
+            <thead>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>Branch</th>
+                <th>Year</th>
+                <th>Section</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            var students = [
+                {
+                    id: 1,
+                    name: "Alice Johnson",
+                    branch: "Computer Science",
+                    year: 2,
+                    section: "A"
+                },
+                {
+                    id: 2,
+                    name: "Bob Smith",
+                    branch: "Mechanical Engineering",
+                    year: 3,
+                    section: "B"
+                },
+                {
+                    id: 3,
+                    name: "Catherine Lee",
+                    branch: "Electrical Engineering",
+                    year: 1,
+                    section: "C"
+                },
+                {
+                    id: 4,
+                    name: "David Brown",
+                    branch: "Civil Engineering",
+                    year: 4,
+                    section: "A"
+                },
+                {
+                    id: 5,
+                    name: "Emily Davis",
+                    branch: "Chemical Engineering",
+                    year: 2,
+                    section: "B"
+                },
+                {
+                    id: 6,
+                    name: "Frank Martinez",
+                    branch: "Architecture",
+                    year: 3,
+                    section: "C"
+                },
+                {
+                    id: 7,
+                    name: "Grace Wilson",
+                    branch: "Biotechnology",
+                    year: 1,
+                    section: "A"
+                }
+            ];
+
+            function addUser() {
+            var newStudent = {
+                "id": document.getElementById('id').value,
+                "name": document.getElementById("name").value,
+                "branch": document.getElementById("branch").value,
+                "year": document.getElementById("year").value,
+                "section": document.getElementById("section").value
+            }
+            students.push(newStudent);
+            displayStudents()
+            clearForm();
+        }
+
+
+                for (i = 0; i < students.length; i++) {
+                var myTableRow = document.createElement("tr")
+                for (a in students[i]) {
+                    var myTableData = document.createElement("td")
+                    myTableData.innerHTML = students[i][a]
+                    myTableRow.appendChild(myTableData);
+                }
+                document.querySelector("tbody").appendChild(myTableRow)
+            }
+            
+
+        </script>
+    </body>
+</html>
