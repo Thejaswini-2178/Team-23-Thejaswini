@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>CURD</title>
+        <style>
+            #updatebut{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <form action="">
+            <label for="">SO.NO</label><br>
+            <input type="text" id="sono"><br>
+            <label for="">Place</label><br>
+            <input type="text" id="place"><br>
+            <label for="">City</label><br>
+            <input type="text" id="city"><br>
+            <label for="">Country</label><br>
+            <input type="text" id="country"><br><br>
+            <button type="button" onclick="addUser()" id="addBtn">AddData</button>
+            <button type="button" onclick="updateUser()" id="updateBtn">Update</button><br>
+            
+        </form>
+        <table border="1">
+            <thead>
+                <th>so.no</th>
+                    <th>Place</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Edit</th>
+                    <th>Delet</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            var place=[
+                    {
+                        sno:"1",
+                        place:"kurgu",
+                        city:"Karnataka",
+                        country:"india"
+                    },
+                    {
+                        sno:"2",
+                        place:"Charminar",
+                        city:"hydrabad",
+                        country:"india"   
+                    },
+                    {
+                        sno:"3",
+                        place:"Tajmahel",
+                        city:"delhi",
+                        country:"india"
+                    },
+                    {
+                        sno:"4",
+                        place:"balaji temple",
+                        city:"Tirumala Tirupath",
+                        country:"india"
+                    },
+                    {
+                        sno:"5",
+                        place:"ooty",
+                        city:"kerala",
+                        country:"india"
+                    },
+                    {
+                        sno:"6",
+                        place:"SHiridiBabha",
+                        city:"Shiridi",
+                        country:"india"
+                    },
+                    {
+                        sno:"7",
+                        place:"IndianGateway",
+                        city:"Mumbhai",
+                        country:"india"
+                    },
+                ]
+
+                function displayData(){
+                    for(i=0;i<place.length;i++){
+                    var trow=document.createElement("tr")
+                    for(a in place[i]){
+                        var tdata=document.createElement("td")
+                        tdata.innerHTML=place[i][a]
+                        trow.appendChild(tdata)
+                    }
+                    //adding the edit and edit button too in inside the for loop
+                    var editBut=document.createElement("button")
+                    var editTd=document.createElement("td")
+                    editBut.innerHTML="Edit"
+                    editBut.setAttribute("onclick","editData("+i+")")
+                    editTd.appendChild(editBut)
+                    trow.appendChild(editTd)
+
+                    // additinally we are creating the delet button
+                    var delBut=document.createElement("button")
+                    var delTd=document.createElement("td")
+                    delBut.innerHTML="Delet"
+                    
+                    // deltBut.setAttribute("onclick","deletData("+i+")" )
+                    delTd.appendChild(delBut)
+                    trow.appendChild(delTd)
+                    document.querySelector("tbody").appendChild(trow)
+                }
+            }
+            displayData()
+            //for edit user called  function creation
+            var index= null;
+            function editUser(i){
+                index=i;
+                console.log("edit usercalleed!!"+i);
+
+                document.getElementById("sono").value=place[i].sono;
+                document.getElementById("place").value=place[i].place;
+                document.getElementById("country").value=place[i].country;
+                document.getElementById("updateBtn").style.display="block";
+                document.getElementById("addBtn").style.display="none";
+            }
+            
+            // function deleteUser(i){
+            //     console.log("deleteUser caller !!"+i);
+            //     students.splice(i,1);
+            //     displayplaces()
+            // }
+
+        </script>
+
+    </body>
+</html>
