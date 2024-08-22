@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table2</title>
+    <style>
+        body {
+            background-color: rgb(220, 197, 154);
+            margin: 150px;
+            padding: 10px;
+        }
+        div#div1, #div2, #div3 {
+            width: 400px;
+            padding: 30px;
+        }
+        #div1 {
+            background-color: rgb(163, 129, 67);
+        }
+        #div2 {
+            background-color: rgb(212, 128, 9);
+        }
+        #div3 input {
+            background-color: rgb(229, 171, 180);
+            margin: 5px 30px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+    <div id="div1">
+        <table id="table1">
+            <tr>
+                <th><label>Customer Name:</label></th>
+                <th><input type="text" id="cusnam"></th>
+            </tr>
+            <tr>
+                <th><label>Part Name:</label></th>
+                <th><input type="text" id="partnam"></th>
+            </tr>
+            <tr>
+                <th><label>Part Print Name:</label></th>
+                <th><input type="text" id="printnam"></th>
+            </tr>
+            <tr>
+                <th><label>Revision:</label></th>
+                <th><input type="text" id="revi"></th>
+            </tr>
+            <tr>
+                <th><label>Part Number:</label></th>
+                <th><input type="text" id="partnum"></th>
+            </tr>
+            <tr>
+                <th><label>Date of Estimation:</label></th>
+                <th><input type="text" id="date"></th>
+            </tr>
+            <tr>
+                <th><label>Estimator Number:</label></th>
+                <th><input type="text" id="est"></th>
+            </tr>
+            <tr>
+                <th><label>Buyer Number:</label></th>
+                <th><input type="text" id="buy"></th>
+            </tr>
+        </table>
+    </div>
+    <div id="div2">
+        <table id="table2">
+            <tr>
+                <th><label>Estimate Base Quality:</label></th>
+                <th><input type="text" id="esti"></th>
+            </tr>
+            <tr>
+                <th><label>Scrap Percentage:</label></th>
+                <th><input type="text" id="scra"></th>
+            </tr>
+            <tr>
+                <th><label>Costs Associated with Scrap:</label></th>
+                <th>
+                    <input type="checkbox" name="chbox" value="Material"> Material
+                    <input type="checkbox" name="chbox" value="Tooling"> Tooling
+                    <input type="checkbox" name="chbox" value="Labor"> Labor
+                    <input type="checkbox" name="chbox" value="Non Machining"> Non Machining
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div id="div3">
+        <table id="table3">
+            <tr>
+                <th><input type="button" value="ADD" onclick="myData()" id="add"></th>
+                <th><input type="button" value="CLEAR" onclick="resetForm()" id="clear"></th> 
+                <th><input type="button" value="CLOSE" onclick="closeForm()" id="close"></th>
+            </tr>
+        </table>
+    </div>
+</form>
+
+    <script>
+        function myData() {
+            var user = {
+                cusnam: document.getElementById("cusnam").value,
+                partnam: document.getElementById("partnam").value,
+                printnam: document.getElementById("printnam").value,
+                revi: document.getElementById("revi").value,
+                partnum: document.getElementById("partnum").value,
+                date: document.getElementById("date").value,
+                est: document.getElementById("est").value,
+                buy: document.getElementById("buy").value,
+                esti: document.getElementById("esti").value,
+                scra: document.getElementById("scra").value,
+                CostsAssociated: []
+            };
+
+            var allCheckBoxElements = document.getElementsByName("chbox");
+            for (var i = 0; i < allCheckBoxElements.length; i++) {
+                if (allCheckBoxElements[i].checked) {
+                    user.CostsAssociated.push(allCheckBoxElements[i].value);
+                }
+            }
+            console.log(user);
+        }
+            function resetForm() {
+            document.getElementById("myForm").reset();
+        }
+        function closeForm() {
+            // Hide the divs
+            document.getElementById("div1").style.display = "none ";
+            document.getElementById("div2").style.display = "none ";
+            document.getElementById("div3").style.display = " none";
+        }
+        
+
+    </script>
+</body>
+</html>

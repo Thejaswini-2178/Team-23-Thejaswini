@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(189, 225, 57);
+            border: solid orangered 2px;
+            padding-left: 250px;
+        }
+
+        h4 {
+            color: red;
+            margin-left: 20px;
+        }
+
+        button {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h4>Personal Details</h4>
+        <label for="name">Name:</label>
+        <input type="text" id="name"><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password"><br><br>
+
+        <label for="email">Email-Id:</label>
+        <input type="email" id="email"><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female<br><br>
+
+        <label for="number">Contact:</label>
+        <input type="text" id="number"><br><br>
+
+        <h4>Education Qualifications</h4>
+        <label for="group">Degree:</label>
+        <select name="SelectGroup" id="group">
+            <option value="">--Select Group--</option>
+            <option value="BE">BE</option>
+            <option value="PG">PG</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Degree">Degree</option>
+        </select><br><br>
+
+        <label for="branch">Engineering:</label>
+        <select name="SelectGroup" id="branch">
+            <option value="">--Select Branch--</option>
+            <option value="ECE">ECE</option>
+            <option value="CSE">CSE</option>
+            <option value="IT">IT</option>
+            <option value="EEE">EEE</option>
+        </select><br><br>
+
+        <label>Hobbies:</label>
+        <input type="checkbox" name="hobbies" value="Playing Chess">Playing Chess
+        <input type="checkbox" name="hobbies" value="Reading Books">Reading Books<br><br>
+
+        <h4>Address</h4>
+        <textarea id="text" cols="30" rows="6"></textarea><br><br>
+
+        <label>Attach Resume:</label>
+        <input type="file"><br><br>
+
+        <button type="button" onclick="myData()">SUBMIT</button>
+    </form>
+
+    <script>
+        function myData() {
+            var data = {
+                name: document.getElementById("name").value,
+                password: document.getElementById("password").value,
+                email: document.getElementById("email").value,
+                number: document.getElementById("number").value,
+                group: document.getElementById("group").value,
+                branch: document.getElementById("branch").value,
+                hobbies: [],
+                feedback: document.getElementById("text").value
+            };
+
+            var radioElements = document.getElementsByName("gender");
+            for (var i = 0; i < radioElements.length; i++) {
+                if (radioElements[i].checked) {
+                    data.gender = radioElements[i].value;
+                    break; // Exit the loop once the checked value is found
+                }
+            }
+
+            var allCheckboxElements = document.getElementsByName("hobbies");
+            for (var i = 0; i < allCheckboxElements.length; i++) {
+                if (allCheckboxElements[i].checked) {
+                    data.hobbies.push(allCheckboxElements[i].value);
+                }
+            }
+            console.log(data);
+        }
+    </script>
+</body>
+
+</html>
