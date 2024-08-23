@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>CURD FORM </title>
+    <style>
+        body {
+            padding-top: 20px;
+            margin: auto;
+            background-image: linear-gradient(rgb(220, 159, 223), rgb(138, 207, 247));
+        }
+
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><label>SchoolName</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="sname"></td>
+            </tr>
+            <tr>
+                <td><label>Schooler Name</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="First" id="fsname"></td>
+                <td><input type="text" placeholder="Last" id="lsname"></td>
+            </tr>
+            <tr>
+                <td><label>Parent Name</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="First" id="fpname"></td>
+                <td><input type="text" placeholder="Last" id="lpname"></td>
+            </tr>
+            <tr>
+                <td><label>Parent Phone</label></td>
+            </tr>
+            <td><input type="tel" id="phone"></td>
+            <tr>
+                <td><label>Parent Email</label></td>
+            </tr>
+            <tr>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td><label>Preferd:</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="preferd"></td>
+            </tr>
+            <tr>
+                <th>
+                    <label> Vecation</label> <br>
+                    <input type="checkbox" id="check">
+                </th>
+            </tr>
+            <tr>
+                <td><button type="button" id="submit" onclick="myData()">Submit</button></td>
+            </tr>
+        </table>
+
+        <table id="tabledata" border="1">
+            <thead>
+
+                <th>School Name</th>
+                <th>Schooler Name</th>
+                <th>Parent Name</th>
+                <th>Parent Phone</th>
+                <th>Parent Email</th>
+                <th>Preferred</th>
+                <th>Vacation</th>
+
+            <tbody id="myTbody"></tbody>
+
+            </thead>
+        </table>
+    </form>
+    <script>
+        var data = [];
+        function myData() {
+            var student = {
+                schoolname: document.getElementById("sname").value,
+                schoolerfirstname: document.getElementById("fsname").value,
+                schoollastname: document.getElementById("lsname").value,
+                parentname: document.getElementById("fpname").value,
+                parentlastname: document.getElementById("lpname").value,
+                parentphone: document.getElementById("phone").value,
+                parentemail: document.getElementById("email").value,
+                vacation: document.getElementById("check").value,
+                preferd: document.getElementById("preferd").value
+            };
+            data.push(student)
+            dispalyData()
+        }
+
+
+        function dispalyData() {
+            document.querySelector('#myTbody').innerHTML = ""
+            for (i = 0; i < data.length; i++) {
+                // Create a tr
+                var myTr = document.createElement("tr");
+                for (a in data[i]) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = data[i][a]
+                    myTr.appendChild(myTd);
+                }
+
+                // Edit Td 
+                var editTd = document.createElement('td');
+                var editBtn = document.createElement('button');
+                editBtn.innerHTML = "Edit";
+                editBtn.setAttribute("onclick", "editUser(" + i + ")")
+                editTd.appendChild(editBtn)
+                myTr.appendChild(editTd)
+
+                // Delete Td 
+                var deleteTd = document.createElement('td');
+                var deleteBtn = document.createElement("button");
+                deleteBtn.innerHTML = "Delete";
+                deleteBtn.setAttribute('onclick', "deleteUser(" + i + ")")
+                deleteTd.appendChild(deleteBtn);
+                myTr.appendChild(deleteTd)
+                document.querySelector("#myTbody").appendChild(myTr)
+            }
+        }
+    </script>
+</body>
+
+</html>

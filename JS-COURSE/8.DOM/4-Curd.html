@@ -146,20 +146,6 @@
         }
 
 
-        function addUser() {
-            var newStudent = {
-                "id": document.getElementById('id').value,
-                "name": document.getElementById("name").value,
-                "age": document.getElementById("age").value,
-                "occupation": document.getElementById("occupation").value,
-                "city": document.getElementById("city").value
-
-            }
-            data.push(newStudent);
-            dispalyData()
-            clearForm();
-        }
-
         function clearForm() {
             document.getElementById('id').value = "";
             document.getElementById("name").value = "";

@@ -5,9 +5,9 @@
         body {
             background-color: rgb(189, 225, 57);
             border: solid orangered 2px;
-            padding-left: 250px;
+            
+            position:sticky;
         }
-
         h4 {
             color: red;
             margin-left: 20px;
@@ -16,9 +16,11 @@
         button {
             background-color: orange;
         }
+        form{
+            padding-left: 250px;
+        }
     </style>
 </head>
-
 <body>
     <form action="">
         <h4>Personal Details</h4>
@@ -63,24 +65,22 @@
 
         <h4>Address</h4>
         <textarea id="text" cols="30" rows="6"></textarea><br><br>
-
         <label>Attach Resume:</label>
         <input type="file"><br><br>
-
         <button type="button" onclick="myData()">SUBMIT</button>
     </form>
-
     <script>
+
         function myData() {
             var data = {
-                name: document.getElementById("name").value,
-                password: document.getElementById("password").value,
-                email: document.getElementById("email").value,
-                number: document.getElementById("number").value,
-                group: document.getElementById("group").value,
-                branch: document.getElementById("branch").value,
+                name:document.getElementById("name").value,
+                password:document.getElementById("password").value,
+                email:document.getElementById("email").value,
+                number:document.getElementById("number").value,
+                group:document.getElementById("group").value,
+                branch:document.getElementById("branch").value,
                 hobbies: [],
-                feedback: document.getElementById("text").value
+                feedback:document.getElementById("text").value
             };
 
             var radioElements = document.getElementsByName("gender");
@@ -90,7 +90,7 @@
                     break; // Exit the loop once the checked value is found
                 }
             }
-
+   
             var allCheckboxElements = document.getElementsByName("hobbies");
             for (var i = 0; i < allCheckboxElements.length; i++) {
                 if (allCheckboxElements[i].checked) {
@@ -99,7 +99,10 @@
             }
             console.log(data);
         }
+
+        
+
+       
     </script>
 </body>
-
 </html>

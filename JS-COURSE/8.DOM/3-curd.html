@@ -1,208 +1,171 @@
 <html>
-    <head>
-        <title>CURD</title>
-        <style>
-            #updateBtn{
-                display:none;
-            }
-            #clear{
-                display:none;
-            }
-        </style>
-    </head>
-    <body>
-<!-- step2.to add the form tags in body -->
-        <form action="">
-            <label >SO.NO</label><br>
-            <input type="text" id="sono"><br>
-            <label >Place</label><br>
-            <input type="text" id="place"><br>
-            <label >City</label><br>
-            <input type="text" id="city"><br>
-            <label >Country</label><br>
-            <input type="text" id="country"><br><br>
-<!-- step4 adding the 2 buttons for the adddata and upadate button forthe update -->
-            <button type="button" onclick="addData()" id="addBtn">AddData</button>
-            <button type="button" onclick="updateData()" id="updateBtn">Update</button>
-            <button type="button" onclick="clearForm()" id="clear">CLEAR</button>
 
-        </form>
-<!--1.to create the table tag fordata upto the "th" tag with content and only add a tbody tag -->
-        <table border="1">
-            <thead>
-                <th>sono</th>
-                <th>Place</th>
-                <th>City</th>
-                <th>Country</th>
-                <th>Edit</th>
-                <th>Delet</th>
-            </thead>
-            <tbody></tbody>
-        </table>
-        <script>
-            var place=[
-                    {
-                        sono:"1",
-                        place:"kurgu",
-                        city:"Karnataka",
-                        country:"india"
-                    },
-                    {
-                        sono:"2",
-                        place:"Charminar",
-                        city:"hydrabad",
-                        country:"india"   
-                    },
-                    {
-                        sono:"3",
-                        place:"Tajmahel",
-                        city:"delhi",
-                        country:"india"
-                    },
-                    {
-                        sono:"4",
-                        place:"balaji temple",
-                        city:"Tirumala Tirupath",
-                        country:"india"
-                    },
-                    {
-                        sono:"5",
-                        place:"ooty",
-                        city:"kerala",
-                        country:"india"
-                    },
-                    {
-                        sono:"6",
-                        place:"SHiridiBabha",
-                        city:"Shiridi",
-                        country:"india"
-                    },
-                    {
-                        sono:"7",
-                        place:"IndianGateway",
-                        city:"Mumbhai",
-                        country:"india"
-                    }];
+<head>
+    <title>CURD</title>
+    <style>
+        #updateBtn {
+            display: none;
+        }
 
-                    function addNew(){
-                        var newData={
-                            "sono":document.getElementById("sono").value,
-                            "place":document.getElementById("place").value,
-                            "city":document.getElementById("city").value,
-                            "country":document.getElementById("country").value
-                        }
-                        newData()
-                    }
+        #clear {
+            display: none;
+        }
+    </style>
+</head>
 
-                    
-//step3. to write the code to add the data in tbody tage alonwith equal no .of the tr tag with data
-                    function displayData(){
-                    document.querySelector("tbody").innerHTML=" "
-                    for(i=0;i<place.length;i++){
-                    var trow=document.createElement("tr")
-                    for(a in place[i]){
-                        var tdata=document.createElement("td")
-                        tdata.innerHTML=place[i][a]
-                        trow.appendChild(tdata)
-                    }
-//step-5  adding edit button  inside the for loop
-                    var editBut=document.createElement("button")
-                    var editTd=document.createElement("td")
-                    editBut.innerHTML="Edit"
-                    editBut.setAttribute("onclick","editData("+i+")")
-                    editTd.appendChild(editBut)
-                    trow.appendChild(editTd)
+<body>
+    <!-- step2.to add the form tags in body -->
+    <form action="">
+        <label>SO.NO</label><br>
+        <input type="text" id="sono"><br>
+        <label>Place</label><br>
+        <input type="text" id="place"><br>
+        <label>City</label><br>
+        <input type="text" id="city"><br>
+        <label>Country</label><br>
+        <input type="text" id="country"><br><br>
+        <!-- step4 adding the 2 buttons for the adddata and upadate button forthe update -->
+        <button type="button" onclick="addData()" id="addBtn">AddData</button>
+        <button type="button" onclick="updateData()" id="updateBtn">Update</button>
+        <button type="button" onclick="clearForm()" id="clear">CLEAR</button>
 
-//step-6 additinally we are creating the delet button
-                    var delBut=document.createElement("button")
-                    var delTd=document.createElement("td")
-                    delBut.innerHTML="Delet"
+    </form>
+    <!--1.to create the table tag fordata upto the "th" tag with content and only add a tbody tag -->
+    <table border="1">
+        <thead>
+            <th>sono</th>
+            <th>Place</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Edit</th>
+            <th>Delet</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var place = [
+            {
+                sono: "1",
+                place: "kurgu",
+                city: "Karnataka",
+                country: "india"
+            },
+            {
+                sono: "2",
+                place: "Charminar",
+                city: "hydrabad",
+                country: "india"
+            },
+            {
+                sono: "3",
+                place: "Tajmahel",
+                city: "delhi",
+                country: "india"
+            },
+            {
+                sono: "7",
+                place: "IndianGateway",
+                city: "Mumbhai",
+                country: "india"
+            }];
 
-                    // step-7.2
-                    delBut.setAttribute("onclick","deletData("+i+")" )
-                    delTd.appendChild(delBut)
-                    trow.appendChild(delTd)
-                    document.querySelector("tbody").appendChild(trow)
+
+
+
+        //step3. to write the code to add the data in tbody tage alonwith equal no .of the tr tag with data
+        function displayData() {
+            document.querySelector("tbody").innerHTML = " "
+            for (i = 0; i < place.length; i++) {
+                var trow = document.createElement("tr")
+                for (a in place[i]) {
+                    var tdata = document.createElement("td")
+                    tdata.innerHTML = place[i][a]
+                    trow.appendChild(tdata)
                 }
+                //step-5  adding edit button  inside the for loop
+                var editBut = document.createElement("button")
+                var editTd = document.createElement("td")
+                editBut.innerHTML = "Edit"
+                //  5.2 adding the onclick function
+                editBut.setAttribute("onclick", "editData(" + i + ")")
+                editTd.appendChild(editBut)
+                trow.appendChild(editTd)
+
+                //step-6 additinally we are creating the delet button
+                var delBut = document.createElement("button")
+                var delTd = document.createElement("td")
+                delBut.innerHTML = "Delet"
+
+                // step-7.2adding the onclick function
+                delBut.setAttribute("onclick", "deletData(" + i + ")")
+                delTd.appendChild(delBut)
+                trow.appendChild(delTd)
+                document.querySelector("tbody").appendChild(trow)
             }
+        }
+        displayData()
+        // step-7.1 function for delet.
+        //while we clicking on theonclick to delet the clicked element shoud be deleted so writing the funtion to that..
+        function deletData(i) {
+            console.log("deleted is called.." + i)
+            place.splice(i, 1)//deleted items are called'''
+            displayData()//retriving the called items in web
+        }
+        // step-8 adding the new data in the old data table;
+        function addData() {
+
+            var newData = {
+                sono: document.getElementById('sono').value,
+                place: document.getElementById('place').value,
+                city: document.getElementById('city').value,
+                country: document.getElementById('country').value,
+            }
+            //step-8.1 adding newdata to old and again calling
+            place.push(newData)
             displayData()
+        }
+        // step-9 editing the data when we call the perticular data
+        var index = null
+        function editData(i) {
+            index = i;
+            console.log("edited iem is called..." + i)
+            document.getElementById("sono").value = place[i].sono;
+            document.getElementById("place").value = place[i].place;
+            document.getElementById("city").value = place[i].city;
+            document.getElementById("country").value = place[i].country;
+            document.getElementById("clear").style.display = "none" + "<br>"
+            document.getElementById("addBtn").style.display = "none" + "<br>"
+            document.getElementById("updateBtn").style.display = "block" + "<br>"
+
+        }
+        // 11 step clear form function
+        function clearForm() {
+            document.getElementById("sono").value = ""
+            document.getElementById("place").value = ""
+            document.getElementById("city").value = ""
+            document.getElementById("country").value = ""
+        }
+        displayData()
+
+        //step-10 updated data to be added to the present or old data.
+        function updateData() {
+            var newData = {
+                "sono": document.getElementById('sono').value,
+                "place": document.getElementById('place').value,
+                "city": document.getElementById('city').value,
+                "country": document.getElementById('country').value
+            }
+            place[index] = newData
+            displayData()
+            clearForm()
+            document.getElementById("updateBtn").style.display = "none" + "<br>"
+            document.getElementById("clear").style.display = "none" + "<br>"
+            document.getElementById("addBtn").style.display = "block" + "<br>"
+
+        }
 
 
+    </script>
+</body>
 
-// step-7.1 function for delet.
-//while we clicking on theonclick to delet the clicked element shoud be deleted so writing the funtion to that..
-                   function deletData(i){
-                    console.log("deleted is called.."+i)
-                    place.splice(i,1)//deleted items are called'''
-                    displayData()//retriving the called items in web
-                   }
-
-// step-8 adding the new data in the old data table;
-                   function addData(){
-                    
-                    var newData={
-                        sono:document.getElementById('sono').value,
-                        place:document.getElementById('place').value,
-                        city:document.getElementById('city').value,
-                        country:document.getElementById('country').value,
-                    }
-                //step-8.1 adding newdata to old and again calling
-                    place.push(newData)
-                    displayData()
-                   }
-
-
-
-
-// step-9 editing the data when we call the perticular data
-                       var index= null
-                    function editData(i){
-                        index=i;
-                        console.log("edited iem is called..."+i)
-                        document.getElementById("sono").value=place[i].sono;
-                        document.getElementById("place").value=place[i].place;
-                        document.getElementById("city").value=place[i].city;
-                        document.getElementById("country").value=place[i].country;
-                        document.getElementById("clear").style.display="none"+"<br>"
-                        document.getElementById("addBtn").style.display="none"+"<br>"
-                        document.getElementById("updateBtn").style.display="block"+"<br>"
-                        
-                    }
-
-
-
-// 11 step clear form function
-                    function clearForm(){
-                        document.getElementById("sono").value=""
-                        document.getElementById("place").value=""
-                        document.getElementById("city").value=""
-                        document.getElementById("country").value=""
-                    }
-                    displayData()
-
-//step-10 updated data to be added to the present or old data.
-                    function updateData(){
-                        var newData={
-                        "sono":document.getElementById('sono').value,
-                        "place":document.getElementById('place').value,
-                        "city":document.getElementById('city').value,
-                        "country":document.getElementById('country').value
-                    }
-                    place[index]=newData
-                    displayData()
-                    clearForm()
-                    document.getElementById("updateBtn").style.display="none"+"<br>"
-                    document.getElementById("clear").style.display="none"+"<br>"
-                    document.getElementById("addBtn").style.display="block"+"<br>"
-
-                    }
-
-
-        </script>
-    </body>
 </html>
-
-
-                
-               
-
