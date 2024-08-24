@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formtags</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">Enter Name:</label><br>
+        <input type="text" id="name"><br>
+        <label for="email">Enter the email:</label><br>
+        <input type="email" id="email"><br>
+        <label for="password">Enter the Password:</label><br>
+        <input type="password" id="password"><br>
+        <label for="number">Enter the phone number:</label><br>
+        <input type="tel" id="number"><br>
+        <label>Your Gender:</label><br>
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <input type="radio" name="gender" value="Others">Others<br>
+        <label for="date">Enter the date of birth:</label><br>
+        <input type="date" id="date"><br>
+        <label for="resume">Resume</label><br>
+        <input type="file" id="resume"><br>
+        <label>Skills</label><br>
+        <input type="checkbox" name="skills" value="HTML">HTML
+        <input type="checkbox" name="skills" value="CSS">CSS
+        <input type="checkbox" name="skills" value="JavaScript">JavaScript<br><br>
+        <label for="state">State</label>
+        <select id="state">
+            <option value="">Select state</option>
+            <option value="Andhra">Andhra</option>
+            <option value="Telengana">Telengana</option>
+            <option value="Tamilnadu">Tamilnadu</option>
+        </select><br><br>
+        <label for="dist">District</label>
+        <input list="dst" id="dist">
+        <datalist id="dst">
+            <option value="Ananthapoor"></option>
+            <option value="Chittoor"></option>
+            <option value="Kadapa"></option>
+            <option value="Nellur"></option>
+            <option value="Vijawada"></option>
+        </datalist><br><br>
+        <label for="address">Enter the Address:</label><br>
+        <textarea id="address"></textarea><br><br>
+        <button type="button" id="submit" onclick="data()">SUBMIT</button>
+    </form>
+    <script>
+        function data() {
+            var myGivenData = {
+                name: document.getElementById("name").value,
+                password: document.getElementById("password").value,
+                email: document.getElementById("email").value,
+                number: document.getElementById("number").value,
+                gender: "",
+                DOB: document.getElementById("date").value,
+                resume: document.getElementById("resume").value,//files[0] ? document.getElementById("resume").files[0].name : "",  // Handle file name
+                skills: [],
+                state: document.getElementById("state").value,
+                district: document.getElementById("dist").value,
+                address: document.getElementById("address").value
+            };
+
+            var allCheckBoxElements = document.getElementsByName("skills");
+            for (var i = 0; i < allCheckBoxElements.length; i++) {
+                if (allCheckBoxElements[i].checked) {
+                    myGivenData.skills.push(allCheckBoxElements[i].value);
+                }
+            }
+
+            var radioBUT = document.getElementsByName("gender");
+            for (var i = 0; i < radioBUT.length; i++) {
+                if (radioBUT[i].checked) {
+                    myGivenData.gender = radioBUT[i].value;
+                }
+            }
+
+            console.log(myGivenData);
+        }
+    </script>
+</body>
+</html>

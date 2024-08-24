@@ -70,11 +70,15 @@
 
                 <th>School Name</th>
                 <th>Schooler Name</th>
+                <th>schooler lastname</th>
                 <th>Parent Name</th>
+                <th>parent Lastname</th>
                 <th>Parent Phone</th>
                 <th>Parent Email</th>
                 <th>Preferred</th>
                 <th>Vacation</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
 
             <tbody id="myTbody"></tbody>
 
@@ -82,7 +86,7 @@
         </table>
     </form>
     <script>
-        var data = [];
+        // var data = [];
         function myData() {
             var student = {
                 schoolname: document.getElementById("sname").value,
@@ -95,10 +99,8 @@
                 vacation: document.getElementById("check").value,
                 preferd: document.getElementById("preferd").value
             };
-            data.push(student)
             dispalyData()
         }
-
 
         function dispalyData() {
             document.querySelector('#myTbody').innerHTML = ""
@@ -118,6 +120,7 @@
                 editBtn.setAttribute("onclick", "editUser(" + i + ")")
                 editTd.appendChild(editBtn)
                 myTr.appendChild(editTd)
+                
 
                 // Delete Td 
                 var deleteTd = document.createElement('td');
@@ -129,6 +132,11 @@
                 document.querySelector("#myTbody").appendChild(myTr)
             }
         }
+        function deleteUser(index) {
+            array.splice(index, 1);
+            displayData();
+        }
+       
     </script>
 </body>
 
