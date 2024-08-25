@@ -67,7 +67,6 @@
 
         <table id="tabledata" border="1">
             <thead>
-
                 <th>School Name</th>
                 <th>Schooler Name</th>
                 <th>schooler lastname</th>
@@ -86,7 +85,7 @@
         </table>
     </form>
     <script>
-        // var data = [];
+        var data = []; // Define data array globally
         function myData() {
             var student = {
                 schoolname: document.getElementById("sname").value,
@@ -96,10 +95,11 @@
                 parentlastname: document.getElementById("lpname").value,
                 parentphone: document.getElementById("phone").value,
                 parentemail: document.getElementById("email").value,
-                vacation: document.getElementById("check").value,
+                vacation: document.getElementById("check").checked ? 'Yes' : 'No', // Use .checked for checkboxes
                 preferd: document.getElementById("preferd").value
             };
-            dispalyData()
+            data.push(student); // Push the new student data into the array
+            dispalyData(); // Call displayData() after adding data
         }
 
         function dispalyData() {
@@ -120,7 +120,7 @@
                 editBtn.setAttribute("onclick", "editUser(" + i + ")")
                 editTd.appendChild(editBtn)
                 myTr.appendChild(editTd)
-                
+
 
                 // Delete Td 
                 var deleteTd = document.createElement('td');
@@ -133,10 +133,12 @@
             }
         }
         function deleteUser(index) {
-            array.splice(index, 1);
+            data.splice(index, 1);
             displayData();
         }
-       
+
+        
+
     </script>
 </body>
 

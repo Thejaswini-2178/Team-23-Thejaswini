@@ -45,7 +45,25 @@
         <textarea id="address"></textarea><br><br>
         <button type="button" id="submit" onclick="data()">SUBMIT</button>
     </form>
+
+    <table border="1" id="table">
+        <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Number</th>
+                <th>Gender</th>
+                <th>DOB</th>
+                <th>Resume</th>
+                <th>Skills</th>
+                <th>State</th>
+                <th>District</th>
+                <th>Address</th>
+            <tbody></tbody>
+        </thead>
+    </table>
     <script>
+        var array=[]
         function data() {
             var myGivenData = {
                 name: document.getElementById("name").value,
@@ -74,9 +92,23 @@
                     myGivenData.gender = radioBUT[i].value;
                 }
             }
-
+            array.push(myGivenData)
             console.log(myGivenData);
         }
+
+        function tableData(){
+            document.querySelector("tbody").innerHTML=""
+            for(i=0;i<array.length;i++){
+                var myTr=document.getElementById("tr")
+                for(a in array[i]){
+                    var myTd=document.getElementById("td")
+                    myTr.innerHTML=array[i][a]
+                    myTr.appendChild(myTd)
+                }
+                document.querySelector("tbody").innerHTML(myTr)
+            }
+        }
+
     </script>
 </body>
 </html>

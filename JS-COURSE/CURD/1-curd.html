@@ -12,7 +12,6 @@
         }
     </style>
 </head>
-
 <body>
     <form action="">
         <label for="">ID :</label>
@@ -23,8 +22,8 @@
         <input type="text" name="" id="age"> <br>
         <label for="">Email :</label>
         <input type="text" name="" id="email"> <br>
-        <button type="button" onclick="addUser()" id="addBtn">Add User</button>
-        <button type="button" onclick="updateUser()" id="updateBtn">Update User</button>
+        <button type="button" onclick="addUser()" id="addBtn">Add</button>
+        <button type="button" onclick="updateUser()" id="updateBtn">Update</button>
     </form>
     <br>
     <table border="1" style="width: 100%;">
@@ -38,7 +37,6 @@
         </thead>
         <tbody></tbody>
     </table>
-
     <script>
         var students = [
             {
@@ -73,24 +71,9 @@
             }
         ]
 
-        function addUser() {
-            var newStudent = {
-                "id": document.getElementById('id').value,
-                "name": document.getElementById("name").value,
-                "age": document.getElementById("age").value,
-                "email": document.getElementById("email").value
-            }
-            students.push(newStudent);
-            displayStudents()
-            clearForm();
-        }
+       
 
-        function clearForm() {
-            document.getElementById('id').value = "";
-            document.getElementById("name").value = "";
-            document.getElementById("age").value = "";
-            document.getElementById("email").value = "";
-        }
+        
         function displayStudents() {
             document.querySelector('tbody').innerHTML = ""
             for (i = 0; i < students.length; i++) {
@@ -121,6 +104,26 @@
             }
         }
         displayStudents()
+
+                function deleteUser(i) {
+            console.log("deleteUser Called !!" + i);
+            students.splice(i, 1);
+            displayStudents()
+        }
+
+        function addUser() {
+            var newStudent = {
+                "id": document.getElementById('id').value,
+                "name": document.getElementById("name").value,
+                "age": document.getElementById("age").value,
+                "email": document.getElementById("email").value
+            }
+            students.push(newStudent);
+            displayStudents()
+            clearForm();
+        }
+
+
         var index = null;
         function editUser(i) {
             index = i;
@@ -134,10 +137,13 @@
             document.getElementById("addBtn").style.display = "none";
         }
 
-        function deleteUser(i) {
-            console.log("deleteUser Called !!" + i);
-            students.splice(i, 1);
-            displayStudents()
+
+        
+        function clearForm() {
+            document.getElementById('id').value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("email").value = "";
         }
 
         function updateUser() {

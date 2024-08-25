@@ -2,7 +2,9 @@
     <head>
         <title>Curd</title>
         <style>
-
+            #updateUser{
+                display: none;
+            }
         </style>
     </head>
     <body>
@@ -106,31 +108,31 @@
                     "city": "San Jose"
                 }
             ];
-            function dispalyData(){
-            for(i=0;i<data.length;i++){
-                var myTr=document.createElement("tr")//creating the rows
-                for (a in data[i]){//elements present in datamonitoring
-                    var myTd=document.createElement("td")//
-                    myTd.innerHTML=data[i][a]
-                    myTr.appendChild(myTd)
-                }
+        //     function dispalyData(){
+        //     for(i=0;i<data.length;i++){
+        //         var myTr=document.createElement("tr")//creating the rows
+        //         for (a in data[i]){//elements present in datamonitoring
+        //             var myTd=document.createElement("td")//
+        //             myTd.innerHTML=data[i][a]
+        //             myTr.appendChild(myTd)
+        //         }
 
-                // creating edit button
-                var editBut=document.createElement("button")
-                var editTd=document.createElement("td")
-                editBut.innerHTML="Edit"
-                editTd.appendChild(editBut)
-                myTr.appendChild(editTd)
+        //         // creating edit button
+        //         var editBut=document.createElement("button")
+        //         var editTd=document.createElement("td")
+        //         editBut.innerHTML="Edit"
+        //         editTd.appendChild(editBut)
+        //         myTr.appendChild(editTd)
 
-                // creating or adding the delet button 
-                var delBut=document.createElement("button")
-                var delTd=document.createElement("td")
-                delBut.innerHTML="Delet"
-                delTd.appendChild(delBut)
-                myTr.appendChild(delTd)
-                document.querySelector("tbody").appendChild(myTr)
-            }
-        }
+        //         // creating or adding the delet button 
+        //         var delBut=document.createElement("button")
+        //         var delTd=document.createElement("td")
+        //         delBut.innerHTML="Delet"
+        //         delTd.appendChild(delBut)
+        //         myTr.appendChild(delTd)
+        //         document.querySelector("tbody").appendChild(myTr)
+        //     }
+        // }
         dispalyData()
         function addUser() {
             var newStudent = {

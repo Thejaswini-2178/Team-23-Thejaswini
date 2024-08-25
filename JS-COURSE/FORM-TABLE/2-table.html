@@ -1,0 +1,173 @@
+<html>
+
+<head>
+    <title>Table2</title>
+    <style>
+      #update{
+        display: none;
+      }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="">ID</label>
+        <input type="text" id="id">
+        <label for="">Name</label>
+        <input type="text" id="name">
+        <label for="">AGE</label>
+        <input type="text" id="age">
+        <label for="">Email</label>
+        <input type="text" id="email">
+        <label for="">state</label>
+        <input type="text" id="state">
+        <button type="button" id="add" onclick="addUser()">ADD</button>
+        <button type="button" id="update" onclick="updateUser()">Update</button>
+
+    </form>
+    <table border="1" cellspacing="0px" cellpadding="0px">
+        <thead>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>EMAIL</th>
+            <th>state</th>
+            <th>DELETE</th>
+            <th>EDIT</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        var objectsArray = [
+            {
+                id: 1,
+                name: "Alice",
+                age: 30,
+                email: "alice@example.com",
+                state: "Andhra"
+            },
+            {
+                id: 2,
+                name: "Bob",
+                age: 25,
+                email: "bob@example.com",
+                state: "Telengana"
+            },
+            {
+                id: 3,
+                name: "Charlie",
+                age: 28,
+                email: "charlie@example.com",
+                state: "Vijayawada"
+            },
+            {
+                id: 4,
+                name: "David",
+                age: 35,
+                email: "david@example.com",
+                state: "Nellur"
+            },
+            {
+                id: 5,
+                name: "Eva",
+                age: 22,
+                email: "eva@example.com",
+                state: "Tmilnadu"
+            }
+        ];
+        // create the tabel to retrive the data from the object
+        //1/create a function
+
+        function tableData() {
+            document.querySelector("tbody").innerHTML = " "
+            for (var i = 0; i < objectsArray.length; i++) {
+                var rowTr = document.createElement("tr")
+                for (a in objectsArray[i]) {
+                    var dataTd = document.createElement("td")
+                    dataTd.innerHTML = objectsArray[i][a]
+                    rowTr.appendChild(dataTd)
+                }
+
+                
+                // creating the delet and edit button
+                var delBUT = document.createElement("button")
+                var delTd = document.createElement("td")
+                delBUT.innerHTML = "Delete"
+                delBUT.setAttribute("onclick", "delUser(" + i + ")")
+                delTd.appendChild(delBUT)
+                rowTr.appendChild(delTd)
+
+                // creating the edit button
+                var editBUT = document.createElement("button")
+                var editTd = document.createElement("td")
+                editBUT.innerHTML = "EDIT"
+                editBUT.setAttribute("onclick", "editUser(" + i + ")")
+                editTd.appendChild(editBUT)
+                rowTr.appendChild(editTd)
+                document.querySelector("tbody").appendChild(rowTr)
+            }
+        }
+        tableData()
+        
+        
+        // function for the delet item in the table
+        function delUser(i) {
+            console.log("Deleted item called .." + i)
+            objectsArray.splice(i, 1)
+            tableData()
+        }
+        function addUser() {
+            var newData = {
+                "id": document.getElementById("id").value,
+                "name": document.getElementById("name").value,
+                "age": document.getElementById("age").value,
+                "email": document.getElementById("email").value,
+                "state":document.getElementById("state").value
+            }
+            objectsArray.push(newData);
+            tableData()
+            clearForm();
+        }
+         
+
+        function clearForm(){
+            document.getElementById('id').value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("state").value = "";
+        }
+
+
+        
+        // fuction for the edit item in table.....for editing we need to create the form tages
+        var index = null
+        function editUser(i) {
+            index = i
+            console.log("Edited item is called..." + i)
+            document.getElementById("id").value = objectsArray[i].id;
+            document.getElementById("name").value = objectsArray[i].name;
+            document.getElementById("age").value = objectsArray[i].age;
+            document.getElementById("email").value = objectsArray[i].email;
+            document.getElementById("state").value = objectsArray[i].state;
+            document.getElementById("update").style.display = "block"
+            document.getElementById("add").style.display = "none"
+        }
+        function updateUser() {
+            var newStudent = {
+                "id": document.getElementById('id').value,
+                "name": document.getElementById("name").value,
+                "age": document.getElementById("age").value,
+                "email": document.getElementById("email").value,
+                "state":document.getElementById("state").value
+            }
+            objectsArray[index] = newStudent;
+            tableData();
+            clearForm();
+            document.getElementById("update").style.display = "none";
+            document.getElementById("add").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
