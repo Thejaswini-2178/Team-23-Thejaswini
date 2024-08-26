@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>Form</title>
     <style>
@@ -7,20 +6,16 @@
             background-color: rgb(15, 70, 137);
             color: white;
         }
-
         table {
             border: solid white 2px;
             padding: 30px;
             margin: 50px;
         }
-
-        input#num1,
-        #num2 {
+        input#num1, #num2 {
             width: 70px;
         }
     </style>
 </head>
-
 <body>
     <table cellspacing="15px">
         <tr>
@@ -38,7 +33,7 @@
         <tr>
             <td><label>Degree:</label></td>
             <td>
-                <input type="text" id="field">
+                <input type="text" id="status">
                 <input type="radio" name="degree" value="Pursing">Pursing
                 <input type="radio" name="degree" value="Completed">Completed
             </td>
@@ -71,6 +66,7 @@
                 <th>Institute</th>
                 <th>Branch</th>
                 <th>Degree</th>
+                <th>Status</th>
                 <th>Avg CPI Start</th>
                 <th>Avg CPI End</th>
                 <th>Experience</th>
@@ -91,8 +87,8 @@
                 university: document.getElementById("university").value,
                 institute: document.getElementById("insti").value,
                 branch: document.getElementById("branch").value,
-                field: document.getElementById("field").value,
                 degree: document.querySelector('input[name="degree"]:checked') ? document.querySelector('input[name="degree"]:checked').value : "",
+                status: document.getElementById("status").value,
                 avgCPIstart: document.getElementById("num1").value,
                 avgCPIend: document.getElementById("num2").value,
                 experience: document.getElementById("expe").value,
@@ -106,13 +102,24 @@
             document.querySelector('#myTbody').innerHTML = "";
             for (var i = 0; i < data.length; i++) {
                 var myTr = document.createElement("tr");
-                for (var key in data[i]) {
+                var properties = [
+                    data[i].university,
+                    data[i].institute,
+                    data[i].branch,
+                    data[i].degree,
+                    data[i].status,
+                    data[i].avgCPIstart,
+                    data[i].avgCPIend,
+                    data[i].experience,
+                    data[i].websiteBlog
+                ];
+
+                for (var j = 0; j < properties.length; j++) {
                     var myTd = document.createElement("td");
-                    myTd.innerHTML = data[i][key];
+                    myTd.innerHTML = properties[j];
                     myTr.appendChild(myTd);
                 }
 
-                // Edit Td
                 var editTd = document.createElement('td');
                 var editBtn = document.createElement('button');
                 editBtn.innerHTML = "Edit";
@@ -120,7 +127,6 @@
                 editTd.appendChild(editBtn);
                 myTr.appendChild(editTd);
 
-                // Delete Td
                 var deleteTd = document.createElement('td');
                 var deleteBtn = document.createElement("button");
                 deleteBtn.innerHTML = "Delete";
@@ -138,8 +144,16 @@
             document.getElementById("university").value = data[i].university;
             document.getElementById("insti").value = data[i].institute;
             document.getElementById("branch").value = data[i].branch;
-            document.getElementById("field").value=data[i].field;
-            document.querySelector(`input[name="degree"][value="${data[i].degree}"]`).checked = true;
+            
+            var degreeRadios = document.getElementsByName("degree");
+            for (var j = 0; j < degreeRadios.length; j++) {
+                if (degreeRadios[j].value === data[i].degree) {
+                    degreeRadios[j].checked = true;
+                    break;
+                }
+            }
+
+            document.getElementById("status").value = data[i].status;
             document.getElementById("num1").value = data[i].avgCPIstart;
             document.getElementById("num2").value = data[i].avgCPIend;
             document.getElementById("expe").value = data[i].experience;
@@ -153,7 +167,7 @@
             document.getElementById("university").value = "";
             document.getElementById("insti").value = "";
             document.getElementById("branch").value = "";
-            document.getElementById("field").value = "";
+            document.getElementById("status").value = "";
             var degreeRadios = document.getElementsByName("degree");
             for (var i = 0; i < degreeRadios.length; i++) {
                 degreeRadios[i].checked = false;
@@ -175,7 +189,7 @@
                 university: document.getElementById("university").value,
                 institute: document.getElementById("insti").value,
                 branch: document.getElementById("branch").value,
-                field:document.getElementById("branch").value,
+                status: document.getElementById("status").value,
                 degree: document.querySelector('input[name="degree"]:checked') ? document.querySelector('input[name="degree"]:checked').value : "",
                 avgCPIstart: document.getElementById("num1").value,
                 avgCPIend: document.getElementById("num2").value,
@@ -192,5 +206,4 @@
         displayData(); // Initialize display
     </script>
 </body>
-
 </html>

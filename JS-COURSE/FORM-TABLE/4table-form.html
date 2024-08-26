@@ -1,21 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD</title>
     <style>
-        #updateBtn {
-            display: none;
-        }
-
-        #clear {
-            display: none;
-        }
-    </style>
-    <style>
+       #update{
+        display: none;
+       }
+   
         form {
             background-color: rgb(189, 225, 57);
             border: solid orangered 2px;
@@ -33,6 +27,7 @@
         }
     </style>
 </head>
+
 <body>
     <form>
         <h4>Personal Details</h4>
@@ -78,9 +73,8 @@
         <textarea id="address" cols="30" rows="6"></textarea><br><br>
         <label>Attach Resume:</label>
         <input type="file" id="resume"><br><br>
-        <button type="button" onclick="myData()">SUBMIT</button>
-        <button type="button" onclick="updateData()" id="updateBtn">Update</button>
-        <button type="button" onclick="clearForm()" id="clear">CLEAR</button>
+        <button type="button" onclick="myData()" id="add">SUBMIT</button>
+        <button type="button" onclick="updateData()" id="update">UPDATE</button>
     </form>
 
     <table border="1">
@@ -176,63 +170,78 @@
         var index = null
         function editUser(i) {
             index = i;
-            console.log("edited iem is called..." + i)
             document.getElementById("name").value = array[i].name;
             document.getElementById("password").value = array[i].password;
-            document.getElementById("email").value = array[i].email;
-            document.getElementById("gender").value = array[i].gender;
-            document.getElementById("number").value = array[i].number;
-            document.getElementById("group").value = array[i].group;
-            document.getElementById("branch").value = array[i].branch;
-            document.getElementById("hobbies").value = array[i].hobbies;
+            document.getElementById("email").value = array[i].emailid;
+            document.getElementById("number").value = array[i].contact;
+            document.getElementById("group").value = array[i].degree;
+            document.getElementById("branch").value = array[i].engineering;
             document.getElementById("address").value = array[i].address;
             document.getElementById("resume").value = array[i].resume;
 
-            document.getElementById("clear").style.display = "none" + "<br>"
-            document.getElementById("addBtn").style.display = "none" + "<br>"
-            document.getElementById("updateBtn").style.display = "block" + "<br>"
+            // Set gender radio button
+            var radios = document.getElementsByName("gender");
+            for (var j = 0; j < radios.length; j++) {
+                if (radios[j].value === array[i].gender) {
+                    radios[j].checked = true;
+                    break;
+                }
+            }
 
+            // Set hobbies checkboxes
+            var checkboxes = document.getElementsByName("hobbies");
+            for (var k = 0; k < checkboxes.length; k++) {
+                checkboxes[k].checked = array[i].hobbies.includes(checkboxes[k].value);
+            }
+            document.getElementById("update").style.display = "block";
+            document.getElementById("add").style.display = "none";
         }
+
         // 11 step clear form function
         function clearForm() {
             document.getElementById("name").value = ""
-            document.getElementById("array").value = ""
+            document.getElementById("pasword").value = ""
             document.getElementById("email").value = ""
-            document.getElementById("gender").value = ""
-            document.getElementById("number").value =""
-            document.getElementById("group").value =""
-            document.getElementById("branch").value =""
-            document.getElementById("hobbies").value =""
-            document.getElementById("address").value =""
-            document.getElementById("resume").value =""
-
-
-
+            document.getElementsByName("gender").value = ""
+            document.getElementById("number").value = ""
+            document.getElementById("group").value = ""
+            document.getElementById("branch").value = ""
+            document.getElementsByName("hobbies").value = ""
+            document.getElementById("address").value = ""
+            document.getElementById("resume").value = ""
         }
         displayData()
 
         //step-10 updated data to be added to the present or old data.
         function updateData() {
-            var newData = {
-                "name": document.getElementById('name').value,
-                "array": document.getElementById('array').value,
-                "email": document.getElementById('email').value,
-                "gender": document.getElementById('gender').value,
-                "number":document.getElementById("number").value,
-                "group":document.getElementById("group").value,
-                "branch": document.getElementById("branch").value,
-                "hobbies":document.getElementById("hobbies").value,
-                "address":document.getElementById("address").value,
-                "resume":document.getElementById("resume").value, 
-            }
-            array[index] = newData
-            displayData()
-            clearForm()
-            document.getElementById("updateBtn").style.display = "none" + "<br>"
-            document.getElementById("clear").style.display = "none" + "<br>"
-            document.getElementById("addBtn").style.display = "block" + "<br>"
+            var updatedData = {
+                name: document.getElementById('name').value,
+                password: document.getElementById('password').value,
+                emailid: document.getElementById('email').value,
+                gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '',
+                contact: document.getElementById("number").value,
+                degree: document.getElementById("group").value,
+                engineering: document.getElementById("branch").value,
+                hobbies: [],
+                address: document.getElementById("address").value,
+                resume: document.getElementById("resume").value,
+            };
 
+            var checkboxes = document.getElementsByName("hobbies");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    updatedData.hobbies.push(checkboxes[i].value);
+                }
+            }
+
+            array[index] = updatedData;
+            displayData();
+            clearForm();
+            document.getElementById("update").style.display = "block";
+            document.getElementById("add").style.display = "none";
         }
+
     </script>
 </body>
+
 </html>
