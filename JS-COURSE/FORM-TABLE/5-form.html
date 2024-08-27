@@ -55,14 +55,14 @@
                 <td><input type="text" id="preferd"></td>
             </tr>
             <tr>
-                <th>
+                <td>
                     <label> Vecation</label> <br>
                     <input type="checkbox" id="check">
-                </th>
+                </td>
             </tr>
             <tr>
-                <td><button type="button" id="submit" onclick="()">Submit</button></td>
-                <td><button type="button" id="update" onclick="update()">Update</button></td>
+                <td><button type="button" id="submit" onclick="enterData()">Submit</button></td>
+                <!-- <td><button type="button" id="update" onclick="update()">Update</button></td> -->
             </tr>
         </table>
 
@@ -86,88 +86,36 @@
         </table>
     </form>
     <script>
-        var data = []; // Define data array globally
-        function myData() {
-            var student = {
-                schoolname: document.getElementById("sname").value,
-                schoolerfirstname: document.getElementById("fsname").value,
-                schoollastname: document.getElementById("lsname").value,
-                parentname: document.getElementById("fpname").value,
-                parentlastname: document.getElementById("lpname").value,
-                parentphone: document.getElementById("phone").value,
-                parentemail: document.getElementById("email").value,
-                vacation: document.getElementById("check").checked ? 'Yes' : 'No', // Use .checked for checkboxes
-                preferd: document.getElementById("preferd").value
-            };
-            data.push(student); // Push the new student data into the array
-            dispalyData(); // Call displayData() after adding data
+       var myData=[]
+       function enterData(){
+        var data={    //calling with the key value and printing the data
+            sname:document.getElementById("sname").value,
+            fname:document.getElementById("fsname").value,
+            lsname:document.getElementById("lsname").value,
+            pfname:document.getElementById("fpname").value,
+            lpname:document.getElementById("lpname").value,
+            phone:document.getElementById("phone").value,
+            email:document.getElementById("email").value,
+            preferd:document.getElementById("preferd").value,
+            check:document.getElementById("check").value,
         }
+        myData.push(data)
+        // console.log(myData)
+        tableData()
+       }
 
-        function dispalyData() {
-            document.querySelector('#myTbody').innerHTML = ""
-            for (i = 0; i < data.length; i++) {
-                // Create a tr
-                var myTr = document.createElement("tr");
-                for (a in data[i]) {
-                    var myTd = document.createElement("td");
-                    myTd.innerHTML = data[i][a]
-                    myTr.appendChild(myTd);
-                }
-
-                // Edit Td 
-                var editTd = document.createElement('td');
-                var editBtn = document.createElement('button');
-                editBtn.innerHTML = "Edit";
-                editBtn.setAttribute("onclick", "editUser(" + i + ")")
-                editTd.appendChild(editBtn)
-                myTr.appendChild(editTd)
-
-
-                // Delete Td 
-                var deleteTd = document.createElement('td');
-                var deleteBtn = document.createElement("button");
-                deleteBtn.innerHTML = "Delete";
-                deleteBtn.setAttribute('onclick', "deleteUser(" + i + ")")
-                deleteTd.appendChild(deleteBtn);
-                myTr.appendChild(deleteTd)
-                document.querySelector("#myTbody").appendChild(myTr)
+       function tableData(){
+        for(var i=0;i<myData.length;i++){
+            var tRow=document.createElement("tr")
+            for(a in myData[i]){
+                var tData=document.createElement("td")
+                tData.innerHTML=myData[i][a]
+                tRow.appendChild(tData)
             }
+            document.getElementById("myTbody").appendChild(tRow)
         }
-        function deleteUser(index) {
-            data.splice(index, 1);
-            displayData();
-        }
-        var index=null
-        function editUser(){
-            var index=i
-            document.getElementById("sname").value=student[i].schoolname;
-            document.getElementById("fsname").value=student[i].schoolerfirstname;
-            document.getElementById("lsname").value=student[i].schoollastname; 
-            document.getElementById("fpname").value=student[i].parentname;
-            document.getElementById("lpname").value=student[i].parentlastname;
-            document.getElementById("phone").value=student[i].parentphone;
-            document.getElementById("email").value=student[i].parentemail;
-            document.getElementById("check").checked ? 'Yes' : 'No'=student[i].vacation;
-            document.getElementById("preferd").value=student[i].preferd;
-
-            document.getElementById("submit").style.display="none"
-            document.getElementById("update").style.display="update"
-        }
-
-        // function update(){
-        //     var update={
-        //         schoolname: document.getElementById("sname").value,
-        //         schoolerfirstname: document.getElementById("fsname").value,
-        //         schoollastname: document.getElementById("lsname").value,
-        //         parentname: document.getElementById("fpname").value,
-        //         parentlastname: document.getElementById("lpname").value,
-        //         parentphone: document.getElementById("phone").value,
-        //         parentemail: document.getElementById("email").value,
-        //         vacation: document.getElementById("check").checked ? 'Yes' : 'No', // Use .checked for checkboxes
-        //         preferd: document.getElementById("preferd").value
-        //     }
-        // }
-
+       }
+        // tableData()
 
         
 
