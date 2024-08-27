@@ -71,6 +71,7 @@
                 <th>Institute</th>
                 <th>Branch</th>
                 <th>Degree</th>
+                <th>Field</th>
                 <th>Avg CPI Start</th>
                 <th>Avg CPI End</th>
                 <th>Experience</th>
@@ -88,6 +89,7 @@
 
         function enterData() {
             var newData = {
+
                 university: document.getElementById("university").value,
                 institute: document.getElementById("insti").value,
                 branch: document.getElementById("branch").value,
@@ -97,6 +99,7 @@
                 avgCPIend: document.getElementById("num2").value,
                 experience: document.getElementById("expe").value,
                 websiteBlog: document.getElementById("url").value,
+
             };
             data.push(newData);
             displayData();
@@ -131,7 +134,6 @@
                 document.querySelector("#myTbody").appendChild(myTr);
             }
         }
-
         function editUser(i) {
             index = i;
             console.log("edit item is called..." + i);
@@ -139,11 +141,19 @@
             document.getElementById("insti").value = data[i].institute;
             document.getElementById("branch").value = data[i].branch;
             document.getElementById("field").value=data[i].field;
-            document.querySelector(`input[name="degree"][value="${data[i].degree}"]`).checked = true;
+            // document.querySelector(`input[name="degree"][value="${data[i].degree}"]`).checked= true;
+
             document.getElementById("num1").value = data[i].avgCPIstart;
             document.getElementById("num2").value = data[i].avgCPIend;
             document.getElementById("expe").value = data[i].experience;
             document.getElementById("url").value = data[i].websiteBlog;
+            var degreeValue = data[i].degree;
+            var degreeRadio = document.querySelector(`input[name="degree"][value="${degreeValue}"]`);
+            if (degreeRadio) {
+                degreeRadio.checked = true;
+            } else {
+                console.log(`No radio button found for degree value: ${degreeValue}`);
+            }
 
             document.getElementById("submit").style.display = "none"; // Hide submit button
             document.getElementById("Update").style.display = "block"; // Show update button
@@ -182,14 +192,13 @@
                 experience: document.getElementById("expe").value,
                 websiteBlog: document.getElementById("url").value,
             };
-            data[index] = updatedData;
+          data[index] = updatedData;
             displayData();
             clearForm();
             document.getElementById("Update").style.display = "none"; // Hide update button
             document.getElementById("submit").style.display = "block"; // Show submit button
         }
-
-        displayData(); // Initialize display
+        displayData(); // Initialize display]
     </script>
 </body>
 
