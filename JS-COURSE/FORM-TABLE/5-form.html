@@ -8,7 +8,6 @@
             margin: auto;
             background-image: linear-gradient(rgb(230, 94, 237), rgb(138, 207, 247));
         }
-
         table {
             margin: auto;
         }
@@ -78,8 +77,7 @@
                 <th>Preferred</th>
                 <th>Vacation</th>
                 <th>EDIT</th>
-                <th>DELETE</th>
-
+                <th>DEL</th>
             <tbody id="myTbody"></tbody>
 
             </thead>
@@ -100,7 +98,7 @@
             check:document.getElementById("check").value,
         }
         myData.push(data)
-        // console.log(myData)
+        console.log(myData)
         tableData()
        }
 
@@ -114,12 +112,18 @@
             }
             document.getElementById("myTbody").appendChild(tRow)
         }
+           var delBtn=document.createElement("button")
+           var delTd=document.createElement("td")
+           delBtn.innerHTML="DELETE"
+           delTd.appendChild(delBtn)
+           tRow.appendChild(delTd)
+           delBtn.setAttribute("onclick","deluser("+i+")")
        }
-        // tableData()
+        function deluser(){
+            
+        }
 
-        
-
-    </script>
+</script>
 </body>
 
 </html>
