@@ -11,13 +11,14 @@
         table {
             margin: auto;
         }
-        #update {
+        #update{
             display: none;
         }
+
+       
     </style>
 </head>
 <body>
-    <form>
         <table>
             <tr>
                 <td><label>School Name</label></td>
@@ -87,11 +88,10 @@
             </thead>
             <tbody id="myTbody"></tbody>
         </table>
-    </form>
     <script>
         var myData = [];
         var currentIndex = null; // Index of the current record being edited
-
+        
         function enterData() {
             var data = {
                 sname: document.getElementById("sname").value,
@@ -109,8 +109,8 @@
                 // Update existing record
                 myData[currentIndex] = data;
                 currentIndex = null; // Reset index after update
-                document.getElementById("update").style.display = "none";
-                document.getElementById("submit").style.display = "block";
+                document.getElementById("update").style.display = "block";
+                document.getElementById("submit").style.display = "none";
             } else {
                 // Add new record
                 myData.push(data);
@@ -154,9 +154,9 @@
             myData.splice(i, 1);
             tableData();
         }
-
+        var index=null 
         function editUser(i) {
-            currentIndex = i;
+            index = i;
             var data = myData[i];
             document.getElementById("sname").value = data.sname;
             document.getElementById("fsname").value = data.fsname;
@@ -185,8 +185,26 @@
         }
 
         function updateUser() {
-            enterData(); // Call enterData to handle the update operation
+            var updatedData = {
+                sname: document.getElementById("sname").value,
+                fsname: document.getElementById("fsname").value,
+                lsname: document.getElementById("lsname").value,
+                fpname: document.getElementById("fpname").value,
+                lpname: document.getElementById("lpname").value,
+                phone: document.getElementById("phone").value,
+                email: document.getElementById("email").value,
+                preferd: document.getElementById("preferd").value,
+                check: document.getElementById("check").checked
+            }
         }
+        myData[index] = updatedData;
+            tableData();
+            clearForm();
+            document.getElementById("update").style.display = "block";
+            document.getElementById("add").style.display = "none";
+
+
+
     </script>
 </body>
 </html>
