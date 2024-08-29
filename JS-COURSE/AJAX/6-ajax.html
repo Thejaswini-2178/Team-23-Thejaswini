@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>AJAX</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>USER ID</th>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>COMPLETED</th>
+            </thead>
+        </table>
+        <script>
+            var xhr=[]
+            var ajax= new XMLHttpRequest();
+            var url='https://jsonplaceholder.typicode.com/todos'
+            ajax.open('Get',url,true);
+            ajax.onload=function(){
+                if(ajax.status>=200 && ajax.status<300){
+                    var data=JSON.parse(ajax.responseText);
+                    console.log(data);
+                }
+                else{
+                    console.error("Request is faild.status:"+ajax.status);
+                }
+            }
+            ajax.onerror=function(){
+                console.error("Request failed");
+            };
+            xhr.push(ajax)
+            ajax.send();
+            
+
+            for(i=0;i<xhr.length)
+
+
+        </script>
+    </body>
+</html>
