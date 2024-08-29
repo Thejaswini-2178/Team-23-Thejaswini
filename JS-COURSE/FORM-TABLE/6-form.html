@@ -3,70 +3,80 @@
         <title>form MAKING</title>
         <style>
             form{
-                border:30px solid green;
-                margin: auto;
-                width:500px;
+                border-radius: 50px;
+                border:30px solid rgba(0, 128, 0, 0.566);
+                margin:auto;
+                width:520px;
+                padding:20px;
+                background-color: wheat;
+            }
+            input[type="text"] {
+                width:310px;
             }
         </style>
     </head>
     <body>
         <form>
             <table>
+                <h1>ENROLEMENT FORM</h1>
                 <tr>
-                    <td><label for="">First name:</label></td>
-                    <td><input type="text"></td>
+                    <th><br>Personal Information</th>
                 </tr>
                 <tr>
-                    <td><label for="">Date of birth:</label></td>
-                    <td>
-                        <input type="text">
-                        <label for="">Gender</label>
+                    <td><br><label for="">First name:</label></td>
+                    <td><br><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><br><label for="">Date of birth:</label></td>
+                    <td><br>
+                        <input type="date" style="width: 70px;">
+                        <label for="">Gender:</label>
                         <input type="radio" name="gender">Male
                         <input type="radio" name="gender">Female
                     </td>
                     <tr>
                         <td><label for="">Home Address:</label></td>
-                        <td><input type="text">
-                        <td>
+                        <td><br><input type="text"><br>
                             <label for="">City</label>
-                            <input type="text">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <label for="">Sata</label>
-                            <input type="text">
-                            <label for="">Zip PIN:</label></td>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label for="">Zip PIN:</label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                            <input type="text" style="width:100px">
+                            <input type="text" style="width:100px">
+                            <input type="text" style="width:100px">
+                        </td> 
                     </tr>
                     <tr>
-                        <td><label for="">Email</label></td>
-                        <td><input type="text">
+                        <td><br><label for="">Email</label></td>
+                        <td><br><input type="text" style="width:130px">
                         <label for="">Phone</label>
-                       <input type="text"></td>
+                       <input type="text" style="width:130px"></td><br>
                     </tr>
-                   
-                </tr>
-                <hr>
-                <h1>Accadamic Information</h1>
                 <tr>
-                    <td><label for="">Previous School:</label></td>
-                    <td><input type="text"></td>
+                    <th><br>Accodamic Information</th>
                 </tr>
                 <tr>
-                    <td><label for="">Grade Level applayng for:</label></td>
-                    <td><input type="name" name="radio">Kindergarten
+                    <td><br><label for="">Previous School:</label>
+                    <td><br><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><br><label for="">Grade Level applayng for:</label></td>
+                    <td><br>
+                    <input type="radio" name="radio">Kindergarten
                     <input type="radio" name="radio">Middle Level
                     <input type="radio" name="radio">School level
                     </td>
                 </tr>
                 <tr>
-                    <td><label for=""> Desired Start Date:</label></td>
-                    <td><input type="text"></td>
+                    <td><br><label for=""> Desired Start Date:</label></td>
+                    <td><br><input type="text"></td>
                 </tr>
-                <tr>
-                    <td><label for="">Additional Information:</label></td>
-                </tr>
-                <tr>
-                    <td><input type="text"></td>
-                </tr>
-            
             </table>
+            <br>
+            <label for="">Adiitional information</label><br><br>
+            <textarea name="" id="address" style="width:490px;height:70px"></textarea>
         </form>
     </body>
 </html>

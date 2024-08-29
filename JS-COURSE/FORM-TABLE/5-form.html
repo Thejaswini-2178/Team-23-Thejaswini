@@ -14,84 +14,85 @@
         #update{
             display: none;
         }
-
-       
     </style>
 </head>
 <body>
-        <table>
-            <tr>
-                <td><label>School Name</label></td>
-            </tr>
-            <tr>
-                <td><input type="text" id="sname"></td>
-            </tr>
-            <tr>
-                <td><label>Schooler Name</label></td>
-            </tr>
-            <tr>
-                <td><input type="text" placeholder="First" id="fsname"></td>
-                <td><input type="text" placeholder="Last" id="lsname"></td>
-            </tr>
-            <tr>
-                <td><label>Parent Name</label></td>
-            </tr>
-            <tr>
-                <td><input type="text" placeholder="First" id="fpname"></td>
-                <td><input type="text" placeholder="Last" id="lpname"></td>
-            </tr>
-            <tr>
-                <td><label>Parent Phone</label></td>
-            </tr>
-            <tr>
-                <td><input type="tel" id="phone"></td>
-            </tr>
-            <tr>
-                <td><label>Parent Email</label></td>
-            </tr>
-            <tr>
-                <td><input type="email" id="email"></td>
-            </tr>
-            <tr>
-                <td><label>Preferred:</label></td>
-            </tr>
-            <tr>
-                <td><input type="text" id="preferd"></td>
-            </tr>
-            <tr>
-                <td>
-                    <label>Vacation:</label><br>
-                    <input type="checkbox" id="check">
-                </td>
-            </tr>
-            <tr>
-                <td><button type="button" id="submit" onclick="enterData()">Submit</button></td>
-                <td><button type="button" id="update" onclick="updateUser()">Update</button></td>
-            </tr>
-        </table>
+    <table>
+        <tr>
+            <td><label>School Name</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="sname"></td>
+        </tr>
+        <tr>
+            <td><label>Schooler Name</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="First" id="fsname"></td>
+            <td><input type="text" placeholder="Last" id="lsname"></td>
+        </tr>
+        <tr>
+            <td><label>Parent Name</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" placeholder="First" id="fpname"></td>
+            <td><input type="text" placeholder="Last" id="lpname"></td>
+        </tr>
+        <tr>
+            <td><label>Parent Phone</label></td>
+        </tr>
+        <tr>
+            <td><input type="tel" id="phone"></td>
+        </tr>
+        <tr>
+            <td><label>Parent Email</label></td>
+        </tr>
+        <tr>
+            <td><input type="email" id="email"></td>
+        </tr>
+        <tr>
+            <td><label>Preferred:</label></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="preferd"></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Vacation:</label><br>
+                <input type="checkbox" id="check">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="submit" onclick="enterData()">Submit</button>
+                <button type="button" id="update" onclick="updateUser()">Update</button>
+            </td>
+        </tr>
+    </table>
 
-        <table id="tabledata" border="1">
-            <thead>
-                <tr>
-                    <th>School Name</th>
-                    <th>Schooler First Name</th>
-                    <th>Schooler Last Name</th>
-                    <th>Parent First Name</th>
-                    <th>Parent Last Name</th>
-                    <th>Parent Phone</th>
-                    <th>Parent Email</th>
-                    <th>Preferred</th>
-                    <th>Vacation</th>
-                    <th>DEL</th>
-                    <th>EDIT</th>
-                </tr>
-            </thead>
-            <tbody id="myTbody"></tbody>
-        </table>
+    <table id="tabledata" border="1">
+        <thead>
+            <tr>
+                <th>School Name</th>
+                <th>Schooler First Name</th>
+                <th>Schooler Last Name</th>
+                <th>Parent First Name</th>
+                <th>Parent Last Name</th>
+                <th>Parent Phone</th>
+                <th>Parent Email</th>
+                <th>Preferred</th>
+                <th>Vacation</th>
+                <th>DEL</th>
+                <th>EDIT</th>
+            </tr>
+        </thead>
+        <tbody id="myTbody"></tbody>
+    </table>
+
     <script>
         var myData = [];
-        var currentIndex = null; // Index of the current record being edited
-        
+        var currentIndex = null;
+
         function enterData() {
             var data = {
                 sname: document.getElementById("sname").value,
@@ -109,8 +110,8 @@
                 // Update existing record
                 myData[currentIndex] = data;
                 currentIndex = null; // Reset index after update
-                document.getElementById("update").style.display = "block";
-                document.getElementById("submit").style.display = "none";
+                document.getElementById("update").style.display = "none";
+                document.getElementById("submit").style.display = "block";
             } else {
                 // Add new record
                 myData.push(data);
@@ -123,7 +124,10 @@
         function tableData() {
             var tbody = document.querySelector("#myTbody");
             tbody.innerHTML = "";
+ 
 
+
+            // it can also write in the for loop  style
             myData.forEach((data, i) => {
                 var tRow = document.createElement("tr");
                 for (var key in data) {
@@ -154,9 +158,9 @@
             myData.splice(i, 1);
             tableData();
         }
-        var index=null 
+
         function editUser(i) {
-            index = i;
+            currentIndex = i;
             var data = myData[i];
             document.getElementById("sname").value = data.sname;
             document.getElementById("fsname").value = data.fsname;
@@ -185,26 +189,27 @@
         }
 
         function updateUser() {
-            var updatedData = {
-                sname: document.getElementById("sname").value,
-                fsname: document.getElementById("fsname").value,
-                lsname: document.getElementById("lsname").value,
-                fpname: document.getElementById("fpname").value,
-                lpname: document.getElementById("lpname").value,
-                phone: document.getElementById("phone").value,
-                email: document.getElementById("email").value,
-                preferd: document.getElementById("preferd").value,
-                check: document.getElementById("check").checked
+            if (currentIndex !== null) {
+                var data = {
+                    sname: document.getElementById("sname").value,
+                    fsname: document.getElementById("fsname").value,
+                    lsname: document.getElementById("lsname").value,
+                    fpname: document.getElementById("fpname").value,
+                    lpname: document.getElementById("lpname").value,
+                    phone: document.getElementById("phone").value,
+                    email: document.getElementById("email").value,
+                    preferd: document.getElementById("preferd").value,
+                    check: document.getElementById("check").checked
+                };
+
+                myData[currentIndex] = data;
+                currentIndex = null; // Reset index after update
+                tableData();
+                clearForm();
+                document.getElementById("update").style.display = "none";
+                document.getElementById("submit").style.display = "block";
             }
         }
-        myData[index] = updatedData;
-            tableData();
-            clearForm();
-            document.getElementById("update").style.display = "block";
-            document.getElementById("add").style.display = "none";
-
-
-
     </script>
 </body>
 </html>
