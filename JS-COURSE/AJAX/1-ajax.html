@@ -1,26 +1,29 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AJAX</title>
 </head>
 
 <body>
   <table id="data-table" border="1">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Username</th>
-            <th>Password</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
     </thead>
     <tbody>
+      <!-- Data will be inserted here -->
     </tbody>
-</table>
+  </table>
+
   <script>
     // Create a new XMLHttpRequest object
-
-    var dataArray = [];
     var xhr = new XMLHttpRequest();
 
     // Specify the URL with the data source
@@ -35,6 +38,25 @@
         // Parse JSON data from the response
         var data = JSON.parse(xhr.responseText);
         console.log(data); // Log the data to the console
+
+        // Populate the table with data
+        var tbody = document.querySelector("#data-table tbody");
+        tbody.innerHTML = ""; // Clear existing table rows
+
+        data.forEach(function (item) {
+          var myTableRow = document.createElement("tr");
+          
+          // Create and append table cells
+          for (var key in item) {
+            if (item.hasOwnProperty(key)) {
+              var myTableData = document.createElement("td");
+              myTableData.innerHTML = item[key];
+              myTableRow.appendChild(myTableData);
+            }
+          }
+          
+          tbody.appendChild(myTableRow);
+        });
       } else {
         // Handle errors (e.g., 404 or 500)
         console.error('Request failed. Status: ' + xhr.status);
@@ -48,17 +70,6 @@
 
     // Send the request
     xhr.send();
-
-    for (i = 0; i < xhr.length; i++) {
-            var myTableRow = document.createElement("tr")
-            for (a in xhr[i]) {
-                var myTableData = document.createElement("td")
-                myTableData.innerHTML = xhr[i][a]
-                myTableRow.appendChild(myTableData);
-            }
-            document.querySelector("tbody").appendChild(myTableRow)
-        }
-
   </script>
 </body>
 
