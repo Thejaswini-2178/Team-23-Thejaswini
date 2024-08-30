@@ -6,22 +6,67 @@
   <title>AJAX</title>
 </head> 
 <body>
-  <table id="data-table" border="1">
+  <table border="1">
     <thead>
       <tr>
+        <th>ALBOM ID</th>
         <th>ID</th>
-        <th>Email</th>
-        <th>Username</th>
-        <th>Password</th>
+        <th>TITLE</th>
+        <th>URL</th>
+        <th>Thumbnail URL</th>
         <th>EDIT</th>
-        <th>DEL</th>
+        <th>DELETE</th>
       </tr>
     </thead>
-    <tbody>
-    </tbody>
+    <tbody></tbody>
   </table>
-  <script>
-    
-  </script>
+  <button onclick="getData()">GET DATA</button>
+    <script>
+      var api_url="https://jsonplaceholder.typicode.com/photos"
+      var myData=[]
+      function getData(){
+        var data=new XMLHttpRequest();
+        data.open("GET",api_url)
+        data.send()
+        data.onreadystatechange=function(){
+          if(data.readyState==4 && data.status==200){
+            myData=JSON.parse(data.response)
+            console.log(myData)
+            mydata()
+          }
+        }
+      }
+      function mydata(){
+        document.querySelector("tbody").innerHTML=""
+        for(i=0;i<myData.length;i++){
+          var Tr=document.createElement("tr")
+          for(a in myData[i]){
+          var Td=document.createElement("td")
+          Td.innerHTML=myData[i][a]
+          Tr.appendChild(Td)
+          }
+          // edit button
+          var editBTN=document.createElement("button")
+          var editTd=document.createElement("td")
+          editBTN.innerHTML="EDIT"
+          editBTN.setAttribute("onclick","editUser("+i+")")
+          editTd.appendChild(editBTN)
+          Tr.appendChild(editTd)
+
+          // delet button
+          var delBTN=document.createElement("button")
+          var delTd=document.createElement("td")
+          delBTN.innerHTML="DELETE"
+          delBTN.setAttribute("onclick","delUser("+i+")")
+          delTd.appendChild(delBTN)
+          Tr.appendChild(delTd)
+          document.querySelector("tbody").appendChild(Tr)
+        }
+      }
+      function delUser(i){
+        myData.push(1,i)
+        console.log("deleted the item"+i)
+      }
+    </script>
 </body>
 </html>
