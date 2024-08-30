@@ -1,0 +1,16 @@
+body{
+    /* color:white; */
+}
+div.row{
+    width: 300px;
+    padding:20px;
+    background-color: rgba(49, 48, 48, 0.842); 
+    color:white; 
+    margin: 10px;
+    display: block
+}
+div.row2{
+    float:left ;
+    display: block;
+}
+

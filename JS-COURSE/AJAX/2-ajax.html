@@ -8,49 +8,76 @@
 </head>
 
 <body>
-    <table id="data-table" border="1">
+    <table border="1" style="width: 100%;">
         <thead>
             <tr>
-                <th>SNO</th>
-                <th>TOTAL</th>
+                <th>ID</th>
+                <TH>USERID</TH>
                 <th>TITLE</th>
-                <th>DISCRIPTION</th>
+                <th>BODY</th>
+                <th>Edit</th>
             </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
     </table>
-
+    <button onclick="getData()">Get Data</button>
     <script>
-        var xhr = new XMLHttpRequest();
-        var url = 'https://jsonplaceholder.typicode.com/posts';
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                var data = JSON.parse(xhr.responseText);
-                console.log(data);
-                var tbody = document.querySelector("#data-table tbody");
-                tbody.innerHTML = "";
-
-                data.forEach(function (item) {
-                    var myTableRow = document.createElement("tr");
-                    for (var key in item) {
-                        if (item.hasOwnProperty(key)) {
-                            var myTableData = document.createElement("td");
-                            myTableData.innerHTML = item[key];
-                            myTableRow.appendChild(myTableData);
-                        }
-                    }
-                    tbody.appendChild(myTableRow);
-                });
-            } else {
-                console.error('Request failed. Status: ' + xhr.status);
+        var api_URL = "https://jsonplaceholder.typicode.com/posts"
+        var students = []
+        function getData() {
+            var getDataFromServer = new XMLHttpRequest();
+            getDataFromServer.open("GET", api_URL);
+            getDataFromServer.send();
+            getDataFromServer.onreadystatechange = function () {
+                if (getDataFromServer.readyState == 4 && getDataFromServer.status == 200) {
+                    students = JSON.parse(getDataFromServer.response)
+                    console.log(students)
+                    displayStudents()
+                }
             }
-        };
-        xhr.onerror = function () {
-            console.error('Request failed');
-        };
-        xhr.send();
+        }
+        function displayStudents() {
+            document.querySelector('tbody').innerHTML = ""
+            for (i = 0; i < students.length; i++) {
+                // Create a tr
+                var myTr = document.createElement("tr");
+                for (a in students[i]) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = students[i][a]
+                    myTr.appendChild(myTd);
+                }
+
+                // edit button
+                var editBTN = document.createElement("button")
+                var editTd = document.createElement("td")
+                editBTN.innerHTML = "EDIT"
+                editBTN.setAttribute("onclick","editUser("+i+")")
+                editTd.appendChild(editBTN)
+                myTr.appendChild(editTd)
+
+                // delet button
+                var delBTN = document.createElement("button")
+                var delTd = document.createElement("td")
+                delBTN.innerHTML = "DELETE"
+                delBTN.setAttribute("onclick","delUser("+i+")")
+                delTd.appendChild(delBTN)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            }
+        }
+        // DELETING THE ITEM IN THE TABLE
+        function delUser(i){
+            students.splice(1,i)
+            console.log("you deleted the data"+i)
+        }
+
+        
+
+        
+
+
+
+
     </script>
 </body>
 
