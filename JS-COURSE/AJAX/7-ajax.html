@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Ajax</title>
+    </head>
+    <body>
+        <script>
+            var api_url="https://jsonplaceholder.typicode.com/users"
+            var data=[]
+            function myData(){
+                var getData=new XMLHttpRequest()
+                getData.open("GET",api_url)
+                getData.sent()
+                getData.onreadystatechange=function(){
+                    if(getDate.redyState==4 && getData.status==200){
+                        data=JSON.parse(getData.readyState)
+                        console.log(getData)
+                    }
+                }
+            }
+            function displayData(){
+                document.querySelector("tbody").innerHTML=""
+                for(i=o;i<data.length;)
+            }
+        </script>
+    </body>
+</html>

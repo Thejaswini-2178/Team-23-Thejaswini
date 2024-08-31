@@ -8,51 +8,21 @@
 </head>
 
 <body>
-    <table id="data-table" border="1">
-        <thead>
-            <tr>
-                <th>SEQUENCE</th>
-                <th>COUNT</th>
-                <th>TITLE</th>
-                <th>URL-1</th>
-                <th>URL-2</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-
+    <button onclic="getData()">GETDATA</button>
     <script>
-        var xhr = new XMLHttpRequest();
-        var url = 'https://jsonplaceholder.typicode.com/photos';
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                var data = JSON.parse(xhr.responseText);
-                console.log(data);
-                var tbody = document.querySelector("#data-table tbody");
-                tbody.innerHTML = "";
-
-                data.forEach(function (item) {
-                    var myTableRow = document.createElement("tr");
-                    for (var key in item) {
-                        if (item.hasOwnProperty(key)) {
-                            var myTableData = document.createElement("td");
-                            myTableData.innerHTML = item[key];
-                            myTableRow.appendChild(myTableData);
-                        }
-                    }
-                    tbody.appendChild(myTableRow);
-                });
-            } else {
-                console.error('Request failed. Status: ' + xhr.status);
+       var api_url="https://jsonplaceholder.typicode.com/photos";
+       var myData=[]
+       function getData(){
+        var newData=new XMLHttpRequest();
+            newData.open("GET",api_url)
+            newData.send()
+            newData.onredystatechange=function(){
+                if(newDataredystate==4 && newData.status==200){
+                    mydata=JSON.parse(newData.response)
+                    console.log(mydata)
+                }
             }
-        };
-        xhr.onerror = function () {
-            console.error('Request failed');
-        };
-        xhr.send();
+        }
     </script>
 </body>
 
