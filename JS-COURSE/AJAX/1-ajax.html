@@ -33,7 +33,7 @@
             getDataFromServer.send()
             getDataFromServer.onreadystatechange=function(){
                 if(getDataFromServer.readyState==4 && getDataFromServer.status==200){
-                    myData=JSON.parse(getDataFromServer.response)
+                    myData=JSON.parse(getDataFromServer.readyState)
                     console.log(myData)
                     displayData()
                 }
@@ -76,14 +76,6 @@
             console.log("You  Deleting the data..."+i)
         }
         displayData()
-
-
-        
-
-        
-        
-
-
     </script>
 </body>
 

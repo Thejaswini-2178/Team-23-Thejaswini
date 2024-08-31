@@ -3,24 +3,68 @@
         <title>Ajax</title>
     </head>
     <body>
+        <table>
+            <thead>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button  id="button" onclick="myData()">GET DATA</button>
         <script>
             var api_url="https://jsonplaceholder.typicode.com/users"
             var data=[]
             function myData(){
                 var getData=new XMLHttpRequest()
                 getData.open("GET",api_url)
-                getData.sent()
+                getData.send()
                 getData.onreadystatechange=function(){
                     if(getDate.redyState==4 && getData.status==200){
                         data=JSON.parse(getData.readyState)
                         console.log(getData)
+                        displayData()
                     }
                 }
             }
             function displayData(){
-                document.querySelector("tbody").innerHTML=""
-                for(i=o;i<data.length;)
+                document.querySelector('tbody').innerHTML=""
+                for(i=0;i<data.length;i++){
+                    var myTr=document.createElement("tr")
+                    for(a in data[i]){
+                        var myTd=document.createElement("td")
+                        myTd.innerHTML=data[i]
+                        myTr.appendChild(myTd)
+                    }
+
+                    // create an edit button
+                    var editBTN=document.createElement("button")
+                    var editTd=document.createElement("td")
+                    editBTN.innerHTML="EDIT"
+                    editBTN.setAttribute("onclick","editUser("+i+")")
+                    editTd.appendChild(editBTN)
+                    editTr.appendChild(editTd)
+
+                    
+                    var delBTN=document.createElement("button")
+                    var delTd=document.createElement("td")
+                    delBTN.innerHTML="Delete"
+                    delBTN.set.setAttribute("onclick","delUser("+i+")")
+                    delTd.appendChild(editBTN)
+                    delTr.appendChild(editTd)
+                    document.querySelector("tbody").appendChild(myTr)
+
+                }
             }
+            
+            // 
+            function delUser(i){
+                data.splice(i,1)
+                console.log("You deleted the user..!!"+i)
+            }
+            displayData()
         </script>
     </body>
 </html>
