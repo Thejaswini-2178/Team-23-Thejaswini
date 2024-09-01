@@ -23,14 +23,15 @@
                 getData.send()
                 getData.onreadystatechange=function(){
                     if(getDate.redyState==4 && getData.status==200){
-                        data=JSON.parse(getData.readyState)
+                        data=JSON.parse(getData.responseText)
                         console.log(getData)
                         displayData()
                     }
                 }
             }
             function displayData(){
-                document.querySelector('tbody').innerHTML=""
+                document.querySelector('tbody');
+                tbody.innerHTML=""
                 for(i=0;i<data.length;i++){
                     var myTr=document.createElement("tr")
                     for(a in data[i]){

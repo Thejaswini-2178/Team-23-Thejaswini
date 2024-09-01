@@ -20,6 +20,8 @@
             <label>Degre</label><br>
             <input type="text" placeholder="e.g:btch, degree" id="degree"> <br><br>
             <button type="submit" id="sub"> SUBMIT</button>
+            <button type="submit" id="sub"> SUBMIT</button>
+
        </form>     
     </div>
     <div id="form2">
@@ -83,9 +85,67 @@
                     myTd.innerHTML = myData[a]
                     myTr.appendChild(myTd);
                 }
+                 var editTd = document.createElement("td");
+                var editButton = document.createElement("button");
+                editButton.setAttribute("onclick","editUser("+i+")")
+
+                editButton.innerHTML = "Edit"
+                editTd.appendChild(editButton)
+                myTr.appendChild(editTd);
+
+                var deleteTd = document.createElement("td");
+                var deleteButton = document.createElement("button")
+                deleteButton.innerHTML ="Delete";
+                deleteButton.setAttribute("onclick","deleteUser("+i+")")
+                deleteTd.appendChild(deleteButton)
+                myTr.appendChild(deleteTd);
                 document.querySelector("tbody").appendChild(myTr);
             })
         }
-    console.log(form)
+        function deleteUser(i){
+            var deleteData = new XMLHttpRequest();
+            deleteData.open("DELETE","http://localhost:3000/users"+data[i].id);
+            deleteData.send();
+            deleteData.onreadystatechange = function(){
+                if(deleteData.readyState == 4 && deleteData.status == 200){
+                    getDataFromServer();
+                }
+            }
+            
+        }
+        var index = null;
+        function editUser(i){
+            index=i;
+            console.log(data[i])
+            var editData = [i];
+            for(a in editData){
+                console.log(a)
+            }
+            document.querySelector("submit").style.display="block";
+            document.querySelector("update").style.display="none";
+        }
+
+        document.querySelector("update").onclick=function(e){
+            e.preventDefault();
+            console.log("Updated Caled !!");
+            var dataget = {
+                id: document.getElementById("id").value,
+                firstname: document.getElementById("fname").value,
+                lastname:document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+                degree: document.getElementById("degree").value
+            }
+            var postdataget = new XMLHttpRequest();
+            postdataget.open("PUT", "http://localhost:3000/users/"+[index].id);
+            postdataget.setRequestHeader("Content-Type", "Application/json");
+            postdataget.send(JSON.stringify(dataget));
+            postdataget.onreadystatechange = function (){
+                if(postdataget.readyState == 4 && postdataget.status == 201){
+                    console.log("User Added Successfully ");
+                    getDataFromServer()
+                }
+            }
+            
+        }
 </script>
 </html>

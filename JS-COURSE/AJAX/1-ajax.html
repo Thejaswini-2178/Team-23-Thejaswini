@@ -6,76 +6,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX</title>
 </head>
+
 <body>
     <table border="1">
-        <tbody>
-            <th>Post ID</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Body</th>
-            <th>EDIT</th>
-            <th>DELET</th>
-        </tbody>
+        <thead>
+            <tr>
+                <th>Post ID</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Body</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
     </table>
-    <!-- step-2 add the GETDATA BUTTON -->
     <button onclick="getData()">GET DATA</button>
     <script>
+        var api_url = "https://jsonplaceholder.typicode.com/comments";
+        var myData = [];
 
-        // step-1: to assign the api ans creating the empty array
-        var api_url="https://jsonplaceholder.typicode.com/comments"
-        var myData=[]
-
-        //  step-3writting the function for on click function
-        function getData(){
-            var getDataFromServer=new XMLHttpRequest()
-            getDataFromServer.open("GET",api_url)
-            getDataFromServer.send()
-            getDataFromServer.onreadystatechange=function(){
-                if(getDataFromServer.readyState==4 && getDataFromServer.status==200){
-                    myData=JSON.parse(getDataFromServer.readyState)
-                    console.log(myData)
-                    displayData()
+        function getData() {
+            var getDataFromServer = new XMLHttpRequest();
+            getDataFromServer.open("GET", api_url);
+            getDataFromServer.send();
+            getDataFromServer.onreadystatechange = function () {
+                if (getDataFromServer.readyState == 4 && getDataFromServer.status == 200) {
+                    myData = JSON.parse(getDataFromServer.responseText);
+                    console.log(myData);
+                    displayData();
                 }
             }
         }
-        // step-4 create a function for writing the code formineting into the data,
-        function displayData(){
-            document.querySelector('tbody').innerHTML = ""
-            for(i=0;i<myData.length;i++){
-                var myTr=document.createElement("tr")
-                for(a in myData[i]){
-                    var myTd=document.createElement("td")
-                    myTd.innerHTML=myData[i][a]
-                    myTr.appendChild(myTd)
+
+        function displayData() {
+            var tbody = document.querySelector('tbody');
+            tbody.innerHTML = "";  // Clear existing table data
+            for (let i = 0; i < myData.length; i++) {
+                var myTr = document.createElement("tr");
+
+                // Add data cells
+                for (var key in myData[i]) {
+                    if (myData[i].hasOwnProperty(key)) {
+                        var myTd = document.createElement("td");
+                        myTd.innerHTML = myData[i][key];
+                        myTr.appendChild(myTd);
+                    }
                 }
 
-                // step-5:creating the  edit & delet button
-                var editBUT=document.createElement("button")
-                var editTd=document.createElement("td")
-                editBUT.innerHTML="Edit"
-                editBUT.setAttribute("onclick","editUser("+i+")")
-                editTd.appendChild(editBUT)
-                myTr.appendChild(editTd)
+                // Edit button
+                var editBut = document.createElement("button");
+                editBut.innerHTML = "Edit";
+                editBut.setAttribute("onclick", "editUser(" + i + ")");
+                var editTd = document.createElement("td");
+                editTd.appendChild(editBut);
+                myTr.appendChild(editTd);
 
-                // delbutton
-                var delBUT=document.createElement("button")
-                var delTd=document.createElement("td")
-                delBUT.innerHTML="DELETE"
-                delBUT.setAttribute("onclick","delUser("+i+")")
-                delTd.appendChild(delBUT)
-                myTr.appendChild(delTd)
-                document.querySelector("tbody").appendChild(myTr)
+                // Delete button
+                var delBut = document.createElement("button");
+                delBut.innerHTML = "DELETE";
+                delBut.setAttribute("onclick", "delUser(" + i + ")");
+                var delTd = document.createElement("td");
+                delTd.appendChild(delBut);
+                myTr.appendChild(delTd);
+
+                tbody.appendChild(myTr);
             }
         }
 
-        // step-6 delet function 
-
-        function delUser(i){
-            myData.splice(i,1)
-            console.log("You  Deleting the data..."+i)
+        function delUser(i) {
+            myData.splice(i, 1);
+            console.log("You are deleting the data at index: " + i);
+            displayData();  // Update table after deletion
         }
-        displayData()
+
+        function editUser(i) {
+            console.log("Edit functionality not implemented for index: " + i);
+            // Implement your edit functionality here
+        }
     </script>
 </body>
 

@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": "cd83",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "8d61",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "9902",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "a75c",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "b69a",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "ec27",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    },
+    {
+      "id": "68f1",
+      "firstname": "Thejaswini",
+      "lastname": "Yellumgudla",
+      "email": "pallavisatla2006@gmail.com",
+      "degree": "engineering"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+
+div#form1{
+    width: 800px;
+    padding:20px;
+    background-color: rgba(32, 31, 31, 0.594);
+    color:black;
+    overflow: auto;
+}
+div#form2{
+    width: 800px;
+    background-color: rgba(90, 86, 86, 0.283);
+   
+}
