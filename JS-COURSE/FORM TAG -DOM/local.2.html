@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form>
+        <div>
+            <label for="name">Name:</label> <br>
+            <input type="text" id="name" name="name"><br>
+        </div>
+        <div>
+            <label for="id">ID:</label> <br>
+            <input type="text" id="id" name="id"><br>
+        </div>
+        <div>
+            <label for="email">Email:</label> <br>
+            <input type="email" id="email" name="email"><br>
+        </div>
+        <div>
+            <label for="phone">Phone Number:</label> <br>
+            <input type="tel" id="phone" name="phone"><br>
+        </div>
+        <div>
+            <label for="district">District:</label> <br>
+            <input type="text" id="district" name="district"><br>
+        </div>
+        <div>
+            <label for="state">State:</label>
+            <select id="state" name="state">
+                <option>Select State</option>
+                <option>AP</option>
+                <option>TS</option>
+                <option>KS</option>
+                <!-- Add more states as needed -->
+            </select>
+        </div>
+        <div><br>
+            <input type="submit" value="Submit">
+        </div>
+    </form><br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>District</th>
+                <th>state</th>
+            </tr>
+            <tbody></tbody>
+        </thead>
+    </table>
+    <script>
+        var students=[]
+        var form= document.querySelector("tbody")
+        form.onclick=function(e){
+            e.preventDefault();
+            var student={
+                name:document.getElementById("name").value,
+                id:document.getElementById("id").value,
+                email:document.getElementById("email").value,
+                phone:document.getElementById("phone").value,
+                district:document.getElementById("district").value,
+                state:document.getElementById("state").value
+            }
+
+            // creating an instence of xmlHttpRequest
+            var postStudent= new XMLHttpRequest();
+            postStudent.open("POST","http://localhost:3000/users")
+            postStudent.setRequestHeader("Content-Type","Application/json");
+            postStudent.send(JSON.stringify(student));
+            postStudent.onreadystatechange=function(){
+                if(postStudent.readyState==4 && postStudent.status==200){
+                    console.log("User is added sucessfully");
+                    getDataFromServer()
+                }
+            }
+        }
+
+        // GETTING THE DATA
+        function getDataFromServer(){
+            var getData=new XMLHttpRequest();
+            getData.open("GET","http://localhost:3000/users");
+            getData.send();
+            getData.onreadystatechange=function(){
+                if(getData.readyState==4 && getData.status==200){
+                    students=JSON.parse(getData.response);
+                    displayAllStudents()
+                }
+            }
+        }
+        getDataFromServer()
+
+        function displayAllStudents(){
+            document.querySelector("tbody").innerHTML=""
+            console.log("student",students)
+            students.forEach((student,i)=>{
+                var myTr=document.createElement("tr");
+                for(a in student){
+                    myTd.innerHTML=student[a]
+                    myTr.appendChild(myTd);
+                }
+                document.querySelector("tbody").appendChild(myTr)
+            })
+        }
+    </script>
+   
+</body>
+</html>

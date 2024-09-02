@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./local1.css">
+</head>
+<body>
+    <div id="form1">
+       <form>
+            <label for="">ID</label><br>
+            <input type="text" placeholder="enter you id" id="id"><br>
+            <label>First name</label> <br>
+            <input type="text" placeholder="enter first name" id="fname"><br>
+            <label>Last name</label><br>
+            <input type="text" placeholder="enter last name" id="lname"><br>
+            <label>Wmail Address</label><br>
+            <input type="email" placeholder="enter your email:" id="email"><br>
+            <label>Degre</label><br>
+            <input type="text" placeholder="e.g:btch, degree" id="degree"> <br><br>
+            <button type="submit" id="sub"> SUBMIT</button>
+       </form>     
+    </div>
+    <div id="form2">
+        <table border="1" cellspasing="0">
+            <thead>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Degree</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+<script>
+    var data=[]
+    var form=document.querySelector("form")
+    form.onsubmit=function(e){
+        e.preventDefault();
+        var myData={
+            id:getElementById("id").value,
+            firstname:document.getElementById("fname").value,
+            lastname:document.getElementById("lname").value,
+            email:document.getElementById("email").value,
+            degree:document.getElementById("degree").value,
+        }
+        // creating the instance of the ajax
+        var postData=new XMLHttpRequest();
+        postData.open("POST","http://localhost:3000/users");
+        postData.setRequestHeader("Content-Type","Application/json")
+        postData.send(JSON.stringify(myData));
+        postData.onreadystatechange=function(){
+            if(postData.readyState==4 && postData.status==201){
+                console.log("USER ADDED SUCESSFULLY")
+            }
+        }
+    }
+    // getting data 
+
+    function getDataFromServer(){
+            var getData = new XMLHttpRequest();
+            getData.open("GET","http://localhost:3000/users");
+            getData.send();
+            getData.onreadystatechange = function(){
+                if(getData.readyState == 4 && getData.status == 200){
+                    data = JSON.parse(getData.response);
+                    displaAlldata()
+                }
+            }
+        }
+        getDataFromServer();
+
+        function displaAlldata(){
+            document.querySelector("tbody").innerHTML = ""
+            console.log("data",data)
+            data.forEach((myData)=>{
+                var myTr = document.createElement("tr");
+                for(a in myData){
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = myData[a]
+                    myTr.appendChild(myTd);
+                }
+                 var editTd = document.createElement("td");
+                var editButton = document.createElement("button");
+                editButton.setAttribute("onclick","editUser("+i+")")
+
+                editButton.innerHTML = "Edit"
+                editTd.appendChild(editButton)
+                myTr.appendChild(editTd);
+
+                var deleteTd = document.createElement("td");
+                var deleteButton = document.createElement("button")
+                deleteButton.innerHTML ="Delete";
+                deleteButton.setAttribute("onclick","deleteUser("+i+")")
+                deleteTd.appendChild(deleteButton)
+                myTr.appendChild(deleteTd);
+                document.querySelector("tbody").appendChild(myTr);
+            })
+        }
+        console.log(form)
+        // function deleteUser(i){
+        //     var deleteData = new XMLHttpRequest();
+        //     deleteData.open("DELETE","http://localhost:3000/users/"+students[i].id);
+        //     deleteData.send();
+        //     deleteData.onreadystatechange = function(){
+        //         if(deleteData.readyState == 4 && deleteData.status == 200){
+        //             getDataFromServer();
+        //         }
+        //     }
+            
+        // }
+        // var index = null;
+        // function editUser(i){
+        //     index=i;
+        //     console.log(students[i])
+        //     var editStudent = students[i];
+        //     for(a in editStudent){
+        //         console.log(a)
+        //         if(a !== "fullName"){
+        //             document.getElementById(a).value = editStudent[a]
+        //         }else{
+        //             var firstName = editStudent[a].split(" ")[0]
+        //             var lastName = editStudent[a].split(" ")[1]
+        //             document.getElementById("first-name").value = firstName
+        //             document.getElementById("last-name").value = lastName
+        //         }
+        //     }
+        //     document.querySelector(".update-btn").style.display="block";
+        //     document.querySelector(".submit-btn").style.display="none";
+        // }
+
+        // document.querySelector(".update-btn").onclick=function(e){
+        //     e.preventDefault();
+        //     console.log("Updated Caled !!");
+        //     var student = {
+        //         fullName: document.getElementById("first-name").value + " " + document.getElementById("last-name").value,
+        //         gender: document.getElementById("gender").value,
+        //         email: document.getElementById("email").value,
+        //         id: document.getElementById("id").value,
+        //         classes: document.getElementById("classes").value
+        //     }
+        //     var postStudent = new XMLHttpRequest();
+        //     postStudent.open("PUT", "http://localhost:3000/users/"+students[index].id);
+        //     postStudent.setRequestHeader("Content-Type", "Application/json");
+        //     postStudent.send(JSON.stringify(student));
+        //     postStudent.onreadystatechange = function (){
+        //         if(postStudent.readyState == 4 && postStudent.status == 201){
+        //             console.log("User Added Successfully ");
+        //             getDataFromServer()
+        //         }
+        //     }
+            
+        // }
+</script>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, rgb(141, 211, 235), rgb(6, 6, 136));
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-between;
+            margin: 50px auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .form-container, .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-header, .table-header {
+            background-color: rgb(37, 7, 208);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"], 
+        .form-group input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form-group .radio-label {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .form-group button {
+            background-color: rgb(68, 38, 235);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .form-group button:hover {
+            background-color: rgb(50, 30, 180);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgb(37, 7, 208);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h4>Registration Form</h4>
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city">
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input type="text" id="country" name="country">
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <label class="radio-label"><input type="radio" name="gender" value="female"> Female</label>
+                    <label class="radio-label"><input type="radio" name="gender" value="male"> Male</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                    <button type="button">Update</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div class="table-header">
+                <h4>Table</h4>
+            </div>
+            <div class="table-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will go here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
