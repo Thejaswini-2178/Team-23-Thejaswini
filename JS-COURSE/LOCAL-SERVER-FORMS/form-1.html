@@ -1,123 +1,132 @@
 <html>
-    <head>
-        <title>form</title>
-        <style>
-            body{
-                background-image: linear-gradient(to bottom right,rgb(141, 211, 235),rgb(6, 6, 136));
-            }
-            div#maindiv{
-                background-color: white;
-                width:300px;
-                height: 390px;
-                margin:50px;
-                float: left;;
-                overflow: auto;
-            }
-            #hedder{
-                background-color: rgb(37, 7, 208);
-                color: white;
-                height: 30px;
+
+<head>
+    <title>form</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, rgb(141, 211, 235), rgb(6, 6, 136));
+            background-size: 100%;
+        }
+        div#maindiv {
+            background-color: white;
+            width: 627px;
+            height: 368px;
+            margin-left: 40px;
+            float: left;
+            overflow: auto;
+        }
+        .hedder {
+            background-color: rgb(37, 7, 208);
+            color: white;
+            height: 30px;
+            text-align: center;
+            width: 300px;
+            margin: 2px;
+            h4 {
                 text-align: center;
-                h4{
-                    text-align: center;
-                    padding-top: 5px;
-                }
+                padding-top: 5px;
             }
-            #div1{
-                padding:10px;
+        }
+        #div1 {
+            padding: 10px;
+        }
+        .child1 {
+            width: 100px;
+            padding-right: 30px;
+            display: inline-block;
+
+            input {
+                width: 120px;
             }
-            .child1{
-                width:100px;
-                padding-right:30px;
-                display:inline-block;
-                input{
-                    width:120px;
-                }
+        }
+        .child {
+            padding-top: 10px;
+        }
+
+        #footer {
+            background-color: rgb(37, 11, 184);
+            height: 30px;
+        }
+
+        button {
+            background-color: rgb(68, 38, 235);
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            margin-left: 50px;
+            color: white
+        }
+        .container {
+            float: left;
+            overflow: auto;
+
+            div#content {
+                padding: 20px;
             }
-            .child{
-                padding-top: 10px;
-            }
-            #footer{
-                background-color: rgb(37, 11, 184);
-                height:30px;
-            }
-            button{
-                background-color: rgb(68, 38, 235);
-                border: none;
-                margin-top:10px;
-                border-radius: 5px;
-                margin-left:100px;
-                color:white
-            }
-            #maindiv2{
-                overflow: auto;
-                background-color: white;
-                h4{
-                    background-color: blue;
-                }
-            }
-            .container{
-                display: inline-block;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="maindiv">
-           <div class="container">
-                <div id="hedder">
-                    <h4>REGISTRATION FORM</h4>
+        }
+        table {
+            width: 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div class="container">
+            <div class="hedder">
+                <h4>REGISTRATION FORM</h4>
+            </div>
+            <div id="div1">
+                <div class="child1">
+                    <label>First Name</label><br>
+                    <input type="text" id="fname">
                 </div>
-                <div id="div1">
-                    <div class="child1">
-                        <label>First Name</label><br>
-                        <input type="text" id="fname">
-                    </div>
-                    <div class="child1">
-                        <label>Last Name</label><br>
-                        <input type="text" id="fname">
-                    </div>
-                    <div class="child">
-                        <label>Email ID</label><br>
-                        <input type="email" id="email">
-                    </div>
-                    <div class="child">
-                        <label>City</label><br>
-                        <input type="text" id="city">
-                    </div>
-                    <div class="child">
-                        <label>Country</label><br>
-                        <input type="text" id="country">
-                    </div>
-                    <div class="child">
-                        <label>Gender</label><br>
-                        <input type="radio" name="gender">Female <br>
-                        <input type="radio" name="gender">Male
-                    </div>
-                    <div class="child">
-                        <button type="submit" id="submit">SUBMIT</button>
-                        <button type="submit" id="update">UPDATE</button>
-                    </div>
+                <div class="child1">
+                    <label>Last Name</label><br>
+                    <input type="text" id="fname">
+                </div>
+                <div class="child">
+                    <label>Email ID</label><br>
+                    <input type="email" id="email">
+                </div>
+                <div class="child">
+                    <label>City</label><br>
+                    <input type="text" id="city">
+                </div>
+                <div class="child">
+                    <label>Country</label><br>
+                    <input type="text" id="country">
+                </div>
+                <div class="child">
+                    <label>Gender</label><br>
+                    <input type="radio" name="gender">Female <br>
+                    <input type="radio" name="gender">Male
+                </div>
+                <div class="child">
+                    <button type="submit" id="submit">SUBMIT</button>
+                    <button type="submit" id="update">UPDATE</button>
                 </div>
             </div>
-    </div>
-    <div class="container">
-        <div id="maindiv2">
-            <h4>Table</h4>
-            <div id="hedder1">
+        </div>
+        <div class="container">
+            <div class="hedder">
+                <h4>Table Data</h4>
             </div>
-            <div id="div2"> 
-                <table border="1">
-                    <thead>
+            <div id="contant">
+                <table border="1" cellspacing="0">
+                    <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>City</th>
                         <th>Country</th>
                         <th>Gender</th>
-                    </thead>
-                </table>   
+                    </tr>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
     </div>
-    </body>
+</body>
+
 </html>
