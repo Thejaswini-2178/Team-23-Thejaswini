@@ -1,10 +1,222 @@
-<html>
-    <head>
-        <title>Promiss</title>
-    </head>
-    <body>
-        <form>
-            <input type="text" id="fnam">
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            background-color: rgb(15, 70, 137);
+            color: white;
+        }
+        table {
+            border: solid white 2px;
+            padding: 30px;
+            margin: 50px;
+        }
+        input#num1,
+        #num2 {
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+    <table cellspacing="15px">
+        <tr>
+            <td><label>University:</label></td>
+            <td><input type="text" id="university"></td>
+        </tr>
+        <tr>
+            <td><label>Institute:</label></td>
+            <td><input type="text" id="insti"></td>
+        </tr>
+        <tr>
+            <td><label>Branch:</label></td>
+            <td><input type="text" id="branch"></td>
+        </tr>
+        <tr>
+            <td><label>Degree:</label></td>
+            <td>
+                <input type="text" id="field">
+                <input type="radio" name="degree" value="Pursing">Pursing
+                <input type="radio" name="degree" value="Completed">Completed
+            </td>
+        </tr>
+        <tr>
+            <td><label>Average CPI:</label></td>
+            <td>
+                <input type="number" id="num1"> Upto
+                <input type="number" id="num2"> The Semester
+            </td>
+        </tr>
+        <tr>
+            <td><label>Experience:</label></td>
+            <td><input type="number" id="expe"> Year</td>
+        </tr>
+        <tr>
+            <td><label>Your Website Blog:</label></td>
+            <td><input type="url" id="url"></td>
+        </tr>
+        <tr>
+            <th><button type="button" id="submit" onclick="enterData()">SUBMIT</button></th>
+            <th><button type="button" id="Update" onclick="updateData()" style="display:none;">UPDATE</button></th>
+        </tr>
+    </table>
+
+    <table id="tabledata" border="1">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Institute</th>
+                <th>Branch</th>
+                <th>Degree</th>
+                <th>Field</th>
+                <th>Avg CPI Start</th>
+                <th>Avg CPI End</th>
+                <th>Experience</th>
+                <th>Website Blog</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="myTbody"></tbody>
+    </table>
+
+    <script>
+        var data = [];
+        var index = null;
+
+        function addDataAsync(newData) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    data.push(newData);
+                    resolve();
+                }, 100); // Simulate an async operation with a delay
+            });
+        }
+
+        function enterData() {
+            var newData = {
+                university: document.getElementById("university").value,
+                institute: document.getElementById("insti").value,
+                branch: document.getElementById("branch").value,
+                field: document.getElementById("field").value,
+                degree: document.querySelector('input[name="degree"]:checked') ? document.querySelector('input[name="degree"]:checked').value : "",
+                avgCPIstart: document.getElementById("num1").value,
+                avgCPIend: document.getElementById("num2").value,
+                experience: document.getElementById("expe").value,
+                websiteBlog: document.getElementById("url").value,
+            };
+
+            addDataAsync(newData).then(() => {
+                displayData();
+                clearForm();
+            });
+        }
+
+        function displayData() {
+            document.querySelector('#myTbody').innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                var myTr = document.createElement("tr");
+                for (var key in data[i]) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = data[i][key];
+                    myTr.appendChild(myTd);
+                }
+
+                // Edit Td
+                var editTd = document.createElement('td');
+                var editBtn = document.createElement('button');
+                editBtn.innerHTML = "Edit";
+                editBtn.setAttribute("onclick", "editUser(" + i + ")");
+                editTd.appendChild(editBtn);
+                myTr.appendChild(editTd);
+
+                // Delete Td
+                var deleteTd = document.createElement('td');
+                var deleteBtn = document.createElement("button");
+                deleteBtn.innerHTML = "Delete";
+                deleteBtn.setAttribute('onclick', "deleteUser(" + i + ")");
+                deleteTd.appendChild(deleteBtn);
+                myTr.appendChild(deleteTd);
+
+                document.querySelector("#myTbody").appendChild(myTr);
+            }
+        }
+
+        function editUser(i) {
+            index = i;
+            console.log("edit item is called..." + i);
+            document.getElementById("university").value = data[i].university;
+            document.getElementById("insti").value = data[i].institute;
+            document.getElementById("branch").value = data[i].branch;
+            document.getElementById("field").value = data[i].field;
+
+            var degreeValue = data[i].degree;
+            var degreeRadio = document.querySelector(`input[name="degree"][value="${degreeValue}"]`);
+            if (degreeRadio) {
+                degreeRadio.checked = true;
+            } else {
+                console.log(`No radio button found for degree value: ${degreeValue}`);
+            }
+
+            document.getElementById("num1").value = data[i].avgCPIstart;
+            document.getElementById("num2").value = data[i].avgCPIend;
+            document.getElementById("expe").value = data[i].experience;
+            document.getElementById("url").value = data[i].websiteBlog;
+
+            document.getElementById("submit").style.display = "none"; // Hide submit button
+            document.getElementById("Update").style.display = "block"; // Show update button
+        }
+
+        function clearForm() {
+            document.getElementById("university").value = "";
+            document.getElementById("insti").value = "";
+            document.getElementById("branch").value = "";
+            document.getElementById("field").value = "";
+            var degreeRadios = document.getElementsByName("degree");
+            for (var i = 0; i < degreeRadios.length; i++) {
+                degreeRadios[i].checked = false;
+            }
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("expe").value = "";
+            document.getElementById("url").value = "";
+        }
+
+        function deleteUser(i) {
+            console.log("deleteUser Called !!" + i);
+            data.splice(i, 1);
+            displayData();
+        }
+
+        function updateData() {
+            var updatedData = {
+                university: document.getElementById("university").value,
+                institute: document.getElementById("insti").value,
+                branch: document.getElementById("branch").value,
+                field: document.getElementById("field").value,
+                degree: document.querySelector('input[name="degree"]:checked') ? document.querySelector('input[name="degree"]:checked').value : "",
+                avgCPIstart: document.getElementById("num1").value,
+                avgCPIend: document.getElementById("num2").value,
+                experience: document.getElementById("expe").value,
+                websiteBlog: document.getElementById("url").value,
+            };
+
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    data[index] = updatedData;
+                    resolve();
+                }, 100); // Simulate an async operation with a delay
+            }).then(() => {
+                displayData();
+                clearForm();
+                document.getElementById("Update").style.display = "none"; // Hide update button
+                document.getElementById("submit").style.display = "block"; // Show submit button
+            });
+        }
+
+        displayData(); // Initialize display
+    </script>
+</body>
 </html>
