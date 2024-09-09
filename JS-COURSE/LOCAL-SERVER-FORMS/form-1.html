@@ -83,7 +83,7 @@
                 </div>
                 <div class="child1">
                     <label>Last Name</label><br>
-                    <input type="text" id="fname">
+                    <input type="text" id="lname">
                 </div>
                 <div class="child">
                     <label>Email ID</label><br>
@@ -128,7 +128,37 @@
         </div>
     </div>
     <script>
-        
+        var data=[]
+        var index=null;
+        function enterdata(){
+            var newData = {
+                firstname:document.getElementById("fname"),
+                lastname:document.getElementById("lname"),
+                email:document.getElementById("email"),
+                city:document.getElementById("city"),
+                country:document.getElementsByName("country"),
+                gender:document.getElementsByName("gender") 
+            } 
+            data.push(newdata);
+            displayData()
+        }    
+
+        function displayData(){
+            document.querySelector(tbody).innerHTML=" ";
+            for (var i=0;i<data.length;i++){
+                var myTr = document.createElement("tr");
+                for(a in data[i]){
+                    var myTd=document.createElement("td");
+                    myTd.innerHTML=data[i][a];
+                    myTr.appendChild(myTd);
+                }
+
+                var editTd=document.createElement("td");
+                var editBtn=documenet.createElement("button");
+                
+            }
+
+        }
     </script>
 </body>
 </html>
