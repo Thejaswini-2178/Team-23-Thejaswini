@@ -155,7 +155,19 @@
 
                 var editTd=document.createElement("td");
                 var editBtn=documenet.createElement("button");
-                
+                editBtn.innerHTML="Delete";
+                editBtn.setAttribute('onclick',"editUser("+i+")");
+                editTd.appendChild(editBtn)
+                myTr.appendChild(editTd);
+
+                var deleteBtn=document.createElement("td");
+                var deleteTd=document.createElement("button");
+                deleteBtn.innerHTML="Delete";
+                deleteBtn.setAttribute('onclick',"deletUser("+i+")");
+                deleteTd.appendChild(editBtn)
+                myTr.appendChild(editTd);
+
+                document.querySelector("tbody").appendChild(myTR)
             }
 
         }
