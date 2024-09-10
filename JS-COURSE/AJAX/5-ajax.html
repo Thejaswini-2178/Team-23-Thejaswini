@@ -8,20 +8,59 @@
 </head>
 
 <body>
-    <button onclic="getData()">GETDATA</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ALBOM ID</th>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>URL</th>
+                <th>Thumbnail URL</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button onclick="getData()">GET DATA</button>
     <script>
-       var api_url="https://jsonplaceholder.typicode.com/photos";
-       var myData=[]
-       function getData(){
-        var newData=new XMLHttpRequest();
-            newData.open("GET",api_url)
-            newData.send()
-            newData.onredystatechange=function(){
-                if(newDataredystate==4 && newData.status==200){
-                    mydata=JSON.parse(newData.response)
-                    console.log(mydata)
+        var api_url = "https://jsonplaceholder.typicode.com/photos";
+        var myData = []
+        function getData() {
+            var data = new XMLHttpRequest();
+            data.open("GET", api_url)
+            data.send()
+            data.onreadystatechange = function () {
+                if (data.readyState == 4 && data.status == 200) {
+                    myData = JSON.parse(data.responseText)
+                    console.log(myData)
+                    tableData()
+
                 }
             }
+        }
+        function tableData() {
+            document.querySelector("tbody").innerHTML = ""
+            for (var i = 0; i < myData.length; i++) {
+                var Tr = document.createElement("tr")
+                for (a in myData[i]) {
+                    var Td = document.createElement("td")
+                    Td.innerHTML = myData[i][a]
+                    Tr.appendChild(Td)
+                }
+                // delet button
+                var delBTN = document.createElement("button")
+                var delTd = document.createElement("td")
+                delBTN.innerHTML = "DELETE"
+                delBTN.setAttribute("onclick", "delUser(" + i + ")")
+                delTd.appendChild(delBTN)
+                Tr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(Tr)
+            }
+        }
+        function delUser(i) {
+            myData.splice(i, 1)
+            console.log("deleted the item" + i)
+            tableData()
         }
     </script>
 </body>

@@ -38,7 +38,7 @@
       }
       function mydata(){
         document.querySelector("tbody").innerHTML=""
-        for(i=0;i<myData.length;i++){
+        for( var i=0;i<myData.length;i++){
           var Tr=document.createElement("tr")
           for(a in myData[i]){
           var Td=document.createElement("td")
@@ -64,8 +64,9 @@
         }
       }
       function delUser(i){
-        myData.push(1,i)
+        myData.splice(i,1)
         console.log("deleted the item"+i)
+        mydata()
       }
     </script>
 </body>

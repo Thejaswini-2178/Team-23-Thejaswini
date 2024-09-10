@@ -11,45 +11,56 @@
     <table id="data-table" border="1">
         <thead>
             <tr>
-                <th>SEQUENCE</th>
-                <th>COUNT</th>
+                <th>User</th>
+                <th>Id</th>
                 <th>TITLE</th>
-                
+                <th>Delet</th>
             </tr>
         </thead>
-        <tbody>
-        </tbody>
+        <tbody></tbody>
     </table>
-
+    <button type="button" onclick="getData()">GET DATA</button>
     <script>
-        var url = 'https://jsonplaceholder.typicode.com/commentshttps://jsonplaceholder.typicode.com/albums';
-        xhr.open('GET', url, true);
-        xhr.onload = function () {
-            if (xhr.status >= 200 && xhr.status < 300) {
-                var data = JSON.parse(xhr.responseText);
-                console.log(data);
-                var tbody = document.querySelector("#data-table tbody");
-                tbody.innerHTML = "";
-
-                data.forEach(function (item) {
-                    var myTableRow = document.createElement("tr");
-                    for (var key in item) {
-                        if (item.hasOwnProperty(key)) {
-                            var myTableData = document.createElement("td");
-                            myTableData.innerHTML = item[key];
-                            myTableRow.appendChild(myTableData);
-                        }
-                    }
-                    tbody.appendChild(myTableRow);
-                });
-            } else {
-                console.error('Request failed. Status: ' + xhr.status);
+       var my_api='https://jsonplaceholder.typicode.com/commentshttps://jsonplaceholder.typicode.com/albums'
+       var data=[]
+       function getData(){
+        var mydata=new XMLHttpRequest();
+        mydata.open("GET",my_api)
+        mydata.send()
+        mydata.onreadystatechange=function(){
+            if(mydata.readyState==4 && mydata.status==200){
+                data=JSON.parse(mydata.response)
+                console.log(data)
+                tableData()
             }
-        };
-        xhr.onerror = function () {
-            console.error('Request failed');
-        };
-        xhr.send();
+        }    
+       }
+       function tableData(){
+        document.querySelector("tbody").innerHTML=""
+        for( var i=0;i<data.length;i++){
+            var myTr=document.createElement("tr")
+            for(a in data[i]){
+                var myTd=document.createElement("td")
+                myTd.innerHTML=data[i][a]
+                myTr.appendChild(myTd)                    
+                }
+
+                // deletbutton
+                var deletBut=document.createElement("button")
+                var deletTd=document.createElement("td")
+                deletBut.innerHTML="Delet"
+                deletBut.setAttribute("onclick","deleteUser("+i+")")
+                deletTd.appendChild(deletBut)
+                myTr.appendChild(deletTd)
+                document.querySelector("tbody").appendChild(myTr)
+
+            }
+        }
+        function deleteUser(i){
+                data.splice(i,1)
+                console.log("delet item is called",+i)
+                tableData()
+            }
     </script>
 </body>
 

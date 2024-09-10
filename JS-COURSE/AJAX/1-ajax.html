@@ -16,7 +16,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Body</th>
-                <th>EDIT</th>
+                <th>Edit</th>
                 <th>DELETE</th>
             </tr>
         </thead>
@@ -33,7 +33,7 @@
             getDataFromServer.send();
             getDataFromServer.onreadystatechange = function () {
                 if (getDataFromServer.readyState == 4 && getDataFromServer.status == 200) {
-                    myData = JSON.parse(getDataFromServer.responseText);
+                    myData = JSON.parse(getDataFromServer.response);
                     console.log(myData);
                     displayData();
                 }
@@ -43,16 +43,12 @@
         function displayData() {
             var tbody = document.querySelector('tbody');
             tbody.innerHTML = "";  // Clear existing table data
-            for (let i = 0; i < myData.length; i++) {
-                var myTr = document.createElement("tr");
-
-                // Add data cells
-                for (var key in myData[i]) {
-                    if (myData[i].hasOwnProperty(key)) {
-                        var myTd = document.createElement("td");
-                        myTd.innerHTML = myData[i][key];
-                        myTr.appendChild(myTd);
-                    }
+            for (var i = 0; i < myData.length; i++) {
+                 var myTr = document.createElement("tr");
+                for(a in myData[i]){
+                    var myTd=document.createElement("td")
+                    myTd.innerHTML=myData[i][a]
+                    myTr.appendChild(myTd)
                 }
 
                 // Edit button
