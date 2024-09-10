@@ -28,7 +28,7 @@
         var data=new XMLHttpRequest();
         data.open("GET",api_url)
         data.send()
-        data.onreadystatechange=function(){
+        data.onreadyStatechange=function(){
           if(data.readyState==4 && data.status==200){
             myData=JSON.parse(data.response)
             console.log(myData)

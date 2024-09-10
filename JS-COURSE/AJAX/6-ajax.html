@@ -1,35 +1,80 @@
 <html>
     <head>
-        <title>AJAX</title>
+        <title>AJAX</title> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Post ID</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Body</th>
+                    <th>Edit</th>
+                    <th>DELETE</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button onclick="getData()">GET DATA</button>
     </head>
     <body>
-        <table>
-            <thead>
-                <th>USER ID</th>
-                <th>ID</th>
-                <th>TITLE</th>
-                <th>COMPLETED</th>
-            </thead>
-        </table>
         <script>
-            var xhr=[]
-            var ajax= new XMLHttpRequest();
-            var url='https://jsonplaceholder.typicode.com/todos'
-            ajax.open('Get',url,true);
-            ajax.onload=function(){
-                if(ajax.status>=200 && ajax.status<300){
-                    var data=JSON.parse(ajax.responseText);
-                    console.log(data);
-                }
-                else{
-                    console.error("Request is faild.status:"+ajax.status);
+            var myData = [];
+            var api_url = "https://jsonplaceholder.typicode.com/photos"
+            function getData() {
+                var getDataFromServer = new XMLHttpRequest();
+                getDataFromServer.open("GET", api_url);
+                getDataFromServer.send();
+                getDataFromServer.onreadystatechange = function () {
+                    if (getDataFromServer.readyState == 4 && getDataFromServer.status == 200) {
+                        myData = JSON.parse(getDataFromServer.response);
+                        console.log(myData);
+                        displayData();
+                    }
                 }
             }
-            ajax.onerror=function(){
-                console.error("Request failed");
-            };
-            xhr.push(ajax)
-            ajax.send();
+    
+            function displayData() {
+                var tbody = document.querySelector('tbody');
+                tbody.innerHTML = "";  // Clear existing table data
+                for (var i = 0; i < myData.length; i++) {
+                     var myTr = document.createElement("tr");
+                    for(a in myData[i]){
+                        var myTd=document.createElement("td")
+                        myTd.innerHTML=myData[i][a]
+                        myTr.appendChild(myTd)
+                    }
+    
+                    // Edit button
+                    var editBut = document.createElement("button");
+                    editBut.innerHTML = "Edit";
+                    editBut.setAttribute("onclick", "editUser(" + i + ")");
+                    var editTd = document.createElement("td");
+                    editTd.appendChild(editBut);
+                    myTr.appendChild(editTd);
+    
+                    // Delete button
+                    var delBut = document.createElement("button");
+                    delBut.innerHTML = "DELETE";
+                    delBut.setAttribute("onclick", "delUser(" + i + ")");
+                    var delTd = document.createElement("td");
+                    delTd.appendChild(delBut);
+                    myTr.appendChild(delTd);
+    
+                    tbody.appendChild(myTr);
+                }
+            }
+    
+            function delUser(i) {
+                myData.splice(i, 1);
+                console.log("You are deleting the data at index: " + i);
+                displayData();  // Update table after deletion
+            }
+    
+            function editUser(i) {
+                console.log("Edit functionality not implemented for index: " + i);
+                // Implement your edit functionality here
+            }
         </script>
     </body>
 </html>
