@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, rgb(141, 211, 235), rgb(6, 6, 136));
+            background-size: cover;
+        }
+        #maindiv {
+            background-color: white;
+            width: 627px;
+            height: 368px;
+            margin-left: 40px;
+            float: left;
+            overflow: auto;
+        }
+        .hedder {
+            background-color: rgb(37, 7, 208);
+            color: white;
+            height: 30px;
+            text-align: center;
+            width: 100%;
+            margin: 2px;
+        }
+        .hedder h4 {
+            text-align: center;
+            padding-top: 5px;
+        }
+        #div1 {
+            padding: 10px;
+        }
+        .child1 {
+            width: 100px;
+            padding-right: 30px;
+            display: inline-block;
+        }
+        .child1 input {
+            width: 120px;
+        }
+        .child {
+            padding-top: 10px;
+        }
+        #footer {
+            background-color: rgb(37, 11, 184);
+            height: 30px;
+        }
+        button {
+            background-color: rgb(68, 38, 235);
+            border: none;
+            margin-top: 10px;
+            border-radius: 5px;
+            margin-left: 50px;
+            color: white;
+        }
+        .container {
+            float: left;
+            overflow: auto;
+        }
+        .container #content {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            margin: 5px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div class="container">
+            <div class="hedder">
+                <h4>REGISTRATION FORM</h4>
+            </div>
+            <div id="div1">
+                <div class="child1">
+                    <label>First Name</label><br>
+                    <input type="text" id="fname">
+                </div>
+                <div class="child1">
+                    <label>Last Name</label><br>
+                    <input type="text" id="lname">
+                </div>
+                <div class="child">
+                    <label>Email ID</label><br>
+                    <input type="email" id="email">
+                </div>
+                <div class="child">
+                    <label>City</label><br>
+                    <input type="text" id="city">
+                </div>
+                <div class="child">
+                    <label>Country</label><br>
+                    <input type="text" id="country">
+                </div>
+                <div class="child">
+                    <label>Gender</label><br>
+                    <input type="radio" name="gender" value="Female">Female <br>
+                    <input type="radio" name="gender" value="Male">Male
+                </div>
+                <div class="child">
+                    <button type="button" id="submit" onclick="enterData()">SUBMIT</button>
+                    <button type="button" id="update" onclick="updateUser()" style="display:none;">UPDATE</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hedder">
+                <h4>Table Data</h4>
+            </div>
+            <div id="content">
+                <table border="1" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Country</th>
+                            <th>Gender</th>
+                            <th>Edit</th>
+                            <th>Delet</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var data = [];
+        var index = null;
+
+        function enterData() {
+            var gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '';
+
+            var newData = {
+                firstname: document.getElementById("fname").value,
+                lastname: document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+                city: document.getElementById("city").value,
+                country: document.getElementById("country").value,
+                gender: gender
+            };
+
+            data.push(newData);
+            displayData();
+            clearForm();
+        }
+
+        function displayData() {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                var myTr = document.createElement("tr");
+                for (var a in data[i]) {
+                    var myTd = document.createElement("td");
+                    myTd.innerHTML = data[i][a];
+                    myTr.appendChild(myTd);
+                }
+
+                var editTd = document.createElement("td");
+                var editBtn = document.createElement("button");
+                editBtn.innerHTML = "Edit";
+                editBtn.setAttribute('onclick', "editUser(" + i + ")");
+                editTd.appendChild(editBtn);
+                myTr.appendChild(editTd);
+
+                var deleteTd = document.createElement("td");
+                var deleteBtn = document.createElement("button");
+                deleteBtn.innerHTML = "Delete";
+                deleteBtn.setAttribute('onclick', "deleteUser(" + i + ")");
+                deleteTd.appendChild(deleteBtn);
+                myTr.appendChild(deleteTd);
+                document.querySelector("tbody").appendChild(myTr);
+            }
+        }
+
+        function deleteUser(i) {
+            console.log("Delete item is called " + i);
+            data.splice(i, 1);
+            displayData();
+        }
+        function editUser(i) {
+            index = i;
+            console.log("Edit item called " + i);
+            document.getElementById("fname").value = data[i].firstname;
+            document.getElementById("lname").value = data[i].lastname;
+            document.getElementById("email").value = data[i].email;
+            document.getElementById("city").value = data[i].city;
+            document.getElementById("country").value = data[i].country;
+            document.querySelector('input[name="gender"][value="' + data[i].gender + '"]').checked = true;
+
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("update").style.display = "block";
+        }
+
+        function clearForm() {
+            document.getElementById("fname").value = "";
+            document.getElementById("lname").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("city").value = "";
+            document.getElementById("country").value = "";
+            document.querySelector('input[name="gender"]:checked').checked = false;
+        }
+
+        function updateUser() {
+            var updated = {
+                firstname: document.getElementById("fname").value,
+                lastname: document.getElementById("lname").value,
+                email: document.getElementById("email").value,
+                city: document.getElementById("city").value,
+                country: document.getElementById("country").value,
+                gender: document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : ''
+            };
+
+            data[index] = updated;
+            displayData();
+            clearForm();
+            document.getElementById("submit").style.display = "block";
+            document.getElementById("update").style.display = "none";
+        }
+    </script>
+</body>
+</html>
