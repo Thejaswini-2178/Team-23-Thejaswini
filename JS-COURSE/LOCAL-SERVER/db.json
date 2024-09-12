@@ -49,5 +49,50 @@
       "email": "pallavisatla2006@gmail.com",
       "degree": "engineering"
     }
-  ]
+  ],
+  "city":{
+    "cities": [
+      {
+        "name": "Mumbai",
+        "state": "Maharashtra"
+      },
+      {
+        "name": "Delhi",
+        "state": "Delhi"
+      },
+      {
+        "name": "Bengaluru",
+        "state": "Karnataka"
+      },
+      {
+        "name": "Kolkata",
+        "state": "West Bengal"
+      },
+      {
+        "name": "Chennai",
+        "state": "Tamil Nadu"
+      },
+      {
+        "name": "Hyderabad",
+        "state": "Telangana"
+      },
+      {
+        "name": "Pune",
+        "state": "Maharashtra"
+      },
+      {
+        "name": "Ahmedabad",
+        "state": "Gujarat"
+      },
+      {
+        "name": "Jaipur",
+        "state": "Rajasthan"
+      },
+      {
+        "name": "Surat",
+        "state": "Gujarat"
+      }
+    ]
+  }
 }
+  
