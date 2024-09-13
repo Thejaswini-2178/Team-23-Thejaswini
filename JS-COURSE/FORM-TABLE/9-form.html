@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Example</title>
+</head>
+<body>
+    <!-- step-1 to create the form tag -->
+    <form>
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male">Male 
+        <input type="radio" name="gender" value="Female">Female
+        <input type="radio" name="gender" value="Other">Other <br><br>
+        
+        <label>Cast</label><br>
+        <input type="radio" name="cast" value="BC">BC 
+        <input type="radio" name="cast" value="OC">OC
+        <input type="radio" name="cast" value="SC">SC <br><br>
+        
+        <label>Religion</label><br>
+        <input type="radio" name="reli" value="Hindu">Hindu 
+        <input type="radio" name="reli" value="Muslim">Muslim
+        <input type="radio" name="reli" value="Christian">Christian <br><br>
+        
+        <label>Race</label><br>
+        <input type="radio" name="race" value="Black">Black
+        <input type="radio" name="race" value="White">White <br><br>
+        
+        <label>Age</label><br>
+        <input type="radio" name="age" value="Below 20">Below 20
+        <input type="radio" name="age" value="Above 20">Above 20 <br><br>
+        
+        <button type="button" onclick="getData()" id="add">ADD</button>
+        <button type="button" onclick="Update()" id="update">Update</button>
+    </form>
+    <!-- step-3 to create the table for making the curd application -->
+     <table border="1">
+        <thead>
+            <tr>
+                <th>Gender</th>
+                <th>Cast</th>
+                <th>Religion</th>
+                <th>Race</th>
+                <th>Age</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+     </table>
+    <script>
+        // step-2   to sisplay the data so to get the data
+        var myData = [];
+        function getData() {
+            var addedData = {
+                "gender": getSelectedValue("gender"),
+                "cast": getSelectedValue("cast"),
+                "religion": getSelectedValue("reli"),
+                "race": getSelectedValue("race"),
+                "age": getSelectedValue("age")
+            };
+            myData.push(addedData);
+            console.log(myData);
+            displayData()
+        }
+        // step-2.1    to display the data in console
+        // because the form is contining all the radio so insted of taking forloop of each item we can take all by using the function(name)
+        function getSelectedValue(name) {                  
+            var elements = document.getElementsByName(name);
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].checked) {
+                    return elements[i].value;
+                }
+            }
+            return null;
+        }
+        // step-4 to cteate the td,th to display the data in table
+        function displayData(){
+            document.querySelector("tbody").innerHTML=""
+            for(var i=0;i<myData.length;i++){
+                var myTr=document.createElement("tr")
+                for(a in myData[i]){
+                    var myTd=document.createElement("td")
+                    myTd.innerHTML=myData[i][a]
+                    myTr.appendChild(myTd)
+                }
+
+                // step-5 to edit the entered data, this only creating the buttons and displyed in table
+                var editBUT=document.createElement("button")
+                var editTd=document.createElement("td")
+                editBUT.innerHTML="Edit"
+                editBUT.setAttribute("onclick","editUser("+i+")")
+                editTd.appendChild(editBUT)
+                myTr.appendChild(editTd)
+
+                // step-6 to edit the enterd data,this only creating the buttons and displyed in table
+                var delBUT=document.createElement("button")
+                var delTd=document.createElement("td")
+                delBUT.innerHTML="Delete"
+                delBUT.setAttribute("onclick","delUser("+i+")")
+                delTd.appendChild(delBUT)
+                myTr.appendChild(delTd)
+                document.querySelector("tbody").appendChild(myTr)
+            }
+        }
+
+        // 7 create a clear form
+        function clearFom(){
+            document.getElementsByName("gender").value=""
+            document. getElementById("cast").value=""
+            document. getElementById("reli").value=""
+            document. getElementById("race").value=""
+            document. getElementById("age").value=""
+        }
+        // step-8 to write the function for editUser
+        var index=null
+        function editUser(i){
+           var index=i
+            document.getElementsByName("gender").value,
+            document. getElementById("cast").value,
+            document. getElementById("reli").value,
+            document. getElementById("race").value,
+            document. getElementById("age").value
+           }
+           document.getElementById("update").style.display="none"
+           document.getElementById("add").style.display="block"
+        // step-9 to write the function for the updating the selecting value
+        function update(){
+            var newData={
+                "gender": document.getElementsByName("gender").value=myData[i].gender,
+                "cast": document. getElementById("cast").value=myData[i].cast,
+                "religion": document.egetElementByIdalue("reli").value=myData[i].reli,
+                "race": document. getElementById("race").value=myData[i].race,
+                "age": document. getElementById("age").value=myData[i].age
+            }
+            newData[index]=myData
+            displayData()
+            clearForm()
+            // document.getElementById("update").style.display="none"
+            // document.getElementById("add").style.display="block"
+        }
+
+
+
+        
+    </script>
+</body>
+</html>
