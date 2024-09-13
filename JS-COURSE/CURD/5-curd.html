@@ -1,0 +1,236 @@
+<html>
+
+<head>
+    <title>Curd-application</title>
+</head>
+<style>
+    .child {
+        background-color: rgb(72, 5, 113);
+        width: 300px;
+        border-radius: 30px;
+        margin: auto;
+        padding: 10px 20px;
+        color: rgb(243, 235, 235);
+
+        input {
+            border: transparent;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: rgb(236, 173, 56);
+            font-family: 'Lucida Sans', 'Lucida Sans Regular';
+        }
+    }
+
+    .child button {
+        margin: 15px;
+        border-radius: 10px;
+        border: none;
+        background-color: orange;
+    }
+
+    #tablebox {
+        margin:30px 150px;
+        border-radius: 20px;
+        width: 400px;
+        border-collapse: collapse;
+        background-image: radial-gradient(rgb(228, 93, 116),rgb(99, 8, 126)); 
+        table{
+            border-radius: 10px;
+            border:transparent;
+            color: white;
+            padding: 3px;
+            th{
+                color:rgb(66, 250, 41);
+            }
+        }
+    }
+    #tablebox table:nth-child(even){
+         background-color: rgb(235, 227, 227);;
+    } 
+    #update{
+        display: none;
+    }
+</style>
+
+<body>
+    <!-- step-4 to crea te an form for this -->
+    <div class="child">
+        <h1>Form</h1>
+        <label>Enter Name</label><br>
+        <input type="text" id="name">
+    </div>
+    <div class="child">
+        <label>Color</label><br>
+        <input type="text" id="color">
+    </div>
+    <div class="child">
+        <label>Type</label><br>
+        <input type="text" id="type">
+    </div>
+    <div class="child">
+        <button type="button" id="add" onclick="addUser()">Add</button>
+        <button type="button" id="update" onclick="updateUser()">Update</button>
+    </div>
+    <div id="tablebox">
+        <!-- step 2 to cre a tbable structure -->
+        <table border="1" cellspacing="0px" cellpadding="10px">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Color</th>
+                    <th>Type</th>
+                    <th>EDIT</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- step-1 to create an object -->
+    <script>
+        var myFruit = [
+
+            {
+                "name": "Apple",
+                "color": "Red",
+                "type": "Fruit"
+            },
+            {
+                "name": "Carrot",
+                "color": "Orange",
+                "type": "Vegetable"
+            },
+            {
+                "name": "Notebook",
+                "color": "Blue",
+                "type": "Stationery"
+            },
+            {
+                "name": "Shirt",
+                "color": "White",
+                "type": "Clothing"
+            },
+            {
+                "name": "Pen",
+                "color": "Black",
+                "type": "Stationery"
+            },
+            {
+                "name": "Dog",
+                "color": "Brown",
+                "type": "Animal"
+            },
+            {
+                "name": "Chair",
+                "color": "Green",
+                "type": "Furniture"
+            },
+            {
+                "name": "Laptop",
+                "color": "Silver",
+                "type": "Electronics"
+            },
+            {
+                "name": "Orange",
+                "color": "Orange",
+                "type": "Fruit"
+            },
+            {
+                "name": "Table",
+                "color": "Wooden",
+                "type": "Furniture"
+            }
+        ]
+
+        // step-3 displaying the data in table so create a function
+        function displaydata() {
+            document.querySelector("tbody").innerHTML = ""
+            for (var i = 0; i < myFruit.length; i++) {                                                 //from 0 to length of myfruit (i.e each item upt last item in the my fruit) will incrementg 1 by one wii be monitorng
+                var myTr = document.createElement("tr")                                                //trow is created
+                for (var a in myFruit[i]) {                                                            //items in my fruit of each item will takes
+                    var myTd = document.createElement("td")                                            //td is created
+                    myTd.innerHTML = myFruit[i][a]                                                     //item of each value in myfruit will store in my td
+                    myTr.appendChild(myTd)
+                }
+                //  step-5 edit the table data
+                var editTd = document.createElement("td")                                                //edit td is created
+                var editBTN = document.createElement("button")                                           //button created
+                editBTN.innerHTML = "Edit"                                                                 //button is changed with the Edit text
+                editBTN.setAttribute("onclick", "editUser(" + i + ")")                                        //setting the onclick attrinute                     
+                editTd.appendChild(editBTN)                                                              //edit button is added to td
+                myTr.appendChild(editTd)                                                                 //then to tr
+                document.querySelector("tbody").appendChild(myTr)                                        //then to tbody
+
+                // step-6 delt  button created
+                var delTd = document.createElement("td")                                                 //del td is created
+                var delBTN = document.createElement("button")                                            //button created
+                delBTN.innerHTML = "Delete"                                                                //button is changed with the del text
+                delBTN.setAttribute("onclick", "deleteUser(" + i + ")")                                         //seitng onclick attribute
+                delTd.appendChild(delBTN)                                                                //del button is added to td
+                myTr.appendChild(delTd)                                                                  //then to tr
+                document.querySelector("tbody").appendChild(myTr)                                        //then to tbody
+            }
+        }
+        displaydata()
+       // step-7 function for the edit befor we need to add onclick function
+        var index = null;
+        function editUser(i) {
+            index = i
+            console.log("Edituser is called the index of " + i)                                          // when it is called then it will dispaly on the table
+            document.getElementById("name").value = myFruit[i].name;                                     //taking the element with idwith value of my fruit with the indexof correct value
+            document.getElementById("color").value = myFruit[i].color;
+            document.getElementById("type").value = myFruit[i].type;
+
+            document.getElementById("update").style.display = "block"
+            document.getElementById("add").style.display="none"
+        }
+        //  step-8 delet function called
+        function deleteUser(i){
+            myFruit.splice(i,1)
+            console.log("delet user is of "+i)
+            displaydata()
+        }
+
+        // step-9 create a clerform
+        function clearFom(){                          
+        document.getElementById("name").value=""      //clearing the previous data
+        document.getElementById("color").value=""                             
+        document.getElementById("type").value=""
+     }
+
+    //step-10function for updating
+      function updateUser(){
+           var newData={
+            " name":document.getElementById("name").value,
+            "color":document.getElementById("color").value,
+            "type":document.getElementById("type").value,
+        }
+        myFruit[index]=newData
+        displaydata()
+        clearFom()
+        document.getElementById("update").style.display = "none"
+        document.getElementById("add").style.display="block"
+    }
+
+    //  step-11 add function doing 
+    function addUser(){
+        var myaddData={
+            "name":document.getElementById("name").value,
+            "color":document.getElementById("color").value,
+            "type":document.getElementById("type").value,
+        }
+        myFruit.push(myaddData)
+        displaydata()
+        clearFom()
+    }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
