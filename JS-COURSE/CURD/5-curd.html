@@ -174,7 +174,7 @@
             }
         }
         displaydata()
-       // step-7 function for the edit befor we need to add onclick function
+       // step-7 function for the edit befor we need to add onclick function,it just only displaying the data
         var index = null;
         function editUser(i) {
             index = i
@@ -200,14 +200,14 @@
         document.getElementById("type").value=""
      }
 
-    //step-10function for updating
+    //step-10function for updating 
       function updateUser(){
            var newData={
-            " name":document.getElementById("name").value,
+            "name":document.getElementById("name").value,
             "color":document.getElementById("color").value,
             "type":document.getElementById("type").value,
         }
-        myFruit[index]=newData
+        myFruit[index]=newData                 //this is assigning the new data withe a specific possition,by linlking the newUser{}^,
         displaydata()
         clearFom()
         document.getElementById("update").style.display = "none"
