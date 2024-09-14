@@ -74,7 +74,7 @@
         <button type="button" id="update" onclick="updateUser()">Update</button>
     </div>
     <div id="tablebox">
-        <!-- step 2 to cre a tbable structure -->
+        <!-- step 5 to cre a tbable structure -->
         <table border="1" cellspacing="0px" cellpadding="10px">
             <thead>
                 <tr>
@@ -144,7 +144,7 @@
             }
         ]
 
-        // step-3 displaying the data in table so create a function
+        // step-2 displaying the data in table so create a function
         function displaydata() {
             document.querySelector("tbody").innerHTML = ""
             for (var i = 0; i < myFruit.length; i++) {                                                 //from 0 to length of myfruit (i.e each item upt last item in the my fruit) will incrementg 1 by one wii be monitorng
@@ -154,7 +154,7 @@
                     myTd.innerHTML = myFruit[i][a]                                                     //item of each value in myfruit will store in my td
                     myTr.appendChild(myTd)
                 }
-                //  step-5 edit the table data
+                //  step-3 edit the table data
                 var editTd = document.createElement("td")                                                //edit td is created
                 var editBTN = document.createElement("button")                                           //button created
                 editBTN.innerHTML = "Edit"                                                                 //button is changed with the Edit text
@@ -163,7 +163,7 @@
                 myTr.appendChild(editTd)                                                                 //then to tr
                 document.querySelector("tbody").appendChild(myTr)                                        //then to tbody
 
-                // step-6 delt  button created
+                // step-4 delt  button created
                 var delTd = document.createElement("td")                                                 //del td is created
                 var delBTN = document.createElement("button")                                            //button created
                 delBTN.innerHTML = "Delete"                                                                //button is changed with the del text
@@ -174,7 +174,7 @@
             }
         }
         displaydata()
-       // step-7 function for the edit befor we need to add onclick function,it just only displaying the data
+       // step-6 function for the edit befor we need to add onclick function,it just only displaying the data
         var index = null;
         function editUser(i) {
             index = i
@@ -186,21 +186,21 @@
             document.getElementById("update").style.display = "block"
             document.getElementById("add").style.display="none"
         }
-        //  step-8 delet function called
+        //  step-7 delet function called
         function deleteUser(i){
             myFruit.splice(i,1)
             console.log("delet user is of "+i)
             displaydata()
         }
 
-        // step-9 create a clerform
+        // step-8 create a clerform
         function clearFom(){                          
         document.getElementById("name").value=""      //clearing the previous data
         document.getElementById("color").value=""                             
         document.getElementById("type").value=""
      }
 
-    //step-10function for updating 
+    //step-9 function for updating 
       function updateUser(){
            var newData={
             "name":document.getElementById("name").value,
@@ -214,7 +214,7 @@
         document.getElementById("add").style.display="block"
     }
 
-    //  step-11 add function doing 
+    //  step-10 add function doing 
     function addUser(){
         var myaddData={
             "name":document.getElementById("name").value,
