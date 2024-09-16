@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //deleting property
+        var x;
+        var data = {
+            name: "theju",
+            age: 20,
+            address: { city: "madanapalli", state: "andhra" },
+            hobbies: ["playing", "reading"]
+        }
+        
+        console.log(delete data.age);
+      // addiing the another new key and value it will ad at end of the obj
+        data.country="india"
+
+    //  we can also updtate the certain key value,bez key should be unique
+        data.name="mani"
+
+    //it will be updated,gives the data without age
+        console.log(data)  
+    </script>
+</body>
+</html>
