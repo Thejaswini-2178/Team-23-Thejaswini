@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+       
+        #container{
+            margin:100px 200px auto 100px;
+            height: 200px;
+            border: solid;
+            border-radius: 20px;
+            width:500px;
+            height:auto;
+        } 
+        .parent{
+            display: flex;
+            width: 300px;
+            padding:5px
+        }
+        .parent input{
+            display: flex;
+            margin-left:auto;
+            border-top:1px;
+            border-right: 1px;
+            border-left: 1px;
+            outline: none;
+            margin-bottom:5px;
+        }
+        #submit{
+            margin:20px auto 10px 100px;
+        }
+        #message{
+            margin-top: 50px;
+        }
+        .child span{
+            display: flex;
+            float: inline-end;
+            position:absolute;
+            bottom:12px;
+            right: 10px;
+            color:red;
+            left:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="parent">
+            <label>Full Name</label>
+            <input type="text" id="name" required placeholder="your name" onkeyup="validateName()">
+            <span id="name-error"></span>
+        </div>
+        <div class="parent">
+            <label >Phone number</label>
+            <input type="tel" id="phone" required placeholder="phone number">
+            <span id="phone-error"></span>
+        </div>
+        <div class="parent">
+            <label>Email</label>
+            <input type="email" id="email" required placeholder="Email">
+            <span id="email-error"></span>
+        </div>
+        <div class="parent">
+            <label>Enter you message</label>
+            <input type="text"id=message>
+            <span id="message-error"></span>
+        </div>
+        <div class="child">
+            <button id="submit" onclick="validation()">submit</button>
+            <span id="submit-error"></span>
+    </div>
+    <script>
+        
+           var name=document.getElementById("name-error").value;
+           var phone=document.getElementById("phone-error").valu;
+           var email=document.getElementById("email-error").value;
+           var message=document.getElementById("message-error").value;
+           var submit=document.getElementById("submit-error").value;
+           
+           function validateName(){
+            var nameValue=document.getElementById("name")
+
+            if(nameValue.length==0){
+               name.innerHTML="Name is required"
+               return false; 
+            }
+            if(!nameValue.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+                name.innerHTML="Enter full name"
+                return false;
+            }
+            name.innerHTML='<i class="fa-solid fa-check"></i>'
+            return true;
+           }
+       
+    </script>
+        
+    
+</body>
+</html>

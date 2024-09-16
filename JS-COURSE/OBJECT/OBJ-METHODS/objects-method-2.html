@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person1 = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+
+console.log(Object.entries(person1))
+console.log(Object.values(person1))
+console.log(Object.keys(person1))
+
+//create object from list of keys/value
+var person=[
+    ["apple",200],["banana",234],["mango",130]
+]
+console.log(Object.fromEntries(person))
+    </script>
+</body>
+</html>

@@ -30,7 +30,12 @@
         // by JSON.stringify
 
         console.log(JSON.stringify(data))
-     
+
+        // by entries
+        for(var [key,value] of Object.entries(data)){
+            console.log([key+":"+value]+"")
+        }
+       
     </script>
 </body>
 </html>
