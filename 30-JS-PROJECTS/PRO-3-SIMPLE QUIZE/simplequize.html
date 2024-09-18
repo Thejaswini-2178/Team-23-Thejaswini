@@ -67,13 +67,13 @@
 </head>
 <body>
     <div id="container">
-        <h1>Simple Quiz</h1><hr>
+        <h1 id="quize-title">Simple Quiz</h1><hr>
         <h4 id="question">Question goes here</h4>
         <div id="ans">
             <!-- Buttons will be inserted here -->
         </div>
-        <button id="next">Next</button>
-        <button id="play-again">Play Again</button>
+        <button id="next" onclick="playAgain()">Next</button>
+        <button id="play-again" >Play Again</button>
     </div>
 
     <script>
@@ -170,17 +170,38 @@
             if (presentQuestionsIndex < questions.length) {
                 showQuestion();
                 nextButton.style.display = "none"; // Hide next button
+                
             } else {
                 questionContent.innerHTML = "Quiz completed! Your score is: " + score;
                 answerButton.innerHTML = "";
                 nextButton.style.display = "none";
                 playAgainButton.style.display = "block"; // Show play again button
             }
-        });
 
+            if(score==5){
+                document.getElementById("quize-title").innerHTML="Congratulations ..!"
+            }
+            else{
+                d
+            }
+        });
         playAgainButton.addEventListener("click", function() {
             resetQuiz();
         });
+
+        // function playAgain(){
+        //     if(score==5){
+        //         document.getElementById("quize-title").innerHTML="Congratulation!!"
+        //         document.getElementById("next").style.display="block"
+        //     }
+        //     else{
+        //         document.getElementById("quize-title").innerHTML="Oops try again..!!";
+        //         document.getElementById("next").style.display="block"
+        //         document.getElementById("play-again")
+        //     }
+            
+        // }
+        
 
         // Initial call to show the first question
         showQuestion();
