@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // dispaly methds:::
+        var data={
+            name:"theju",
+            age:20,
+            class:"second class"
+        }
+// using console
+        console.log(data)
+// using for loop....dispaly the keys only
+        for( var i in data){
+            console.log(i)
+        } 
+// by using the entries
+        for([a,b] of Object.entries(data)){
+        console.log(a+":"+b)
+    } 
+//  by using the  Json(stringfy)
+        console.log(JSON.stringify(data))
+        console.log(data)
+    </script>
+</body>
+</html>
