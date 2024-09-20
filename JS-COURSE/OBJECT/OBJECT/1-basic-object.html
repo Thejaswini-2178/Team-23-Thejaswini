@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Object bascis </title>
+        <body>
+            <script>
+        // types of object defining in js
+                var myObj={
+                    name:"theju",age:"20",salary:40000,state:"Andhra"
+                }
+                console.log(myObj)
+
+        // by using the new Object() ...it is like adding the new onject
+                myObj=new Object() //r we can use it is myObj={}
+                    myObj.country="India";
+                    myObj.familly='nuclear';
+                    console.log(myObj)
+
+        // by using object constructor function
+                function Data(distict,phone,id,serialNo){
+                    this.distict=distict;
+                    this.phone=phone;
+                    this.id=id;
+                    this.serialNo=serialNo;
+                }
+                   var myObj1= new Data("theju","673456","1345","121");
+                   var myObj2= new Data("Mani","3456","234","345");
+                   var MyObj3= new Data("hari","23456","34567","45")
+                   console.log(myObj1)
+                   console.log(myObj2)
+
+        // nested object declaration
+                var myObj={
+                    name:"theju",
+                    age:"20",
+                    salary:40000,
+                    state:"Andhra",
+                    city:{street:"CTM",City:"Madanapllai"},
+                    hobbies:["playig","reading"]
+                }
+                console.log(myObj.city)
+                console.log(myObj.hobbies[1])
+            </script>
+        </body>
+    </head>
+</html>
