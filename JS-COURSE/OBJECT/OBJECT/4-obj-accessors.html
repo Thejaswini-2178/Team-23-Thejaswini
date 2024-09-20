@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // get()...dispaly the data by using the obj
+        var myData={
+            name:"anjum",
+            father:"Sanjay",
+            mother:"Mahi",
+            language:"english",
+            get lan(){
+            return this.language
+            }
+        }
+        myData.lan="english"
+        console.log(myData)      // by default it is not visible: the language is not visible
+        console.log(myData.lan.toUpperCase())  // by if we are calling the lan it will display
+    
+    // set () ...it can set the data by using the object
+    var data1={
+            name:"Mehek",
+            father:"Sanjay",
+            mother:"Mahi",
+            language:"no",
+            set langu(value){ // inside this value is manataty it may be any text mandetary
+            return this.language=value
+            }
+        }
+        console.log(data1)
+        data1.langu="telugu"
+        console.log(data1.language)
+    </script>
+</body>
+</html>
