@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    function Data(name,father,mother,friend,family){
+    //     this.name=name;
+    //     this.father=father;
+    //     this.mother=mother;
+    //     this.friend=friend;
+    //     this.family=family;
+    //    }
+    //    var person1=new Data("Madhumika","NandhanRao","Manoranjitha",14)
+    //    var person1=new Data("Lalli","NandhanRao","Manoranjitha",14)
+    //    var person1=new Data("Janvi","NandhanRao","Manoranjitha",14)
+    //     console.log(person1)
+
+
+    function Data(name,father,mother,friend,family){
+        this.name=name;
+        this.father=father;
+        this.mother=mother;
+        this.friend=friend;
+        this.family=family;
+        //  this.familynumber=number....not possible error....missing quotes...."number"
+        this.familynumber="20"
+       }
+       Data.prototype.familynam="yel"
+       //Data.familyname="yellug" not possible.....
+       //this.prototype.familynumber="number";  not possible  error this.
+       var person1=new Data("Madhumika","NandhanRao","Manoranjitha","maunika",14)
+       var person1=new Data("Lalli","NandhanRao","Manoranjitha","lalli",14)
+       var person1=new Data("Janvi","NandhanRao","Manoranjitha","Mehika",14)
+        console.log(person1.familynam)
+
+    </script>
+</body>
+</html>
