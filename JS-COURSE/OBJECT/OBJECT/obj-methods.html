@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data={
+            name:"theju",
+            age:23,
+            place:"chittor",
+            state:"madanapalli"
+        }
+        data.language=function(){
+            return data.salary=200 
+            return this.name;
+        }
+        console.log(data.language())
+        console.log(data.name)
+
+// convet form the upper to lower
+        data.upper=function(){
+            return data.name.toUpperCase();
+        }
+        data.lowe=function(){
+            return data.place.toLowerCase();
+        }
+        console.log(data.upper())
+        console.log(data.lowe())
+
+        // create a new data set object
+        var source={
+            name:"Anjum",
+            class:"first",
+            garade:"A++",
+        }
+        var target={
+            name:"Madhu",
+            class:"second",
+            gread:"B++",
+            state:"Andhra"
+        }
+// object.assign
+        var out=Object.assign(source,target) //transver from the data to source;
+        console.log(out)
+        console.log(Object.assign(source,target))
+//  object.entries
+        out=Object.entries(data)
+        console.log(data)
+// object.keys
+        console.log(Object.keys(target))
+// Object.values
+        console.log(Object.values(source))
+// Object.formEntries: which is basically take the all entry set ia main set and make it as a single set 
+        var myEntry=[
+            [23,"Apple"],
+            [45,"Mango"],
+            [54,"Guava"]
+    ]
+        console.log(Object.fromEntries(myEntry))
+       
+
+    </script>
+</body>
+</html>
