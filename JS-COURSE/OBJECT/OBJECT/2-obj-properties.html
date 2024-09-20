@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data={
+            name:"theju",
+            age:"21",
+            phone:"2345",
+            city:"ctm"
+        }
+        // adding new
+        data.state="mpl",
+        data.religion="hindhu"
+        console.log(data)
+        console.log(data.language="telugu")  // it only gives the language:
+
+        // updataing the data
+        data.city="madanaplli"
+        console.log(data)
+
+        // deleting the object
+        delete data.city
+        console.log(data)
+// two was to define the object properties
+        console.log(data.name)
+        console.log(data["state"])
+
+    </script>
+</body>
+</html>
