@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // map()...to squar the and do th arthmatic operators
+        var data=[1,2,4,5,6,7]
+        var d1=data.map(n=>n*2) //mul
+        var d2=data.map(n=>n**2) //squar
+        console.log(d1)
+        console.log(d2)
+
+    // working with the objects
+       var array=[
+        {user:"theju",age:18},
+        {user:"mounisha",age:19},
+        {user:"manju",age:21}
+       ]
+       var a1=array.map(m=>m.age>=15)
+       var a2=array.map(n=>n.user)
+       console.log(a1)
+       console.log(a2) 
+
+    // index and original array
+       var a3=data.map((x,y)=>{   //y will be the index,x will be the value
+        return `${y}:${x}`
+       })
+       console.log(a3)
+    </script> 
+</body>
+</html>

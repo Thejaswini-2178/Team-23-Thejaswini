@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // includes()
+       var array1=["theju",21,"theju","lalli",21,"hanushi"]
+       console.log(array1.includes("theju"))
+       console.log(array1.includes("21"))
+
+    // indexof()...find out the index of the value for not presented value it gives the("-1")
+      console.log(array1.indexOf("manju"))
+
+    // join()....it will joon the all elements of the 
+      console.log(array1.join(" "))
+      console.log(array1.join(" d-r "))
+    
+    // lastindex()... it will finds the last index(it gives last index if the vallu is repeted it takes the last index or if  itis repeted at only once then it takesthat value only)
+       console.log(array1.lastIndexOf("theju"))
+
+    // pop()
+       var array1=["theju",21,"theju","lalli",21]
+       console.log("pop method")
+       console.log(array1.pop(3))    //for any index it only dispalys the last value
+       console.log(array1.pop(21))   // it bydefalult gives that deleted item
+       console.log(array1)           // it now print the remining values
+        
+
+    // push()
+       console.log(array1.push(51))    //by default it gives the pushed index value
+       console.log(array1.push("manji"))//adds as a last elemt
+       console.log(array1)
+
+    //fill()
+      console.log("fill () method")
+      var data=[1,2,3,4,5,6]
+      console.log(data.fill( "hloow",2,4))  //target(value),start,end
+
+   // copyWithin(target,start,end)
+        var array=["theju",25,23.54,false,"mouni","nandhu"]
+        console.log(array.length)
+        console.log(array)
+        console.log(array.copyWithin(0,1)) //index 0 is replace with the index 1
+        console.log(array.copyWithin(2,1,3))  //it means it will copy the index 2 from 1 to 3 i,e.(n-1)
+        var data=[0,1,2,3,4,5,6,7]
+        console.log(data.copyWithin(4,1,5))
+        console.log("entries()")
+
+   // revers()...revers the array
+      console.log(array.reverse())
+      console.log(array)//dispaly the reversed data
+
+   // shift()....delet the first item
+     var array=[1,2,3,4,"theju","manju"]
+     console.log(array.shift())
+     console.log(array)
+
+   // slice()...like indexing
+      // array.slice(start,end-1)
+      // array.splice(start)...print from start to last item
+      // array.splice(3,"ajum")
+
+      console.log("splice method ")
+      var array=["theju",25,23.54,false,"mouni","nandhu"]
+      console.log(array.slice(0,2))
+      // console.log()
+      console.log(array) //will prints the all items except the remining 
+        
+      var array=["theju",2,"manjula",6,"anjum","Haseena"]
+      var array1=array.slice(5,2)
+      var array3=array.slice(4)
+      var array2=array.slice(4,3,1)
+      var array4=array.slice(-3) // start from the lst -to 3 indext and print from the 3 to end
+      // var array4=array.slice("theju","anjum")....gives empty bcz it only alloes the indexes
+     
+      // var array4=array.slice(1,4,2)
+          // The slice(1, 4, 2) method call attempts to extract elements starting from index 1 to index 4 (exclusive).
+          //The third parameter (2) is ignored, as slice() only accepts the first two parameters.
+      console.log(array1)
+      console.log(array3)
+      console.log(array4)
+      console.log(array2)
+
+    
+
+
+    
+       
+
+
+    </script>
+</body>
+</html>

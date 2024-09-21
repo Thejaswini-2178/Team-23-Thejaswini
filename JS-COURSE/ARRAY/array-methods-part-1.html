@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// find()....needs a function and only gives first getting out put
+    var data=["mango","apple","guaga","lemon","orange"]
+        var newData=data.find(n=>n.includes("lem"))
+        console.log(newData)
+
+// findIndex().....needs a function and only gives first getting out put but displays the index value
+        var data1=[1,3,"mango","teju",23]
+        var index=data1.findIndex(n=> n>5)
+        console.log(index)
+// forEach()
+       var data2=[1,2,45,63,56]
+       var newData=[]
+       data2.forEach(n=>{
+       newData.push(n*2)
+       })
+       console.log(newData)
+
+       var array1=["theju",21,"theju","lalli",21,"hanushi"]
+       var array2=[]
+       array1.forEach(n=>{
+        array2.push(n+"hi")
+       })
+       console.log(array2)
+
+// entries()
+        var fruits=["banana","orange","apple","mango"]
+        //console.log(fruits.entries()) .....it is not possible it will get the array iterator
+        var itterator=fruits.entries()
+        for(fruits of itterator){
+            document.write(fruits,"<br>")
+        }
+
+        var list=[100,200,300]
+        var keyValue=list.entries()
+        for( var[key,value] of keyValue){
+            console.log(key+":"+value)
+            document.write(key+":"+value+"<br>")
+        }
+
+// every() .....must use the function....it is like and operatoon
+       var length=fruits.every((n)=>{
+           return n.length>=2
+       })
+       console.log( "the length is greater than 2",length)
+       
+       var check=fruits.every((m)=>{
+           return m=="a"
+       })
+       console.log( "it is checked",check)
+       
+       var fruits=["banana","orange","apple","mango"]
+       var checked = fruits.every(item => item.includes('a'));
+       console.log("the letter is present:",checked)
+// some...needs the function and act as the or operation  any one is matched then returs the true
+       console.log("Some method")
+       var data=[12,23,32,43,43,31,64]
+       var data2=data.some(n=>n>=10)
+       var data3=data.some(n=>n%2==0)
+       console.log(data2)
+       console.log(data3)
+
+       // filter()...need a funtion
+     data=[12,234,456,243,12]
+     var newData=data.filter(n=>n/2!=0)
+     console.log(newData)
+     console.log(10/2)  //storing the queefitent
+     
+     
+    </script>
+</body>
+</html>
