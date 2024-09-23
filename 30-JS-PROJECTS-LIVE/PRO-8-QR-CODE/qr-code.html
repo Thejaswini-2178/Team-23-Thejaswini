@@ -32,9 +32,12 @@
             cursor: pointer;
         }
         #qrImg{
-            width: 50px;
-            margin: 5px;
-            height: 50px;
+            width: 70px;
+            margin: 15px auto auto 70px;
+            height: 70px;
+        }
+        #img{
+            display:none;
         }
     </style>
 </head>
@@ -48,15 +51,19 @@
         <button type="button" id="button" onclick="generateQrCode()">Generate QR code</button>
     </div>
     <script>
-        var imgbox=document.getElementById("img")
+        var imgBox=document.getElementById("img")
         var qrImage=document.getElementById("qrImg")
         var qrText=document.getElementById("qrInput")
         // creating the function to generate the qr code        
         function generateQrCode(){
-            qrImage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+qrInput.value;
-        }
-        generateQrCode()
+            if(qrText.value.length>0){
+            qrImage.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+qrText.value;
+            imgBox.classList.add("show-img")
+            imgBox.style.display="block"
 
+            }
+        }
+        document.getElementById("button").style.dispaly="block"
         // create a function
 
 
