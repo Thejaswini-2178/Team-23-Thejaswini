@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Assign</title>
+    </head>
+    <body>
+        <!-- 
+    Build an object to translate text between languages including properties 
+    like source language, target language, text to translate, and methods to translate text.-->
+    <script>
+        var language={
+            sourseLanguage:"Malayalam",
+            targerLanguage:"Telugu",
+            textTransulate:"malayalam to telugu",
+            transulate:function(){}
+        }
+        console.log(language)
+
+        function Language(sourseLanguage,targerLanguage,textTransulate){
+            this.sourseLanguage=sourseLanguage,
+            this.targerLanguage=targerLanguage,
+            this.textTransulate=textTransulate,
+            this.transulate=function(){}
+        }
+        var language= new Language("hindi","english","Telugu text")
+        console.log(language)
+
+
+        var Language=new Object({
+            sourseLanguage:"Tamil",
+            targerLanguage:"Telugu",
+            textTransulate:"malayalam to telugu",
+            transulate:function(){}
+        })
+        console.log(language)
+
+
+
+        class Languages{
+            constructor(sourseLanguage,targerLanguage,textTransulate){
+                this.sourseLanguage=sourseLanguage,
+            this.targerLanguage=targerLanguage,
+            this.textTransulate=textTransulate,
+            this.transulate=function(){}
+            }
+        }
+        var language1= new Languages("hindi","english","Telugu text")
+        console.log(language1)
+
+        
+        
+    </script>
+    </body>
+</html>

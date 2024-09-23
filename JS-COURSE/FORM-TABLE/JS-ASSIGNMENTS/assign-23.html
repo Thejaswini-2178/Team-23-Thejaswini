@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <!-- Create an object to manage pet adoptions with properties like pet name, breed, age, 
+         adoption status, and methods to add new pets, adopt pets, and search for available pets. -->
+        <script>
+            var petadoption={
+                name:"Clumsy",
+                bread:"charly 2124",
+                age:14,
+                aduptionStatus:"young",
+                addNewPet:function(){},
+                adoptionPet:function(){},
+                searchavailability:function(){}
+            }
+            console.log(petadoption)
+
+            function Petadoption(name,bread,age,aduptionStatus){
+                this.name=name,
+                this.bread=bread,
+                this.age=age,
+                this.aduptionStatus=aduptionStatus,
+                this.addNewPet=function(){},
+                this.adoptionPet=function(){},
+                this.searchavailability=function(){}
+            }
+            var pet1=new Petadoption("Snoopy","Nornal",12,"Normal")
+            console.log(pet1)
+
+
+            var Petadoption=new Object({
+                name:"Clumsy",
+                bread:"charly 2124",
+                age:14,
+                aduptionStatus:"young",
+                addNewPet:function(){},
+                adoptionPet:function(){},
+                searchavailability:function(){}
+            })
+            console.log(petadoption)
+
+            class PetAdoption{
+                constructor(name,bread,age,aduptionStatus){
+                    this.name=name,
+                this.bread=bread,
+                this.age=age,
+                this.aduptionStatus=aduptionStatus,
+                this.addNewPet=function(){},
+                this.adoptionPet=function(){},
+                this.searchavailability=function(){}
+            }
+        }
+            var pet2= new PetAdoption("Snoopy","Nornal",12,"Normal")
+            console.log(pet2)
+                
+            
+            
+        </script>
+    </body>
+</html>

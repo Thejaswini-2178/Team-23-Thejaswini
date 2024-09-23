@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Coding task</title>
+    </head>
+    <body>
+        <!--Design an object to manage real estate listings with properties like property type, price, 
+        location, and methods to add new listings,remove listings, and search for listings by criteria.-->
+        <script>
+            var estate={
+                type:"land",
+                price:"1 crore",
+                location:" Hydrabad",
+                addNewListing:function(){},
+                removeListing:function(){},
+                searchListings:function(){}
+            }
+            console.log(estate)
+
+
+            function Estate(type,price,location){
+                this.type=type,
+                this.price=price,
+                this.location=location,
+                this.addNewListing=function(){},
+                this.removeListing=function(){},
+                this.searchListings=function(){}
+            }
+            var list=new Estate("Buildinng","3crores","Bangloor")
+            console.log(list)
+
+
+            var Estate=new Object({
+                type:"Apertment",
+                price:"50 crore",
+                location:" Hydrabad",
+                addNewListing:function(){},
+                removeListing:function(){},
+                searchListings:function(){}
+            })
+            console.log(estate)
+
+
+            class Estates{
+                constructor(type,price,location){
+                    this.type=type,
+                    this.price=price,
+                    this.location=location,
+                    this.addNewListing=function(){},
+                    this.removeListing=function(){},
+                    this.searchListings=function(){}
+                }
+            }
+            var list2=new Estates("Buildinng","3crores","Bangloor")
+            console.log(list2)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>ASSIGNMENT</title>
+    </head>
+    <body>
+        <!--  Build an object to manage projects including properties like project name, 
+          description, team members, deadLines, and methods to create projects, assign tasks, and track progress.-->
+          <script>
+              var projects={
+                projectName:"Anti theif protection",
+                discription:"Generally in many places it is used to reduce the robbaories,and our home will make safer",
+                teamMembers:5,
+                deadLines:"may 27",
+                createProject:function(){},
+                assignTasks:function(){},
+                trackProgress:function(){}
+              }
+              console.log(projects)
+
+
+              function Project(projectName,discription,teamMembers,deadLines){
+                this.projectName=projectName,
+                this.discription=discription,
+                this.teamMembers=teamMembers,
+                this.deadLines=deadLines,
+                this.createProject=function(){},
+                this.assignTasks=function(){},
+                this.trackProgress=function(){}
+              }
+              var project=new Project("Countdowntimer","This project invovels that count the time","03","28 th may")
+              console.log(project)
+
+
+              var Projects=new Object({
+                projectName:"Anti theif protection",
+                discription:"Generally in many places it is used to reduce the robbaories,and our home will make safer",
+                teamMembers:5,
+                deadLines:"may 27",
+                createProject:function(){},
+                assignTasks:function(){},
+                trackProgress:function(){}
+              })
+              console.log(projects)
+
+
+              class Projectone{
+                constructor(projectName,discription,teamMembers,deadLines){
+                    this.projectName=projectName,
+                this.discription=discription,
+                this.teamMembers=teamMembers,
+                this.deadLines=deadLines,
+                this.createProject=function(){},
+                this.assignTasks=function(){},
+                this.trackProgress=function(){}
+              }
+            }
+              var project=new Projectone("Countdowntimer","This project invovels that count the time","03","28 th may")
+              console.log(project)
+
+
+
+              
+          </script>
+    </body>
+</html>
