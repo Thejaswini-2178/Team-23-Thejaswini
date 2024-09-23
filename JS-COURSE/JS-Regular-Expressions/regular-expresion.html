@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data1="this is my firt javascript"
+        var pattren1=/is/
+        var pattren2=/THis/i
+        var pattren3=/[mysi]/
+        var pattren4=/[^t]i/
+        console.log(data1.match(pattren1))
+        console.log(data1.match(pattren2))
+        console.log(data1.match(pattren3))
+        console.log(data1.match(pattren4))
+
+        var data1="102345678"
+        var pattren=/4/
+        var digit=/[0-9]/
+        console.log(data1.match(pattren))
+        console.log(data1.match(digit))
+    </script>
+</body>
+</html>
