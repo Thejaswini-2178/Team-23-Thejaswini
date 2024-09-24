@@ -10,8 +10,8 @@
         var data1="this is my firt javascript"
         var pattren1=/is/
         var pattren2=/THis/i
-        var pattren3=/[mysi]/
-        var pattren4=/[^t]i/
+        var pattren3=/[mysi]/g
+        var pattren4=/[^t]/g
         console.log(data1.match(pattren1))
         console.log(data1.match(pattren2))
         console.log(data1.match(pattren3))
@@ -22,6 +22,34 @@
         var digit=/[0-9]/
         console.log(data1.match(pattren))
         console.log(data1.match(digit))
+
+// globel mactch searching for that
+        var text="is IS is IS IS is this present or not in the srtring"
+        var item=/is/g
+        var item2=/[^is]/g
+        var item3=/[^A-Z]/g   //except capital letters 
+        var item4=/[A-Z]/g   //except small letters
+        var item5=/[a-z]/g    //only small letters
+        console.log(text.match(item))
+        console.log(text.match(item2))
+        console.log(text.match(item3))
+        console.log(text.match(item4))
+        console.log(text.match(item5))
+
+//for numbers
+        var data="0123456789 o1 THIS is my id"
+        var d1=/[0-9]/g
+        var d2=/[^1-4]/g
+        var d3=/[1]/g
+        console.log(data.match(d1))
+        console.log(data.match(d2))
+        console.log(data.match(d3))
+// space  and word separators 
+       var content=' this my first javascript prgrame'
+       var c1=/\s/g
+       var c2=/\w/
+       console.log(content.match(c1))
+       console.log(content.match(c2))
     </script>
 </body>
 </html>
