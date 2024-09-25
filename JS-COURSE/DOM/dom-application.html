@@ -1,1 +1,36 @@
-<html>head</html>
+<html>
+    <head>
+        <title>DOM Application-2 </title>
+    </head>
+    <body>
+        <!-- selecting elements in dom -->
+         <form>
+            <h1>Personal details</h1>
+            <label>Name</label>
+            <input type="text" id="name"><br>
+            <label>Phone no</label>
+            <input type="tel" id="phone"><br>
+            <label>Email</label>
+            <input type="email" id="email"><br>
+            <h1>Accadamics</h1>
+            <label>COURSE</label><br>
+            <input type="radio" value="course" name="course">Btech
+            <input type="radio" value="course" name="course">Degree <br>
+            <label>SKILLS</label><br>
+            <input type="checkbox" value="skills">CSS
+            <input type="checkbox" value="skills">HTML
+            <input type="checkbox" value="skills">JAVASCRIPT
+            <h3>Make shere that youareadding the detailes are correct</h3>
+            <button id="submit">submit</button>
+         </form>
+         <script>
+            function displayData(){
+                var name=document.getElementById("name").value;
+                var phone=document.getElementById("phone").value;
+                var email=document.getElementById("email").value;
+                var course=document.getElementById("course").value;
+                var skills=document.getElementById('skills').value;
+            }
+         </script>
+    </body>
+</html>
