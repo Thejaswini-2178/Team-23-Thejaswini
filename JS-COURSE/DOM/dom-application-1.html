@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-application</title>
+</head>
+<body>
+<!-- elementbyid -->
+    <p id="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In fugiat quod molestiae corrupti ex eum veritatis
+        perspiciatis officiis, recusandae deserunt? 
+        Animi, quia, consectetur magni voluptate doloremque amet ad dolor labore consequatur eaque illo, repellat enim
+        laboriosam non odit optio sunt!
+        Optio eius facere reprehenderit iste iure! Iste ipsam quaerat atque, dignissimos nihil nobis harum nostrum et
+        quia reprehenderit quam! Deserunt?
+        Quisquam doloremque quis quod exercitationem reiciendis modi quo earum sapiente tempore minus at odio beatae,
+        alias, dolorem quibusdam voluptatem omnis!
+        Sed voluptate nostrum velit. Asperiores ratione eum in nam esse voluptatibus libero blanditiis incidunt tenetur.
+        Nulla iste repudiandae nisi vitae.
+        Iusto perspiciatis alias laborum debitis doloremque autem, sequi inventore quidem! Ipsum, ratione laudantium.
+        Repellendus dolor sint facere, explicabo nisi illum?
+        Dolore error iste officiis rem inventore esse eveniet ducimus itaque illum. Quod sed praesentium officiis esse
+        ea sit voluptate culpa?
+        Molestiae labore aliquid expedita consectetur maxime. Tempora suscipit eos sint sed est maxime! Similique quis
+        consequuntur cumque labore doloremque adipisci?
+        Corporis vero odit illo totam voluptatibus nostrum vitae molestias quo itaque cupiditate optio quia officiis
+        enim, modi ducimus animi molestiae?
+        Quisquam, fuga? Voluptatum quidem qui ea, possimus harum eaque, eos quia aliquam inventore praesentium quisquam
+        voluptas, ad labore. Doloribus, sit.
+    </p>
+    <!-- elementsbyclassname -->
+    <form>
+        <label>Gender</label>br
+        <input type="radio" class="gender" value="Female" name="gender">Female
+        <input type="radio" class="gender" value="Male" name="gender">Male
+        <input type="radio" class="gender" value="Other" name="gender">Other
+        <button type="submit" id="submit">Submit</button>
+   
+    </form>
+    <div id="divmain"></div>
+    <!-- elementby quryselector-->
+     <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At quasi deleniti et ullam,<br>
+        consequuntur distinctio id doloremque modi eaque esse.</h1>
+    <button id="buttonBtn" >Submit</button>
+
+    <!-- elementsByQuryselectorall-->
+     <h3>THis is selected by the qurryselectoeall</h3>
+     <label>UR COURSES</label>
+     <input type="checkbox" name="HTML">HTML
+     <input type="checkbox" name="CSS">CSS
+     <input type="checkbox" name="JavaScript">Javascript
+    <script>
+        1// Change background color
+        function background() {
+            var backgroundColor = document.getElementById('para');
+            backgroundColor.style.backgroundColor = "yellow";
+            backgroundColor.style.color = "green";
+        }
+        background();
+
+        2// Get selected gender
+        function className(event) {
+            event.preventDefault(); // Prevent form submission
+            var classElement = document.getElementsByClassName("gender");
+            for (var i = 0; i < classElement.length; i++) {
+                if (classElement[i].checked) {
+                    document.getElementById("divmain").textContent = "Selected Gender: " + classElement[i].value;
+                    break;
+                }
+            }
+        }
+        // Attach the function to the button click
+        document.getElementById("submit").addEventListener("click", className);
+
+
+        3// getting the elemnt by the qury selector
+        function displayData(){
+            var content=document.querySelector("h1");
+            var button=document.getElementById("buttonBtn")
+            getElementById("buttonBtn").addEventListener("click",displayData)
+
+        }
+        
+
+        function checkbox(){
+            var chang=document.querySelectorAll("form")
+            change.style.backgroundColor="gray"
+        }
+    </script>
+</body>
+</html>
