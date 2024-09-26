@@ -42,14 +42,15 @@
     <!-- elementby quryselector-->
      <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At quasi deleniti et ullam,<br>
         consequuntur distinctio id doloremque modi eaque esse.</h1>
-    <button id="buttonBtn" >Submit</button>
+    <button type="button" id="buttonBtn" >Submit</button>
 
     <!-- elementsByQuryselectorall-->
      <h3>THis is selected by the qurryselectoeall</h3>
-     <label>UR COURSES</label>
+     <label>UR COURSES</label><br>
      <input type="checkbox" name="HTML">HTML
      <input type="checkbox" name="CSS">CSS
      <input type="checkbox" name="JavaScript">Javascript
+     <button type="button" id="but">Submit</button>
     <script>
         1// Change background color
         function background() {
@@ -58,6 +59,7 @@
             backgroundColor.style.color = "green";
         }
         background();
+
 
         2// Get selected gender
         function className(event) {
@@ -70,8 +72,9 @@
                 }
             }
         }
-        // Attach the function to the button click
+        2// Attach the function to the button click
         document.getElementById("submit").addEventListener("click", className);
+
 
 
         3// getting the elemnt by the qury selector
@@ -79,13 +82,14 @@
             var content=document.querySelector("h1");
             var button=document.getElementById("buttonBtn")
             getElementById("buttonBtn").addEventListener("click",displayData)
-
         }
-        
+  
 
         function checkbox(){
             var chang=document.querySelectorAll("form")
             change.style.backgroundColor="gray"
+            var element=document.getElementsByClassName("")
+
         }
     </script>
 </body>
