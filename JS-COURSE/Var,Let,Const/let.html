@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // can holds the block scope
+        let a=20
+        {
+            let b=30
+            console.log(b)
+            console.log(a)
+        }
+        console.log(a)
+        // console.log(b)
+
+        // declaration can be done withot initialization(undefined)
+        let num;
+        console.log(num)
+
+        // reinitilization can be done
+        let num1=21;
+        console.log(num1)
+        num1=213
+        console.log(num1)
+
+        // redeclaration cannot be done
+        let num3=21;
+        console.log(num3)
+        // let num3=213
+        console.log(num3)
+
+    </script>
+</body>
+</html>
