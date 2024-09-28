@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // split()..... return type will is array
+       console.log(str.split(" "))// it will be taking the ","
+       console.log(str.split(""))// it will be space
+       console.log(str.split("."))//saprate  with the space
+
+       var str2="the is theju"
+       var str3=str2.split(" ")
+       console.log(str3)
+
+
+        // reverse()...it is a array type the return type is array method
+    var n="my name is theju"
+    var n1=n.split(" ").reverse().join(" ");  //with space
+    var n2=n.split("").reverse().join("");    //without space
+    var n3=n.split(" ").reverse().join("");    //join has without space
+    var n4=n.split("").reverse().join(" ");    //split has no space
+    var n5=n.split(" ").reverse();  // without join()
+    //   var n6=n.reverse().join(" ");   // without split(error)
+
+    console.log(n1)
+    console.log(n2)
+    console.log(n3)
+    console.log(n4)
+    console.log(n5)
+    // console.log(n6)
+
+    // join method.... actuvally it is an array method return sthe string
+    var t=["theju","is","good","girl"]
+    console.log(t)
+    console.log(t.join(""))
+    console.log(t.join(" "))
+    console.log(t.join(","))
+    console.log(t.join("."))
+    </script>
+</body>
+</html>
