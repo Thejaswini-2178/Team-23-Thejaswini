@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <title>Possition</title>
+    </head>
+    <style>
+        body{
+            margin:20px;
+        }
+        div.parent,.parent2,.parent3{
+            border:2px solid;
+            width:500px;
+            height:400px;
+            padding:20px;
+            margin:20px;
+        }
+        #child1,#child2,#child3,#child4{
+            width:50px;
+            border:2px solid;
+            height:50px;
+            padding:20px;
+            margin-top:40px;
+            margin-left: 10px;
+            overflow: auto;
+            display: inline-block;
+        }
+        #child1{
+            background-color:green;
+            margin-top: 40px;
+            
+        }
+        #child2{
+            background-color:red;
+            margin-top: 40px;
+        }
+        #child3{
+            background-color:blue;
+            margin-top: 40px;
+        }
+
+
+        /* absolute for taking the parent as body */
+
+        #child5,#child6,#child7,#child8{
+            width:50px;
+            border:2px solid ;
+            height:50px;
+            padding:20px;
+            /* margin-top:40px; */
+            margin-left: 10px;
+            overflow: auto;
+            display: inline-block;
+        }   
+        #child5{
+            background-color:green;
+            position:absolute;
+            left:0;
+            top:0px;
+        }
+        #child6{
+            background-color: red;
+        }
+        #child7{
+            background-color: blue;
+        }
+
+        /* taking the parant as the neart one */
+        .parent3{
+            position: relative; 
+         } 
+        #child8,#child9,#child10{
+            width:50px;
+            border:2px solid ;
+            height:50px;
+            padding:20px;
+            margin-top:40px;
+            margin-left: 10px;
+            overflow: auto;
+            display: inline-block;
+        }
+        #child8{
+            background-color:green;
+            position:absolute; 
+            left:225px;/* or  topp:300px  */
+            bottom: 50px;
+        }
+        #child9{
+            background-color: red;
+        }
+        #child10{
+            background-color: blue;
+        }
+           
+    </style>
+    <body>
+        <div class="parent">
+        <h1>normal position</h1>
+        <p>This is about the realatuve positon:whih can chagefrom its possion </p>
+            <div id="child1"></div>
+            <div id="child2"></div>
+            <div id="child3"></div>
+        </div>
+        <div class="parent2">
+            <h1>Abosolute possition </h1>
+            <p>after changing the positon without giving any relative position to the parent(div).<br>Default it taking the body as  parent  and it wil take the position width and height from the starting of the body itself. </p>
+            <div id="child5"></div>
+            <div id="child6"></div>
+            <div id="child7"></div>
+        </div>
+        <div class="parent3">
+            <h1>Abosolute possition </h1>
+            <p>taking the near by position as  parent <br> <br> after relative possion  changing the positon
+               theat means mentioning the "div" as parant elemnt  </p>
+            <div id="child8"></div>
+            <div id="child9"></div>
+            <div id="child10"></div>
+        </div>
+    </body>
+</html>
