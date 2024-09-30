@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-image: url('./nature6.jpeg');
+            background-size: cover;
+            /* Makes the image cover the container */
+            background-position: center;
+            /* Centers the image */
+            position: relative;
+            /* Allows absolute positioning of overlay */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.5);
+            /* White with 50% opacity */
+            /* You can change the color and opacity */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+    </div>
+</body>
+
+</html>
