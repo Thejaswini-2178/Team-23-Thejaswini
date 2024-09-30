@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Possition</title>
+    </head>
+    <style>
+        body{
+            margin:20px;
+        }
+        div.parent{
+            border:2px solid;
+            width:500px;
+            height:400px;
+            padding:20px;
+            margin:20px;
+        }
+        #child1,#child2,#child3,#child4{
+            width:50px;
+            border:2px solid;
+            height:50px;
+            padding:20px;
+            margin-top:40px;
+            margin-left: 10px;
+            overflow: auto;
+            display: inline-block;
+        }
+        #child1{
+            background-color:green;
+            margin-top: 40px;
+            
+        }
+        #child2{
+            background-color:red;
+            margin-top: 40px;
+        }
+        #child3{
+            background-color:blue;
+            margin-top: 40px;
+        }
+        #child5,#child6,#child7,#child8{
+            width:50px;
+            border:2px solid ;
+            height:50px;
+            padding:20px;
+            margin-top:40px;
+            margin-left: 10px;
+            overflow: auto;
+            display: inline-block;
+        }   
+        #child5{
+            background-color:green;
+            position: relative; 
+            left:215px;
+            top:100px;
+        }
+        #child6{
+            background-color: red;
+        }
+        #child7{
+            background-color: blue;
+        }
+    </style>
+    <body>
+        <p>This is about the realatuve positon:whih can chagefrom its possion </p>
+        <div class="parent">
+        <h1>normal position</h1>
+            <div id="child1"></div>
+            <div id="child2"></div>
+            <div id="child3"></div>
+        </div>
+
+        <div class="parent">
+            <h1>relativeposition</h1>
+            <p>after changing the positon</p>
+            <div id="child5"></div>
+            <div id="child6"></div>
+            <div id="child7"></div>
+        </div>
+    </body>
+</html>
