@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Static position</title>
+        <style>
+            .parent{
+                width:600px;
+                height:200px;
+                border:2px solid;
+            }
+            #child1{
+                border:2px solid;
+                background-color:green;
+                width:50px;
+                display: inline-block;
+                overflow: auto;
+                height:50px;
+                position: static;
+                left:200px;
+            }
+            #child2{
+                border:2px solid;
+                background-color:blue;
+                width:50px;
+                display: inline-block;
+                overflow: auto;
+                height:50px;
+                
+            }
+            #child3{
+                border:2px solid;
+                background-color:orange;
+                width:50px;
+                display: inline-block;
+                overflow: auto;
+                height:50px;
+                
+            }
+            #child4{
+                border:2px solid;
+                background-color:rgb(192, 44, 170);
+                width:50px;
+                display: inline-block;
+                overflow: auto;
+                height:50px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>now it will flow with normal documennt flow without effecting the other effects <br>
+
+        though we are giving the effects to by using the helper elements bot it doesnot change any thing.</p>
+        <div class="parent">
+            <div id="child1"></div>
+            <div id="child2"></div>
+            <div id="child3"></div>
+            <div id="child4"></div>
+        </div>
+
+       
+    </body>
+</html>
