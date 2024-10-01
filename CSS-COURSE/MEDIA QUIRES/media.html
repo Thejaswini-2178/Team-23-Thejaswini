@@ -1,20 +1,34 @@
 <html>
     <head>
         <title>media quires</title>
-        <!-- <style>
+        <style>
           .col-md-4{
             border:2px solid; 
+            background-color: rgb(132, 220, 114);
           }
           .col-md-8{
             border:2px solid;
+            background-color: rgb(218, 69, 69);
           }
-        </style> -->
+          .table{
+            background-image: radial-gradient(rgb(131, 161, 67),rgb(149, 14, 131));
+            color:white;
+          }
+          @media screen and (min-width:500px){
+            .container{
+              display: flex;
+            }
+            .table{
+              background-image: linear-gradient(rgb(168, 249, 117),rgb(125, 125, 239),rgb(240, 240, 7));
+            }
+          }
+        </style>
     </head>   
     <body>
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <table class="table table-striped table-dark" cellspacing="20px" border="2px solid">
+            <table class="table" cellspacing="20px" border="2px solid">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -44,6 +58,7 @@
                 </tr>
               </tbody>
             </table>
+            <br>
           </div>
           <div class="row">
           <div class="col-md-12">
