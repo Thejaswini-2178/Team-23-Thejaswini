@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // golobel and local
+        var a=10
+        function name(){
+            var b=30
+            console.log(a)   //this will be  exicutedand  to =10
+            console.log(b)  //this will be exicuted =30
+        }
+        name()
+        console.log(a)   //this is aloso exicuted a=10
+        //console.log(b)    this is not exicuted 
+        console.log("globel variabe is a and the local vriable is b \nglobale variable can exicute at any where and but the local variable can only exicute the inside the function itself "  )
+        
+        var m=20
+        var c=function x(){
+            var d=30
+            console.log(m)
+            console.log(d)
+        }
+        c()
+        console.log(m)
+        // console.log(d)
+        // output=20,30,20
+
+    </script>
+</body>
+</html>
