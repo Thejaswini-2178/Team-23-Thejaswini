@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setInterval(()=>{
+            console.log("this is theju")
+        },2000)
+
+
+        // now we are using the stop function
+
+        setInterval(()=>{
+            console.log("this printed contineously and stopes")
+
+        },3000)
+
+        //now if we are using this two i.e,from 10 th line to 18 th line 
+        // it will print the first argument also
+
+        // now we are young the count to stope at a certain point
+
+        var count=0
+        let a1=setInterval(()=>{
+            console.log("hii")
+            count++
+            if(count==5){
+                clearInterval(a1)
+            }
+        },2000)
+    </script>
+</body>
+</html>
