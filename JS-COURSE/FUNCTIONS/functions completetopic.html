@@ -7,11 +7,100 @@
 </head>
 <body>
     <script>
-    // types of fumction
+    // types of function
+    // 1 function declaration statement
     function name(){
         console.log("hellow this is theju")
     }
     name()
+
+    //function expression
+    var name1=function funcName(){
+        console.log("hello")
+    } 
+    name1()
+
+    // flat arrow function
+    var age1=()=>{
+    console.log(20+30)
+    }
+    age1()
+
+    // self invock fnction:it only exicutes only once
+    // (function theju(){
+    //     console.log("hii")
+    // })()
+
+    var age3=()=>
+    console.log(1)
+    console.log(2)
+    console.log(3)
+    console.log("my name is theju")
+    console.log("this ia theju")
+    console.log("hello theju")
+    age3()// the first staement shoud be exicuted at last and reming will follow the same flow
+
+    // return staatements
+    var a=function name(x,y){
+        // var a1=x+y
+        return 50-20
+        return x*y
+    }
+    a(50,20)   // it consider only the first one not the second arguments
+    var res=a(1,2)
+    console.log(res)
+
+
+    //console.log(a1) // it is not possible 
+
+    //clouser:way 1
+    function outer(){
+        console.log("hii this is manisha")
+        function inner(){
+            console.log("iam from mpl")
+        }
+        return inner
+    }
+    outer()()
+    //way-2
+    function outer1(){
+        console.log("all is well")
+        function inner1(){
+            console.log("good luck")
+        }
+        inner1()
+    }
+    outer1()
+    //way 3
+    function name6(){
+        console.log("all is well")
+        function name7(){
+            console.log('good luck')
+        }
+        return name7
+    }
+    var res=name6
+    res()
+
+
+    //higher order function
+    // function name1(hellow){
+    //     console.log("hellow")
+    // }
+    // name1(a=function funcName(){
+    //     console.log("world")
+    // })
+    // a()
+
+    // //way2
+    // function name1(hellow){
+    //     console.log("hellow")
+    // }
+    // name1()
+    // name1(a=function funcName(){
+    //     console.log("world")
+    // },a())
+    
     </script>
 </body>
 </html>
