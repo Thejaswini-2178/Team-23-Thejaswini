@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label>First Name</label>
+        <input type="text" id="first"><br>
+        <label>Last Name</label>
+        <input type="text" id="last"><br>
+        <label>Degree:</label>
+        <input type="radio" name="degree">Betech
+        <input type="radio" name="degree">Bcom <br>
+        <label>COURSE:</label>
+        <input type="checkbox" name="course">HTML
+        <input type="checkbox" name="course">CSS
+        <input type="checkbox" name="course">JavaScript <br>
+        <button type="submit" id="submit" onclick="display()">Submit</button> <br><br>
+        <button type="submit" id="edit" onclick="edit()">Edit</button> <br><br>
+    </form>
+    <table border="1">
+        <tr>
+            <th>first</th>
+            <th>last</th>
+            <th>degree</th>
+            <th>course</th>
+        </tr>
+        <tbody></tbody>
+    </table>
+    <script>
+        var data=[]
+        function display(){
+            var newData={
+                first:document.getElementById("first").value,
+                last:document.getElementById("last").value,
+                degree:document.querySelector('input[name="degree"]:checked')?.checked = false,
+                course:document.querySelectorAll('input[name="course"]').forEach(el => el.checked = false),
+            }
+            data.push(newData)
+            display()
+        }
+        function myData(){
+            for(var i=0;i<data.length;i++){
+                var myTr=document.createElement("tr");
+                for(var a in data[i]){
+                    var myTd=document.createElement("td");
+                    myTd.innerHTML=data[i][a];
+                    myTr.appendChild(myTd)
+                }
+            // edit the data
+                var editData=document.createElement("td")
+                var editBtn=document.createElement("button")
+                editBtn.innerHTML="Edit"
+                editBtn.setAttribute("onclick","edit("+i+")")
+                editData.appendChild(editBtn)
+                myTr.appendChild(editData)
+            //delet the data
+                var delData=document.createElement("td")
+                var delBtn=document.createElement("button")
+                delBtn.innerHTML="Delete"
+                delBtn.setAttribute('onclick',"delet("+i+")")
+                delData.appendChild(delBtn)
+                myTr.appendChild(delData);
+                document.querySelector("tbody").appendChild(myTr)
+            }
+        }
+        var index=null;
+        function edit(i){
+            index=i;
+            console.log("edited items"+i)
+            document.getElementById("first").value="";
+            document.getElementById("last").value="";
+        }
+        function delet(i){
+            console.log("item deleted at inde of"+i)
+            data.splice(i,1);
+            display()
+        }
+    </script>
+</body>
+</html>
