@@ -4,8 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX</title>
+    <style>
+        #update{
+            display:none;
+        }
+    </style>
 </head>
 <body>
+    <form>
+        <label>ID</label>
+        <input type="text" id="id"><br>
+        <label >userId</label>
+        <input type="text" id="userId"><br>
+        <label >Title</label>
+        <input type="text" id="title"><br>
+        <label >Body</label>
+        <input type="text" id="body"><br>
+        <button type="button" onclick="addData()" id="add">ADD</button>
+        <button type="button" onclick="updatedData()" id="update">Update</button> 
+        <br><br>
+    </form>
     <table border="1" style="width: 100%;">
         <thead>
             <tr>
@@ -14,6 +32,7 @@
                 <th>TITLE</th>
                 <th>BODY</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -35,7 +54,8 @@
             }
         }
         function displayStudents() {
-            document.querySelector('tbody').innerHTML = ""
+            var tbody=document.querySelector('tbody')
+            tbody.innerHTML=""
             for (i = 0; i < students.length; i++) {
                 // Create a tr
                 var myTr = document.createElement("tr");
@@ -65,9 +85,54 @@
         }
         // DELETING THE ITEM IN THE TABLE
         function delUser(i){
-            students.splice(1,i)
             console.log("you deleted the data"+i)
+            students.splice(i,1)
+            displayStudents()
         }
+        var index=null
+         function editUser(i){
+            index=i
+            console.log("deleted data is called :"+i)
+            document.getElementById("id").value=students[i].id,
+            document.getElementById("userId").value=students[i].userId,
+            document.getElementById("title").value=students[i].title,
+            document.getElementById("body").value=students[i].body
+            document.getElementById("update").style.dispaly="block"
+            document.getElementById("add").style.dispaly='none'
+         }
+
+         function clearForm(){
+            document.getElementById("id").value="";
+            document.getElementById("userId").value="";
+            document.getElementById("title").value="";
+            document.getElementById("body").value="";
+         }
+
+         function updatedData(){
+            var newData={
+                "id":document.getElementById("id").value,
+                "userId":document.getElementById("userId").value,
+                "title":document.getElementById("title").value,
+                "body":document.getElementById("body").value
+            }
+            students[index]=newData
+            displayStudents()
+            clearForm()
+
+            document.getElementById("update").style.display="none"
+            document.getElementById("add").style.display="block"
+         }
+         function addData(){
+            var newUser={
+                "id":document.getElementById("id").value,
+                "userId":document.getElementById("userId").value,
+                "title":document.getElementById("title").value,
+                "body":document.getElementById("body").value 
+            }
+            students.push(newUser)
+            clearForm()
+            displayStudents()
+         }
     </script>
 </body>
 </html>
