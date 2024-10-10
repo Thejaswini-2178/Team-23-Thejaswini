@@ -29,13 +29,12 @@
         data.open("GET",api_url)
         data.send()
         data.onreadyStatechange=function(){
-          if(data.readyState==4 && data.status==200){
-            myData=JSON.parse(data.response)
-            console.log(myData)
-            mydata()
+          if(data.redyState==4 &&data.status==200){
+            console.log(mydata)
           }
         }
       }
+      // displaying the data
       function mydata(){
         document.querySelector("tbody").innerHTML=""
         for( var i=0;i<myData.length;i++){
