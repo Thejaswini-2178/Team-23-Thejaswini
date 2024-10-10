@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <label for="">ID :</label>
+        <input type="text" name="" id="id"> <br>
+        <label for="">Name :</label>
+        <input type="text" name="" id="name"> <br>
+        <label for="">Age :</label>
+        <input type="text" name="" id="age"> <br>
+        <label for="">Email :</label>
+        <input type="text" name="" id="email"> <br>
+        <button type="button" onclick="addUser()" id="addBtn">Add</button>
+        <button type="button" onclick="updateUser()" id="updateBtn">Update</button>
+        <button type="button" onclick="cancelEdit()">Cancel</button>
+    </form>
+
+    <script>
+        var students = [
+            {
+                "id": 1,
+                "name": "John Doe",
+                "age": 28,
+                "email": "johndoe@example.com"
+            },
+            {
+                "id": 2,
+                "name": "Jane Smith",
+                "age": 34,
+                "email": "janesmith@example.com"
+            },
+            {
+                "id": 3,
+                "name": "Michael Brown",
+                "age": 42,
+                "email": "michaelbrown@example.com"
+            },
+            {
+                "id": 4,
+                "name": "Emily Davis",
+                "age": 26,
+                "email": "emilydavis@example.com"
+            },
+            {
+                "id": 5,
+                "name": "David Wilson",
+                "age": 30,
+                "email": "davidwilson@example.com"
+            }
+        ]
+
+
+        var url = window.location.href
+        var i = url.substr(url.indexOf("?") + 1)
+        document.getElementById('id').value = students[i].id;
+        document.getElementById("name").value = students[i].name;
+        document.getElementById("age").value = students[i].age;
+        document.getElementById("email").value = students[i].email;
+        document.getElementById("updateBtn").style.display = "block";
+        document.getElementById("addBtn").style.display = "none";
+
+        function cancelEdit() {
+            window.location.href = "1-curd_BOM.html"
+        }
+    </script>
+</body>
+
+</html>
