@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Albumid</th>
+                <th>Id</th>
+                <th>title</th>
+                <th>url</th>
+                <th>thumbniles</th>
+            </tr>
+            <tbody></tbody>
+        </thead>
+    </table>
+    <button type="button" id="submit" onclick="tableData()">GetData</button>
+    <script>
+        var url='https://jsonplaceholder.typicode.com/photos';
+        var myData=[]
+
+        function displayData(){
+            var getData=new XMLHttpRequest();
+            getData.open("GET",url)
+            getData.send();
+            getData.onreadystatechange=function(){
+                if(getData.readyState==4 && getData.status==200){
+                    myData=JSON.parse(getData.response)
+                    console.log(myData)
+                    tableData();
+                }
+            }
+        }
+        // displayData()
+        function tableData(){
+            var tbody=document.querySelector("tbody")
+            tbody.innerHTML=""
+            for(var i=0;i,myData.length;i++){
+                var tr=document.createElement("tr")
+                for(a in myData[i]){
+                    var tr=document.createElement("tr")
+                    td.innerHTML=myData[i][a]
+                    tr.appendChild(td)
+                    document.querySelector("tbody").appendChild(tr)
+                }
+            }
+            
+        }
+
+
+
+        
+    </script>
+</body>
+</html>

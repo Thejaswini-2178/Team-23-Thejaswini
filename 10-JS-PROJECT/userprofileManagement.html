@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .message {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>User Profile</h1>
+    <input type="text" id="name" placeholder="Name" />
+    <input type="number" id="age" placeholder="Age" />
+    <input type="email" id="email" placeholder="Email" />
+    <button onclick="updateProfile()">Update Profile</button>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+// User Profile Object
+let userProfile = {
+    name: 'John Doe',
+    age: 30,
+    email: 'john.doe@example.com'
+};
+
+// Function to update the profile
+function updateProfile() {
+    const name = document.getElementById('name').value;
+    const age = parseInt(document.getElementById('age').value);
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message');
+
+    // Using the spread operator to merge new information
+    userProfile = {
+        ...userProfile,
+        ...(name && { name }), // Update name if provided
+        ...(age && { age }),   // Update age if provided
+        ...(email && { email }) // Update email if provided
+    };
+
+    // Display success message
+    message.innerHTML = `Profile Updated: <br/> Name: ${userProfile.name} <br/> Age: ${userProfile.age} <br/> Email: ${userProfile.email}`;
+
+    // Clear input fields
+    document.getElementById('name').value = '';
+    document.getElementById('age').value = '';
+    document.getElementById('email').value = '';
+}
+
+</script>
+
+</body>
+</html>

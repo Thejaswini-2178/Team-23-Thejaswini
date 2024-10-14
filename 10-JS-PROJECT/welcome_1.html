@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        a{
+            text-decoration: none;
+            display:none;
+            border:1px solid;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h1>login</h1>
+        <input type="email" id="email"><br>
+        <label>user password</label>
+        <input type="password" id="password"><br><br>
+        <button type="button" id="login" onclick="loginHandeld">Login</button>
+        <a href="https://www.w3schools.com/js/" id="a">Login</a>
+
+        
+    </form>
+    <script>
+        var email=document.getElementById("email")
+        var password=document.getElementById("password")
+        var login_btn= document.getElementById("a")
+        function loginHandeld(){
+            if(email!=null && password!=null){
+                window.alert("You are logind sucessfully")
+                login_btn.style.display="block"
+                var button= document.getElementById("login")
+                login.style.dispalys="none"
+
+                // var currentLoc = document.createElement("a");
+                // currentLoc.href = "https://www.w3schools.com/js/";  
+                // currentLoc.text = "Go to W3Schools";
+                // document.body.appendChild(currentLoc);
+            }
+            else{
+                 window.alert("login details are not vallied")
+            }
+        }
+        loginHandeld()
+    </script>
+</body>
+</html>
