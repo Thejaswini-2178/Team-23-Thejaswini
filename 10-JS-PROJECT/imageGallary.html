@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            background: grey;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .full-image-container {
+            margin-top: 20px;
+            width: 80%;
+            text-align: center;
+        }
+
+        .full-image-container img {
+            width: 100%;
+            height: auto;
+            max-width: 800px;
+            border: 2px solid #ddd;
+            display: none;
+            /* Initially hidden */
+        }
+
+        #subdiv {
+            width: 300px;
+            height: 200px;
+            border: solid 2px;
+            display: none;
+        }
+
+        #subdiv img {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery-container">
+        <div class="gallery" id="galleryParent">
+            <img src="./nature1.jpg" alt="Image 1" class="thumbnail">
+            <img src="./nature2.jpeg" alt="Image 2" class="thumbnail">
+            <img src="./nature3.jpeg" alt="Image 3" class="thumbnail">
+            <!-- Add more thumbnails as needed -->
+        </div>
+        <div class="full-image-container">
+            <img src="" alt="Full View" id="full-image">
+        </div>
+       
+    </div>
+    <script>
+        // image deligation:which mwans we are giving the event to the  parent
+        document.getElementById("galleryParent").addEventListener('click',function (event){
+            if(event.target.nodeName=== "IMG"){
+                console.log(event.target.src);
+                document.getElementById("full-image").style.display="block";
+                document.getElementById("full-image").setAttribute("src",event.target.src);
+            }
+        })
+    </script>
+</body>
+
+</html>

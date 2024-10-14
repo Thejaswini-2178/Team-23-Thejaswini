@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        .cart-items {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            margin: 10px 0;
+        }
+        .total {
+            font-weight: bold;
+        }
+        img{
+            width:200px;
+            height:200px;
+        }
+         div{
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    
+    <div>
+        <h2>Products</h2>
+        <div>
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/shoe/b/b/x/5-958-whtgry-5-fabbmate-white-grey-original-imah4qs68ygqgbws.jpeg?q=70" alt=""><br>
+            <button onclick="addToCart(0)">Add Product 1 - $10</button>
+        </div>
+        <div>
+            <img src="https://rukminim2.flixcart.com/image/612/612/xif0q/salwar-kurta-dupatta/r/p/o/s-rx044-ktd-rosegold-royal-export-original-imagyhce5ntrzgwm.jpeg?q=70" alt=""><br>
+            <button onclick="addToCart(1)">Add Product 2 - $20</button>
+        </div>
+        <div>
+            <img src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/s/m/0/-original-imah37gw2wv2ayrf.jpeg?q=70" alt=""><br>
+            <button onclick="addToCart(2)">Add Product 3 - $30</button>
+        </div>
+    </div>
+
+    <div class="cart-items">
+        <h2>Your Cart</h2>
+        <div id="cart"></div>
+        <p class="total">Total: $<span id="total">0</span></p>
+    </div>
+    <script>
+        const products = [
+            { id: 0, name: "Product 1", price: 100 },
+            { id: 1, name: "Product 2", price: 500 },
+            { id: 2, name: "Product 3", price: 50000 }
+        ];
+
+        let cart = [];
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            updateCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }cd 
+
+        function updateCart() {
+            const cartElement = document.getElementById('cart');
+            const totalElement = document.getElementById('total');
+            cartElement.innerHTML = '';
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    ${item.name} - $${item.price} 
+                    <button onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartElement.appendChild(itemElement);
+                total += item.price;
+            });
+
+            totalElement.textContent = total;
+        }
+    </script>
+</body>
+</html>

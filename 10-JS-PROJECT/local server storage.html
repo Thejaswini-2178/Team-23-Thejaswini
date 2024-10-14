@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>user name</label>
+    <input type="text" id="userName"><br>
+    <label>user email</label>
+    <input type="email" id="email"><br>
+    <label>user password</label>
+    <input type="password" id="password"><br><br>
+    <button type="button" onclick="handleLogin()">Submit</button>
+    <script>
+        var userData=JSON.parse(localStorage.getItem(userData))
+        if (userData!==null){
+            window.location.href="welcome_1.html"
+        }
+        function handleLogin(){
+            var data={
+                Username:document.getElementById("userName").value,
+                email:document.getElementById("email").value,
+                password:document.getElementById("password").value
+            }
+            localStorage.setItem("userdata",JSON.stringify(data))
+            window.alert("login sucessfully")
+            window.location.href="welcome_1.html"
+        } 
+    </script>
+</body>
+</html>

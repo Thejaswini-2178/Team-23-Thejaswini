@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border:2px solid;
+            width:500px;
+            height:200px;
+            margin:50px auto auto  200px;
+            background-image: linear-gradient(rgb(65, 60, 65),rgb(26, 129, 166));
+            text-align: center;
+        }
+        #container #subdiv div{
+            display:inline-block;
+            margin:20px auto auto auto;
+        }
+        #subdiv div input{
+            height:30px;
+            border: none;
+            background-color: transparent;
+            color:white;
+        }
+        button{
+            height:35px;
+            padding: 0px;
+            background-color: transparent;
+            /* border: none; */
+            color: white;
+        }
+        #subdiv div{
+            border:1px gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Search Engin</h1>
+       <div id="subdiv">
+        <div><input type="text" id="text" placeholder="Search them item..."></div>
+        <div><button id="search" type="button" onclick="objectName()">Search</button></div>
+       </div>
+    </div>
+    <script>
+        var typeName=document.getElementById("text")
+        var object=[
+            {id:1,name:"theju",age:21},
+            {id:2,name:"Manisha",age:21},
+            {id:3,name:"Mounika",age:23},
+            {id:4,name:"Jansi",age:24},
+            {id:5,name:"Lalli",age:25},
+            {id:6,name:"Gayatri",age:20}
+    ]
+    
+    
+
+    </script>
+</body>
+</html>
