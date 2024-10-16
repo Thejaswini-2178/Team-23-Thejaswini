@@ -3,7 +3,8 @@ class Arraymethod extends  Component{
     state={
         a1:[1,2,3,4,5,6,7,8,9,35,5,5,6,7],
         a2:["red","blue","green","vilet","greeen","yellow","purple","orange"],
-        a3:[1,2,3,["apple","banana"]]
+        a3:[1,2,3,["apple","banana"]],
+        a4:["anu","madhu","Lalli","haseena","humera","pranathi"]
     }
     render(){
         return (
@@ -37,6 +38,8 @@ class Arraymethod extends  Component{
                 <li>flat()</li>
                 <li>flatMap()</li>
                 <li>keys()</li>
+                <li>values()</li>
+                <li>Entries()</li>
                 <li>map()</li>
             </ol>
             <div>
@@ -82,6 +85,9 @@ class Arraymethod extends  Component{
                 <li>map:{this.state.a1.map(e=> e).join(",")}</li>
 
                 <li>keys:{Array.from(this.state.a1.keys()).join(", ")}</li>
+                <li>keys:{Array.from(this.state.a4.keys()).join(",")}</li>
+                <li>values:{Array.from(this.state.a4.values()).join(",")}</li>
+
                 <li>
                     <ul>
                     entries:{Array.from(this.state.a2.entries(e=>e).map(([index,keys])=> (
@@ -89,6 +95,7 @@ class Arraymethod extends  Component{
                 )))}
                     </ul>
                     </li>
+                    
             </ol>
             </div>
             </div>
