@@ -36,6 +36,7 @@ class Strmethods extends Component{
                 <li>charCodeAt:{this.state.a.charCodeAt(19)}</li>
                 <li>join:{this.state.a.split("").reverse().join("")}</li>
                 <li>slice:{this.state.a.slice(1,5)}</li>
+                <li>slipt:{this.state.a.split(1,2)}</li>
                 </ol>
            </div>
         )
