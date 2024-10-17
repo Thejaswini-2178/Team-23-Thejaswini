@@ -2,15 +2,7 @@ import React, { Component } from "react";
 class Nonprimitive extends Component{
     state={
         arr:["theju",25,"mani"],
-        object:{
-            name:"theju",
-            age:23,
-            place:{
-                city:"chittoor",
-                state:"AP"
-            },
-            hobbies:["playing","plantation"]
-        }
+        object:{ name:"theju",age:23,place:{city:"chittoor",state:"AP"},hobbies:["playing","plantation"]}
     }
     render(){
         return (
