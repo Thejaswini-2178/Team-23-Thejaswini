@@ -11,7 +11,7 @@ class ObjectDisplay extends Component {
     },
   };
   massage=()=>{
-      this.setState({name:"Mani",age:23,address:"Andhra",state:"Ap",hobbies:["dancing,music"]})
+      this.setState({name:"Mani",age:23,address:"Andhra",state:"Ap",hobbies:["dancing","music"]})
   }
   render() {
     return (
