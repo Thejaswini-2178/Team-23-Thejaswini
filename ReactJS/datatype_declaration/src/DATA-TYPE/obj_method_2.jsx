@@ -35,7 +35,6 @@ class ObjectDisplay1 extends Component {
             </li>
           ))}
         </ul>
-
         <button onClick={this.changeDetails}>Change Details</button>
       </div>
     );
