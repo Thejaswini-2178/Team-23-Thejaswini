@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            <!-- clouser in function -->
+            function outer(){
+                console.log("inner")
+                function inner(){
+                    console.log("outer")
+                }
+                inner()
+            }
+            outer()
+
+            // 2 way: to print that in orderwise
+            function external(){
+                console.log("external")
+                    function internall(){
+                        console.log("internal")
+                    }
+                    return internall 
+                }
+                external()()
+
+
+            // 3 way: to 
+            function outside(){
+                console.log("iam at outside  the function")
+                function inside(){
+                    console.log("iam at inside the function")
+                }
+                return inside
+            }
+            var out=outside()
+            out()
+
+    </script>
+</body>
+</html>
