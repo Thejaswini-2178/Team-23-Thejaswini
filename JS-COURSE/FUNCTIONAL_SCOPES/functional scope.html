@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  their are two scopes which are local hosting and global hosting
+        var a=30  // global
+        a++
+        function hosting(){
+            var b=20  //local
+            console.log(a,a++,a)  //31 31 32
+            console.log(b,b--,b)  //20 20 19
+        }
+        hosting()
+        console.log(a) // global can exicute ay where
+        // console.log(b)  local can exicute with in the block
+    </script>
+</body>
+</html>
