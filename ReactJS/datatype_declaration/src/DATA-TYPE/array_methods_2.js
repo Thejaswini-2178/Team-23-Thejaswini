@@ -4,9 +4,6 @@ class Array extends Component{
         array:["hellow","world","hellow","banana","color","orange","banana","grapes"],
         arr2:[12,1,2,3,4,55,34,56,234,87,1,23,34,98],
     }
-    // message=()=>{
-    //     Array.from(this.state.array.filter((i)=>i===i.length))
-    // }
     render(){
         return(
             <div>
@@ -39,14 +36,15 @@ class Array extends Component{
                 <li>splice():{this.state.arr2.splice(2,4).join(",")}</li>
                     {"this indicates the starting index and then the number of the items that are return from the specifed index"}
                 <li>{this.state.arr2.join(",")}</li>
-                <li>find():{this.state.arr2.some(e=> e%2==0(
-                )
-                )}</li>
-                <li>findIndex()</li>
-                <li>every()</li>
-                <li>reverse()</li>
-                <li>shift()</li>
-                <li>concate()</li>
+                <li>find():{this.state.arr2.find(e=> e%2===0)}</li>
+                <li>findIndex():{this.state.array.findIndex(e=> e==="orange")}</li>
+
+                <li>every():{this.state.array.every(e=> (e.length)>=3)?"true":"false"}</li>
+                <li>reverse():{this.state.array.reverse().join(",")}</li>
+                <li>{this.state.array.join(",")}</li>
+                <li>shift():{this.state.array.shift()}</li>
+                <li>{this.state.array.join(",")}</li>
+                <li>concate():{this.state.array.concat(this.state.arr2).join(",")}</li>
                 <li>fill()</li>
                 <li>filter()</li>
                 <li>copywithin()</li>
