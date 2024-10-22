@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        const data = ['A', '1', 'hello', 45.67, '#', 'Z', '9', ' '];
+        for (let i = 0; i < data.length; i++) {
+            let item = data[i];
+            if (!isNaN(item)) {
+                console.log(`${item} is a Digit`);
+            }
+            else if ((item >= 'a' && item <= 'z') || (item >= 'A' && item <= 'Z')) {
+                console.log(`${item} is an Alphabet`);
+            }
+            else {
+                console.log(`${item} is a Special Character`);
+            }
+        }
+        //  by using the loop statement
+        const list = "1234 theju %#@";
+        for (var i = 0; i < list.length; i++) {
+            let value = list[i]
+            if (value === ' ') {
+                console.log("This is a Space");
+            }
+            else if (!isNaN(value) && value !== '') {
+                console.log(value, "Number")
+            }
+            else if ((value >= "a" && value <= "z") || (value >= "A" && value <= "Z")) {
+                console.log(value, " is alphabet")
+            }
+            else {
+                console.log(value,"Special Charecter")
+            }
+        }
+    </script>
+</body>
+
+</html>
