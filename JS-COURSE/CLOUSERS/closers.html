@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-            <!-- clouser in function -->
+            
             function outer(){
                 console.log("inner")
                 function inner(){
@@ -17,6 +17,7 @@
             }
             outer()
 
+
             // 2 way: to print that in orderwise
             function external(){
                 console.log("external")
@@ -25,7 +26,8 @@
                     }
                     return internall 
                 }
-                external()()
+            external()()
+            console.log(" ")
 
 
             // 3 way: to 
@@ -37,7 +39,39 @@
                 return inside
             }
             var out=outside()
-            out()
+
+
+            // example:1
+            function hellowOuter(){
+                var num1=23
+                console.log("exicuted the outer")
+                function hellowInner(){
+                    console.log(num1)
+                    console.log("exicuted the innr one")
+                    return "sucessfully eexicute inner functio";
+                }
+                return hellowInner
+            }
+             var n=hellowOuter()
+            console.log( n())
+            console.log(" ")
+
+// example:below explination: it presevers /stores the outer function value .
+                              //by using outerfunction value in  the inner function(closer) it exicutes.
+            function hellowOuter1(){
+                var num=10
+                console.log("exicuted the outer")
+                function hellowInner1(){
+                    console.log(num++)
+                    console.log("exicuted the innr one")
+                    return "again incriment it";
+                }
+                return hellowInner1
+            }
+            var m=hellowOuter1()
+            console.log( m())
+            console.log( m())
+
 
     </script>
 </body>
