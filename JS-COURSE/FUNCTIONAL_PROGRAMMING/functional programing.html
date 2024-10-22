@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // two types HOF,CBF
+        function theju(janu){
+            console.log("hellow")
+            janu()
+        }
+        theju(function janu(){
+            console.log("this is the call back function")
+        })
+
+        // exictes orderwise
+        function theju1(janu1){
+            console.log("higher order function")
+        }
+        theju1(function janu1(){
+            console.log("call back function")
+        }()) 
+
+        // combing the two out
+        function name(user){
+            console.log("theju is a friend of "+user())
+        }
+        name(function user(){
+             return "gayathri"
+        }) 
+        
+            
+    </script>
+</body>
+</html>
