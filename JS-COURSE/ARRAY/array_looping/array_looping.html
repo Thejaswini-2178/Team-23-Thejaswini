@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array=[1,2,3,4,"theju","hanisha","Damanthi",234]
+    // 1.for in loop
+        for( a in array){
+            console.log(array[a])
+        }
+        console.log(" ")
+
+    // 2 for of
+        for( a of array){
+            console.log(a)
+        }
+        console.log(" ")
+
+
+     // 3 for each
+        array.forEach(element => {
+        //    return element: .. it just stopes and it dont display
+        console.log(element)
+        });
+        console.log(" ")
+
+    
+    // 4 map()
+        array.map((i,j,k)=>{
+            console.log(i,j,k) // return the new array
+        })
+        console.log(" ")
+
+    // 5 filter
+        // array.filter((a,b,c)=> {
+        //     console.log(a,b,c)
+        // })
+
+        array.filter((a,b,c)=> {
+            if((a==="theju")||(a==="Damanthi")){
+                console.log(a)
+            }
+        })
+        console.log(" ")
+
+    // 6 reduce
+        array.reduce((l,m,n,o)=>{
+            console.log(l,m,n,o)
+        })
+        console.log(" ")
+
+
+    // sort()
+        // console.log(array.sort((p,q)=> p-q))
+        var array = [1, 2, 3, 4, "theju", "hanisha", "Damanthi", 234];
+
+array.sort((a, b) => {
+    // Check if both are numbers
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a - b;  // Numeric sort
+    }
+    
+    // Check if both are strings
+    if (typeof a === 'string' && typeof b === 'string') {
+        // Case-insensitive alphabetical sort
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    }
+
+    // If one is a number and one is a string, put numbers first
+    return typeof a === 'number' ? -1 : 1;
+});
+
+console.log(array);
+
+
+    </script>
+</body>
+</html>
