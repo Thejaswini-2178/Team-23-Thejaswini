@@ -30,55 +30,7 @@
         </tr>
         <tbody></tbody>
     </table>
-    <script>
-        var data=[]
-        function display(){
-            var newData={
-                first:document.getElementById("first").value,
-                last:document.getElementById("last").value,
-                degree:document.querySelector('input[name="degree"]:checked')?.checked = false,
-                course:document.querySelectorAll('input[name="course"]').forEach(el => el.checked = false),
-            }
-            data.push(newData)
-            display()
-        }
-        function myData(){
-            for(var i=0;i<data.length;i++){
-                var myTr=document.createElement("tr");
-                for(var a in data[i]){
-                    var myTd=document.createElement("td");
-                    myTd.innerHTML=data[i][a];
-                    myTr.appendChild(myTd)
-                }
-            // edit the data
-                var editData=document.createElement("td")
-                var editBtn=document.createElement("button")
-                editBtn.innerHTML="Edit"
-                editBtn.setAttribute("onclick","edit("+i+")")
-                editData.appendChild(editBtn)
-                myTr.appendChild(editData)
-            //delet the data
-                var delData=document.createElement("td")
-                var delBtn=document.createElement("button")
-                delBtn.innerHTML="Delete"
-                delBtn.setAttribute('onclick',"delet("+i+")")
-                delData.appendChild(delBtn)
-                myTr.appendChild(delData);
-                document.querySelector("tbody").appendChild(myTr)
-            }
-        }
-        var index=null;
-        function edit(i){
-            index=i;
-            console.log("edited items"+i)
-            document.getElementById("first").value="";
-            document.getElementById("last").value="";
-        }
-        function delet(i){
-            console.log("item deleted at inde of"+i)
-            data.splice(i,1);
-            display()
-        }
-    </script>
+    <script src="./6.curd.js"></script>
+
 </body>
 </html>
