@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function m(){
+            console("inner function")
+            function n(){
+                console.log("innerfunction")
+                var a=12
+                console.log(a)
+                console.log(a++)
+                console.log("outer")
+            } 
+            return n
+        }
+        var res=m()
+        console.log("inner function")
+    </script>
+</body>
+</html>
