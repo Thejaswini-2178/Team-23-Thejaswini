@@ -23,7 +23,7 @@
         var x=30
         var y=20
         var z=(x,y)=>x+y
-            console.log(z)
+            z()
 // 3 way to exicute the code
         var a=10;
         var b=20;
@@ -34,7 +34,19 @@
         }
         console.log((a+b))
         console.log((a-b))
-        console.log((a*b))            
+        console.log((a*b))  
+// 4 way the exicute the code
+        var v=21
+        var w=31
+        var x=(a,b)=>{
+            if (a>b){
+                return a+b;
+            }
+            else{
+                return (a-b);
+            }
+        }
+        x()
     </script>
 </body>
 </html>
