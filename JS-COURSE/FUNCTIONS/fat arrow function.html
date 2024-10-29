@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=10;
+        var b=20;
+        var c=(a,b)=>{
+            console.log(a+b) /// it does not  return any thing 
+        }
+// 1 way rectifying the above one
+        var a=10;
+        var b=20;
+        var c=(a,b)=>{
+            return(a+b)
+        }      
+        console.log(a+b) 
+//2 way to exicute the code
+        var a=10;
+        var b=20;
+        var c=(a,b)=>{
+            return a+b
+            return a-b
+            return a*b
+        }
+        console.log((a+b))
+        console.log((a-b))
+        console.log((a*b))
+
+            
+    </script>
+</body>
+</html>
