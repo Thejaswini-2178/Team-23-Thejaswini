@@ -7,11 +7,11 @@
 </head>
 <body>
     <script>
+        var a=12
         function m(){
-            console("inner function")
+            console.log("inner function")
             function n(){
                 console.log("innerfunction")
-                var a=12
                 console.log(a)
                 console.log(a++)
                 console.log("outer")
@@ -19,7 +19,10 @@
             return n
         }
         var res=m()
-        console.log("inner function")
+        res()
+        console.log(a)
+        console.log("hellow")
+        console.log("inner")
     </script>
 </body>
 </html>
