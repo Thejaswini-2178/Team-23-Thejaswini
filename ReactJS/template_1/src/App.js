@@ -1,8 +1,9 @@
 import React from 'react';
+import Header from './TEMPLATE-CREATION/1-Header/Header';
+import Home from './TEMPLATE-CREATION/2-Home/Home';
+import Footer from './TEMPLATE-CREATION/3-Footer/Footer';
 
-import Header from './TEMPLATE-CREATION/Header';
-import Home from './TEMPLATE-CREATION/Home';
-import Footer from './TEMPLATE-CREATION/Footer';
+
 
 function App() {
   return (
