@@ -19,7 +19,7 @@ export class Child1 extends Component {
                     <h2>This is the object</h2>
                     {Object.entries(this.props.object).map(([k, v], i) => (
                     <li k={i}>
-                        {k}: {v}
+                        {k}:{v}
                     </li>
                     ))}
                 </ul>
