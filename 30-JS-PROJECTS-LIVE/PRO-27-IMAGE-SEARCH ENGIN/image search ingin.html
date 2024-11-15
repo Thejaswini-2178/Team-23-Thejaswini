@@ -52,7 +52,7 @@
             width: 100%; /* Make images responsive */
             height: 230px; /* Fixed height for images */
             object-fit: cover; /* Ensure images cover the area without distortion */
-            border-radius: 5px; /* Rounded corners for images */
+            border-radius: 5px; 
         }
     </style>
 </head>
@@ -84,7 +84,6 @@
             var data = await response.json();
 
             var result = data.results;
-
             result.forEach((result) => {
                 var image = document.createElement("img");
                 image.src = result.urls.small;
@@ -96,7 +95,6 @@
             });
             console.log(data);
         }
-
         imgBox.addEventListener("submit", (e) => {
             e.preventDefault();
             page = 1;
