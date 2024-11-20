@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './TEMPLATE-CREATION/1-Header/Header';
-import Home from './TEMPLATE-CREATION/2-Home/Home';
-import Footer from './TEMPLATE-CREATION/3-Footer/Footer';
+import Home from '../../template_2/src/TEMPLATE_2_CREAT/Home section/Home';
+import Footer from '../../template_2/src/TEMPLATE_2_CREAT/Footer section/Footer';
+import Header from '../../template_2/src/TEMPLATE_2_CREAT/Head section/Header';
 
 
 
