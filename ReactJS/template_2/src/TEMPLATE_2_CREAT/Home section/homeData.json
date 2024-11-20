@@ -1,0 +1,116 @@
+{
+    "about": {
+        "title": "We've got what you need!",
+        "description": "Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!",
+        "buttonText": "Get Started!",
+        "buttonLink": "#services"
+    },
+    "services": {
+        "title": "At Your Service",
+        "servicesList": [
+            {
+                "icon": "bi-gem",
+                "title": "Sturdy Themes",
+                "description": "Our themes are updated regularly to keep them bug free!"
+            },
+            {
+                "icon": "bi-laptop",
+                "title": "Up to Date",
+                "description": "All dependencies are kept current to keep things fresh."
+            },
+            {
+                "icon": "bi-globe",
+                "title": "Ready to Publish",
+                "description": "You can use this design as is, or you can make changes!"
+            },
+            {
+                "icon": "bi-heart",
+                "title": "Made with Love",
+                "description": "Is it really open source if it's not made with love?"
+            }
+        ]
+    },
+    "portfolio": [
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/1.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/1.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        },
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/2.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/2.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        },
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/3.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/3.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        },
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/4.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/4.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        },
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/5.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/5.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        },
+        {
+            "thumbnail": "assets/img/portfolio/thumbnails/6.jpg",
+            "fullsize": "assets/img/portfolio/fullsize/6.jpg",
+            "category": "Category",
+            "projectName": "Project Name"
+        }
+    ],
+    "callToAction": {
+        "title": "Free Download at Start Bootstrap!",
+        "buttonText": "Download Now!",
+        "buttonLink": "https://startbootstrap.com/theme/creative/"
+    },
+    "contact": {
+        "title": "Let's Get In Touch!",
+        "description": "Ready to start your next project with us? Send us a message and we will get back to you as soon as possible!",
+        "form": {
+            "fields": [
+                {
+                    "id": "name",
+                    "type": "text",
+                    "placeholder": "Enter your name...",
+                    "label": "Full name",
+                    "validation": "required"
+                },
+                {
+                    "id": "email",
+                    "type": "email",
+                    "placeholder": "name@example.com",
+                    "label": "Email address",
+                    "validation": ["required", "email"]
+                },
+                {
+                    "id": "phone",
+                    "type": "tel",
+                    "placeholder": "(123) 456-7890",
+                    "label": "Phone number",
+                    "validation": "required"
+                },
+                {
+                    "id": "message",
+                    "type": "textarea",
+                    "placeholder": "Enter your message here...",
+                    "label": "Message",
+                    "validation": "required"
+                }
+            ],
+            "submitButtonText": "Submit"
+        },
+        "contactInfo": {
+            "phone": "+1 (555) 123-4567"
+        }
+    }
+}
