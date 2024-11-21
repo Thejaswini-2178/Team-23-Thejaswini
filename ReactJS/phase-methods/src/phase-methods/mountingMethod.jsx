@@ -9,7 +9,7 @@ class MountingExample extends Component {
 
 static getDerivedStateFromProps(props, state) {
     console.log('GetDerivedStateFromProps: Syncing props with state');
-    return null; // No change to state
+    return null;
   }
 
 componentDidMount() {
