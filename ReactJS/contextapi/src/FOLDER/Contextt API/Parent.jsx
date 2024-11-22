@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Wrapped from "./Wrapped";
 
-export default class Parent extends Component {
+class Parent extends Component {
   render() {
     return (
-      <div>Parent</div>
-    )
+      <div>
+        <h2>Parent Component</h2>
+        <Wrapped />
+      </div>
+    );
   }
 }
+
+export default Parent;
