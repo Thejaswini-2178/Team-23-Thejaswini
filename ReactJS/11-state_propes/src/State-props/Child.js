@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class Child extends Component {
     render() {
         const { array, obj } = this.props; // Destructure the array and obj from props
-
         return (
             <div>
                 {/* Display the array elements */}
