@@ -1,28 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-class MountingExample extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: 'Hello, World!' };
-    console.log('Constructor: State initialized');
+export default class MountingMethod extends Component {
+  constructor(props){
+    // constructor is basically used for the dispalying the data functions
+    super(props)
+    this.state={
+      message:"this is consructer called...",
+      obj:{age:23},
+      array:["fruits","Vegitables","animals"]
+    }
+    console.log("the constuctor called.....")
   }
-
-static getDerivedStateFromProps(props, state) {
-    console.log('GetDerivedStateFromProps: Syncing props with state');
+  static getDerivedStateFromProps(props, state) {
+    console.log('GetDerivedStateFromProps: Syncing state with props');
     return null;
   }
+ 
 
-componentDidMount() {
-    console.log('ComponentDidMount: Component mounted in DOM');
-    setTimeout(() => {
-      this.setState({ message: 'React Lifecycle!' });
-    }, 2000);
+  componentDidMount(){
+    console.log("this componentdid mount is called")
   }
 
-render() {
-    console.log('Render: Rendering UI');
-    return <h1>{this.state.message}</h1>;
+  render() {
+    return (
+      <div>
+        <p>{this.state.message}</p>
+        <p>{this.state.obj.age}</p>
+        <p>check the age </p>
+      </div>
+    )
   }
 }
-
-export default MountingExample;
