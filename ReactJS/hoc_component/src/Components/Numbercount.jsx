@@ -4,7 +4,7 @@ import NewData from "./HOC_Numbers";
 class NumberCount extends Component {
 
   render() {
-    const {evencount,oddcount,evenNumbersPrinter,oddNumbersPrinter}= this.props
+    const { evencount, oddcount, evenNumbersPrinter, oddNumbersPrinter } = this.props
     return (
       <div>
         <hr />
