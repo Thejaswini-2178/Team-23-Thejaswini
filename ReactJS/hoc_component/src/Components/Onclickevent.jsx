@@ -16,7 +16,7 @@ class Onclickevent extends Component {
                 </button>
                 <button
                     style={{ padding: '10px', margin: '10px' }}
-                    onClick={this.props.onclickDecriment}
+                    onClick={this.props.onclickDecrement}
                 >
                     Decrement
                 </button>
