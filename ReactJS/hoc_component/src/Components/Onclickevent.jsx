@@ -10,13 +10,13 @@ class Onclickevent extends Component {
                 <h1>This is incrementing and decrementing buttons</h1>
                 <button
                     style={{ padding: '10px', margin: '10px' }}
-                    onClick={onclickIncriment} 
+                    onClick={ this.props.onclickIncriment} 
                 >
                     Increment
                 </button>
                 <button
                     style={{ padding: '10px', margin: '10px' }}
-                    onClick={onclickDecriment}
+                    onClick={this.props.onclickDecriment}
                 >
                     Decrement
                 </button>

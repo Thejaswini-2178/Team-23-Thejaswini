@@ -12,13 +12,13 @@ class Mousehover extends Component {
         <p>This is the increment and decrement function</p>
         <button
           style={{ padding: '10px', margin: '10px' }}
-          onMouseOver={onmousehoverIncrement} 
+          onMouseOver={this.props.onmousehoverIncrement} 
         >
           Increment
         </button>
         <button
           style={{ padding: '10px', margin: '10px' }}
-          onMouseOver={onmousehoverDecriment} 
+          onMouseOver={this.props.onmousehoverDecriment} 
         >
           Decrement
         </button>
