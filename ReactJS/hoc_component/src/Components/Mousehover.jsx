@@ -3,7 +3,7 @@ import updateData from './HOC component';
 
 class Mousehover extends Component {
   render() {
-    console.log()
+    
     const { count, onmousehoverIncrement, onmousehoverDecriment } = this.props; 
 
     return (
