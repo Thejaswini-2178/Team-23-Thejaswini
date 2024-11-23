@@ -8,13 +8,13 @@ const updateData = (OriginalComponent) => {
                 count: 0,
             };
         }
-        onclickIncriment= () => {
+        onclickIncriment = () => {
             this.setState((prevState) => ({
                 count: prevState.count + 1,
             }));
         };
 
-        onclickDecrement= () => {
+        onclickDecrement = () => {
             this.setState((prevState) => ({
                 count: prevState.count - 1,
             }));
