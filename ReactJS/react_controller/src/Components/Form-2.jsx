@@ -10,7 +10,7 @@ class Form_2 extends Component {
     }
   }
 
-  
+
   //4.function for the handelClickSubmit
   handelClickSubmit = () => {
     console.log(this.state);              //this will dispalys the  entair state
@@ -20,6 +20,8 @@ class Form_2 extends Component {
     this.setState({ data: newUser })
     this.handleClear();
   }
+
+  
   handleInputFieldChange = (e) => {
     cons
     ole.log(e.target.name);
