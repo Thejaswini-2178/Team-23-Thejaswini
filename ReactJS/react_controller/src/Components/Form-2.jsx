@@ -32,34 +32,34 @@ class Form_2 extends Component {
       user: {
         fname: "",
         lname: "",
-        mail:"",
-        password:""
+        mail: "",
+        password: ""
       },
     });
   };
   render() {
     return (
       //1. first step to create an general form
- <div>
-       <form>
-        <label htmlFor=""> First Name</label>
-        <input type="text" id="fname" name="fname" value={this.user.fname} onChange={this.handleInputFieldChange} /> {" "}<br />
-        <label htmlFor=""> Last Name</label>
-        <input type="text" id="lname" name='lname' value={this.user.lname} onChange={this.handleInputFieldChange} /> {" "}<br />
-        <label htmlFor="">Email</label>
-        <input type="mail" id="mail" name="name"value={this.user.mail} onChange={this.handleInputFieldChange} /> {" "} <br />
-        <label htmlFor="">Password</label>
-        <input type="password" id="password" name="password" value={this.user.password} onChange={this.handleInputFieldChange} /> {" "}<br />
-        {/* 2 we have to write th efunction to the user button*/}
-        <button type="button" id="button" onClick={this.handelClickSubmit} >SUBMIT</button>
-      </form>
-      <hr/>
-      {this.state.data.map((usr)=>{
-        return (
-          <li>{usr.fname}-{uxr.password}</li>
-      )
-      })}
- </div>
+      <div>
+        <form>
+          <label htmlFor=""> First Name</label>
+          <input type="text" id="fname" name="fname" value={this.user.fname} onChange={this.handleInputFieldChange} /> {" "}<br />
+          <label htmlFor=""> Last Name</label>
+          <input type="text" id="lname" name='lname' value={this.user.lname} onChange={this.handleInputFieldChange} /> {" "}<br />
+          <label htmlFor="">Email</label>
+          <input type="mail" id="mail" name="name" value={this.user.mail} onChange={this.handleInputFieldChange} /> {" "} <br />
+          <label htmlFor="">Password</label>
+          <input type="password" id="password" name="password" value={this.user.password} onChange={this.handleInputFieldChange} /> {" "}<br />
+          {/* 2 we have to write th efunction to the user button*/}
+          <button type="button" id="button" onClick={this.handelClickSubmit} >SUBMIT</button>
+        </form>
+        <hr />
+        {this.state.data.map((usr) => {
+          return (
+            <li>{usr.fname}-{uxr.password}</li>
+          )
+        })}
+      </div>
 
     )
   }
