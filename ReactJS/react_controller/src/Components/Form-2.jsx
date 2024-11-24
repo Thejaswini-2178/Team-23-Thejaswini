@@ -10,6 +10,7 @@ class Form_2 extends Component {
     }
   }
 
+  
   //4.function for the handelClickSubmit
   handelClickSubmit = () => {
     console.log(this.state);              //this will dispalys the  entair state
