@@ -9,6 +9,7 @@ export default class Form extends Component {
       users: [],
     };
   }
+  
   handleInputFieldChange = (e) => {
     console.log(e.target.name);
     const newStateValus = { ...this.state.person };
