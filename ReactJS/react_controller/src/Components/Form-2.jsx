@@ -60,7 +60,7 @@ class Form_2 extends Component {
       )
       })}
  </div>
- 
+
     )
   }
 }
