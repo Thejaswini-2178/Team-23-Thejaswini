@@ -21,7 +21,7 @@ class Form_2 extends Component {
     this.handleClear();
   }
 
-  
+
   handleInputFieldChange = (e) => {
     cons
     ole.log(e.target.name);
@@ -30,6 +30,8 @@ class Form_2 extends Component {
     this.setState({ user: newStateValus });
     // this.setState({ fname: e.target.value });
   };
+
+  
   handleClear = () => {
     this.setState({
       user: {
