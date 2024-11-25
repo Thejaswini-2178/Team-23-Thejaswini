@@ -1,0 +1,26 @@
+form {
+  width: 600px;
+  padding:20px;
+  margin: 20px 20px auto 100px;
+}
+form div{
+  width: 500px;
+  height:40px
+}
+div input{
+  height:30px;
+  width:300px
+}
+
+.form {
+  float: left;
+  width: 45%;
+  margin-right: 5%;
+  box-sizing: border-box;
+}
+.table {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding-top:30px
+}
