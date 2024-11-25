@@ -1,69 +1,74 @@
 import React, { Component } from 'react'
 
 class Form_2 extends Component {
-  constructor(props) {
+  // 2.add the constructor
+  constructor(props){
     super(props)
-    this.state = {
-      //3. adding the user inputs in to an empty array  
-      user: { fname: "", lname: "", mail: "", password: "" },
-      data: [],
+    this.state={
+    // 3.attach the user data in state to convert this form into controle component
+      user:
+      {
+        fname:"",lname:"",mail:"",password:""
+      },
+      // 9. creating an empty array
+      personData:[]
     }
   }
 
-
-  //4.function for the handelClickSubmit
-  handelClickSubmit = () => {
-    console.log(this.state);              //this will dispalys the  entair state
-    // 4.1 now adding this to the data
-    const newUser = [...this.state.data]    // copping the content in data
-    newUser.push(this.state.user)         //adding that added data of user content 
-    this.setState({ data: newUser })
-    this.handleClear();
+  // 6. function for the onchange event // the event it self pass an parameter  //any time if you chang the value it will targeting that event along with the value
+  handelInputChange=(e)=>{
+     console.log(e.target.name);
+    //6.1 copping this in onother variable
+    const newStateValues={...this.state.user};
+    newStateValues[e.target.name]=e.target.value;
+    this.setState({user:newStateValues})  
   }
 
-
-  handleInputFieldChange = (e) => {
-    cons
-    ole.log(e.target.name);
-    const newStateValus = { ...this.state.user };
-    newStateValus[e.target.name] = e.target.value;
-    this.setState({ user: newStateValus });
-    // this.setState({ fname: e.target.value });
-  };
+  // 8.function for sub,itting the data
+  handelSubmit=(event)=>{
+    event.preventDefault()
+    console.log(this.state)
+    const newUsers=[...this.state.personData];
+    newUsers.push(this.state.user);
+    this.setState({users:newUsers});
+  }
 
   
-  handleClear = () => {
-    this.setState({
-      user: {
-        fname: "",
-        lname: "",
-        mail: "",
-        password: ""
-      },
-    });
-  };
   render() {
     return (
-      //1. first step to create an general form
+      // 1.let write the html for the form 
       <div>
         <form>
-          <label htmlFor=""> First Name</label>
-          <input type="text" id="fname" name="fname" value={this.user.fname} onChange={this.handleInputFieldChange} /> {" "}<br />
-          <label htmlFor=""> Last Name</label>
-          <input type="text" id="lname" name='lname' value={this.user.lname} onChange={this.handleInputFieldChange} /> {" "}<br />
+          <label htmlFor="">FirstName</label>
+          <input type="text" 
+          name='fname'
+          // 4. now assign the sate property  as a value of the input elememt .....the input is not works untill we add an on chanegeevent
+          value={this.state.fname} 
+          // 5. making this input changing we are attaching the onchangeevent
+          onChange={this.handelInputChange} 
+          />
+          <label htmlFor="">LastName</label>
+          <input type="text"
+          name='lname'
+          value={this.state.lname} 
+          onChange={this.handelInputChange}
+          />
           <label htmlFor="">Email</label>
-          <input type="mail" id="mail" name="name" value={this.user.mail} onChange={this.handleInputFieldChange} /> {" "} <br />
+          <input type="text"
+          name='mail'
+          value={this.state.mail} 
+          onChange={this.handelInputChange}      
+          />
           <label htmlFor="">Password</label>
-          <input type="password" id="password" name="password" value={this.user.password} onChange={this.handleInputFieldChange} /> {" "}<br />
-          {/* 2 we have to write th efunction to the user button*/}
-          <button type="button" id="button" onClick={this.handelClickSubmit} >SUBMIT</button>
+          <input type="text"
+          name='password'
+          value={this.state.password} 
+          onChange={this.handelInputChange}
+          />
+          
+          {/* 7. submit button with onclik event */}
+          <button onClick={this.handelSubmit}>Submit</button>
         </form>
-        <hr />
-        {this.state.data.map((usr) => {
-          return (
-            <li>{usr.fname}-{uxr.password}</li>
-          )
-        })}
       </div>
     )
   }
