@@ -3,7 +3,7 @@ import React from 'react'
 // function expresson method
 var FuncName= function name(){
     var str1="Hii this is theju iam from..."
-    var str2="       hii hellow      "
+    var str2="       hii hellow       "
     return(
         <div>
             <h1>Non Primitive Datatypes</h1>
