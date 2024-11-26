@@ -1,10 +1,11 @@
-import './App.css';
-import PrimitiveDataType from './Folder/PrimitiveDataType';
+import FuncName from './Folder/NonPrimitive';
+// import PrimitiveDataType from './Folder/PrimitiveDataType';
 
 function App() {
   return (
     <div className="App">
-      <PrimitiveDataType/>
+      {/* <PrimitiveDataType/> */}
+      <FuncName/>
     </div>
   );
 }
