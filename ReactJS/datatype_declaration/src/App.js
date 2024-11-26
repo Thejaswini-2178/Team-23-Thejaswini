@@ -17,7 +17,6 @@ function App() {
      <ObjectDisplay/>
      <ObjectDisplay1/>
      <Objectmethod_2/>
-
     </div>
   );
 }
