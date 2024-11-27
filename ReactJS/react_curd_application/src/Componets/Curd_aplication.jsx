@@ -43,6 +43,13 @@ export default class Curd_aplication extends Component {
   editIndex=null
   deletButton=(i)=>{
     console.log(i)
+    // const neWPerson=this.state.userData.filter((obj,index)=>{
+    //   return index !==i
+    // })
+    this.setState({userData:neWPerson})
+    const newPerson=[...this.state.userData]
+    newPerson.splice(i,1)
+    this.setState({ userData:newPerson})
   }
 
   render() {
@@ -148,8 +155,8 @@ export default class Curd_aplication extends Component {
                   <td>{val.motherName}</td>
                   <td>{val.email}</td>
                   <td>{val.password}</td>
-                  <td><button type='button' onClick={()=>{this.deletButton(i)}}>Delet</button></td>
-                  <td><button type='button' onClick={()=>{this.editButton(edit,i)}}>Edit</button></td>
+                  <td><button  onClick={()=>{this.deletButton(i)}}>Delet</button></td>
+                  <td><button  onClick={()=>{this.editButton(edit,i)}}>Edit</button></td>
                 </tr>
               )})}
             </tbody>
