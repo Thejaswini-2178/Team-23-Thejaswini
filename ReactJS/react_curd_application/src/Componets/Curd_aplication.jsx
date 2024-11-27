@@ -10,7 +10,6 @@ export default class Curd_aplication extends Component {
       userData:[]
     }
   }
-  
   onChangeEventHandling=(e)=>{
     console.log(e.target.name)
     var inputChange={...this.state.user}
@@ -29,6 +28,21 @@ export default class Curd_aplication extends Component {
       userData:onSubmit
     })
     console.log(this.state.userData)
+    this.clearForm()
+  }
+
+  clearForm=()=>{
+    let inputChange={...this.state.user}
+    inputChange={
+      name:"",contact:"",age:"",gender:"",fatherName:"",motherName:"",email:"",password:""
+  }
+  this.setState({user:inputChange})
+  }
+
+
+  editIndex=null
+  deletButton=(i)=>{
+    console.log(i)
   }
 
   render() {
@@ -103,6 +117,7 @@ export default class Curd_aplication extends Component {
           name="password" required /><br /><br />
           <button type="submit" onClick={this.onSubmit}>Submit</button>
 
+
         </form>
         </div>
         <div className='divdata2'>
@@ -115,16 +130,30 @@ export default class Curd_aplication extends Component {
               <th>Gender</th>
               <th>FatherName</th>
               <th>MotherName</th>
-              <th>Mail</th>
+              <th>Email</th>
               <th>Password</th>
+              <th>Delete</th>
+              <th>Edit</th>
               </tr>
             </thead>
             <tbody>
-              <tr></tr>
+              {this.state.userData.map((val,ind)=>{
+                return (
+                <tr key={ind}>
+                  <td>{val.name}</td>
+                  <td>{val.contact}</td>
+                  <td>{val.age}</td>
+                  <td>{val.gender}</td>
+                  <td>{val.fatherName}</td>
+                  <td>{val.motherName}</td>
+                  <td>{val.email}</td>
+                  <td>{val.password}</td>
+                  <td><button type='button' onClick={()=>{this.deletButton(i)}}>Delet</button></td>
+                  <td><button type='button' onClick={()=>{this.editButton(edit,i)}}>Edit</button></td>
+                </tr>
+              )})}
             </tbody>
           </table>
-
-
         </div>
       </div>
     )
