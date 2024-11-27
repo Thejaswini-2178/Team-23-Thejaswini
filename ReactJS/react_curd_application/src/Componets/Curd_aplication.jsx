@@ -63,7 +63,6 @@ export default class Curd_aplication extends Component {
     this.setState({ persons: newPersons, editIndex: null });
     this.clearForm()
   };
-
   render() {
     return (
       <div>
