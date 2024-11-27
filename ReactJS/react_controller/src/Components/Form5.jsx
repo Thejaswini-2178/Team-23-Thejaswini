@@ -35,11 +35,13 @@ export class Form5 extends Component {
     
 
     clearForm = () => {
+        let formData={...this.state.userData}
         this.setState = {
             data: {
                 fname: "", email: "", phone: "", password: "", confirmPassword: ""
             },
         }
+        this.setState({data:formData})
     }
     render() {
         return (
@@ -106,5 +108,4 @@ export class Form5 extends Component {
         )
     }
 }
-
 export default Form5
