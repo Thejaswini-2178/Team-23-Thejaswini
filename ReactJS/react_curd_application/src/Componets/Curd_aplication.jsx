@@ -57,7 +57,6 @@ export default class Curd_aplication extends Component {
     this.setState({editIndex:i,user:val})
   }
 
-
   updateUser = () => {
     const newPersons = [...this.state.user];
     newPersons[this.state.editIndex] = this.state.user;
