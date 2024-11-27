@@ -1,26 +1,16 @@
-form {
-  width: 600px;
-  padding:20px;
-  margin: 20px 20px auto 100px;
-}
-form div{
-  width: 500px;
-  height:40px
-}
-div input{
-  height:30px;
-  width:300px
+.divdata1 {
+  float: left;
+  left: 100px;
+  width: 400px;
+  height: auto;
+  margin: auto auto 50px 100px;
 }
 
-.form {
-  float: left;
-  width: 45%;
-  margin-right: 5%;
-  box-sizing: border-box;
-}
-.table {
-  float: left;
-  width: 50%;
-  box-sizing: border-box;
-  padding-top:30px
+.divdata2 {
+  display: flex;
+  float: right;
+  right: 500px;
+  width: 400px;
+  height: auto;
+  margin: 30px 300px auto auto;
 }
