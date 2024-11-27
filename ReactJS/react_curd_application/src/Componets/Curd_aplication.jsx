@@ -52,6 +52,11 @@ export default class Curd_aplication extends Component {
     this.setState({ userData:newPerson})
   }
 
+  editButton=(val,i)=>{
+    console.log(i)
+    this.setState({editIndex:i,user:val})
+  }
+
   render() {
     return (
       <div>
