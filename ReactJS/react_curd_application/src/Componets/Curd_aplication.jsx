@@ -135,6 +135,7 @@ export default class Curd_aplication extends Component {
           name="password" required /><br /><br />
           <button type="submit" onClick={this.onSubmit}>Submit</button>
         </form>
+        
         </div>
         <div className='divdata2'>
           <table border={1} cellPadding={10} cellSpacing={0}>
