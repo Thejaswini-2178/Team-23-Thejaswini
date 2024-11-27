@@ -46,7 +46,7 @@ export default class Curd_aplication extends Component {
     // const neWPerson=this.state.userData.filter((obj,index)=>{
     //   return index !==i
     // })
-    this.setState({userData:neWPerson})
+    // this.setState({userData:neWPerson})
     const newPerson=[...this.state.userData]
     newPerson.splice(i,1)
     this.setState({ userData:newPerson})
@@ -144,9 +144,9 @@ export default class Curd_aplication extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.state.userData.map((val,ind)=>{
+              {this.state.userData.map((val,i)=>{
                 return (
-                <tr key={ind}>
+                <tr key={i}>
                   <td>{val.name}</td>
                   <td>{val.contact}</td>
                   <td>{val.age}</td>
@@ -155,8 +155,19 @@ export default class Curd_aplication extends Component {
                   <td>{val.motherName}</td>
                   <td>{val.email}</td>
                   <td>{val.password}</td>
-                  <td><button  onClick={()=>{this.deletButton(i)}}>Delet</button></td>
-                  <td><button  onClick={()=>{this.editButton(edit,i)}}>Edit</button></td>
+                  <td>
+                    <button  onClick={()=>{
+                      this.deletButton(i)
+                      }}>
+                        Delet
+                    </button>
+                  </td>
+                  <td>
+                    <button  onClick={()=>{
+                      this.editButton(val,i)}}>
+                        Edit
+                    </button>
+                 </td>
                 </tr>
               )})}
             </tbody>
