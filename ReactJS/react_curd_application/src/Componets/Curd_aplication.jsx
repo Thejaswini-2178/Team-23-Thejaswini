@@ -10,6 +10,7 @@ export default class Curd_aplication extends Component {
       userData:[]
     }
   }
+  
   onChangeEventHandling=(e)=>{
     console.log(e.target.name)
     var inputChange={...this.state.user}
