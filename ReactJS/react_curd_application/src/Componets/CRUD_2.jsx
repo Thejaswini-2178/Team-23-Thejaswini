@@ -148,4 +148,5 @@ class RegistrationForm1 extends Component {
     );
   }
 }
+
 export default RegistrationForm1
