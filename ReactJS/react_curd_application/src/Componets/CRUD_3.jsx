@@ -5,7 +5,7 @@ class RegistrationForm2 extends Component {
   super(props)
   this.state={
     data:{
-
+      name:"",password:"",phone:"",age:""
     }
   }
   }
@@ -17,15 +17,15 @@ class RegistrationForm2 extends Component {
         <h3>Registration Form 2</h3>
           <div>
             <label>Username</label>
-            <input type="text" />
+            <input type="text"  name="name" value={thia.state.data.name} onClick={this.inputChange}/>
           </div>
           <div>
             <label>Password</label>
-            <input type="password" />
+            <input type="password" name="password" value={thia.state.data.password} onClick={this.inputChange} />
           </div>
           <div>
             <label>Phone Number</label>
-            <input type="tel" />
+            <input type="tel"name="password" value={thia.state.data.password} onClick={this.inputChange} />
           </div>
           <div>
             <label>Age</label>
