@@ -19,7 +19,7 @@ export default class Curd_aplication extends Component {
     })
   }
 
-  onSubmit=(event)=>{
+  registerUser=(event)=>{
     event.preventDefault()
     console.log(this.state)
     const onSubmit=[...this.state.userData]
@@ -58,9 +58,9 @@ export default class Curd_aplication extends Component {
   }
 
   updateUser = () => {
-    const newPersons = [...this.state.user];
-    newPersons[this.state.editIndex] = this.state.user;
-    this.setState({ persons: newPersons, editIndex: null });
+    const updateData = [...this.state.userData];
+    updateData[this.state.editIndex] = this.state.user;
+    this.setState({ userData: updateData, editIndex: null });
     this.clearForm()
   };
   render() {
@@ -125,7 +125,7 @@ export default class Curd_aplication extends Component {
           id="email" 
           value={this.state.user.email}
           onChange={this.onChangeEventHandling}
-          name="email" required /><br /><br />
+          name="email" required /><br /><br />nom
 
           <label htmlFor="password">Password:</label><br />
           <input type="password" 
@@ -133,7 +133,11 @@ export default class Curd_aplication extends Component {
           value={this.state.user.password}
           onChange={this.onChangeEventHandling}
           name="password" required /><br /><br />
-          <button type="submit" onClick={this.onSubmit}>Submit</button>
+          {this.state.editIndex!=null?(
+            <button type="submit" onClick={this.updateUser}>Update</button>
+          ):(
+            <button type="submit" onClick={this.registerUser}>Register</button>
+          )}
         </form>
         
         </div>
