@@ -5,6 +5,10 @@
   height: auto;
   margin: auto auto 50px 100px;
 }
+.divdata1 form div{
+  padding:20px
+
+}
 
 .divdata2 {
   display: flex;
