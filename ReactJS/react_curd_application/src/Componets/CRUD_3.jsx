@@ -54,5 +54,4 @@ class RegistrationForm2 extends Component {
     );
   }
 }
-
 export default RegistrationForm2
