@@ -47,7 +47,7 @@ class RegistrationForm1 extends Component {
    editIndex=null
   // delet button function
   handelDeletButton=(i)=>{
-    console.log("you deleted this",i)
+    console.log(i)
     const editData=[...this.state.data]
     editData.splice(i,1)
     this.setState({
@@ -129,7 +129,7 @@ class RegistrationForm1 extends Component {
                     <td>
                       <button type='button'
                         onClick={() => {
-                          this.handelDeletButton(val, i)
+                          this.handelDeletButton(i)
                         }}>
                         Delete
                       </button>
