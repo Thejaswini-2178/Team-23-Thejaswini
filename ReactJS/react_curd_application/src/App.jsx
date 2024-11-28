@@ -9,7 +9,8 @@ function App() {
   return (
     <>
     {/* <Curd_aplication/> */}
-    <RegistrationForm1/>
+    {/* <RegistrationForm1/> */}
+    {/*  */}
     </>
   )
 }
