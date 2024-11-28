@@ -11,7 +11,6 @@ class RegistrationForm1 extends Component {
       data: []
     }
   }
-
   // 3 adding onchangeevent to the input fileld 
   // 4 writing the function to the onchange evenyt
   handelChangeEvent = (e) => {
@@ -22,7 +21,6 @@ class RegistrationForm1 extends Component {
       list: inputChange
     })
   }
-
   // 5 now adding  function to the submit to the 
   regesterForm = (event) => {
     const submitForm = [...this.state.data]
@@ -33,7 +31,6 @@ class RegistrationForm1 extends Component {
     console.log(this.state)
     this.clearForm()
   }
-
   // 8.for auto deleting the form data in form after completion of entering 
   clearForm=()=>{
     let clrData={...this.state.list}
@@ -45,7 +42,7 @@ class RegistrationForm1 extends Component {
     })
   }
    editIndex=null
-  // delet button function
+  // 9.delet button function
   handelDeletButton=(i)=>{
     console.log(i)
     const editData=[...this.state.data]
@@ -54,17 +51,18 @@ class RegistrationForm1 extends Component {
       data:editData
     })
   }
-
-  editIndex=null
-  deletButton=(i)=>{
+  // 10 edit function
+  handelEditButton=(val,i)=>{
     console.log(i)
-    // const neWPerson=this.state.userData.filter((obj,index)=>{
-    //   return index !==i
-    // })
-    // this.setState({userData:neWPerson})
-    const newPerson=[...this.state.userData]
-    newPerson.splice(i,1)
-    this.setState({ userData:newPerson})
+    this.setState({editIndex:i, list:val})
+  }
+
+  // 12.update function
+  updateButton=()=>{
+    const deletData=[...this.state.data]
+    deletData[this.state.editIndex]=this.state.list
+    this.setState({data:deletData,editIndex:null})
+    this.clearForm()
   }
 
   render() {
@@ -78,6 +76,7 @@ class RegistrationForm1 extends Component {
               <label>Full Name</label>
               <input type="text" name="name" value={this.state.list.name} onChange={this.handelChangeEvent} />
             </div>
+
             <div>
               <label>Date of Birth</label>
               <input type="date" name="dob" value={this.state.list.dob} onChange={this.handelChangeEvent} />
@@ -92,7 +91,12 @@ class RegistrationForm1 extends Component {
               <input type="email" name="mail" value={this.state.list.mail} onChange={this.handelChangeEvent} />
             </div>
             <div>
-              <button type='button' onClick={this.regesterForm}>Submit</button>
+              {/* 11 by using the conditional rendering we are using the register and update as toggel */}
+              {this.state.editIndex!==null?(
+                <button type='button' onClick={this.updateButton}>Update</button>
+              ):(
+                <button type='button' onClick={this.regesterForm}>Register</button>
+              )}
             </div>
           </form>
         </div>
@@ -121,7 +125,7 @@ class RegistrationForm1 extends Component {
                     <td>
                       <button type='button'
                         onClick={() => {
-                          this.handelEditButton(i)
+                          this.handelEditButton(val,i)
                         }}>
                         Edit
                       </button>

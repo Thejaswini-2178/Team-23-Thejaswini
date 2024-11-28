@@ -64,6 +64,7 @@ export default class Curd_aplication extends Component {
     this.setState({ userData: updateData, editIndex: null });
     this.clearForm()
   };
+  
   render() {
     return (
       <div>
@@ -134,13 +135,14 @@ export default class Curd_aplication extends Component {
           value={this.state.user.password}
           onChange={this.onChangeEventHandling}
           name="password" required /><br /><br />
+          
           {this.state.editIndex!=null?(
             <button type="submit" onClick={this.updateUser}>Update</button>
           ):(
             <button type="submit" onClick={this.registerUser}>Register</button>
           )}
         </form>
-        
+
         </div>
         <div className='divdata2'>
           <table border={1} cellPadding={10} cellSpacing={0}>
