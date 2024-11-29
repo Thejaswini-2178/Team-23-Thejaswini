@@ -92,7 +92,7 @@ class RegistrationForm1 extends Component {
             </div>
             <div>
               {/* 11 by using the conditional rendering we are using the register and update as toggel */}
-              {this.state.editIndex!==null?(
+              {this.state.editIndex!=null?(
                 <button type='button' onClick={this.updateButton}>Update</button>
               ):(
                 <button type='button' onClick={this.regesterForm}>Register</button>
