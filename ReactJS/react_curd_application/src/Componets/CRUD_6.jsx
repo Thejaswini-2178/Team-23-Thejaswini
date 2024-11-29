@@ -27,3 +27,4 @@ class RegistrationForm5 extends Component {
     );
   }
 }
+export default RegistrationForm5
