@@ -27,4 +27,5 @@ import React, { Component } from 'react'
     )
   }
 }
+
 export default CRUD10
