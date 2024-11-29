@@ -28,3 +28,4 @@ class RegistrationForm6 extends Component {
     );
   }
 }
+export default RegistrationForm6
