@@ -31,3 +31,4 @@ class RegistrationForm8 extends Component {
     );
   }
 }
+export default RegistrationForm8
