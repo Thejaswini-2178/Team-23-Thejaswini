@@ -31,3 +31,4 @@ class RegistrationForm7 extends Component {
     );
   }
 }
+export default RegistrationForm7
