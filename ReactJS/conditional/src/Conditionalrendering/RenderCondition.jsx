@@ -8,7 +8,6 @@ export default class RenderCondition extends Component {
     }
     return <h1>Please log in.</h1>;
   }
-
   render() {
     return <div>{this.renderContent()}</div>;
   }
