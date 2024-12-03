@@ -1,13 +1,16 @@
-import FuncName from './Folder/NonPrimitive';
-import ObjectUpdated_assign from './Folder/ObjectUpdated_assign';
+// import { StringMethods } from './Folder/StringMethosd';
 // import PrimitiveDataType from './Folder/PrimitiveDataType';
+
+import Str1 from "./Folder/StringMethod";
+
+
 
 function App() {
   return (
     <div className="App">
       {/* <PrimitiveDataType/> */}
-      <FuncName/>
-      <ObjectUpdated_assign/>
+      {/* <StringMethods/> */}
+      <Str1/>
     </div>
   );
 }
