@@ -14,5 +14,4 @@ function Objectdefineproperty() {
         </div>
     )
 }
-
 export default Objectdefineproperty
