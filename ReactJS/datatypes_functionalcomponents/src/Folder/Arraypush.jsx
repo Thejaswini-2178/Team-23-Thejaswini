@@ -18,5 +18,4 @@ function PushExample() {
     </div>
   );
 }
-
 export default PushExample;
