@@ -18,5 +18,4 @@ function SortExample() {
     </div>
   );
 }
-
 export default SortExample;
