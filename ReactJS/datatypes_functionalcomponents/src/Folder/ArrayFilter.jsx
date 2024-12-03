@@ -13,5 +13,4 @@ function FilterExample() {
     </div>
   );
 }
-
 export default FilterExample;
