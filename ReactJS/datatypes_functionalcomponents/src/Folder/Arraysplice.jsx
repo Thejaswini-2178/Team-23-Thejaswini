@@ -18,5 +18,4 @@ function SpliceExample() {
     </div>
   );
 }
-
 export default SpliceExample;
