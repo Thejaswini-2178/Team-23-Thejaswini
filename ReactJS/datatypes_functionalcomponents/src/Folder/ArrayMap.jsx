@@ -13,4 +13,5 @@ function MapExample() {
     </div>
   );
 }
+
 export default MapExample;
