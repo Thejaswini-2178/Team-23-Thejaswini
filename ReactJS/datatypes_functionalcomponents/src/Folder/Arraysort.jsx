@@ -1,4 +1,4 @@
-// File: SortExample.js
+
 import React, { useState } from "react";
 
 function SortExample() {
