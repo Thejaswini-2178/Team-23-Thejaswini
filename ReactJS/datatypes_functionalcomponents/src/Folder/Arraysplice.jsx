@@ -1,4 +1,4 @@
-// File: SpliceExample.js
+
 import React, { useState } from "react";
 
 function SpliceExample() {
