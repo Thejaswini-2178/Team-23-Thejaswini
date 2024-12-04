@@ -1,4 +1,3 @@
-// File: FilterExample.js
 import React from "react";
 
 function FilterExample() {
