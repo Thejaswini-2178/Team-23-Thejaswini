@@ -3,7 +3,6 @@ import React from 'react'
 export function StringMethods(){
   var str1="hii this is thejaswini"
   var str2="      hellow this this is the thejaswini iam from mpl      "
-  
   return(
     <div>
       <p>{str1.length}</p>
