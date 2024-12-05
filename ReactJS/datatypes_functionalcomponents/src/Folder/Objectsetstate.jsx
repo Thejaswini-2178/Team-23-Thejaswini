@@ -9,5 +9,4 @@ function Objectsetstate() {
     </div>
     )
 }
-
 export default Objectsetstate
