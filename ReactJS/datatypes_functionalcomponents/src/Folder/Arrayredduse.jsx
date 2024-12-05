@@ -3,7 +3,6 @@ import React from "react";
 function FilterExample() {
   const items = ["Apple", "Banana", "Cherry"];
   const filteredItems = items.filter((item) => item.startsWith("B"));
-
   return (
     <div>
       <h3>Unmodified Method: filter()</h3>

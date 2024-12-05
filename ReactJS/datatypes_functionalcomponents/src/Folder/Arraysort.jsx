@@ -8,7 +8,6 @@ function SortExample() {
     newItems.sort();
     setItems(newItems);
   };
-
   return (
     <div>
       <h3>Modified Method: sort()</h3>

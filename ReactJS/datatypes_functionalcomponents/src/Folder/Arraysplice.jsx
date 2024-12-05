@@ -8,7 +8,6 @@ function SpliceExample() {
     newItems.splice(1, 1); // Remove one element at index 1
     setItems(newItems);
   };
-
   return (
     <div>
       <h3>Modified Method: splice()</h3>

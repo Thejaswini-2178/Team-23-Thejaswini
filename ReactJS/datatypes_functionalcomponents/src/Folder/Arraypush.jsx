@@ -8,7 +8,6 @@ function PushExample() {
     newItems.push("Cherry");
     setItems(newItems);
   };
-
   return (
     <div>
       <h3>Modified Method: push()</h3>
