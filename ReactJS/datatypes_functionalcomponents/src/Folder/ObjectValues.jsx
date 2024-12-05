@@ -9,5 +9,4 @@ function ObjectValues() {
     </div>
   )
 }
-
 export default ObjectValues
