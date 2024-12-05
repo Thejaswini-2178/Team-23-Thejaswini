@@ -6,6 +6,7 @@ function Objectdefineproperty() {
         value: "Hello",
         writable: true,
     });
+    
     return (
         <div>
             <p>console.log(obj.key)</p>
