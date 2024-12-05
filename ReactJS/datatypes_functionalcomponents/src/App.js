@@ -1,7 +1,8 @@
 // import { StringMethods } from './Folder/StringMethosd';
 // import PrimitiveDataType from './Folder/PrimitiveDataType';
 
-import Str1 from "./Folder/StringMethod";
+// import Str1 from "./Folder/StringMethod";
+import StringMethod1 from "./Folder/StringMethod1";
 
 
 
@@ -10,7 +11,8 @@ function App() {
     <div className="App">
       {/* <PrimitiveDataType/> */}
       {/* <StringMethods/> */}
-      <Str1/>
+      {/* <Str1/> */}
+      <StringMethod1/>
     </div>
   );
 }
