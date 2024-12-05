@@ -1,9 +1,9 @@
 import React from 'react'
 
-var FuncName= function name(){
-    var str1="Hii this is theju iam from..."
-    var str2="       hii hellow       "
-    return(
+var FuncName = function name() {
+    var str1 = "Hii this is theju iam from..."
+    var str2 = "       hii hellow       "
+    return (
         <div>
             <h1>Non Primitive Datatypes</h1>
             <h2>String Data types</h2>
