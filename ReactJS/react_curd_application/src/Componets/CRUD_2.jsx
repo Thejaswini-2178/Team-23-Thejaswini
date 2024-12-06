@@ -32,36 +32,36 @@ class RegistrationForm1 extends Component {
     this.clearForm()
   }
   // 8.for auto deleting the form data in form after completion of entering 
-  clearForm=()=>{
-    let clrData={...this.state.list}
-    clrData={
+  clearForm = () => {
+    let clrData = { ...this.state.list }
+    clrData = {
       name: "", dob: "", gender: "", mail: ""
     }
     this.setState({
-      list:clrData
+      list: clrData
     })
   }
-   editIndex=null
+  editIndex = null
   // 9.delet button function
-  handelDeletButton=(i)=>{
+  handelDeletButton = (i) => {
     console.log(i)
-    const editData=[...this.state.data]
-    editData.splice(i,1)
+    const editData = [...this.state.data]
+    editData.splice(i, 1)
     this.setState({
-      data:editData
+      data: editData
     })
   }
   // 10 edit function
-  handelEditButton=(val,i)=>{
+  handelEditButton = (val, i) => {
     console.log(i)
-    this.setState({editIndex:i, list:val})
+    this.setState({ editIndex: i, list: val })
   }
 
   // 12.update function
-  updateButton=()=>{
-    const deletData=[...this.state.data]
-    deletData[this.state.editIndex]=this.state.list
-    this.setState({data:deletData,editIndex:null})
+  updateButton = () => {
+    const deletData = [...this.state.data]
+    deletData[this.state.editIndex] = this.state.list
+    this.setState({ data: deletData, editIndex: null })
     this.clearForm()
   }
 
@@ -92,9 +92,9 @@ class RegistrationForm1 extends Component {
             </div>
             <div>
               {/* 11 by using the conditional rendering we are using the register and update as toggel */}
-              {this.state.editIndex!=null?(
+              {this.state.editIndex != null ? (
                 <button type='button' onClick={this.updateButton}>Update</button>
-              ):(
+              ) : (
                 <button type='button' onClick={this.regesterForm}>Register</button>
               )}
             </div>
@@ -125,7 +125,7 @@ class RegistrationForm1 extends Component {
                     <td>
                       <button type='button'
                         onClick={() => {
-                          this.handelEditButton(val,i)
+                          this.handelEditButton(val, i)
                         }}>
                         Edit
                       </button>
