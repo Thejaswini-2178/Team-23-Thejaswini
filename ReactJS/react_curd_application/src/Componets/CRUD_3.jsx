@@ -72,7 +72,6 @@ class RegistrationForm4 extends Component {
   //   this.clearForm();
   // };
 
-
   render() {
     return (
       <div>
