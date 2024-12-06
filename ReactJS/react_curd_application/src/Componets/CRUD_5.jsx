@@ -12,7 +12,7 @@ class CRUD_5 extends Component {
       datalis: [],
     };
   }
-  
+
   onChangeEvent = (e) => {
     const inputChange = { ...this.state.user };
     inputChange[e.target.name] = e.target.value;
