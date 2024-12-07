@@ -103,22 +103,21 @@
                     newData.subjects.push(allCheckBoxElements[i].value)
                 }
             }
-
             myData.push(newData);
-            renderTable();
+            tableData();
             clearForm();
         }
 
-        function renderTable() {
+        function tableData() {
             const tbody = document.querySelector("tbody");
             tbody.innerHTML = "";
 
             myData.forEach((data, i) => {
                 const tr = document.createElement("tr");
 
-                for (let key in data) {
+                for (let a in data) {
                     const td = document.createElement("td");
-                    td.textContent = data[key];
+                    td.textContent = data[a];
                     tr.appendChild(td);
                 }
 
@@ -142,7 +141,7 @@
 
         function deleteData(i) {
             myData.splice(i, 1);
-            renderTable();
+            tableData();
         }
 
         function editData(i) {
@@ -177,7 +176,7 @@
             }
 
             myData[index] = updatedData;
-            renderTable();
+            tableData();
             clearForm();
         }
 
