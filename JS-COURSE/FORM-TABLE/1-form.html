@@ -90,6 +90,7 @@
         function enterData() {
             var newData = {
 
+
                 university: document.getElementById("university").value,
                 institute: document.getElementById("insti").value,
                 branch: document.getElementById("branch").value,
@@ -99,7 +100,10 @@
                 avgCPIend: document.getElementById("num2").value,
                 experience: document.getElementById("expe").value,
                 websiteBlog: document.getElementById("url").value,
+                skills:[]
+                
             };
+            
             data.push(newData);
             displayData();
         }
