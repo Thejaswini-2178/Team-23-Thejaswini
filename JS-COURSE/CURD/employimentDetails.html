@@ -33,14 +33,14 @@
 <body>
 
 <h1>New Employee Registration Form</h1>
-<div style="position: fixed;">
-    <form >
+<div>
+    <form>
         <table>
             <tr>
                 <th>Name</th>
-                <td><input type="text" name="name" required></td>
+                <td><input type="text" name="name" id="name" required></td>
                 <th>Gender</th>
-                <td><select name="gender" required>
+                <td><select name="gender" id="gender" required>
                     <option value="">Select</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -49,53 +49,53 @@
             </tr>
             <tr>
                 <th>Nationality</th>
-                <td><input type="text" name="nationality"></td>
+                <td><input type="text" name="nationality" id="nationality"></td>
                 <th>Birthplace</th>
-                <td><input type="text" name="birthplace"></td>
+                <td><input type="text" name="birthplace" id="birthplace"></td>
             </tr>
             <tr>
                 <th>Height</th>
-                <td><input type="text" name="height"></td>
+                <td><input type="text" name="height" id="height"></td>
                 <th>Weight</th>
-                <td><input type="text" name="weight"></td>
+                <td><input type="text" name="weight" id="weight"></td>
             </tr>
             <tr>
                 <th>ID Number</th>
-                <td><input type="text" name="id_number"></td>
+                <td><input type="text" name="id_number" id="id_number"></td>
                 <th>Date of Birth</th>
-                <td><input type="date" name="dob"></td>
+                <td><input type="date" name="dob" id="dob"></td>
             </tr>
             <tr>
                 <th>Political Status</th>
-                <td><input type="text" name="political_status"></td>
+                <td><input type="text" name="political_status" id="political_status"></td>
                 <th>Account Location</th>
-                <td><input type="text" name="account_location"></td>
+                <td><input type="text" name="account_location" id="account_location"></td>
             </tr>
             <tr>
                 <th>Address</th>
-                <td colspan="4"><input type="text" name="address" style="width: 97%;"></td>
+                <td colspan="4"><input type="text" name="address" id="address" style="width: 97%;"></td>
             </tr>
             <tr>
                 <th>Department</th>
-                <td><input type="text" name="department"></td>
+                <td><input type="text" name="department" id="department"></td>
                 <th>Position</th>
-                <td><input type="text" name="position"></td>
+                <td><input type="text" name="position" id="position"></td>
                 <th>Job Title</th>
-                <td><input type="text" name="job_title"></td>
+                <td><input type="text" name="job_title" id="job_title"></td>
             </tr>
             <tr>
                 <th>Hire Time</th>
-                <td><input type="date" name="hire_time"></td>
+                <td><input type="date" name="hire_time" id="hire_time"></td>
                 <th>Graduated School</th>
-                <td><input type="text" name="graduated_school"></td>
+                <td><input type="text" name="graduated_school" id="graduated_school"></td>
                 <th>Major</th>
-                <td><input type="text" name="major"></td>
+                <td><input type="text" name="major" id="major"></td>
             </tr>
             <tr>
                 <th>Foreign Language</th>
-                <td><input type="text" name="foreign_language"></td>
+                <td><input type="text" name="foreign_language" id="foreign_language"></td>
                 <th>Computer Skills</th>
-                <td colspan="3"><input type="text" name="computer_skills" style="width: 97%;"></td>
+                <td colspan="3"><input type="text" name="computer_skills" id="computer_skills" style="width: 97%;"></td>
             </tr>
             <tr>
                 <th>Education</th>
@@ -107,30 +107,30 @@
                             <th>Major</th>
                         </tr>
                         <tr>
-                            <td><input type="text" name="edu_time_1"></td>
-                            <td><input type="text" name="edu_school_1"></td>
-                            <td><input type="text" name="edu_major_1"></td>
+                            <td><input type="text" name="edu_time_1" id="edu_time_1"></td>
+                            <td><input type="text" name="edu_school_1" id="edu_school_1"></td>
+                            <td><input type="text" name="edu_major_1" id="edu_major_1"></td>
                         </tr>
                         <tr>
-                            <td><input type="text" name="edu_time_2"></td>
-                            <td><input type="text" name="edu_school_2"></td>
-                            <td><input type="text" name="edu_major_2"></td>
+                            <td><input type="text" name="edu_time_2" id="edu_time_2"></td>
+                            <td><input type="text" name="edu_school_2" id="edu_school_2"></td>
+                            <td><input type="text" name="edu_major_2" id="edu_major_2"></td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
         <br>
-        <button type="button">Submit</button>
+        <button type="button" onclick="displayData()">Submit</button>
     </form>
+    
 </div>
-<div style="position:static;">
+<div>
     <table>
         <thead>
             <tr>
                 <th>Name</th>
                 <th>Gender</th>
-                <th>Photo</th>
                 <th>Nationality</th>
                 <th>Birth place</th>
                 <th>Height</th>
@@ -155,6 +155,9 @@
                 <th>Major</th>
             </tr>
         </thead>
+        <tbody>
+
+        </tbody>
     </table>
 </div>
 <!-- now adding this form into the table -->
@@ -162,9 +165,104 @@
     var myData=[]
     function displayData(){
         var formData={
-            Name:document.getElementById("name").value="",
-            gender:document.getElementById("")
+            name:document.getElementById("name").value="",
+            gender:document.getElementById("gender").value="",
+            nationality:document.getElementById("nationality").value="",
+            birthplace:document.getElementById("birthplace").value="",
+            height:document.getElementById("height").value="",
+            weight:document.getElementById("weight").value="",
+            id_number:document.getElementById("id_number").value="",
+            dob:document.getElementById("dob").value="",
+            political_status:document.getElementById("political_status").value="",
+            account_location:document.getElementById("account_location").value="",
+            address:document.getElementById("address").value="",
+            department:document.getElementById("department").value="",
+            position:document.getElementById("position").value="",
+            job_title:document.getElementById("job_title").value="",
+            hire_time:document.getAnimations("hire_time").value="",
+            graduated_school:document.getElementById("graduated_school").value="",
+            major:document.getElementById("major").value="",
+            computer_skills:document.getElementById("computer_skills").value="",
+            edu_time_1:document.getElementById("edu_time_1").value="",
+            edu_school_2:document.getElementById("edu_school_2").value="",
+            edu_major_2:document.getElementById("edu_major_2").value=""
         }
+         myData.push(formData)
+         console.log(formData)
+         tableData()
+    }
+
+    function tableData() {
+            document.querySelector('tbody').innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                var myTr = document.createElement("tr");
+
+                for (let a in data) {
+                    const td = document.createElement("td");
+                    td.textContent = data[a];
+                    tr.appendChild(td);
+                }
+
+                const editTd = document.createElement("td");
+                const editBtn = document.createElement("button");
+                editBtn.textContent = "Edit";
+                editBtn.setAttribute('onclick', "editData(" + i + ")");
+                editTd.appendChild(editBtn);
+                tr.appendChild(editTd);
+
+                const deleteTd = document.createElement("td");
+                const deleteBtn = document.createElement("button");
+                deleteBtn.textContent = "Delete";
+                deleteBtn.setAttribute('onclick', "deleteData(" + i + ")");
+                deleteTd.appendChild(deleteBtn);
+                tr.appendChild(deleteTd);
+
+                document.querySelector("tbody").appendChild("myTr")
+            };
+        }
+
+        function deleteData(i) {
+            myData.splice(i, 1);
+            tableData();
+        }
+
+    function editData(index) {
+        var data = myData[index];
+        document.getElementById("name").value = data.name;
+        document.getElementById("gender").value = data.gender;
+        document.getElementById("nationality").value = data.nationality;
+        document.getElementById("birthplace").value = data.birthplace;
+        document.getElementById("height").value = data.height;
+        document.getElementById("weight").value = data.weight;
+        document.getElementById("id_number").value = data.id_number;
+        document.getElementById("dob").value = data.dob;
+        document.getElementById("political_status").value = data.political_status;
+        document.getElementById("account_location").value = data.account_location;
+        document.getElementById("address").value = data.address;
+        document.getElementById("department").value = data.department;
+        document.getElementById("position").value = data.position;
+        document.getElementById("job_title").value = data.job_title;
+        document.getElementById("hire_time").value = data.hire_time;
+        document.getElementById("graduated_school").value = data.graduated_school;
+        document.getElementById("major").value = data.major;
+        document.getElementById("computer_skills").value = data.computer_skills;
+        document.getElementById("edu_time_1").value = data.edu_time_1;
+        document.getElementById("edu_school_1").value = data.edu_school_1;
+        document.getElementById("edu_major_1").value = data.edu_major_1;
+        document.getElementById("edu_time_2").value = data.edu_time_2;
+        document.getElementById("edu_school_2").value = data.edu_school_2;
+        document.getElementById("edu_major_2").value = data.edu_major_2;
+        
+        editIndex = index; 
+    }
+
+    function deleteData(index) {
+        myData.splice(index, 1);
+        renderTable(); 
+    }
+
+    function resetForm() {
+        document.querySelector("form").reset()
     }
  </script>
 </body>
