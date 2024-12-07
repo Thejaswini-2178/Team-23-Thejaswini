@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Employee Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f8ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input, select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<h1>New Employee Registration Form</h1>
+<div style="position: fixed;">
+    <form >
+        <table>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" name="name" required></td>
+                <th>Gender</th>
+                <td><select name="gender" required>
+                    <option value="">Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select></td>
+                <th rowspan="5" style="text-align:center;">Photo</th>
+            </tr>
+            <tr>
+                <th>Nationality</th>
+                <td><input type="text" name="nationality"></td>
+                <th>Birthplace</th>
+                <td><input type="text" name="birthplace"></td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td><input type="text" name="height"></td>
+                <th>Weight</th>
+                <td><input type="text" name="weight"></td>
+            </tr>
+            <tr>
+                <th>ID Number</th>
+                <td><input type="text" name="id_number"></td>
+                <th>Date of Birth</th>
+                <td><input type="date" name="dob"></td>
+            </tr>
+            <tr>
+                <th>Political Status</th>
+                <td><input type="text" name="political_status"></td>
+                <th>Account Location</th>
+                <td><input type="text" name="account_location"></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td colspan="4"><input type="text" name="address" style="width: 97%;"></td>
+            </tr>
+            <tr>
+                <th>Department</th>
+                <td><input type="text" name="department"></td>
+                <th>Position</th>
+                <td><input type="text" name="position"></td>
+                <th>Job Title</th>
+                <td><input type="text" name="job_title"></td>
+            </tr>
+            <tr>
+                <th>Hire Time</th>
+                <td><input type="date" name="hire_time"></td>
+                <th>Graduated School</th>
+                <td><input type="text" name="graduated_school"></td>
+                <th>Major</th>
+                <td><input type="text" name="major"></td>
+            </tr>
+            <tr>
+                <th>Foreign Language</th>
+                <td><input type="text" name="foreign_language"></td>
+                <th>Computer Skills</th>
+                <td colspan="3"><input type="text" name="computer_skills" style="width: 97%;"></td>
+            </tr>
+            <tr>
+                <th>Education</th>
+                <td colspan="5">
+                    <table>
+                        <tr>
+                            <th>Time</th>
+                            <th>School</th>
+                            <th>Major</th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="edu_time_1"></td>
+                            <td><input type="text" name="edu_school_1"></td>
+                            <td><input type="text" name="edu_major_1"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="edu_time_2"></td>
+                            <td><input type="text" name="edu_school_2"></td>
+                            <td><input type="text" name="edu_major_2"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button type="button">Submit</button>
+    </form>
+</div>
+<div style="position:static;">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Photo</th>
+                <th>Nationality</th>
+                <th>Birth place</th>
+                <th>Height</th>
+                <th>Wight</th>
+                <th>ID number</th>
+                <th>DOB</th>
+                <th>Political Status</th>
+                <th>Account Location</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Position</th>
+                <th>Job title</th>
+                <th>HireTime</th>
+                <th>Date</th>
+                <th>Graduated School</th>
+                <th>Major</th>
+                <th>Forign Lnaguage</th>
+                <th>Computer Skills</th>
+                <th>Education</th>
+                <th>Time</th>
+                <th>School</th>
+                <th>Major</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<!-- now adding this form into the table -->
+ <script>
+    var myData=[]
+    function displayData(){
+        var formData={
+            Name:document.getElementById("name").value="",
+            gender:document.getElementById("")
+        }
+    }
+ </script>
+</body>
+</html>
