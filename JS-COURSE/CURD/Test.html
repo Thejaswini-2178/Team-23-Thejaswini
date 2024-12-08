@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       button #update{
+        display: none;
+       }
+    </style>
+</head>
+
+<body>
+    <div style="padding:20px;margin:20px">
+        <form>
+            <div><label>Name</label></div>
+            <div><input type="text" id="name"></div>
+            <div><label>Email</label></div>
+            <div><input type="email" id="mail"></div>
+            <div><label>Password</label></div>
+            <div><input type="password" id="password"></div>
+            <div><label>Domine</label></div>
+            <div>
+                <select name="domine" id="domine">
+                    <option value="">Select</option>
+                    <option value="IT">IT</option>
+                    <option value="core">Core</option>
+                </select>
+            </div>
+           <div style="margin:20px">
+            <button type="button" id="submit" onclick="displayData()">Submit</button>
+            <button type="button" id="update" onclick="updateUser()">Update</button>
+        </div>
+        </form>
+    </div>
+    <div style="padding:20px;margin:20px">
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Password</th>
+                    <th>Domine</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+
+        var user = [
+            {
+                name:"manisha",
+                mail:"theju@gmail.com",
+                password:"nxgfyf",
+                domine:"mhfruy"
+            },
+            {
+                name:"manisha1",
+                mail:"theju1@gmail.com",
+                password:"nxgfyf",
+                domine:"mhfruy"
+            } ,           {
+                name:"manisha2",
+                mail:"theju2@gmail.com",
+                password:"nxgfyf",
+                domine:"mhfruy"
+            }   ,         {
+                name:"manisha3",
+                mail:"theju3@gmail.com",
+                password:"nxgfyf",
+                domine:"mhfruy"
+            }  ,          {
+                name:"manisha4",
+                mail:"theju4@gmail.com",
+                password:"nxgfyf",
+                domine:"mhfruy"
+            }
+         
+        ];
+        function displayData() {
+            var newUsers = {
+                name: document.getElementById("name").value,
+                mail: document.getElementById("mail").value,
+                password: document.getElementById("password").value,
+                domine: document.getElementById("domine").value,
+            }
+            user.push(newUsers);
+            console.log(user)
+            tableData();
+            clearForm();
+        }
+
+        tableData()
+
+        function tableData() {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < user.length; i++) {
+                var tr = document.createElement("tr");
+                for (var a in user[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = user[i][a];
+                    tr.appendChild(td);
+                }
+
+                var editTd = document.createElement("td");
+                var editBTN = document.createElement("button");
+                editBTN.innerHTML = "Edit";
+                editBTN.setAttribute("onclick", "editUser(" + i + ")");
+                editTd.appendChild(editBTN);
+                tr.appendChild(editTd);
+
+                var deletTd = document.createElement("td");
+                var deletBTN = document.createElement("button");
+                deletBTN.innerHTML = "Delete";
+                deletBTN.setAttribute("onclick", "deleteUser(" + i + ")");
+                deletTd.appendChild(deletBTN);
+                tr.appendChild(deletTd);
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+
+        function deleteUser(i) {
+            user.splice(i, 1);
+            tableData();
+        }
+        var reference=null
+
+        function editUser(i){
+            reference=i
+            document.getElementById("name").value=user[i].name;
+            document.getElementById("mail").value=user[i].mail;
+            document.getElementById("password").value=user[i].password;
+
+        }
+        function updateUser(){
+            var updatedData={
+                name: document.getElementById("name").value,
+                mail: document.getElementById("mail").value,
+                password: document.getElementById("password").value,
+            }
+            user[reference]=updatedData
+            tableData()
+        }
+
+        
+    </script>
+</body>
+
+</html>
