@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,8 @@
 
         .form-group {
             margin-bottom: 15px;
+            margin-left: 10px;
+            border: transparent;
         }
 
         .form-group label {
@@ -70,8 +73,9 @@
             border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
-            width: 100%;
             cursor: pointer;
+            margin-left: 263px;
+            width: 100px;
         }
 
         .btn-submit:hover {
@@ -79,6 +83,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="form-container">
         <div class="progress-bar"></div>
@@ -177,8 +182,87 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn-submit">Submit</button>
+            <button type="submit" class="btn-submit" onclick="displayData()">Submit</button>
+            <button type="submit" class="btn-submit" onclick="updateData()">Update</button>
+
         </form>
+        <br><br>
+    </div>
+    <div>
+        <table border="1"cellpadding="10" cellspacing="0px">
+            <thead>
+                <tr>
+                    <br><br>
+                    <th>Title</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>streetAddress</th>
+                    <th>Street AddressLine2</th>
+                    <th>City</th>
+                    <th>Region</th>
+                    <th>Postal</th>
+                    <th>Country</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
 </body>
+<script>
+    var myData=[]
+    function displayData(){
+        var enterData={
+            title:document.getElementById("title").value,
+            firstName:document.getElementById("firstName").value,
+            lastName:document.getElementById("lastName").value,
+            streetAddress:document.getElementById("streetAddress").value,
+            streetAddress2:document.getElementById("streetAddress2").value,
+            city:document.getElementById("city").value,
+            region:document.getElementById("region").value,
+            companyPostalCode:document.getElementById("companyPostalCode").value,
+            Country:document.getElementById("Country").value
+        }
+        myData.push(enterData)
+        tableData()
+    }
+    function tableData(){
+        var tbody=document.querySelector("tbody").innerHTML=""
+        for(var i=0;i>myData.length;i++){
+            var tr=document.createElement("tr")
+            for(var a in myData[i]){
+                var td=document.createElement("td")
+                td.innerHTML=myData[i][a]
+                tr.appendChild(td)
+            }
+
+            // adding the edit buttons to the table data
+            var editTd=document.createElement("td")
+            var editBTN=document.createElement("button")
+            editBTN.innerHTML="Edit"
+            editBTN.setAttribute("onclick","editData("+i+")")
+            editBTN.appendChild(editTd)
+            tr.appendChild(editBTN)
+
+            // deletebutton is adding
+            var delTd=document.createElement("td")
+            var delBTN=document.createElement("button")
+            delBTN.innerHTML="Delet"
+            delBTN.setAttribute("onclick","deleteData("+i+")")
+            delBTN.appendChild(delBTN)
+            tr.appendChild(delBTN)
+            document.querySelector("tbody").appendChild(tr)
+        }
+    }
+    function editdeleteData(i){
+        console.log("You deleted the data at in index of ",i)
+        myData.splice(i,1)
+    }
+
+    
+
+
+
+</script>
 </html>
