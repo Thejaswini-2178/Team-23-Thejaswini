@@ -87,7 +87,7 @@
         var index = 1;
 
         function enterData() {
-            const newData = {
+            var newData = {
                 fullname: document.getElementById("fullName").value,
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
@@ -109,27 +109,27 @@
         }
 
         function tableData() {
-            const tbody = document.querySelector("tbody");
+            var tbody = document.querySelector("tbody");
             tbody.innerHTML = "";
 
             myData.forEach((data, i) => {
-                const tr = document.createElement("tr");
+                var tr = document.createElement("tr");
 
                 for (let a in data) {
-                    const td = document.createElement("td");
+                    var td = document.createElement("td");
                     td.textContent = data[a];
                     tr.appendChild(td);
                 }
 
-                const editTd = document.createElement("td");
-                const editBtn = document.createElement("button");
+                var editTd = document.createElement("td");
+                var editBtn = document.createElement("button");
                 editBtn.textContent = "Edit";
                 editBtn.onclick = function () { editData(i); };
                 editTd.appendChild(editBtn);
                 tr.appendChild(editTd);
 
-                const deleteTd = document.createElement("td");
-                const deleteBtn = document.createElement("button");
+                var deleteTd = document.createElement("td");
+                var deleteBtn = document.createElement("button");
                 deleteBtn.textContent = "Delete";
                 deleteBtn.setAttribute('onclick', "deleteData(" + i + ")");
                 deleteTd.appendChild(deleteBtn);
@@ -156,7 +156,7 @@
         }
 
         function updateData() {
-            const updatedData = {
+            var updatedData = {
                 fullname: document.getElementById("fullName").value,
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
