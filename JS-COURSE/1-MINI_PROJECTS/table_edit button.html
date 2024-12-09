@@ -107,7 +107,7 @@
                     var td = document.createElement("td");
                     if (!user[i].isEdit) {
                         td.innerHTML = user[i][key];
-                    }else{
+                    } else {
                         var myInput = document.createElement("input")
                         myInput.value = user[i][key]
                         td.appendChild(myInput)
@@ -117,14 +117,14 @@
 
                 var editTd = document.createElement("td");
                 var editBTN = document.createElement("button");
-                if(!user[i].isEdit){
+                if (!user[i].isEdit) {
                     editBTN.innerHTML = "Edit";
                     editBTN.setAttribute("onclick", "editUser(" + i + ")");
-                }else{
+                } else {
                     editBTN.innerHTML = "Update";
                     editBTN.setAttribute("onclick", "updateUser(" + i + ")");
                 }
-             
+
                 editTd.appendChild(editBTN);
                 tr.appendChild(editTd);
 
@@ -151,13 +151,13 @@
             resetEdit()
             user[i].isEdit = true;
             tableData(user)
-      
+
         }
 
         function updateUser(i) {
             var allRows = document.getElementsByTagName("tr")
-            console.log(allRows[i+1]);
-            
+            console.log(allRows[i + 1]);
+
             // var tr = document.querySelectorAll("tbody tr")[i];
             // var tds = tr.querySelectorAll("td[data-field]");
 
