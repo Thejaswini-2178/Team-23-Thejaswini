@@ -162,11 +162,12 @@
 
             // Re-add the Edit button after update
             var editTd = tr.querySelector("td:nth-last-child(2)");
-            editTd.innerHTML = ""; // Clear the previous content
-            var editBTN = document.createElement("button");
-            editBTN.innerHTML = "Edit";
-            editBTN.setAttribute("onclick", `editUser(${i})`);
-            editTd.appendChild(editBTN);
+            var editBTN = '<button onclick="editUser(' + i + ')">Edit</button>';
+            // editTd.innerHTML = ""; // Clear the previous content
+            // var editBTN = document.createElement("button");
+            // editBTN.innerHTML = "Edit";
+            // editBTN.setAttribute("onclick", `editUser(${i})`);
+            // editTd.appendChild(editBTN);
         }
 
         function deleteUser(i) {
