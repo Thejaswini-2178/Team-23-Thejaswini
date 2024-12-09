@@ -128,30 +128,30 @@
             }
         }
 
-        function editUser(i){
-            var tr=document.querySelectorAll("tbody tr")[i]
-            var tds=tr.querySelectorAll("td[data-field]")
-             tds.forEach(td=>{
-                var field=td.getAttribute("data-field")
-                td.innerHTML=`<input value='${user[i][field]}'>`
-             })
-
-            var editTd=tr.querySelector("td:nth-last-child(2)")
-            editTd.innerHTML=`<button onclick="updateUser(${i})">Update</button>`
-        }
-        function updateUser(i){
-            var tr=document.querySelectorAll("tbody tr")[i]
-            var tds=tr.querySelectorAll("td[data-field]")
-
-
-            tds.forEach(td=>{
-                var field=td.getAttribute("data-field")
-                var input=td.querySelector("input")
-                user[i][field]=input.value
-                td.innerHTML=user[i][field]
+        function editUser(i) {
+            var tr = document.querySelectorAll("tbody tr")[i]
+            var tds = tr.querySelectorAll("td[data-field]")
+            tds.forEach(td => {
+                var field = td.getAttribute("data-field")
+                td.innerHTML = `<input value='${user[i][field]}'>`
             })
-            var editTd=tr.querySelector("td:nth-last-child(2)")
-            editTd.innerHTML=`<button onclick="editUser(${i})">Edit</button>`
+
+            var editTd = tr.querySelector("td:nth-last-child(2)")
+            editTd.innerHTML = `<button onclick="updateUser(${i})">Update</button>`
+        }
+        function updateUser(i) {
+            var tr = document.querySelectorAll("tbody tr")[i]
+            var tds = tr.querySelectorAll("td[data-field]")
+
+
+            tds.forEach(td => {
+                var field = td.getAttribute("data-field")
+                var input = td.querySelector("input")
+                user[i][field] = input.value
+                td.innerHTML = user[i][field]
+            })
+            var editTd = tr.querySelector("td:nth-last-child(2)")
+            editTd.innerHTML = `<button onclick="editUser(${i})">Edit</button>`
 
         }
 
