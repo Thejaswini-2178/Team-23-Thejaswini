@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button#update {
+            display: none;
+        }
+
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Search for an Item</h1>
+        <input type="text" id="searchInput" oninput="searchInput()" placeholder="Search...">
+    </div>
+    
+    <div style="padding:20px;margin:20px">
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Password</th>
+                    <th>Domine</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var users = [
+            { name: "manisha", mail: "theju@gmail.com", password: "78665", domine: "it" },
+            { name: "lalli", mail: "lalli123@gmail.com", password: "2645", domine: "core" },
+            { name: "haseena", mail: "haseen456@gmail.com", password: "5768", domine: "webdeve" },
+            { name: "devika", mail: "dev123@gmail.com", password: "0989", domine: "fullstack" },
+            { name: "sandhya", mail: "sandhya126@gmail.com", password: "09875", domine: "markating" }
+        ];
+
+        function tableData(users) {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < users.length; i++) {
+                var tr = document.createElement("tr");
+
+                for (var key in users[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = users[i][key];
+                    tr.appendChild(td);
+                }
+
+                var deleteTd = document.createElement("td");
+                var deleteBTN = document.createElement("button");
+                deleteBTN.innerHTML = "Delete";
+                deleteBTN.setAttribute("onclick", `deleteUser(${i})`);
+                deleteTd.appendChild(deleteBTN);
+                tr.appendChild(deleteTd);
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+
+        function deleteUser(i) {
+            users.splice(i, 1);
+            tableData(users);
+        }
+
+        tableData(users);
+
+        function searchInput(){
+            var inputUser=document.getElementById("searchInput").value.toLowerCase();
+            var item=users.filter(user=>{
+                return Object.values(user).some(value=> value.toLocaleLowerCase().includes(inputUser))
+            })
+            tableData(item)
+        }
+
+    </script>
+</body>
+
+</html>
