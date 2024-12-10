@@ -126,50 +126,6 @@
                 document.querySelector("tbody").appendChild(tr);
             }
         }
-
-        function editUser(i) {
-            var tr = document.querySelectorAll("tbody tr")[i];
-            var tds = tr.querySelectorAll("td[data-field]");
-            var editTd = tr.querySelector("td:nth-last-child(2)");
-
-            tds.forEach(td => {
-                var field = td.getAttribute("data-field");
-                const input = document.createElement("input");
-                input.value = user[i][field];
-                td.innerHTML = ""; // Clear existing content
-                td.appendChild(input);
-            });
-
-            // Add Update button
-            editTd.innerHTML = ""; // Clear previous content
-            const updateButton = document.createElement("button");
-            updateButton.textContent = "Update";
-            updateButton.setAttribute("onclick", "updateUser(" + i + ")");
-            editTd.appendChild(updateButton);
-        }
-
-        function updateUser(i) {
-            var tr = document.querySelectorAll("tbody tr")[i];
-            var tds = tr.querySelectorAll("td[data-field]");
-
-            // Update user data with new values from the input fields
-            tds.forEach(td => {
-                var field = td.getAttribute("data-field");
-                var input = td.querySelector("input");
-                user[i][field] = input.value;
-                td.innerHTML = user[i][field]; // Replace input with updated value
-            });
-
-            // Re-add the Edit button after update
-            var editTd = tr.querySelector("td:nth-last-child(2)");
-            var editBTN = '<button onclick="editUser(' + i + ')">Edit</button>';
-            // editTd.innerHTML = ""; // Clear the previous content
-            // var editBTN = document.createElement("button");
-            // editBTN.innerHTML = "Edit";
-            // editBTN.setAttribute("onclick", `editUser(${i})`);
-            // editTd.appendChild(editBTN);
-        }
-
         function deleteUser(i) {
             user.splice(i, 1);
             tableData();
@@ -183,6 +139,43 @@
         }
 
         tableData();
+
+        
+
+        function editUser(i) {
+            var tr = document.querySelectorAll("tbody tr")[i];
+            var tds = tr.querySelectorAll("td[data-field]");
+            var editTd = tr.querySelector("td:nth-last-child(2)");
+
+            tds.forEach(td => {
+                var field = td.getAttribute("data-field");
+                var input = document.createElement("input");
+                input.value = user[i][field];
+                td.innerHTML = ""; // Clear existing content
+                td.appendChild(input);
+            });
+
+            // Add Update button
+            var editBTN= '<button onclick="updateUser(' + i + ')">Update</button>';
+            editTd.innerHTML = editBTN;
+        }
+
+        function updateUser(i) {
+            var tr = document.querySelectorAll("tbody tr")[i];
+            var tds = tr.querySelectorAll("td[data-field]");
+            var editTd = tr.querySelector("td:nth-last-child(2)");
+
+            // Update user data and replace inputs with updated values
+            tds.forEach(td => {
+                var field = td.getAttribute("data-field");
+                var input = td.querySelector("input");
+                user[i][field] = input.value;  // Update the data
+                td.innerHTML = user[i][field];     // Replace input with the updated value
+            });
+            // Re-add the Edit button
+            var editBTN= '<button onclick="editUser(' + i + ')">Edit</button>';
+            editTd.innerHTML = editBTN;
+        }
     </script>
 </body>
 
