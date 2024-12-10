@@ -133,19 +133,40 @@
         }
 
         function addDragAndDropHandlers() {
+            //retrieves all <tbody> elements in the document as an HTMLCollection 
+           //[0] will specifically select the first <tbody> element
             const tbody = document.getElementsByTagName("tbody")[0];
+
+            // tbody.rows fetches all the rows (<tr> elements) inside the <tbody>
             const rows = tbody.rows;
+
+            //looping the all th erows from tr at first row to  last row whereoms less
             for (i = 0; i < rows.length; i++) {
+
+                //row will be used to perform operations on the selected row.i is the curent row indeex
                 var row = rows[i];
+
+                //This sets the HTML attribute draggable="true" on the row, making it draggable
                 row.setAttribute('draggable', true);
                 row.addEventListener('dragstart', (event) => {
                     row = event.target;
                 });
                 row.addEventListener('dragover', (event) => {
                     var e = event;
+
+                    // e.preventDefault();: Prevents the browser's default behavior for the dragover 
+                    //event and enables the element to act as a drop target in a drag-and-drop operation
                     e.preventDefault();
+
+                    //Array.from(rows) converts the rows live collection into a static array allRows
                     let allRows = Array.from(rows);
-                    if (allRows.indexOf(e.target.parentNode) > allRows.indexOf(row))
+
+
+                    // correct row (<tr>), we must use e.target.parentNode, which refers to the <tr> element.
+                        //indexOf(row))refers the position hoverd the rows
+                    if (allRows.indexOf(e.target.parentNode) > allRows.indexOf(row))//refers the position hoverd the rows
+
+                    // If the hovered row is below the dragged row Move the dragged row to after the hovered row. 
                         e.target.parentNode.after(row);
                     else
                         e.target.parentNode.before(row);
