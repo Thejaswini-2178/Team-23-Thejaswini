@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Table</title>
+    <style>
+        button#update {
+            display: none;
+        }
+
+        th {
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f8f9fa;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #e9ecef;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #cbe7f8;
+        }
+
+        tbody tr.dragging {
+            background-color: #78a8d3;
+        }
+
+        tbody tr.over {
+            border: 2px dashed #007bff;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: rgb(232, 199, 199);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e81624;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="padding:20px;margin:20px">
+        <h1>Drag and Drope</h1>
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Password</th>
+                    <th>Domine</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var users = [
+            { name: "manisha", mail: "theju@gmail.com", password: "1234", domine: "it" },
+            { name: "lalli", mail: "lalli123@gmail.com", password: "5678", domine: "core" },
+            { name: "haseena", mail: "haseen456@gmail.com", password: "9123", domine: "webdeve" },
+            { name: "devika", mail: "dev123@gmail.com", password: "4567", domine: "fullstack" },
+            { name: "sandhya", mail: "sandhya126@gmail.com", password: "8923", domine: "markating" }
+        ];
+
+        function tableData(users) {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < users.length; i++) {
+                var tr = document.createElement("tr");
+                tr.setAttribute("draggable", "true");
+                tr.setAttribute("data-index", i);
+
+                for (var key in users[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = users[i][key];
+                    tr.appendChild(td);
+                }
+
+                var deleteTd = document.createElement("td");
+                var deleteBTN = document.createElement("button");
+                deleteBTN.innerHTML = "Delete";
+                deleteBTN.setAttribute("onclick", `deleteUser(${i})`);
+                deleteTd.appendChild(deleteBTN);
+                tr.appendChild(deleteTd);
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+            addDragAndDropHandlers();
+        }
+
+        function deleteUser(index) {
+            users.splice(index, 1);
+            tableData(users);
+        }
+
+        function addDragAndDropHandlers() {
+            const tbody = document.getElementsByTagName("tbody")[0];
+            const rows = tbody.rows;
+            for (i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                row.setAttribute('draggable', true);
+                row.addEventListener('dragstart', (event) => {
+                    row = event.target;
+                });
+                row.addEventListener('dragover', (event) => {
+                    var e = event;
+                    e.preventDefault();
+                    let allRows = Array.from(rows);
+                    if (allRows.indexOf(e.target.parentNode) > allRows.indexOf(row))
+                        e.target.parentNode.after(row);
+                    else
+                        e.target.parentNode.before(row);
+                });
+            }
+        }
+        tableData(users);
+
+
+    </script>
+</body>
+
+</html>
