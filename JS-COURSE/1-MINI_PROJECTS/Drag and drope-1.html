@@ -124,37 +124,51 @@
 
                 document.querySelector("tbody").appendChild(tr);
             }
-            handelDragDrop()
+            handelDragDrope()
+            
         }
-
         function deleteUser(index) {
             users.splice(index, 1);
             tableData();
-
         }
-        function  handelDragDrop(){
+
+        function handelDragDrope(){
             var tbody=document.getElementsByTagName("tbody")[0]
             var rows=tbody.rows
-            for(i=0;i<rows.length;i++){
+             for(i=0;i<rows.length;i++){
                 var row=rows[i]
                 row.setAttribute("draggable",true)
                 row.addEventListener("dragstart",(event)=>{
                     row=event.target
                 })
                 row.addEventListener("dragover",(e)=>{
-                    // e.preventDefault()
+                    e.preventDefault()
+                    console.log(rows)
                     var allRows=Array.from(rows)
                     if(allRows.indexOf(e.target.parentNode)>allRows.indexOf(row)){
                         e.target.parentNode.after(row)
-                    }
-                    else{
+                    }else{
                         e.target.parentNode.before(row)
                     }
                 })
-            }
+             }
         }
-        tableData()
+     tableData()
+
+     function sortTrows() {
+            var table = document.querySelector("tbody");
+            // var rows=table.querySelectorAll("tbody tr")
+            var rows = Array.from(table.querySelectorAll("tr"));
+            rows.sort((val1, val2) => {
+                return val1.cells[0].innerText.localeCompare(val2.cells[0].innerText)
+            })
+            rows.forEach(row => table.querySelector("tbody").appendChild(row))
+        }
+
+        
+    
+
+
     </script>
 </body>
-
 </html>
