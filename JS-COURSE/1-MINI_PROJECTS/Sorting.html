@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button#update {
+            display: none;
+        }
+
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding:20px;margin:20px">
+        <form>
+            <h1>Form for Data</h1>
+            <div><label>Name</label></div>
+            <div><input type="text" id="name"></div>
+            <div><label>Email</label></div>
+            <div><input type="email" id="mail"></div>
+            <div><label>Age</label></div>
+            <div><input type="number" id="age"></div>
+            <div><label>Domain</label></div>
+            <div>
+                <select name="domine" id="domine">
+                    <option value="">Select</option>
+                    <option value="IT">IT</option>
+                    <option value="Core">Core</option>
+                </select>
+            </div>
+            <div style="margin:20px">
+                <button type="button" id="submit" onclick="displayData()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div style="padding:20px;margin:20px">
+        <table border="1" cellspacing="0">
+            <caption>
+                <h1>Sorting th table data</h1>
+            </caption>
+            <thead>
+                <tr style="background-color: rgb(155, 155, 243)  type=button;">
+                    <th onclick="sortTrows(0)" type="button">Name</th>
+                    <th onclick="sortTrows(1)">Mail</th>
+                    <th onclick="sortTrows(2)">Age</th>
+                    <th onclick="sortTrows(3)">Domain</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var users = [
+            { name: "sandhya", mail: "mani123@gmail.com", age: 23, domine: "IT" },
+            { name: "madhu", mail: "madhu45@gmail.com", age: 21, domine: "Core" },
+            { name: "haseena", mail: "haseen312@gmail.com", age: 25, domine: "WebDev" },
+            { name: "devika", mail: "devika@gmail.com", age: 21, domine: "FullStack" },
+            { name: "Anjjum", mail: "theju4@gmail.com", age: 24, domine: "Backend" }
+        ];
+
+        function displayData() {
+            var newUsers = {
+                name: document.getElementById("name").value,
+                mail: document.getElementById("mail").value,
+                age: parseInt(document.getElementById("age").value, 10),
+                domine: document.getElementById("domine").value,
+            };
+            users.push(newUsers);
+            tableData();
+            clearForm();
+        }
+
+        function tableData(filteredUsers = users) {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < filteredUsers.length; i++) {
+                var tr = document.createElement("tr");
+                for (var key in filteredUsers[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = filteredUsers[i][key];
+                    tr.appendChild(td);
+                }
+                var deleteTd = document.createElement("td");
+                var deleteBTN = document.createElement("button");
+                deleteBTN.innerHTML = "Delete";
+                deleteBTN.setAttribute("onclick", `deleteUser(${i})`);
+                deleteTd.appendChild(deleteBTN);
+                tr.appendChild(deleteTd);
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+
+        function deleteUser(i) {
+            users.splice(i, 1);
+            tableData(users);
+        }
+
+        function clearForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("mail").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("domine").value = "";
+        }
+
+        tableData(users);
+
+        // SORTING TABLE
+        function sortTrows(columnIndex) {
+            var table = document.querySelector("tbody");
+            var rows = Array.from(table.querySelectorAll("tr"));
+
+            rows.sort((val1, val2) => {
+                return val1.cells[columnIndex].innerText.localeCompare(val2.cells[columnIndex].innerText);
+                return val1.cells[0].innerText.localeCompare(val2.cells[0].innerText)
+            });
+
+            rows.forEach(row => table.appendChild(row));
+        }
+
+
+    </script>
+</body>
+
+</html>
