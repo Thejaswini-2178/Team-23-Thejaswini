@@ -130,34 +130,21 @@
             tableData();
         }
         tableData();
+
         function editUser(i){
-            var tr=document.querySelectorAll("tbody tr")[i]
-            var tds=tr.querySelectorAll("td[data-field]")
-             tds.forEach(td=>{
-                var field=td.getAttribute("data-field")
+            var tr=document.querySelectorAll('tbody tr')[i]
+            var tds=td.querySelectorAll("tr[data-field]")
+            tds.forEach(td=>{
+                var field=td.getElementById("data-field")
                 var input=document.createElement("input")
                 input.value=users[i][field]
-                td.innerHTML=""
+                td.innerHTML=input.value
                 td.appendChild(input)
-             })
-             var editTd=tr.querySelector("td:nth-last-child(2)")
-             var editBTN='<button onclick="userUpdate('+i+')">Update</button>'
-             editTd.innerHTML=editBTN
+            })
+            var editTd=tr.querySelector("td:nth-last-child(2)")
+            var editBTN='<button onclick="updateUser('+i+')">Edit</button>'
+            editTd.innerHTML=edit
         }
-        function userUpdate(i){
-            var tr=document.querySelectorAll("tbody tr")[i]
-            var tds=tr.querySelectorAll("td[data-field]")
-             tds.forEach(td=>{
-                var field=td.getAttribute("data-field")
-                var input=td.querySelector("input")
-                users[i][field]=input.value
-                td.innerHTML= users[i][field]
-             })
-             var editTd=tr.querySelector("td:nth-last-child(2)")
-             var editBTN='<button onclick="editUser('+i+')">Edit</button>'
-             editTd.innerHTML=editBTN
-        }
-
     </script>
 </body>
 </html>
