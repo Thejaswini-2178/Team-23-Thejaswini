@@ -140,7 +140,7 @@
 
         tableData();
 
-        
+
 
         function editUser(i) {
             var tr = document.querySelectorAll("tbody tr")[i];
@@ -156,7 +156,7 @@
             });
 
             // Add Update button
-            var editBTN= '<button onclick="updateUser(' + i + ')">Update</button>';
+            var editBTN = '<button onclick="updateUser(' + i + ')">Update</button>';
             editTd.innerHTML = editBTN;
         }
 
@@ -173,7 +173,7 @@
                 td.innerHTML = user[i][field];     // Replace input with the updated value
             });
             // Re-add the Edit button
-            var editBTN= '<button onclick="editUser(' + i + ')">Edit</button>';
+            var editBTN = '<button onclick="editUser(' + i + ')">Edit</button>';
             editTd.innerHTML = editBTN;
         }
     </script>
