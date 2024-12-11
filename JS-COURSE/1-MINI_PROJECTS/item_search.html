@@ -47,7 +47,7 @@
         <table border="1" cellspacing="0">
             <thead>
                 <tr>
-                    <th onclick="sortTrows()">Name</th>
+                    <th>Name</th>
                     <th>Mail</th>
                     <th>Password</th>
                     <th>Domine</th>
@@ -69,27 +69,27 @@
             },
             {
                 name: "madhu",
-                mail: "theju1@gmail.com",
-                password: "nxgfyf",
-                domine: "mhfruy"
+                mail: "madu@gmail.com",
+                password: "1234",
+                domine: "it"
             },
             {
                 name: "haseena",
-                mail: "theju2@gmail.com",
-                password: "nxgfyf",
-                domine: "mhfruy"
+                mail: "haseen123@gmail.com",
+                password: "456",
+                domine: "web"
             },
             {
                 name: "devika",
-                mail: "theju3@gmail.com",
+                mail: "dev234@gmail.com",
                 password: "nxgfyf",
-                domine: "mhfruy"
+                domine: "devops"
             },
             {
                 name: "sandhya",
                 mail: "theju4@gmail.com",
-                password: "nxgfyf",
-                domine: "mhfruy"
+                password: "2werkj",
+                domine: "fullstack"
             }
         ];
 
@@ -180,19 +180,12 @@
         function handleSearchUser() {
             var inputUser = document.getElementById("searchInput").value.toLowerCase()
             var searchName = users.filter((userName) => {
-                return userName.name.toLocaleLowerCase().includes(inputUser)
+                return Object.values(userName).some(val=>val.toLowerCase().includes(inputUser))
             })
             tableData(searchName)
         }
-        function sortTrows() {
-            var table = document.querySelector("tbody");
-            // var rows=table.querySelectorAll("tbody tr")
-            var rows = Array.from(table.querySelectorAll("tr"));
-            rows.sort((val1, val2) => {
-                return val1.cells[0].innerText.localeCompare(val2.cells[0].innerText)
-            })
-            rows.forEach(row => table.querySelector("tbody").appendChild(row))
-        }
+
+
     </script>
 </body>
 

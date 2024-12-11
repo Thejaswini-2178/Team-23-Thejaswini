@@ -98,17 +98,13 @@
         }
         tableData(users);
 
-        function searchInput(){
-            var inputUser=document.getElementById("searchInput").value.toLowerCase();
-            var searchUser=users.filter((val)=>{
-                return val.name.toLowerCase().includes(inputUser)
-            })
-            tableData(searchUser)
-        }
-       
-
-
-
+      function searchInput(){
+        var userInput=document.getElementById("searchInput").value.toLowerCase()
+        var searchItem=users.filter((usr)=>{
+             return usr.name.toLowerCase().indexOf(userInput)>-1;
+        })
+        tableData(searchItem)
+      } 
     </script>
 </body>
 
