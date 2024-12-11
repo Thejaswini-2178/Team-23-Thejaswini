@@ -102,7 +102,7 @@
             { name: "sandhya", mail: "sandhya126@gmail.com", password: "8923", domine: "markating" }
         ];
 
-        function tableData(users) {
+        function tableData() {
             document.querySelector("tbody").innerHTML = "";
             for (var i = 0; i < users.length; i++) {
                 var tr = document.createElement("tr");
@@ -127,14 +127,18 @@
             addDragAndDropHandlers();
         }
 
+        // delete
         function deleteUser(index) {
             users.splice(index, 1);
-            tableData(users);
+            tableData();
         }
 
         function addDragAndDropHandlers() {
             //retrieves all <tbody> elements in the document as an HTMLCollection 
-           //[0] will specifically select the first <tbody> element
+            //[0] will specifically select the first <tbody> element
+            //It specifically targets and selects the first <tbody> element 
+            
+                //in the document (the section that holds the table rows, not the headers or footers).
             const tbody = document.getElementsByTagName("tbody")[0];
 
             // tbody.rows fetches all the rows (<tr> elements) inside the <tbody>
@@ -173,7 +177,7 @@
                 });
             }
         }
-        tableData(users);
+        tableData();
 
 
     </script>
