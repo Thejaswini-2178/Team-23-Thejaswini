@@ -130,16 +130,18 @@
         }
 
         tableData();
-        // SORTING TABLE
-        function sortTrows(columnIndex) {
-            var table = document.querySelector("tbody");
-            var rows = Array.from(table.querySelectorAll("tr"));
+       //sorting th eelements
+       function sortTrows(sortedIndexColumn){
+        var tbody=document.querySelector("tbody")
 
-            rows.sort((val1, val2) => {
-                return val1.cells[columnIndex].innerText.localeCompare(val2.cells[columnIndex].innerText);
-            });
-            rows.forEach(row => table.appendChild(row));
-        }
+        var rows=tbody.rows
+        var rows=Array.from(rows)
+          rows.sort((val1,val2)=>{
+            return val1.cell[sortedIndexColumn].innerHTML.localecompare(val2.cell[sortedIndexColumn].innerHTML)
+          })
+          rows.forEach(tr=>tbody.appendChild(rows))
+
+       }
     </script>
 </body>
 
