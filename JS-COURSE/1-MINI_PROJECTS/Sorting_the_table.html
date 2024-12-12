@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button#update {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="padding:20px;margin:20px">
+        <form>
+            <div><label>Name</label></div>
+            <div><input type="text" id="name"></div>
+            <div><label>Email</label></div>
+            <div><input type="email" id="mail"></div>
+            <div><label>Password</label></div>
+            <div><input type="password" id="password"></div>
+            <div><label>Domine</label></div>
+            <div>
+                <select name="domine" id="domine">
+                    <option value="">Select</option>
+                    <option value="IT">IT</option>
+                    <option value="core">Core</option>
+                </select>
+            </div>
+            <div style="margin:20px">
+                <button type="button" id="submit" onclick="displayData()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div style="padding:20px;margin:20px">
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th onclick="sortTrows(0)">Name</th>
+                    <th onclick="sortTrows(1)">Mail</th>
+                    <th onclick="sortTrows(2)">Password</th>
+                    <th onclick="sortTrows(3)">Domine</th>
+                    <th onclick="sortTrows(4)">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var user = [
+            {
+                name: "manisha",
+                mail: "mani23@gmail.com",
+                password: "vhbdgt",
+                domine: "ioun587"
+            },
+            {
+                name: "theju",
+                mail: "theju231@gmail.com",
+                password: "mnnvb",
+                domine: "jhu565"
+            },
+            {
+                name: "Lalli",
+                mail: "kgj2324@gmail.com",
+                password: "mfhu",
+                domine: "o9o79hkh"
+            },
+            {
+                name: "neeraja",
+                mail: "neeru12@gmail.com",
+                password: "jdhg",
+                domine: "2345"
+            },
+            {
+                name: "yogasree",
+                mail: "mndh34@gmail.com",
+                password: "fghmdnh",
+                domine: "kjrti8769"
+            }
+        ];
+
+        function displayData() {
+            var newUsers = {
+                name: document.getElementById("name").value,
+                mail: document.getElementById("mail").value,
+                password: document.getElementById("password").value,
+                domine: document.getElementById("domine").value,
+            };
+            user.push(newUsers);
+            tableData();
+            clearForm();
+        }
+
+        function tableData() {
+            document.querySelector("tbody").innerHTML = "";
+            for (var i = 0; i < user.length; i++) {
+                var tr = document.createElement("tr");
+
+                for (var key in user[i]) {
+                    var td = document.createElement("td");
+                    td.innerHTML = user[i][key];
+                    td.setAttribute("data-field", key);
+                    tr.appendChild(td);
+                }
+
+                var deleteTd = document.createElement("td");
+                var deleteBTN = document.createElement("button");
+                deleteBTN.innerHTML = "Delete";
+                deleteBTN.setAttribute("onclick", `deleteUser(${i})`);
+                deleteTd.appendChild(deleteBTN);
+                tr.appendChild(deleteTd);
+
+                document.querySelector("tbody").appendChild(tr);
+            }
+        }
+        function deleteUser(i) {
+            user.splice(i, 1);
+            tableData();
+        }
+        function clearForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("mail").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("domine").value = "";
+        }
+
+        tableData();
+        // SORTING TABLE
+        function sortTrows(columnIndex) {
+            var table = document.querySelector("tbody");
+            var rows = Array.from(table.querySelectorAll("tr"));
+
+            rows.sort((val1, val2) => {
+                return val1.cells[columnIndex].innerText.localeCompare(val2.cells[columnIndex].innerText);
+            });
+            rows.forEach(row => table.appendChild(row));
+        }
+    </script>
+</body>
+
+</html>
