@@ -128,20 +128,19 @@
             document.getElementById("password").value = "";
             document.getElementById("domine").value = "";
         }
-
         tableData();
-        //sorting th eelements
-        function sortTrows(sortedIndexColumn) {
-            var tbody = document.querySelector("tbody")
+       
+       
+     function sortTrows(columIndex){
+        var table=document.querySelector("tbody")
+        var rows=Array.from(table.querySelectorAll("tr"))
 
-            var rows = tbody.rows
-            var rows = Array.from(rows)
-            rows.sort((val1, val2) => {
-                return val1.cell[sortedIndexColumn].innerHTML.localecompare(val2.cell[sortedIndexColumn].innerHTML)
-            })
-            rows.forEach(tr => tbody.appendChild(rows))
+        rows.sort((val1,val2)=>{
+            return val1.cells[columIndex].innerHTML.localeCompare(val2.cells[columIndex].innerHTML)
+        })
+        rows.forEach(row=>table.appendChild(row))
 
-        }
+     } 
     </script>
 </body>
 
