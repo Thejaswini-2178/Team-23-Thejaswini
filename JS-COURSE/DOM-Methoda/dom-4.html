@@ -1,103 +1,11 @@
-// 1. Hello World
-console.log("Hello, World!");
-alert("Hello, World!");
-
-// 2. Variables and Constants
-let name = "Starlight";
-const PI = 3.14;
-console.log(`Name: ${name}, PI: ${PI}`);
-
-// 3. Data Types
-let age = 25; // Number
-let isLearning = true; // Boolean
-let language = "JavaScript"; // String
-let undefinedVar; // Undefined
-let nullVar = null; // Null
-console.log(typeof age, typeof isLearning, typeof language, typeof undefinedVar, typeof nullVar);
-
-// 4. Functions (Named and Anonymous)
-function greet(name) {
-  return `Hello, ${name}`;
-}
-const square = function (num) {
-  return num * num;
-};
-console.log(greet("Starlight"));
-console.log(square(5));
-
-// 5. Conditional Statements
-let number = 10;
-if (number > 0) {
-  console.log("Positive Number");
-} else if (number < 0) {
-  console.log("Negative Number");
-} else {
-  console.log("Zero");
-}
-
-// 6. Loops (For, While, Do-While)
-for (let i = 1; i <= 5; i++) {
-  console.log(`For loop iteration: ${i}`);
-}
-let i = 1;
-while (i <= 5) {
-  console.log(`While loop iteration: ${i}`);
-  i++;
-}
-do {
-  console.log(`Do-While loop iteration: ${i}`);
-  i++;
-} while (i <= 5);
-
-// 7. Arrays and Array Methods
-let fruits = ["Apple", "Banana", "Cherry"];
-fruits.push("Dragonfruit");
-fruits.pop();
-console.log(fruits.join(", "));
-
-// 8. Objects and Object Properties
-let person = {
-  name: "Starlight",
-  age: 25,
-  greet() {
-    console.log(`Hi, I am ${this.name} and I am ${this.age} years old.`);
-  },
-};
-person.greet();
-
-// 9. DOM Manipulation (Change Content and Style)
-// Assuming HTML contains <p id="text">Hello</p>
-let textElement = document.getElementById("text");
-textElement.textContent = "Hello, Starlight!";
-textElement.style.color = "blue";
-
-// 10. Event Listeners
-// Assuming HTML contains <button id="btn">Click Me</button>
-let button = document.getElementById("btn");
-button.addEventListener("click", () => {
-  alert("Button was clicked!");
-});
-
-// 11. Form Validation
-// Assuming HTML contains <form id="form"><input id="email" type="email" required></form>
-let form = document.getElementById("form");
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  let email = document.getElementById("email").value;
-  if (email.includes("@")) {
-    alert("Valid email!");
-  } else {
-    alert("Invalid email.");
-  }
-});
-
-// 12. Local Storage
-localStorage.setItem("username", "Starlight");
-console.log(localStorage.getItem("username"));
-localStorage.removeItem("username");
-
-// 13. Basic Fetch API Example
-fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error("Error fetching data:", error));
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Event Handlimg Methods</h1>
+</body>
+</html>
