@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="msg" class="head">First Element</h1>
+        <h1 class="head">Second Element</h1>
+        <h1 class="head">Third Element</h1>
+        <h1 class="head">FourthElemnt</h1>
+        <p>In this the get element by class names and thetag name will gives the null because it is not a single name so we need to use looping</p>
+    </div> 
+    <script>
+        var elem=document.querySelector("h1")
+        console.log(elem.textContent)
+        document.querySelector("h1").style.color="red"
+        var b=document.getElementById("h1")
+        console.log(b)
+
+        console.log("getting element by id")
+        var b=document.getElementById("msg")
+        console.log(b.textContent)
+
+        // console.log("getting element by className")
+        // var b=document.getElementsByClassName("head")
+        // console.log(b.textContent)
+
+        // console.log("getting element by tagName")
+        // var b=document.getElementsByTagName("h1")
+        // console.log(b.textContent)
+
+        // qurySelectorAll
+        console.log("QuryselectorAll")
+        var a=document.querySelectorAll("h1")
+        //Using the forloop
+        for(var i=0;i<a.length;i++){
+            console.log(a[i].textContent)
+        }
+
+        ///forEach
+        a.forEach((val)=>{
+            console.log(val.textContent)
+        })
+
+        //for in loop:
+        //When you attempt to access a[j].textContent on length or any other non-numeric property, the code breaks or produces undefined. so,
+        // for(var j in a){
+        //     console.log(a[j].textContent)
+        // }
+        for(var j in a){
+            if(a[j] && a[j].textContent !== undefined) {
+                console.log(a[j].textContent)
+            }
+        }
+        //for of loop
+        for(var n of a ){
+            console.log(n.textContent)
+        }
+    </script>
+</body>
+</html>
