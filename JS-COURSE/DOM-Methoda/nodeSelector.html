@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">
+    <p class="para">para1</p>
+    <p class="para">para2</p>
+    <p class="para">para3</p>
+    <p class="para">para4</p>
+  </div>
+  <div id="div1">
+    <p class="fir">first</p>
+    <p class="sec">second</p>
+    <p class="thir">third</p>
+    <p class="fou">fourth</p>
+  </div>
+  <script>
+    // Select the div element by its ID
+    var a = document.querySelector("#div");
+
+    // Accessing child nodes and elements
+    console.log("First Child Node:", a.firstChild); // First child (could be a text node)
+    console.log("All Element Children:", a.children); // Only element nodes
+    console.log("All Child Nodes:", a.childNodes); // Includes text nodes, comments, etc.
+    console.log("Last Element Child:", a.lastElementChild); // Only last element node
+
+    // Correct selection of an element
+    var b = document.querySelector(".para"); // Correctly selects the first element with class "para"
+    console.log("First Paragraph Text Content:", b.textContent);
+    var c=document.querySelector(".sec")
+    console.log(c.previousElementSibling)
+    console.log(c.nextElementSibling)
+    
+    // console.log(c.nextSibling)
+    console.log("next node",c.nextElementSibling)
+    console.log("last node",c.lastElementChild)
+  </script>
+</body>
+</html>
