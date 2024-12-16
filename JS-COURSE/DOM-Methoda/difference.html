@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="example1">
+        <p>Visible Text</p>
+        <p style="display: none;">Hidden Text</p>
+      </div>
+      <div id="example" style="color: red; font-size: 20px;">
+        <p style="display: none;">Hidden Paragraph</p>
+        <p>Visible Paragraph</p>
+    </div>
+      
+      <script>
+        var element = document.getElementById("example1");
+        
+        // Get text content using innerText
+        console.log(element.innerText); 
+        // Output: "Visible Text" (ignores the text inside the hidden <p> tag)
+        
+        // Get text content using innerHTML
+        console.log(element.innerHTML); 
+        // Output: "<p>Visible Text</p><p style="display: none;">Hidden Text</p>"
+
+        var element = document.getElementById("example");
+        // Get HTML content using innerHTML
+        console.log(element.innerHTML);
+        // Output: 
+        // "<p style="display: none;">Hidden Paragraph</p>
+        //  <p>Visible Paragraph</p>"
+      </script>
+</body>
+</html>
