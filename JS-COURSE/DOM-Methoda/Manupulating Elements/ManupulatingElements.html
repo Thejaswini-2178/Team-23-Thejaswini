@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="div">
+    <h1>Headding</h1>
+  </div>
+  <div id="div">
+    <h1>To print the list of the items in li tag</h1>
+  </div>
+  <div id="nested">
+    <h1>Nested List</h1>
+  </div>
+
+  <script>
+    // to add the p tag in the div of th ebody
+    var ptag = document.createElement("p")
+    var div = document.querySelector("div")
+    ptag.innerHTML = "p tag is created"
+    div.appendChild(ptag)
+    console.log(ptag)
+    // to print this list in the form of list (li) tag
+    var list = ["item1", "list2", "item3", "list4", "list5"]
+    var ul = document.createElement("ul")
+    for (var i = 0; i < list.length; i++) {
+      var li = document.createElement("li")
+      li.innerHTML = list[i]
+      ul.appendChild(li)
+    }
+    document.getElementById("div").appendChild(ul);
+
+    // now printing the nasted list of ul 
+    var list1 = ["list1", "list2", "list3"]
+    var sub1 = ["sub1", "sub2", "sub3", "sub4"]
+    var nested = document.getElementById("nested")
+    var ul1 = document.createElement("ul")
+    for (var j = 0; j < list1.length; j++) {
+      var li1 = document.createElement("li")
+      li1.innerHTML = list1[j]
+      // ul1.appendChild(li1)
+      var ul2 = document.createElement("ul")
+      for (var k = 0; k < sub1.length; k++) {
+        var li2 = document.createElement("li")
+        li2.innerHTML = sub1[k]
+        ul2.appendChild(li2)
+      }
+      li1.appendChild(ul2)
+      ul1.appendChild(li1)
+    }
+    document.getElementById("nested").appendChild(ul1)
+
+    // innerHtml and innerText
+    var textInner=document.querySelector(".div h1")
+    textInner.textContent="<h1>changing the text to the p tag</h1>"
+    textInner.innerHTML="<h1>hellow</h1>"
+    textInner.innerText="<h1 >hii</h1>"
+     console.log("innerHTML will ignores the tages",textInner.innerHTML)
+    console.log("innerHTML will includes the tages",textInner.innerText)
+    console.log(textInner.textContent)
+  </script>
+</body>
+</html>
+
