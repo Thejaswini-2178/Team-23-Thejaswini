@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="items">
+        <h2 style=" color:red">InnerText</h2>
+        <h3 style=" color:green">InnerHTML</h3>
+        <h4 style=" color:magenta">TextContent</h4>
+    </div>
+
+    <div id="example">
+        <p>Visible Paragraph</p>
+        <p class="hidden">Hidden with display: none</p>
+        <p class="invisible">Hidden with visibility: hidden</p>
+        <p>Another <b>bold</b> paragraph</p>
+    </div>
+
+    <script>
+        var h1 = document.querySelector("h2")
+        h1.innerText = "<h2>innerText will consider the tags and css too</h2>"
+        var h2 = document.querySelector("h3")
+        h2.innerHTML = "<h3>It will consider the css but not the tags</h3>"
+        var h3 = document.querySelector("h4")
+        h3.textContent = "<h4>It will consider the css and  tags</h4>"
+
+        var element = document.getElementById("example");
+
+        console.log("Using innerHTML:");
+        console.log(element.innerHTML);
+        // Output includes all tags and styles:
+        // "<p>Visible Paragraph</p>
+        //  <p class="hidden">Hidden with display: none</p>
+        //  <p class="invisible">Hidden with visibility: hidden</p>
+        //  <p>Another <b>bold</b> paragraph</p>"
+
+        console.log("Using innerText:");
+        console.log(element.innerText);
+        // Output only includes visible text, excludes 'display: none':
+        // "Visible Paragraph
+        //  Another bold paragraph"
+
+        console.log("Using textContent:");
+        console.log(element.textContent);
+        // Output includes all text, regardless of visibility:
+        // "Visible Paragraph
+        //  Hidden with display: none
+        //  Hidden with visibility: hidden
+        //  Another bold paragraph"
+
+
+
+    </script>
+</body>
+
+</html>
