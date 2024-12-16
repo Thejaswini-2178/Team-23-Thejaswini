@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <div id="div">
     <p class="para">para1</p>
@@ -32,15 +34,16 @@
     // Correct selection of an element
     var b = document.querySelector(".para"); // Correctly selects the first element with class "para"
     console.log("First Paragraph Text Content:", b.textContent);
-    var c=document.querySelector(".sec")
+    var c = document.querySelector(".sec")
     console.log(c.previousElementSibling)
     console.log(c.nextElementSibling)
-    
+
     // console.log(c.nextSibling)
-    console.log("next node",c.nextElementSibling)
-    console.log("last node",c.lastElementChild)
-    console.log("next sibling:",c.nextSibling)
-    console.log("last sibling:",c.parentElement.lastElementChild)
+    console.log("next node", c.nextElementSibling)
+    console.log("last node", c.lastElementChild)
+    console.log("next sibling:", c.nextSibling)
+    console.log("last sibling:", c.parentElement.lastElementChild)
   </script>
 </body>
+
 </html>
