@@ -17,6 +17,7 @@
     <p class="sec">second</p>
     <p class="thir">third</p>
     <p class="fou">fourth</p>
+    <p class="fifth">fifth</p>
   </div>
   <script>
     // Select the div element by its ID
@@ -26,7 +27,7 @@
     console.log("First Child Node:", a.firstChild); // First child (could be a text node)
     console.log("All Element Children:", a.children); // Only element nodes
     console.log("All Child Nodes:", a.childNodes); // Includes text nodes, comments, etc.
-    console.log("Last Element Child:", a.lastElementChild); // Only last element node
+    console.log("Last Element Child:", a.parentNode.lastElementChild); // Only last element node
 
     // Correct selection of an element
     var b = document.querySelector(".para"); // Correctly selects the first element with class "para"
@@ -38,6 +39,8 @@
     // console.log(c.nextSibling)
     console.log("next node",c.nextElementSibling)
     console.log("last node",c.lastElementChild)
+    console.log("next sibling:",c.nextSibling)
+    console.log("last sibling:",c.parentElement.lastElementChild)
   </script>
 </body>
 </html>
