@@ -9,7 +9,7 @@
 
 <body>
     <div id="items">
-        <h2 style=" color:red">InnerText</h2>
+        <h2 style=" color:red ;visibility: hidden">InnerText</h2>
         <h3 style=" color:green">InnerHTML</h3>
         <h4 style=" color:magenta">TextContent</h4>
     </div>
@@ -20,14 +20,32 @@
         <p class="invisible">Hidden with visibility: hidden</p>
         <p>Another <b>bold</b> paragraph</p>
     </div>
+    <b>Breakdown of CSS Impact:</b>
+    <pre>
+Property	       innerHTML	                    innerText	                       textContent
+
+Raw HTML	   ✅ Includes HTML structure	  ❌ Excludes tags	                ❌ Excludes tags
+Visible Text	   ✅ Includes visible elements	  ✅ Includes visible text only	        ✅ Includes visible text
+Hidden (CSS)	   ✅ Included	                  ❌ Excluded (display: none)	        ❌ Excluded (display: none)
+Invisible Text	   ✅ Included	                  ❌ Excluded (visibility: hidden)	❌ Excluded (visibility: hidden)
+
+    </pre>
 
     <script>
+        
         var h1 = document.querySelector("h2")
-        h1.innerText = "<h2>innerText will consider the tags and css too</h2>"
+        h1.innerText = "<h2 style='color:blue;display:none;visibility:hidden'>innerText will consider the tags but not css inthis innerhtml tag</h2>"
+        console.log(h1.innerText)
+
         var h2 = document.querySelector("h3")
-        h2.innerHTML = "<h3>It will consider the css but not the tags</h3>"
+        h2.innerHTML = "<h3 style='color:blue'>innerHTML It will consider the css but not the tags...it is also changed the color from green t blue</h3>" 
+        console.log(h2.innerHTML)
+
         var h3 = document.querySelector("h4")
-        h3.textContent = "<h4>It will consider the css and  tags</h4>"
+        // h2.innerHTML = "<h3 style='color:blue;display:none;visibility:hidden' >innerHTML It will consider the css but not the tags</h3>" 
+        // var h3 = document.querySelector("h4")
+        h3.textContent = "<h4 style='color:blue;display:none;visibility:hidden'>textContent It will consider the tags but not css inthis innerhtml tag</h4>"
+        console.log(h3.textContent)
 
         var element = document.getElementById("example");
 
