@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="items">
+        <ol>
+            <li>item1</li>
+            <li>item1</li>
+            <li>item1</li>
+            <li>item1</li>
+        </ol>
+        <div id="content">
+            <p>Paragraph-1</p>
+        </div>    
+    </div>
+    <script>
+        var ol=document.querySelector("#items ol")
+        var li=ol.querySelectorAll("li")
+        var ul=document.createElement("ul")
+        li.forEach(function(list){
+            var newli=document.createElement("li")
+            newli.textContent=list.textContent
+            ul.appendChild(newli)
+        })
+        ol.parentNode.replaceChild(ul, ol);
+
+        var content=document.getElementById("content")
+        var p=content.querySelector("p")
+        var h1=document.createElement("h1")
+        h1.innerHTML="hellow it is heading"
+        // content.appendChild(h1)
+        // content.parentNode.replaceChild(h1,p)   for only list items and mor number of items we have to spesify the parant node here it is not important
+        content.replaceChild(h1,p)
+    </script>
+</body>
+</html>
