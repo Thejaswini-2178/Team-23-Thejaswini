@@ -180,7 +180,7 @@
         function handleSearchUser() {
             var inputUser = document.getElementById("searchInput").value.toLowerCase()
             var searchName = users.filter((userName) => {
-                return Object.values(userName).some(val=>val.toLowerCase().includes(inputUser))
+                return Object.values(userName).some(val => val.toLowerCase().includes(inputUser))
             })
             tableData(searchName)
         }
