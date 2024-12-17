@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="divData">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, earum!</p>
+    </div>
+    <script>
+        var data = document.getElementById("divData")
+        var p = data.querySelector("p")
+        var h3 = document.createElement("h3")
+        h3.innerHTML = "heading element"
+        data.appendChild(h3)
+        // Insert the <h3> element before the <p> element
+        data.insertBefore(h3, p);
+    </script>
+</body>
+
+</html>
