@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Heading</h1>
+    <p id="para" class="meg text">TThos is the small message</p>
+    <script>
+        var cls=document.getElementById("para")
+        cls.classList.add("mini","container")
+        console.log(cls)
+
+        // replacing the className
+        cls.classList.replace("container","child")
+        console.log(cls)
+
+        // checking the class whether it is present or not
+        cls.classList.contains("text")
+        console.log(cls)
+
+
+        // removing the classnames
+        // cls.classList.remove("text","meg","mini")
+        // console.log(cls)
+    </script>
+</body>
+</html>
