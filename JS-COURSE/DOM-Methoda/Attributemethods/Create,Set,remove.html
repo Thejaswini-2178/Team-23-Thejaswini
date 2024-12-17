@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="entr name">
+    <!-- <input type="text" id="name" placeholder="father name"> -->
+     <input type="text" id="name">
+     <button id="submit">Submit</button>
+    <script>
+        //getAttribute
+        var input=document.getElementById("input")
+        console.log(input.getAttribute("placeholder"))
+        console.log(input.getAttribute("id"))
+        console.log(input.getAttribute("type"))
+        console.log(input)
+
+        //setAtrribute
+        var id=document.getElementById("name")
+        id.setAttribute("placeholder","mother name")
+        console.log(id)
+
+        //hasAttribute()
+        console.log(id.hasAttribute("class")) // will retuns the true or false
+        console.log(id.hasAttribute("id"))
+
+        //createAttribute
+        var input3=document.createAttribute("placeholder")
+        input3.value="place"
+        console.log(input3)
+        input.style.display.color="red"
+    </script>
+</body>
+</html>
