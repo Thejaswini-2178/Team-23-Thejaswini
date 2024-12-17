@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <ul id="list">
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+        </ul>
+    </div>
+    <ul id="ul">
+        <li>list</li>
+        <li>item</li>
+        <li>one</li>
+    </ul>
+    <div id="div">
+        <h4>Para</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quasi!</p>
+        <h4>Para</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quasi!</p>
+        <h4>Para</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quasi!</p>
+        <h4>Para</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quasi!</p>
+        <h4>Para</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quasi!</p>
+    </div>
+    <script>
+        // after() will addes the immediat elemnt after a spesifed element
+        var list=document.querySelectorAll("#list li")
+        var ul=document.getElementById("ul")
+        for(var i=0;i<list.length;i++){
+            var li=document.createElement("li")
+            li.textContent="fourth from new"
+             list[i].after(li)
+        }
+        // append will add the elementsor list of items at last
+        for(var j=0;j<3;j++){
+            var li1=document.createElement("li")
+            li1.innerText="hello"
+            ul.append(li1)
+        }
+
+        //pre[end will add afirst spesifed element
+        var tag=document.getElementById("div")
+        var p=tag.querySelectorAll("p")
+        p.forEach(()=>{
+            var ptag=document.createElement("p")
+            ptag.innerText="prepended this element text"
+            tag.prepend(ptag)
+        })
+    </script>
+</body>
+</html>
