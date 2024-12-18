@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Write a function that takes a string as input and returns the string reversed
+        var string=prompt("")
+        console.log(string.split("").reverse().join(""))
+
+        //Write a function that finds the largest number in an array.
+        var array=[12,23,34,53,78]
+        array.sort((a,b)=> a-b)
+        console.log(array[array.length-1])
+        
+        //Write a function to check whether a given string is a palindrome
+        var string=prompt("")
+        var string1=string.split("").reverse().join("")
+        if(string.toLocaleLowerCase()===string1.toLocaleLowerCase()){
+            console.log(string," is palindrom")
+        }else{
+            console.log("Not palindrome")
+        }
+
+        //Write a function to remove duplicate elements from an array.
+        var array1=[12,23,12,23,14,25,23,12,]
+        nonDuplicate=[]
+        for(var i=0;i<array1.length;i++){
+            if(!nonDuplicate.includes(array1[i])){
+                nonDuplicate.push(array1[i])
+            }
+        }
+        console.log(nonDuplicate)
+
+
+        // 5. Write a function that prints numbers from 1 to n with the FizzBuzz logic:
+        //    - For multiples of 3, print "Fizz".
+        //    - For multiples of 5, print "Buzz".
+        //    - For multiples of both 3 and 5, print "FizzBuzz".
+
+        var n=parseInt(prompt())
+        for(var i=0;i<=n;i++){
+            if(i%3===0 && i%5===0){
+                console.log("Fizz")
+            }
+            else if(i%3===0){
+                console.log("Buzz")
+            }
+            else if(i%5===0){
+                console.log("FizzBuzz")
+            }
+        }
+
+    </script>
+</body>
+</html>
