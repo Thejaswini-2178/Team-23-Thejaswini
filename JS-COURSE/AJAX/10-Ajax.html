@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Album Id</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>URL</th>
+                <th>ThumbnilURL</th>
+            </tr>
+            <tbody></tbody>
+        </thead>
+    </table>
+    <button type="button" onclick="getData()">Get</button>
+<script>
+    var myURL="https://jsonplaceholder.typicode.com/photos"
+    var myData=[]
+    function getData(){
+        var getDataFromServer=new XMLHttpRequest();
+        getDataFromServer.open("GET",myURL);
+        getDataFromServer.send();
+        getDataFromServer.onreadystatechange=function(){
+            if(getDataFromServer.readyState===4 && getDataFromServer.status===200){
+                myData=JSON.parse(getDataFromServer.response)
+                console.log(myData)
+                displayData()
+            }
+        }
+    }
+    function displayData(){
+        var tbody=document.querySelector("tbody")
+        tbody.innerHTML=""
+        for(var i=0;i<myData.length;i++){
+            var tr=document.createElement("tr")
+            for( a in myData[i]){
+                var td=document.createElement("td")
+                td.innerHTML=myData[i][a]
+                tr.appendChild(td)
+            }
+            tbody.appendChild(tr)
+        }
+    }
+</script>
+</body>
+</html>
