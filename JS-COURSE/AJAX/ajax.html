@@ -7,7 +7,7 @@
 </head>
 <body>
      <!-- 8 creatiig the form table for the data-->
-     <form>
+     <!-- <form>
         <label>Post Id</label>
         <input type="text" id="postId"><br>
         <label>Id</label>
@@ -21,7 +21,7 @@
         <button type="button" onclick="addData()" id="add">ADD</button>
         <button type="button" onclick="updateData()" id="update">Update</button>
         <br><br>
-      </form>
+      </form> -->
     <!-- 4.now taking the data in table so we have to dispaly that data-->
      <table border="1">
         <thead>
@@ -70,80 +70,82 @@
                     myTd.innerHTML=myData[i][a]
                     myTr.appendChild(myTd)
                 }
-        // 6. adding the edit button
-                   var editBT=document.createElement("button")
-                   editBT.innerHTML="Edit"
-                   editBT.setAttribute("onclick","editData("+i+")")
-                   var editTd=document.createElement("td")
-                   editTd.appendChild(editBT)
-                   myTr.appendChild(editTd)
-        // 7.delet button
-                    var delBT=document.createElement("button")
-                    delBT.innerHTML="Delete"
-                    delBT.setAttribute("onclick","delData("+i+")")
-                    var delTd=document.createElement("td")
-                    delTd.appendChild(delBT)
-                    myTr.appendChild(delTd)
+                
+        // // 6. adding the edit button
+        //            var editBT=document.createElement("button")
+        //            editBT.innerHTML="Edit"
+        //            editBT.setAttribute("onclick","editData("+i+")")
+        //            var editTd=document.createElement("td")
+        //            editTd.appendChild(editBT)
+        //            myTr.appendChild(editTd)
+        // // 7.delet button
+        //             var delBT=document.createElement("button")
+        //             delBT.innerHTML="Delete"
+        //             delBT.setAttribute("onclick","delData("+i+")")
+        //             var delTd=document.createElement("td")
+        //             delTd.appendChild(delBT)
+        //             myTr.appendChild(delTd)
                    tbody.appendChild(myTr)
             }
         }
+        
         // 9. writing the function for delet item
-        function delData(i){
-          console.log("edited data is called "+i) 
-          myData.splice(i,1)
-          tableData()
-        }
+        // function delData(i){
+        //   console.log("edited data is called "+i) 
+        //   myData.splice(i,1)
+        //   tableData()
+        // }
         // 10.function for edit item
-        var index=null;
-        function editData(i){
-            index=i
-            console.log("edited data is called "+i)
-            document.getElementById("postId").value=myData[i].postId;
-            document.getElementById("id").value=myData[i].id;
-            document.getElementById("name").value=myData[i].name;
-            document.getElementById("mail").value=myData[i].email;
-            document.getElementById("body").value=myData[i].body;
-            document.getElementById("add").style.display="none"
-            document.getElementById("update").style.display="block"
-        }
+        // var index=null;
+        // function editData(i){
+        //     index=i
+        //     console.log("edited data is called "+i)
+        //     document.getElementById("postId").value=myData[i].postId;
+        //     document.getElementById("id").value=myData[i].id;
+        //     document.getElementById("name").value=myData[i].name;
+        //     document.getElementById("mail").value=myData[i].email;
+        //     document.getElementById("body").value=myData[i].body;
+        //     document.getElementById("add").style.display="none"
+        //     document.getElementById("update").style.display="block"
+        // }
 
-        // 11 clearform
-        function clearForm(){
-            document.getElementById("postId").value="";
-            document.getElementById("id").value="";
-            document.getElementById("name").value="";
-            document.getElementById("mail").value="";
-            document.getElementById("body").value="";
-        }
-        // 12 writing the function for the update
-        function updateData(){
-            var updateData={
-                "postId":document.getElementById("postId").value,
-                "id":document.getElementById("id").value,
-                "name":document.getElementById("name").value,
-                "email":document.getElementById("mail").value,
-                "body":document.getElementById("body").value
-            }
-            myData[index]=updateData
-            tableData()
-            // here we need to call the clear form 
-            clearForm()
-            document.getElementById("add").style.dispaly='block'
-            document.getElementById("update").style.dispaly='none'
-        }
-        // 13 we can also add the newuser
-        function addData(){
-            var newData={
-                "postId":document.getElementById("postId").value,
-                "id":document.getElementById("id").value,
-                "name":document.getElementById("name").value,
-                "email":document.getElementById("mail").value,
-                "body":document.getElementById("body").value   
-            }
-            myData.push(newData)
-            tableData()
-            clearForm()
-        }
+        // // 11 clearform
+        // function clearForm(){
+        //     document.getElementById("postId").value="";
+        //     document.getElementById("id").value="";
+        //     document.getElementById("name").value="";
+        //     document.getElementById("mail").value="";
+        //     document.getElementById("body").value="";
+        // }
+        // // 12 writing the function for the update
+        // function updateData(){
+        //     var updateData={
+        //         "postId":document.getElementById("postId").value,
+        //         "id":document.getElementById("id").value,
+        //         "name":document.getElementById("name").value,
+        //         "email":document.getElementById("mail").value,
+        //         "body":document.getElementById("body").value
+        //     }
+        //     myData[index]=updateData
+        //     tableData()
+        //     // here we need to call the clear form 
+        //     clearForm()
+        //     document.getElementById("add").style.dispaly='block'
+        //     document.getElementById("update").style.dispaly='none'
+        // }
+        // // 13 we can also add the newuser
+        // function addData(){
+        //     var newData={
+        //         "postId":document.getElementById("postId").value,
+        //         "id":document.getElementById("id").value,
+        //         "name":document.getElementById("name").value,
+        //         "email":document.getElementById("mail").value,
+        //         "body":document.getElementById("body").value   
+        //     }
+        //     myData.push(newData)
+        //     tableData()
+        //     clearForm()
+        // }
         
 
     </script>
