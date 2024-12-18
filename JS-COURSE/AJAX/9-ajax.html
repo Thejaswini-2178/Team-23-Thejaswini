@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Post ID</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Body</th>
+            </tr>
+            <tbody></tbody>
+        </thead>
+     </table>
+    <button onclick="getData()" id="getData">GetData</button><br><br>
+    <script>
+        var myURL="https://jsonplaceholder.typicode.com/comments"
+        var myData=[]
+        function getData(){
+            var getDataFromServer=new XMLHttpRequest();
+            getDataFromServer.open("GET",myURL);
+            getDataFromServer.send();
+            getDataFromServer.onreadystatechange=function(){
+                if(getDataFromServer.readyState===4 && getDataFromServer.status===200){
+                    myData=JSON.parse(getDataFromServer.response);
+                    console.log(myData)
+                    tableData()
+                }
+            }
+        }
+        function tableData(){
+            var tbody=document.querySelector("tbody")
+            tbody.innerHTML =""
+            for(var i=0;i<myData.length;i++){
+                var myTr=document.createElement("tr")
+                for(a in myData[i]){
+                    var myTd=document.createElement("td")
+                    myTd.innerHTML=myData[i][a]
+                    myTr.appendChild(myTd)
+                }
+                tbody.appendChild(myTr)
+            }
+        }
+    </script>
+</body>
+</html>
