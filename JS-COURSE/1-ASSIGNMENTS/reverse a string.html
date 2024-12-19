@@ -10,8 +10,20 @@
 <body>
     <script>
         //Write a function that takes a string as input and returns the string reversed
-        var string = prompt("")
+        var string = "hellow this is string"
         console.log(string.split("").reverse().join(""))
+
+        // function delcaration
+        function reverseStr(str){
+             console.log(str.split("").reverse().join(""))
+        }
+        reverseStr("hello world")
+
+        // function expression
+        var funName=function(str){
+            console.log(str.split("").reverse().join(" "))
+        }
+        funName("iam-thejaswini")
     </script>
 </body>
 
