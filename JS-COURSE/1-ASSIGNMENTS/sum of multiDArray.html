@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //15.Implement a function to calculate the sum of all elements in a multidimensional array.
+        function sumOfElements(arr) {
+            let sum = 0;
+
+            // Loop through each element in the array
+            for (let i = 0; i < arr.length; i++) {
+                // If the current element is an array, recursively sum the elements inside it
+                if (Array.isArray(arr[i])) {
+                    sum += sumOfElements(arr[i]);  // Recursive call
+                } else {
+                    sum += arr[i];  // Add the element to the sum
+                }
+            }
+
+            return sum;
+        }
+
+        // Example usage:
+        const multidimensionalArray = [1, [2, 3], [4, [5, 6]], 7];
+        console.log(sumOfElements(multidimensionalArray)); // Output: 28
+
+    </script>
+</body>
+
+</html>
