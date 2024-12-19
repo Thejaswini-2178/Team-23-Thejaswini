@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="getDataIn()">Get Data</button>
+    <script>
+        var myURL = "https://jsonplaceholder.typicode.com/comments"
+        var getData = []
+        function getDataIn() {
+            var getDataFromServer=new XMLHttpRequest();
+            getDataFromServer.open("GET",myURL)
+            getDataFromServer.send()
+            getDataFromServer.onreadystatechange=function(){
+                if(getDataFromServer.readyState==4 && getDataFromServer.status==200){
+                    getData=JSON.parse(getDataFromServer.response)
+                    console.log(getData)
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
