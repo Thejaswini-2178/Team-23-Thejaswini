@@ -17,6 +17,18 @@
         } else {
             console.log("Not palindrome")
         }
+
+        function palindrom(str){
+            var str2=str.split("").reverse().join("")
+            if(str.toLocaleLowerCase()===str2.toLocaleLowerCase()){
+                console.log("palindrome")
+            }
+            else{
+                console.log("not palindrome")
+            }
+        }
+        var str=prompt("")
+        palindrom(str)
     </script>
 </body>
 
