@@ -13,18 +13,39 @@
         //    - For multiples of 3, print "Fizz".
         //    - For multiples of 5, print "Buzz".
         //    - For multiples of both 3 and 5, print "FizzBuzz".
+        var n=prompt("enter")
         for (var i = 1; i <= n; i++) {
             if (i % 3 === 0 && i % 5 === 0) {
-                console.log("Fizz")
+                console.log(i,"Fizz")
             }
             else if (i % 3 === 0) {
-                console.log("Buzz")
+                console.log(i,"Buzz")
             }
             else if (i % 5 === 0) {
-                console.log("FizzBuzz")
+                console.log(i,"FizzBuzz")
             } else
                 console.log(i)
         }
+
+        //function usage
+        function multiples(n){
+            for(var i=0;i<=n;i++){
+                if(i%3===0 && i%5===0){
+                    console.log(i,"FIZZBUZZ")
+                }
+                else if(i%3===0){
+                    console.log(i,"Fizz")
+                }
+                else if(i%5===0){
+                    console.log(i,"buzz")
+                }
+                else{
+                    console.log(i)
+                }
+            }
+        }
+        var num=prompt("enter")
+        multiples(n)
     </script>
 </body>
 
