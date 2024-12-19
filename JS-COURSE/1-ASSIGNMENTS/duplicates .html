@@ -18,6 +18,20 @@
             }
         }
         console.log(nonDuplicate)
+
+
+        //duplicte elements
+        function duplicateRemov(arr){
+            nonDuplicates=[]
+            for(var i=0;i<arr.length;i++){
+                if(!nonDuplicates.includes(arr[i])){
+                    nonDuplicates.push(arr[i])
+                }
+            }
+            console.log(nonDuplicates)
+        }
+        var array=[12,23,24,12,24,23,13,45]
+        duplicateRemov(array)
     </script>
 </body>
 
