@@ -11,10 +11,12 @@
     <script>
         // 2.Implement a function to flatten a nested array (e.g., [1, [2, [3, [4]]]] to [1, 2, 3, 4]).
         function flattenArray(arr) {
+            // var flatten = arr.flat()
+            // var flatten = arr.flat(4)
             var flatten = arr.flat(Infinity)
             console.log(flatten)
         }
-        var array = [1, [2, [3, [4]]]]
+        var array = [1, [2, [3, [5,[4]]]]]
         flattenArray(array)
     </script>
 </body>
