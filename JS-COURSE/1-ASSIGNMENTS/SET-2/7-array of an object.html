@@ -9,27 +9,51 @@
 
 <body>
     <script>
-        function arrayOfAnObject(arr, proper) {
+        // function arrayOfAnObject(arr, proper) {
+        //     var result = {}
+        //     for (var i = 0; i < arr.length; i++) {
+        //         var item = arr[i]
+        //         var key = item[proper]
+        //         if (!result[key]) {
+        //         result[key] = []
+        //     }
+        //         result[key].push(item)
+        //     }
+        //     return result
+        // }
+        // var arr = [
+        //         { name: "theju", age: 21, state: "andhra" },
+        //         { name: "madhu", age: 23, state: "telengana" },
+        //         { name: "himavari", age: 22, state: "kerala" },
+        //         { name: "lalli", age: 21, state: "tamilnadu" },
+        //         { name: "devi", age: 25, state: "andhra" }
+        //     ]
+        // var arrayOfObj=arrayOfAnObject(arr,"age")
+        // console.log(arrayOfObj)
+
+
+        function arrayOfObj(arr, proper) {
             var result = {}
             for (var i = 0; i < arr.length; i++) {
                 var item = arr[i]
                 var key = item[proper]
                 if (!result[key]) {
-                result[key] = []
-            }
+                    result[key] = []
+                    console.log(result[key])
+                }
                 result[key].push(item)
             }
             return result
         }
         var arr = [
-                { name: "theju", age: 21, state: "andhra" },
-                { name: "madhu", age: 23, state: "telengana" },
-                { name: "himavari", age: 22, state: "kerala" },
-                { name: "lalli", age: 21, state: "tamilnadu" },
-                { name: "devi", age: 25, state: "andhra" }
-            ]
-        var arrayOfObj=arrayOfAnObject(arr,"age")
-        console.log(arrayOfObj)
+            { name: "theju", age: 21, state: "andhra" },
+            { name: "madhu", age: 23, state: "telengana" },
+            { name: "himavari", age: 22, state: "kerala" },
+            { name: "lalli", age: 21, state: "tamilnadu" },
+            { name: "devi", age: 25, state: "andhra" }
+        ]
+        var objectPrperty = arrayOfObj(arr, "name")
+        console.log(objectPrperty)
     </script>
 </body>
 
