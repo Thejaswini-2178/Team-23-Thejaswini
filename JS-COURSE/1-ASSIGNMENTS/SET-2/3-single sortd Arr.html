@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //3.Write a function to merge two sorted arrays into a single sorted array.
+        function SortedArray() {
+            var arr1 = [12, 23, 32, 24, 10]
+            var arr2 = [13, 24, 54, 56]
+            var singleArray = arr1.concat(arr2)
+            singleArray.sort((a, b) => a - b)
+            console.log(singleArray)
+        }
+        SortedArray()
+    </script>
+</body>
+
+</html>
