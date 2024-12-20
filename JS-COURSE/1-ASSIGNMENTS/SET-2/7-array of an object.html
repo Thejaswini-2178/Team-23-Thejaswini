@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function arrayOfAnObject(arr, proper) {
+            var result = {}
+            for (var i = 0; i < arr.length; i++) {
+                var item = arr[i]
+                var key = item[proper]
+                if (!result[key]) {
+                result[key] = []
+            }
+                result[key].push(item)
+            }
+            return result
+        }
+        var arr = [
+                { name: "theju", age: 21, state: "andhra" },
+                { name: "madhu", age: 23, state: "telengana" },
+                { name: "himavari", age: 22, state: "kerala" },
+                { name: "lalli", age: 21, state: "tamilnadu" },
+                { name: "devi", age: 25, state: "andhra" }
+            ]
+        var arrayOfObj=arrayOfAnObject(arr,"age")
+        console.log(arrayOfObj)
+    </script>
+</body>
+
+</html>
