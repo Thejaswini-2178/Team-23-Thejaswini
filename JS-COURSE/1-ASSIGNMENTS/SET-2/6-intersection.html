@@ -10,22 +10,51 @@
 <body>
     <script>
         //6.Implement a function to find the intersection of two arrays.
-        function intersection() {
-            var array = [12, 23, 34, 45,]
-            var array2 = [23, 34, 56, 76, 12]
+        // function intersection() {
+        //     var array = [12, 23, 34, 45,]
+        //     var array2 = [23, 34, 56, 76, 12]
+        //     var common = []
+        //     for (var i = 0; i < array.length; i++) {
+        //         for (var j = 0; j < array2.length; j++) {
+        //             if (array[i] === array2[j]) {
+        //                 if (!common.includes(array[i])) {
+        //                     common.push(array[i])
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     console.log(common)
+        // }
+        // intersection()
+        function interSection() {
+            var arr1 = [12, 23, 45, 24, 23]
+            var arr2 = [13, 12, 24, 65, 45]
             var common = []
-            for (var i = 0; i < array.length; i++) {
-                for (var j = 0; j < array2.length; j++) {
-                    if (array[i] === array2[j]) {
-                        if (!common.includes(array[i])) {
-                            common.push(array[i])
+            for (var i = 0; i < arr1.length; i++) {
+                for (var j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        if (!common.includes(arr1[i])) {
+                            common.push(arr1[i])
                         }
                     }
                 }
             }
             console.log(common)
         }
-        intersection()
+        interSection()
+
+    //1. Loop Alternatives:
+        // forEach(): A functional iteration method to iterate over an array.
+        // map(): Not typically used for iteration alone, but can be helpful to transform the array before filtering.
+        // filter(): Useful for filtering elements based on conditions.
+        // reduce(): Can be used to accumulate values (e.g., collecting common elements).
+        // for...of: A more readable syntax for iterating over arrays.
+    
+        // 2. includes() Alternatives:
+        // indexOf(): Can be used to check if an element exists in the array (returns -1 if not found).
+        // Set: A data structure that allows checking if an element exists with constant time complexity. Use has() method for checking.
+        // find(): Used to find a single element (but doesn't work well for multiple occurrences).
+
     </script>
 </body>
 
