@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //6.Implement a function to find the intersection of two arrays.
+        function intersection() {
+            var array = [12, 23, 34, 45,]
+            var array2 = [23, 34, 56, 76, 12]
+            var common = []
+            for (var i = 0; i < array.length; i++) {
+                for (var j = 0; j < array2.length; j++) {
+                    if (array[i] === array2[j]) {
+                        if (!common.includes(array[i])) {
+                            common.push(array[i])
+                        }
+                    }
+                }
+            }
+            console.log(common)
+        }
+        intersection()
+    </script>
+</body>
+
+</html>
