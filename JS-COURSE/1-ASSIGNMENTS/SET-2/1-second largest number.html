@@ -10,12 +10,22 @@
 <body>
     <script>
         //1.Write a function that finds the second largest number in an array.
-        function secondLargest(num) {
-            num.sort((a, b) => a - b)
-            console.log(num[num.length - 2])
+        // function secondLargest(num) {
+        //     num.sort((a, b) => a - b)
+        //     console.log(num[num.length - 2])
+        // }
+        // var num = [12, 23, 34, 12, 23, 65, 56]
+        // secondLargest(num)
+
+
+        function secondLargest(num){
+            num.sort((a,b)=>a-b)
+                 console.log(num[num.length-2])
+                // var len=num.length
+                // console.log(num[len-2])
         }
-        var num = [12, 23, 34, 12, 23, 65, 56]
-        secondLargest(num)
+        var arr=[12,10,54,34,24,29]
+        secondLargest(arr)
     </script>
 </body>
 
