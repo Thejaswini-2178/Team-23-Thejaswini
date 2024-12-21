@@ -26,22 +26,45 @@
         //     console.log(common)
         // }
         // intersection()
-        function interSection() {
-            var arr1 = [12, 23, 45, 24, 23]
-            var arr2 = [13, 12, 24, 65, 45]
-            var common = []
-            for (var i = 0; i < arr1.length; i++) {
-                for (var j = 0; j < arr2.length; j++) {
-                    if (arr1[i] === arr2[j]) {
-                        if (!common.includes(arr1[i])) {
-                            common.push(arr1[i])
-                        }
-                    }
-                }
+    
+        
+// for each method
+function interSection() {
+    var str1 = [12, 23, 34, 45];
+    var str2 = [31, 23, 25, 45];
+    var common = [];
+    
+    str1.forEach((val) => {
+        str2.forEach((item) => {
+            if (val === item && !common.includes(val)) {
+                common.push(val);
             }
-            console.log(common)
+        });
+    });
+    console.log(common);
+}
+interSection();
+
+function interSection() {
+    var str1 = [12, 23, 34, 45];
+    var str2 = [31, 23, 25, 45];
+    var common = [];
+
+    str1.forEach((val) => {
+        if (str2.indexOf(val) !== -1 && common.indexOf(val) === -1) {
+            common.push(val);
         }
-        interSection()
+    });
+    console.log(common);
+}
+interSection();
+
+// map function
+
+
+
+
+
 
     //1. Loop Alternatives:
         // forEach(): A functional iteration method to iterate over an array.
