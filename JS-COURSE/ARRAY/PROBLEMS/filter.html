@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [3, 4, 5, 6, 7, 10, 15, 120]
+        var arr1 = arr.filter((num) => {
+            return (num % 3 == 0 && num % 5 == 0)
+        })
+        console.log(arr1)
+
+        //Remove strings shorter than 5 characters from an array of strings
+        var arr2 = ["banana", "mango", "grapes", "bird",]
+        var arr3 = arr2.filter((len) => {
+            return (len.length > 5)
+        })
+        console.log(arr3)
+
+        //3.Extract objects with a score greater than 80 from an array of student objects.
+        const students = [
+            { name: "Alice", score: 85 },
+            { name: "Bob", score: 78 },
+            { name: "Charlie", score: 92 },
+            { name: "Daisy", score: 67 }
+        ];
+        const highScorers = students.filter(student => student.score > 80);
+        console.log(highScorers);
+
+
+        //4.Filter out duplicate elements from an array (without using Set).
+        var ar1 = [12, 13, 24, 12, 24]
+        var ar2 = ["hello", "wow", "hii", "hello"]
+        var arr1 = ar1.filter((item, index, arr) => arr.indexOf(item) === index)
+        console.log(arr1)
+
+        
+
+    </script>
+</body>
+
+</html>
