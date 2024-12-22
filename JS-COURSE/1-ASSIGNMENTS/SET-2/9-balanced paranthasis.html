@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //without buit in function
+        function paranthasisi(str) {
+            var count = 0;
+            for (var char of str) {
+                if (char === "(") {
+                    count++
+                }
+                else if (char === ")") {
+                    count--
+                }
+                if (count < 0) {
+                    return false
+                }
+            }
+            return count === 0
+        }
+        console.log(paranthasisi("("))
+
+
+        // built in function
+        function getPermutationsIterative(arr) {
+            let results = [[]]; // Start with an empty permutation.
+
+            for (let num of arr) {
+                let newResults = [];
+                for (let perm of results) {
+                    for (let i = 0; i <= perm.length; i++) {
+                        // Insert 'num' at every possible position in the current permutation.
+                        newResults.push([...perm.slice(0, i), num, ...perm.slice(i)]);
+                    }
+                }
+                results = newResults;
+            }
+
+            return results;
+        }
+
+        // Example usage
+        var  arr = [1, 2, 3];
+        console.log(getPermutationsIterative(arr));
+
+    </script>
+
+</body>
+<script>
+    function getPermutationsIterative(arr) {
+        let results = [[]]; // Start with an empty permutation.
+
+        for (let num of arr) {
+            let newResults = [];
+            for (let perm of results) {
+                for (let i = 0; i <= perm.length; i++) {
+                    // Insert 'num' at every possible position in the current permutation.
+                    newResults.push([...perm.slice(0, i), num, ...perm.slice(i)]);
+                }
+            }
+            results = newResults;
+        }
+
+        return results;
+    }
+
+    // Example usage
+    var arr = [1, 2, 3];
+    console.log(getPermutationsIterative(arr));
+
+
+    function getPermutationsBacktracking(arr) {
+        let result = [];
+
+        function permute(currentIndex) {
+            if (currentIndex === arr.length) {
+                result.push([...arr]); // Push a copy of the array.
+                return;
+            }
+
+            for (let i = currentIndex; i < arr.length; i++) {
+                [arr[currentIndex], arr[i]] = [arr[i], arr[currentIndex]]; // Swap.
+                permute(currentIndex + 1); // Recurse for the next index.
+                [arr[currentIndex], arr[i]] = [arr[i], arr[currentIndex]]; // Backtrack (undo swap).
+            }
+        }
+
+        permute(0);
+        return result;
+    }
+
+    // Example usage
+    let arra = [1, 2, 3];
+    console.log(getPermutationsBacktracking(nums));
+
+
+
+    function getPermutationsHeaps(arr) {
+        let result = [];
+
+        function generate(n) {
+            if (n === 1) {
+                result.push([...arr]); // Push a copy of the array.
+                return;
+            }
+
+            for (let i = 0; i < n; i++) {
+                generate(n - 1);
+
+                if (n % 2 === 0) {
+                    // Swap elements for even n.
+                    [arr[i], arr[n - 1]] = [arr[n - 1], arr[i]];
+                } else {
+                    // Swap the first element with the last for odd n.
+                    [arr[0], arr[n - 1]] = [arr[n - 1], arr[0]];
+                }
+            }
+        }
+
+        generate(arr.length);
+        return result;
+    }
+
+    // Example usage
+    var nums = [1, 2, 3];
+    console.log(getPermutationsHeaps(nums));
+
+
+</script>
+
+</html>
