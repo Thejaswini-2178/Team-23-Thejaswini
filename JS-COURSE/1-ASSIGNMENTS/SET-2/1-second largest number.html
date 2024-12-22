@@ -18,15 +18,40 @@
         // secondLargest(num)
 
 
-        function secondLargest(num){
-            num.sort((a,b)=>a-b)
-                 console.log(num[num.length-2])
-                // var len=num.length
-                // console.log(num[len-2])
+        // function secondLargest(num){
+        //     num.sort((a,b)=>a-b)
+        //          console.log(num[num.length-2])
+        //         // var len=num.length
+        //         // console.log(num[len-2])
+        // }
+        // var arr=[12,10,54,34,24,29]
+        // secondLargest(arr)
+
+        // without builtinfunction
+        // //Infinity is greater than any other finite number.-Infinity is smaller than any other finite number.
+        function secondLargestNum(arr){
+            var first=-Infinity
+            var second=-Infinity
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]>first){
+                    second=first
+                    first=arr[i]
+                }
+                else if(arr[i]>second && arr[i]!==first){
+                    second=arr[i]
+                }
+            }
+            document.write(second+"</br>")
         }
-        var arr=[12,10,54,34,24,29]
-        secondLargest(arr)
+        var arr=[12,24,35,64,57,0]
+        secondLargestNum(arr)
+
     </script>
 </body>
 
 </html>
+
+
+
+
+
