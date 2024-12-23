@@ -10,22 +10,52 @@
 <body>
     <script>
         //1.Write a function that finds the second largest number in an array.
-        // function secondLargest(num) {
-        //     num.sort((a, b) => a - b)
-        //     console.log(num[num.length - 2])
-        // }
-        // var num = [12, 23, 34, 12, 23, 65, 56]
-        // secondLargest(num)
+         
+        // we can do through the buid in method
+        function secondLargestNum(arr){
+            arr.sort((a,b)=>a-b)
+                console.log(arr[arr.length-2])
+        }
+    
+        secondLargestNum([12,23,34,75,34,56])
 
 
-        // function secondLargest(num){
-        //     num.sort((a,b)=>a-b)
-        //          console.log(num[num.length-2])
-        //         // var len=num.length
-        //         // console.log(num[len-2])
-        // }
-        // var arr=[12,10,54,34,24,29]
-        // secondLargest(arr)
+        // filter method()
+        function secondLarge(arr){
+            var first=arr[0]
+            var second=-Infinity
+            arr.map((num)=>{
+                if(num>first){
+                    second=first
+                    first=num
+                    
+                }
+                else if(num!==first && num>second){
+                    second=num
+                }
+            })
+            return second
+        }
+        secondLarge([12,36,72,79])
+
+        // reduce method
+        function SecLarg(arr){
+            var firstLarg=arr[0]
+            var secondLar=-Infinity
+            arr.reduce((acc,num)=>{
+                if(num>firstLarg){
+                    secondLar=firstLarg
+                    firstLarg=num
+                }
+                else if(num !==firstLarg && num>secondLar){
+                    secondLar=num
+                }
+                return acc
+            },{})
+            return secondLar
+        }
+        console.log(SecLarg([12,24,35]))
+
 
         // without builtinfunction
         // //Infinity is greater than any other finite number.-Infinity is smaller than any other finite number.
