@@ -18,6 +18,41 @@
             console.log(singleArray)
         }
         SortedArray()
+
+        // without built in method
+        function SortedArray() {
+            var arr1 = [12, 23, 32, 24, 10];
+            var arr2 = [13, 24, 54, 56];
+            var singleArray = [];
+
+            // Merge arr1 and arr2 into singleArray
+            for (let i = 0; i < arr1.length; i++) {
+                singleArray.push(arr1[i]);
+            }
+            for (let i = 0; i < arr2.length; i++) {
+                singleArray.push(arr2[i]);
+            }
+
+            // Implement Insertion Sort to sort singleArray
+            for (let i = 1; i < singleArray.length; i++) {
+                let current = singleArray[i];
+                let j = i - 1;
+
+                // Shift elements to the right to create the correct position
+                while (j >= 0 && singleArray[j] > current) {
+                    singleArray[j + 1] = singleArray[j];
+                    j--;
+                }
+
+                // Place the current element at the correct position
+                singleArray[j + 1] = current;
+            }
+
+            console.log(singleArray);
+        }
+
+        SortedArray();
+
     </script>
 </body>
 
