@@ -10,48 +10,69 @@
 <body>
     <script>
         //3.Write a function to merge two sorted arrays into a single sorted array.
-        function SortedArray() {
-            var arr1 = [12, 23, 32, 24, 10]
-            var arr2 = [13, 24, 54, 56]
-            var singleArray = arr1.concat(arr2)
-            singleArray.sort((a, b) => a - b)
-            console.log(singleArray)
-        }
-        SortedArray()
+        // function SortedArray() {
+        //     var arr1 = [12, 23, 32, 24, 10]
+        //     var arr2 = [13, 24, 54, 56]
+        //     var singleArray = arr1.concat(arr2)
+        //     singleArray.sort((a, b) => a - b)
+        //     console.log(singleArray)
+        // }
+        // SortedArray()
+        
 
         // without built in method
         function SortedArray() {
             var arr1 = [12, 23, 32, 24, 10];
             var arr2 = [13, 24, 54, 56];
             var singleArray = [];
-
-            // Merge arr1 and arr2 into singleArray
-            for (let i = 0; i < arr1.length; i++) {
-                singleArray.push(arr1[i]);
+            for(var i=0;i<arr1.length;i++){
+                singleArray.push(arr1[i])
             }
-            for (let i = 0; i < arr2.length; i++) {
-                singleArray.push(arr2[i]);
+            for(var j=0;j<arr2.length;j++){
+                singleArray.push(arr2[j])
             }
-
-            // Implement Insertion Sort to sort singleArray
-            for (let i = 1; i < singleArray.length; i++) {
-                let current = singleArray[i];
-                let j = i - 1;
-
-                // Shift elements to the right to create the correct position
-                while (j >= 0 && singleArray[j] > current) {
-                    singleArray[j + 1] = singleArray[j];
-                    j--;
+            for(var k=1;k<singleArray.length;k++){
+                var current=singleArray[k]//23
+                var m=k-1//
+                while(m>=0 && singleArray[m]>current){//12>24
+                    singleArray[m+1]=singleArray[m]
+                    m--
                 }
-
-                // Place the current element at the correct position
-                singleArray[j + 1] = current;
+                singleArray[m+1]=current
             }
-
-            console.log(singleArray);
+            console.log(singleArray)
         }
+        SortedArray()
 
-        SortedArray();
+
+        //     // Merge arr1 and arr2 into singleArray
+        //     for (let i = 0; i < arr1.length; i++) {
+        //         singleArray.push(arr1[i]);
+        //     }
+        //     for (let i = 0; i < arr2.length; i++) {
+        //         singleArray.push(arr2[i]);
+        //     }
+
+        //     // Implement Insertion Sort to sort singleArray
+        //     for (let i = 1; i < singleArray.length; i++) {
+        //         let current = singleArray[i];
+        //         let i = i - 1;
+
+        //         // Shift elements to the right to create the correct position
+        //         while (i >= 0 && singleArray[i] > current) {
+        //             singleArray[i + 1] = singleArray[i];
+        //             i--;
+        //         }
+
+        //         // Place the current element at the correct position
+        //         singleArray[i + 1] = current;
+        //     }
+
+        //    console(singleArray);
+        // }
+
+        // SortedArray();
+
 
     </script>
 </body>
