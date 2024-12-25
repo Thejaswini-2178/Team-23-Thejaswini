@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+        function deepClone(obj) {
+            // Check if the value is not an object or is null (base case)
+            if (typeof obj !== "object" || obj === null) {
+                return obj;
+            }
+
+            // Handle Arrays
+            if (Array.isArray(obj)) {
+                const arrayCopy = [];
+                for (let i = 0; i < obj.length; i++) {
+                    arrayCopy[i] = deepClone(obj[i]); // Recursively clone each element
+                }
+                return arrayCopy;
+            }
+
+            // Handle Objects
+            const objectCopy = {};
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    objectCopy[key] = deepClone(obj[key]); // Recursively clone each property
+                }
+            }
+            return objectCopy;
+        }
+
+        // Example Usage
+        const original = {
+            name: "Starlight",
+            age: 22,
+            hobbies: ["coding", "reading"],
+            details: {
+                skill: "JavaScript",
+                level: "Intermediate"
+            }
+        };
+
+        const cloned = deepClone(original);
+
+        // Test deep cloning
+        cloned.details.skill = "React";
+        cloned.hobbies.push("gaming");
+
+        console.log(original); // Original object remains unchanged
+        console.log(cloned);   // Cloned object reflects updates
+
     </script>
 </body>
+
 </html>
