@@ -78,6 +78,27 @@
         // var property=funcName(arr,"name")
         // console.log(property)
 
+        function FunName(arr,property){
+        var result={}
+        arr.map((val)=>{
+            var key=val[property]
+            if(!result[key]){
+                result[key]=[]
+            }
+            result[key].push(item)
+            return  result
+        })
+       }
+       var arr = [
+            { name: "theju", age: 21, state: "andhra" },
+            { name: "madhu", age: 23, state: "telengana" },
+            { name: "himavari", age: 22, state: "kerala" },
+            { name: "lalli", age: 21, state: "tamilnadu" },
+            { name: "devi", age: 25, state: "andhra" }
+        ]
+        var property=FunName(arr,"name")
+        console.log(property)
+
 
         function FunName(arr,property){
             return arr.reduce((acc,item)=>{
