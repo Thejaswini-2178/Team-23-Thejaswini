@@ -54,6 +54,32 @@
         console.log(original); // Original object remains unchanged
         console.log(cloned);   // Cloned object reflects updates
 
+        // with builtin function
+        function deepClone(obj) {
+            return JSON.parse(JSON.stringify(obj));
+        }
+
+        // Example Usage
+        const original1 = {
+            name: "Starlight",
+            age: 22,
+            hobbies: ["coding", "reading"],
+            details: {
+                skill: "JavaScript",
+                level: "Intermediate"
+            }
+        };
+
+        const cloned = deepClone(original1);
+
+        // Test deep cloning
+        cloned.details.skill = "React";
+        cloned.hobbies.push("gaming");
+
+        console.log(original1); // Original object remains unchanged
+        console.log(original1);   // Cloned object reflects updates
+
+
     </script>
 </body>
 
