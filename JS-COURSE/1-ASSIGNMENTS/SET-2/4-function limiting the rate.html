@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        
+        function debounce(func, delay) {
+            let timer;
+
+            return function (...args) {
+                const context = this;
+
+                if (timer) {
+                    clearTimeout(timer);
+                }
+
+                timer = setTimeout(() => {
+                    func.apply(context, args);
+                }, delay);
+            };
+        }
+
+        // Example Usage:
+        function logMessage(message) {
+            console.log(message);
+        }
+
+        const debouncedLog = debounce(logMessage, 2000);
+
+        // When called multiple times in quick succession, the function will only execute after 2 seconds of inactivity.
+        debouncedLog("Hello, World!");  // Will execute after 2 seconds of no further calls.
+        debouncedLog("This will overwrite the previous one.");
+
     </script>
 </body>
+
 </html>
