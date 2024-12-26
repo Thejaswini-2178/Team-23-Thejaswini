@@ -7,7 +7,15 @@
 </head>
 <body>
     <script>
-        var
+var str = prompt("enter the string");
+for (var i = 0; i < str.length; i++) {
+    var count = 0; // Issue 1: count resets to 0 on each iteration
+    if (i == "aeiouAEIOU") { // Issue 2: `i` is a number (index), not a character
+        count++; // Issue 3: Logical mistake in vowel check condition
+    }
+}
+console.log(count + " number of vowels are in the string"); // Will not produce correct result
+
     </script>
 </body>
 </html>
