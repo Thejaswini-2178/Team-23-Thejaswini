@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="hii this is theja"
+        console.log(str.slice(4,7))
+        console.log(str.substring(4,7))
+        console.log(str.substring(7,4))
+        console.log(str.substr(2,5))
+// slice will all0ws the negative index
+         console.log(str.slice(-5,-1))//thej
+         console.log(str.slice(-1))//a
+         console.log(str.slice(-1,-5))//nothing...it is start  from lowest  to height number
+         console.log(str.slice(5,1))//arrangement order is required  returns the nothing
+         console.log(str.substring(5,1))//will reeturns the
+         console.log(str.substring(-5,-1))// nothing
+         console.log(str.substring(-1,-5))// nothing
+         console.log(str.substring(-1))// returns the entait string
+
+        //split method
+        var arr2=str.split("").reverse().join("") 
+        console.log(arr2) 
+        var arr2=str.split(" ").reverse().join(" ") 
+        console.log(arr2) 
+         
+
+
+
+
+
+
+    </script>
+</body>
+</html>
