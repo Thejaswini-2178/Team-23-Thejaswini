@@ -8,6 +8,7 @@
 <body>
     <script>
         //  their are two scopes which are local hosting and global hosting
+        hosting()
         var a=30  // global
         a++
         function hosting(){
@@ -18,6 +19,32 @@
         hosting()
         console.log(a) // global can exicute ay where
         // console.log(b)  local can exicute with in the block
+
+
+        fun2()
+        var a=20
+        function fun2(){
+            console.log("hii")
+            var b=40
+            console.log(a+b)
+        }
+
+
+    // function expression not applicable
+        // fun1()
+        var fun1=function notHoisted(){
+            console.log("it is not hoisted")
+        }
+        fun1()
+
+        // fun3()
+        var fun3=function funName(){
+            var a=20
+            var b=40
+            console.log(a+b)
+            console.log(a-b)
+        }
+        fun3()
     </script>
 </body>
 </html>
