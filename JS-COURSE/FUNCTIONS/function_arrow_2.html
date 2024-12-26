@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const operations = {
+            add: (a, b) => a + b,
+            subtract: (a, b) => a - b,
+            multiply: (a, b) => a * b,
+            divide: (a, b) => b !== 0 ? a / b : "Cannot divide by zero"
+        };
+
+        const calculate = (a, b, operation) => operations[operation]
+            ? operations[operation](a, b)
+            : "Invalid operation";
+
+        console.log(calculate(10, 5, "add"));       // Output: 15
+        console.log(calculate(10, 5, "subtract"));  // Output: 5
+        console.log(calculate(10, 5, "multiply"));  // Output: 50
+        console.log(calculate(10, 5, "divide"));    // Output: 2
+        console.log(calculate(10, 0, "divide"));    // Output: Cannot divide by zero
+        console.log(calculate(10, 5, "modulus"));   // Output: Invalid operation
+
+    </script>
+</body>
+
+</html>
