@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-var str = prompt("enter the string");
-for (var i = 0; i < str.length; i++) {
-    var count = 0; // Issue 1: count resets to 0 on each iteration
-    if (i == "aeiouAEIOU") { // Issue 2: `i` is a number (index), not a character
-        count++; // Issue 3: Logical mistake in vowel check condition
-    }
-}
-console.log(count + " number of vowels are in the string"); // Will not produce correct result
+        function countVowels(str) {
+            const vowels = 'aeiouAEIOU';
+            let count = 0;
+            for (let char of str) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
+            return count;
+        }
 
+        // Example usage:
+        const inputString = prompt("enter the charatcer")
+        console.log(countVowels(inputString)); // Output: 3
     </script>
 </body>
+
 </html>
