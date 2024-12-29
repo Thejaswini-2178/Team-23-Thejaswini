@@ -78,7 +78,19 @@
 
         console.log(original1); // Original object remains unchanged
         console.log(original1);   // Cloned object reflects updates
-
+        // simple code
+        var data = {
+            name: "theju",
+            age: 20,
+            address: {
+                place: "andhra"
+            }
+        }
+        var newstr = { ...data }
+        newstr.name = "manju"
+        newstr.address.place = "telangana"
+        console.log(data)
+        console.log(newstr)
 
     </script>
 </body>
