@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //What is the difference between for...in and Object.keys()?
+        //for...in iterates over enumerable properties, including inherited ones, 
+        //while Object.keys() returns only the object's own enumerable properties.
+        var obj = {
+            name: "theju",
+            address: { place: "mpl", state: "andhra" }
+        }
+        Object.prototype.greet = function(){
+            console.log("helo")
+        }
+//returns only main top level propwrties in array method
+        console.log(Object.keys(obj)) 
+//this will print the objects in  all type of properties
+        function findAllKeys(obj) {
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) { // Check for direct properties
+                    console.log(key); // Print the key
+                    if (typeof obj[key] === 'object' && obj[key] !== null) {
+                        // If the value is an object, recursively find its keys
+                        findAllKeys(obj[key]);
+                    }
+                }
+            }
+        }
+        findAllKeys(obj);
+    </script>
+</body>
+
+</html>
