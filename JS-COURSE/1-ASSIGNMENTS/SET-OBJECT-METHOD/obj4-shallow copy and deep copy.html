@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //       What is the difference between deep copy and shallow copy?
+        // A shallow copy copies only the top-level properties, whereas a deep copy duplicates nested objects.
+        // How do you compare two objects in JavaScript?
+        // Objects are compared by reference, not by value. For value comparison, convert to JSON or use a recursive comparison function.
+       
+        // shallow copy
+        var data = {
+            name: "theju",
+            age: 20,
+            address: {
+                place: "andhra"
+            }
+        }
+        var newstr = { ...data }
+        newstr.name = "manju"
+        newstr.address.place = "telangana"
+        console.log(data)
+        console.log(newstr)
+        //deep copy
+        var data1 = {
+            name: "anjum",
+            age: 20,
+            address: {
+                place: "kerala"
+            }
+        }
+        var deepCopy=JSON.parse(JSON.stringify(data1))
+        console.log(data1)
+       deepCopy.name="lalli"
+       console.log(deepCopy)
+       deepCopy.place="tamil"
+       console.log(deepCopy)
+    </script>
+</body>
+
+</html>
