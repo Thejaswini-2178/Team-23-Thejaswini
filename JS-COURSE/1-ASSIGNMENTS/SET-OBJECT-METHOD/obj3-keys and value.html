@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         What is the difference between Object.keys() and Object.values()?
+        //  Object.keys() returns an array of keys, while Object.values() returns an array of values.
+        const data = {
+            fname: "theju", age: 20, id: 2345, country: "india"
+        }
+        console.log(Object.keys(data))
+        console.log(Object.values(data))
+
+        // What does Object.entries() do?
+        //Object.entries() is a method in JavaScript that returns an array of an object's 
+        // own enumerable property [key, value] pairs. Each entry in the returned array is an array itself
+        var entry = Object.entries(data)
+        console.log(entry)
+
+
+
+
+        // How can you merge two objects in JavaScript?
+        // Using Object.assign(target, source) or the spread operator {...obj1, ...obj2}, entry(),object.assign(),spred()
+        const obj1 = { name: "hueraanjum", sub: "english", address: { place: "mpl", code: 2456 } }
+        const obj2 = { name: "haseena", id: 2335, country: "india" }
+        //shallow merge or spred
+        var result = { ...obj1, ...obj2 }
+        console.log(result)
+        var result1 = Object.assign({}, obj1, obj2)
+        console.log(result1)
+
+
+
+        //reduse
+        const obje1 = { name: 'Alice', age: 25 };
+        const obje2 = { job: 'Developer', city: 'New York' };
+        const mergedObj = [...Object.entries(obje1), ...Object.entries(obje2)].reduce((acc, [key, value]) => {
+            acc[key] = value;
+            return acc;
+        }, {});
+        console.log(mergedObj);
+
+        // deep merge
+        const data1 = { name: 'Alice', address: { city: 'New York', zip: 10001 } };
+        const data2 = { job: 'Developer', address: { city: 'Los Angeles' } };
+
+        const res = JSON.parse(JSON.stringify({ ...data1, ...data2 }));
+        console.log(res);
+        // Output: { name: 'Alice', job: 'Developer', address: { city: 'Los Angeles', zip: 10001 } }
+
+
+
+    </script>
+</body>
+
+</html>
