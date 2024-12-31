@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //How do you access properties of an object?
+        //Using dot notation (obj.key) or bracket notation (obj['key']).
+        const person = {
+            fname: "theju", lname: "yel", age: 21, "id-num": 2341
+        }
+        console.log(person.fname)
+        // console.lof(person.id-num) >>>>> gives an reference error
+        console.log(person["lname"])
+        //advantage of the bracket notation bracke notation is advantage that it can allow the special characters
+        console.log(person["id-num"])
+
+        //    adding and removing the object
+        const data = {
+            state: "andhra", district: "chittoor", pinCode: 1865
+        }
+        // add
+        console.log(data.city = "mpl")
+        console.log(data)
+        //remove
+        delete data.pinCode
+        console.log(data)
+        //update
+        data.city = "chittoor"
+        console.log(data)
+    </script>
+</body>
+
+</html>
