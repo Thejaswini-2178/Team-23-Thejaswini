@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         What is an object in JavaScript?
+        // An object is a collection of key-value pairs where keys are strings (or Symbols) and values can be any data type.
+        // How do you create an object in JavaScript?
+        // Using object literals, constructors, Object.create(), or classes.
+
+        //  normal object creating using literals
+        var myObj = {
+            name: "theju",
+            id: 21,
+            place: "mpl"
+        }
+        console.log(myObj)
+        console.log(myObj.id)
+
+        // creating the object using constructor
+        function data(fname, lname, id, place) {
+            this.fname = fname
+            this.lname = lname
+            this.id = id
+            this.place=place
+        }
+        var person1 = new data("theju", "yel", 2432, "india")
+        console.log(person1)
+
+        // Object.create()
+        const person=Object.create()
+        person.name="theju"
+        person.age=21
+        console.log(person)
+        console.log(person.name)
+
+
+    </script>
+</body>
+
+</html>
