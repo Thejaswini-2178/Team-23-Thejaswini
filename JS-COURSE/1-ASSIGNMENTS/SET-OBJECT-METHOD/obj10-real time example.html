@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // modeling in real tilme
+        const car = {
+            make: 'Toyota',
+            model: 'Corolla',
+            year: 2021,
+            startEngine: function () {
+                console.log('Engine started');
+            },
+        };
+
+        console.log(car.make); // Output: Toyota
+        car.startEngine();    // Output: Engine started
+
+        // as data structure
+        const student = {
+            name: 'John',
+            age: 20,
+            subjects: ['Math', 'Science'],
+            isEnrolled: true,
+        };
+
+        console.log(student.name); // Output: John
+        console.log(student.subjects); // Output: ['Math', 'Science']
+        // as functional programming
+        const mathOperations = {
+            add: (a, b) => a + b,
+            subtract: (a, b) => a - b,
+            multiply: (a, b) => a * b,
+        };
+
+        console.log(mathOperations.add(5, 3)); // Output: 8
+        console.log(mathOperations.subtract(5, 3)); // Output: 2
+
+
+    </script>
+</body>
+
+</html>
