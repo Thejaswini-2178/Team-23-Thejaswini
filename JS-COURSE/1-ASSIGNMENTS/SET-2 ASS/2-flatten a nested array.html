@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 2.Implement a function to flatten a nested array (e.g., [1, [2, [3, [4]]]] to [1, 2, 3, 4]).
+        // function flattenArray(arr) {
+        //     // var flatten = arr.flat()
+        //     // var flatten = arr.flat(4)
+        //     var flatten = arr.flat(Infinity)
+        //     console.log(flatten)
+        // }
+        // var array = [1, [2, [3, [5,[4]]]]]
+        // flattenArray(array)
+
+
+        // withbuiltin function
+        // function flattenArray(arr) {
+        //     let result = [];
+
+        //     // Iterate through each element of the array
+        //     arr.forEach(item => {
+        //         // If the item is an array, call flattenArray recursively
+        //         if (Array.isArray(item)) {
+        //             result = result.concat(flattenArray(item));
+        //         } else {
+        //             result.push(item);
+        //         }
+        //     });
+
+        //     return result;
+        // }
+
+        // Example usage
+        // var nestedArray = [1, 2, 3, [3, [4, [5, [5, 6, 7], [1, 2, 3]]]]]
+        // var flattened = flattenArray(nestedArray);
+        // console.log(flattened);
+
+        function flattenArray(arr) {
+            let result = [];
+
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    // If the element is an array, recursively flatten it
+                    let flattenedSubArray = flattenArray(arr[i]);
+                    for (let j = 0; j < flattenedSubArray.length; j++) {
+                        result.push(flattenedSubArray[j]);
+                    }
+                } else {
+                    // If it's not an array, push the element to the result
+                    result.push(arr[i]);
+                }
+            }
+
+            return result;
+        }
+
+        // Example usage
+        var nestedArray = [1, [2, [3, 4, [5]]], 6, [7, 8]];
+        var flattened = flattenArray(nestedArray);
+        console.log(flattened);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
