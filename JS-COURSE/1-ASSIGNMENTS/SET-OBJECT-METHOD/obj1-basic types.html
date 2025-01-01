@@ -12,7 +12,7 @@
         //         What is an object in JavaScript?
         // An object is a collection of key-value pairs where keys are strings (or Symbols) and values can be any data type.
         // How do you create an object in JavaScript?
-        // Using object literals, constructors, Object.create(), or classes.
+        // Using object literals, constructors, Object.create(), or .classes
 
         //  normal object creating using literals
         var myObj = {
@@ -28,17 +28,32 @@
             this.fname = fname
             this.lname = lname
             this.id = id
-            this.place=place
+            this.place = place
         }
         var person1 = new data("theju", "yel", 2432, "india")
         console.log(person1)
 
         // Object.create()
-        const person=Object.create()
-        person.name="theju"
-        person.age=21
+        const person = Object.create()
+        person.name = "theju"
+        person.age = 21
         console.log(person)
         console.log(person.name)
+
+
+        // A class in JavaScript is a blueprint for creating objects. 
+        // It simplifies the creation, organization, and reusability of objects by providing a structured way to define properties and methods.
+        //When working with multiple related objects:
+        // If you need several objects with the same properties and methods, use a class to avoid redundancy.
+        class Car {
+            constructor(brand, model) {
+                this.brand = brand;
+                this.model = model;
+            }
+        }
+        const car1 = new Car('Toyota', 'Corolla');
+        const car2 = new Car('Honda', 'Civic');
+
 
 
     </script>
