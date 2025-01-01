@@ -34,6 +34,8 @@
         console.log(person1)
 
         // Object.create()
+        //In JavaScript, you can create objects using the Object constructor or the object literal syntax.
+        //  Here's an explanation of how to create objects using the Object constructor, along with when and why you might use it.
         const person = Object.create()
         person.name = "theju"
         person.age = 21
@@ -45,6 +47,8 @@
         // It simplifies the creation, organization, and reusability of objects by providing a structured way to define properties and methods.
         //When working with multiple related objects:
         // If you need several objects with the same properties and methods, use a class to avoid redundancy.
+        //For simple objects: If you only need a single instance or a small object, classes may be overkill. 
+        // Use object literals instead:
         class Car {
             constructor(brand, model) {
                 this.brand = brand;
