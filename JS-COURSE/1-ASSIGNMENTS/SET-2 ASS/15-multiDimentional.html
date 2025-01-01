@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //15.Implement a function to calculate the sum of all elements in a multidimensional array.
+        function multiDimentional(arr) {
+            var array = arr.flat(Infinity)
+            var sum = 0
+            console.log(array)
+            for (var i = 0; i < array.length; i++) {
+                sum += array[i]
+            }
+            console.log(sum)
+        }
+        var arr = [1, 2, [2, 9, [3, [4, 5]]]]
+        multiDimentional(arr)
+
+
+
+        // function sumOfElements(arr) {
+        //     let sum = 0;
+        //     function calculateSum(subArray) {
+        //         for (let element of subArray) {
+        //             function calculateSum(arr) {
+        //                 for (let element of arr) {
+        //                     if (Array.isArray(element)) {
+        //                         calculateSum(element); // Recursive call for nested arrays
+        //                     } else {
+        //                         sum += element; // Add the number to the sum
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     calculateSum(arr); // Start the recursive summation
+        //     return sum;
+        // }
+        // const multidimensionalArray = [[1, 2, [3, 4]], [5, 6], 7];
+        // console.log(sumOfElements(multidimensionalArray)); // Output: 28
+
+        // function sumOfElements(arr) {
+        //     let sum = 0;
+
+        //     function calculateSum(arr) {
+        //         for (let element of arr) {
+        //             if (Array.isArray(element)) {
+        //                 calculateSum(element); // Recursive call for nested arrays
+        //             } else {
+        //                 sum += element; // Add the number to the sum
+        //             }
+        //         }
+        //     }
+
+        //     calculateSum(arr); // Start the recursive summation
+        //     return sum;
+        // }
+
+        // // Example usage:
+        // const multidimensionalArray = [[1, 2, [3, 4]], [5, 6], 7];
+        // console.log(sumOfElements(multidimensionalArray)); // Output: 28
+
+        //  function funName(arr){
+        //     var arr2=arr.flat(Infinity)
+        //     var sum=0;
+        //     arr2.forEach((val)=>{
+        //         sum+=val
+        //     })
+        //     console.log(sum) 
+        //  }
+        //  funName([1,23,[23,[34,[3,4,[5]]]]])
+
+
+        //  by usning the multi di
+        function outer(arr) {
+            let sum = 0;
+            function inner(subArr) {
+                for (let index in subArr) { // Line 1: Iterate over indices of subArr
+                    if (Array.isArray(subArr[index])) { // Line 2: Check if the current element is an array
+                        inner(subArr[index]); // Line 3: Recursively call inner for nested arrays
+                    } else {
+                        sum += subArr[index]; // Line 4: Add the current element to sum if it's a number
+                    }
+                }
+            }
+            inner(arr); // Line 5: Start the recursive summation by calling inner function
+            return sum; // Line 6: Return the computed sum
+        }
+        var arr = [1, 2, [3, 4, [5, [6, [7, 8, 9]]]]]; // Line 7: Define the input multidimensional array
+        console.log(outer(arr)); // Line 8: Log the result of calling outer() function
+    </script>
+</body>
+
+</html>

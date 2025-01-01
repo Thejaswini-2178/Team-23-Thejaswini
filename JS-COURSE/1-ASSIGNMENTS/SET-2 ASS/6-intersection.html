@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //6.Implement a function to find the intersection of two arrays.
+        function intersection() {
+            var array = [12, 23, 34, 45,]
+            var array2 = [23, 34, 56, 76, 12]
+            var common = []
+            for (var i = 0; i < array.length; i++) {
+                for (var j = 0; j < array2.length; j++) {
+                    if (array[i] === array2[j] && (!common.includes(array[i] && array2[i]))) {
+                        common.push(array[i])
+                    }
+                }
+            }
+            console.log(common)
+        }
+        intersection()
+    
+        
+// for each method
+//function interSection() {
+//     var str1 = [12, 23, 34, 45];
+//     var str2 = [31, 23, 25, 45];
+//     var common = [];
+
+//     str1.forEach((val) => {
+//         str2.forEach((item) => {
+//             if (val === item && !common.includes(val)) {
+//                 common.push(val);
+//             }
+//         });
+//     });
+//     console.log(common);
+// }
+// interSection();
+
+// function interSection() {
+//     var str1 = [12, 23, 34, 45];
+//     var str2 = [31, 23, 25, 45];
+//     var common = [];
+
+//     str1.map((val) => {
+//         if (str2.indexOf(val) !== -1 && common.indexOf(val) === -1) {
+//             common.push(val);
+//         }
+//     });
+//     console.log(common);
+// }
+// interSection();
+
+function arrayIntersection(arr1, arr2) {
+    return arr1.reduce((intersection, item) => {
+        if (arr2.includes(item)) {
+            intersection.push(item);
+        }
+        return intersection;
+    }, []);
+}
+
+// Example Usage
+const array1 = [21, 2, 3, 24, 5];
+const array2 = [3, 24, 5, 6, 7];
+const result = arrayIntersection(array1, array2);
+console.log(result); // Output: [3, 4, 5]
+
+
+
+
+
+
+
+
+    //1. Loop Alternatives:
+        // forEach(): A functional iteration method to iterate over an array.
+        // map(): Not typically used for iteration alone, but can be helpful to transform the array before filtering.
+        // filter(): Useful for filtering elements based on conditions.
+        // reduce(): Can be used to accumulate values (e.g., collecting common elements).
+        // for...of: A more readable syntax for iterating over arrays.
+    
+        // 2. includes() Alternatives:
+        // indexOf(): Can be used to check if an element exists in the array (returns -1 if not found).
+        // Set: A data structure that allows checking if an element exists with constant time complexity. Use has() method for checking.
+        // find(): Used to find a single element (but doesn't work well for multiple occurrences).
+
+    </script>
+</body>
+
+</html>

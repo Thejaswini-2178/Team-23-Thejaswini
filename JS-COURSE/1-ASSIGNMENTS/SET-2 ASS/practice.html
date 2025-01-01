@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function interSection() {
+            var arr1 = [12, 23, 34, 45, 12]
+            var arr2 = [12, 23, 87, 67, 12]
+            var common = []
+            for (var i = 0; i < arr1.length; i++) {
+                for (var j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j] && !common.includes(arr1[i])) {
+                        common.push(arr1[i])
+                    }
+                }
+            }
+            console.log(common)
+        }
+        interSection()
+    </script>
+</body>
+
+</html>

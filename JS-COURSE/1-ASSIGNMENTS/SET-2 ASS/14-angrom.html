@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //14.Write a function to determine if two strings are anagrams of each other.
+        function areAnagrams(str1, str2) {
+            // Step 1: Check if both strings have the same length
+            if (str1.length == str2.length) {
+
+            // Step 2: Sort the characters of both strings
+            const sortedStr1 = str1.split('').sort().join('');
+            const sortedStr2 = str2.split('').sort().join('');
+
+            // Step 3: Compare the sorted strings
+            return sortedStr1 === sortedStr2;
+        }
+    }
+
+        // Example usage:
+        
+          console.log(areAnagrams("listen", "silent")); // Output: true
+          console.log(areAnagrams("hello", "world"));   // Output: false
+
+    </script>
+</body>
+
+</html>

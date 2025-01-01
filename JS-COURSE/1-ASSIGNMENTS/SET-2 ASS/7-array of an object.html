@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function arrayOfAnObject(arr, proper) {
+        //     var result = {}
+        //     for (var i = 0; i < arr.length; i++) {
+        //         var item = arr[i]
+        //         var key = item[proper]
+        //         if (!result[key]) {
+        //         result[key] = []
+        //     }
+        //         result[key].push(item)
+        //     }
+        //     return result
+        // }
+        // var arr = [
+        //         { name: "theju", age: 21, state: "andhra" },
+        //         { name: "madhu", age: 23, state: "telengana" },
+        //         { name: "himavari", age: 22, state: "kerala" },
+        //         { name: "lalli", age: 21, state: "tamilnadu" },
+        //         { name: "devi", age: 25, state: "andhra" }
+        //     ]
+        // var arrayOfObj=arrayOfAnObject(arr,"age")
+        // console.log(arrayOfObj)
+
+        // for loop using
+        // function arrayObj(arr, property) {
+        //     var result={}
+        //     for(var i=0;i<arr.length;i++){
+        //         var item=arr[i]
+        //         var key=item[property]
+        //         // console.log(key)
+
+        //       // result is an object that will store the groups. It's initialized as an empty object ({}).
+        //       // key is a variable that holds the value of the property you are using for grouping. In your case, it's the name
+        //         result[key]=result[key]||[]
+        //         result[key].push(item)
+        //     }
+        //     return result
+        // }
+        // var arr = [
+        //     { name: "theju", age: "21", state: "andhra" },
+        //     { name: "madhu", age: 23, state: "telengana" },
+        //     { name: "himavari", age: 22, state: "kerala" },
+        //     { name: "lalli", age: 21, state: "tamilnadu" },
+        //     { name: "devi", age: 25, state: "andhra" }
+        // ]
+        // var property=arrayObj(arr,"age")
+        // console.log(property)
+
+
+        // function funcName(arr,property){
+        //     arr2={}
+        //     // 
+        //     arr.map((item)=>{
+        //         var key=item[property]
+        //          console.log(key)
+        //          arr2[key]=arr2[key]||[]
+        //          arr2[key].push(item)
+        // })
+        //     return arr2
+        // }
+        // var arr = [
+        //     { name: "theju", age: 21, state: "andhra" },
+        //     { name: "madhu", age: 23, state: "telengana" },
+        //     { name: "himavari", age: 22, state: "kerala" },
+        //     { name: "lalli", age: 21, state: "tamilnadu" },
+        //     { name: "devi", age: 25, state: "andhra" }
+        // ]
+        // var property=funcName(arr,"name")
+        // console.log(property)
+
+        function FunName(arr,property){
+        var result={}
+        arr.map((val)=>{
+            var key=val[property]
+            if(!result[key]){
+                result[key]=[]
+            }
+            result[key].push(item)
+            return  result
+        })
+       }
+       var arr = [
+            { name: "theju", age: 21, state: "andhra" },
+            { name: "madhu", age: 23, state: "telengana" },
+            { name: "himavari", age: 22, state: "kerala" },
+            { name: "lalli", age: 21, state: "tamilnadu" },
+            { name: "devi", age: 25, state: "andhra" }
+        ]
+        var property=FunName(arr,"name")
+        console.log(property)
+
+
+        function FunName(arr,property){
+            return arr.reduce((acc,item)=>{
+                var key=item[property]
+                if(!acc[key]){
+                    acc[key]=[]
+                }
+                acc[key].push(item)
+                return acc
+            },{})
+        }
+        var arr = [
+            { name: "theju", age: 21, state: "andhra" },
+            { name: "madhu", age: 23, state: "telengana" },
+            { name: "himavari", age: 22, state: "kerala" },
+            { name: "lalli", age: 21, state: "tamilnadu" },
+            { name: "devi", age: 25, state: "andhra" }
+        ]
+        var property=FunName(arr,"name")
+        console.log(property)
+
+        
+
+
+    </script>
+</body>
+
+</html>
