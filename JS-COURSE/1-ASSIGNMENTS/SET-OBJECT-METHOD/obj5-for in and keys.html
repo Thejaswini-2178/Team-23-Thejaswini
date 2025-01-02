@@ -16,12 +16,12 @@
             name: "theju",
             address: { place: "mpl", state: "andhra" }
         }
-        Object.prototype.greet = function(){
+        Object.prototype.greet = function () {
             console.log("helo")
         }
-//returns only main top level propwrties in array method
-        console.log(Object.keys(obj)) 
-//this will print the objects in  all type of properties
+        //returns only main top level propwrties in array method
+        console.log(Object.keys(obj))
+        //this will print the objects in  all type of properties
         function findAllKeys(obj) {
             for (var key in obj) {
                 if (obj.hasOwnProperty(key)) { // Check for direct properties
