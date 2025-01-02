@@ -13,7 +13,7 @@
         // A shallow copy copies only the top-level properties, whereas a deep copy duplicates nested objects.
         // How do you compare two objects in JavaScript?
         // Objects are compared by reference, not by value. For value comparison, convert to JSON or use a recursive comparison function.
-       
+
         // shallow copy
         var data = {
             name: "theju",
@@ -37,12 +37,12 @@
                 place: "kerala"
             }
         }
-        var deepCopy=JSON.parse(JSON.stringify(data1))
+        var deepCopy = JSON.parse(JSON.stringify(data1))
         console.log(data1)
-       deepCopy.name="lalli"
-       console.log(deepCopy)
-       deepCopy.place="tamil"
-       console.log(deepCopy)
+        deepCopy.name = "lalli"
+        console.log(deepCopy)
+        deepCopy.place = "tamil"
+        console.log(deepCopy)
     </script>
 </body>
 
