@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        //         What is an object in JavaScript?
+        // What is an object in JavaScript?
         // An object is a collection of key-value pairs where keys are strings (or Symbols) and values can be any data type.
         // How do you create an object in JavaScript?
         // Using object literals, constructors, Object.create(), or .classes
@@ -24,19 +24,19 @@
         console.log(myObj.id)
 
         // creating the object using constructor
-        function data(fname, lname, id, place) {
+        function objec(fname, lname, id, place) {
             this.fname = fname
             this.lname = lname
             this.id = id
             this.place = place
         }
-        var person1 = new data("theju", "yel", 2432, "india")
+        var person1 = new objec("theju", "yel", 2432, "india")
         console.log(person1)
 
         // Object.create()
         //In JavaScript, you can create objects using the Object constructor or the object literal syntax.
         //  Here's an explanation of how to create objects using the Object constructor, along with when and why you might use it.
-        const person = Object.create()
+        const person = Object.create(null)
         person.name = "theju"
         person.age = 21
         console.log(person)
