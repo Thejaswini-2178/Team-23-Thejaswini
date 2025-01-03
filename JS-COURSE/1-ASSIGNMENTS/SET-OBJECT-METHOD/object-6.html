@@ -9,8 +9,87 @@
 
 <body>
     <script>
-        // How do you compare two objects in JavaScript?
-        //Objects are compared by reference, not by value. For value comparison, convert to JSON or use a recursive comparison function.
+        //    How do you bind the value of this?
+        //    Using the bind(), call(), or bind() methods.
+
+
+        //  call function: Invokes the function immediately, and arguments are passed individually
+        //  bind(): Invokes the function immediately, and arguments are passed as an array.
+        // bind(): Does not invoke the function immediately, but returns a new function with a preset this value and arguments. You can invoke it later.
+        var product1 = {
+            selling: 200,
+            buying: 100,
+            result: function () {
+                var profit=this.selling-this.buying
+                console.log(profit)
+            }
+        }
+        var product2={
+            selling:300,
+            buying:150,
+        }
+        var product3={
+            selling:290,
+            buying:300,
+        }
+        // using the call() method
+        product1.result.call(product1)
+        product1.result.call(product2)
+        product1.result.call(product3)
+
+        // using the applay method()
+        var product1 = {
+            selling: 200,
+            buying: 100,
+            result: function (tax,discount) {
+                this.tax=tax;
+                this.discount=discount;
+                var profit=this.selling-this.buying
+                var netProfit=profit-this.tax+this.discount
+                console.log(`${profit} is the profit and the profit ${netProfit}`)
+            }
+        }
+        var product2={
+            selling:300,
+            buying:150,
+        }
+        var product3={
+            selling:290,
+            buying:300,
+        }
+        product1.result.apply(product1,[5,10])
+        product1.result.apply(product2,[3,23])
+        product1.result.apply(product3,[10,24])
+        
+        // using the bind()
+        var product1 = {
+            selling: 200,
+            buying: 100,
+            result: function (tax,discount) {
+                this.tax=tax;
+                this.discount=discount;
+                var profit=this.selling-this.buying
+                var netProfit=profit-this.tax+this.discount
+                console.log(`${profit} is the profit and the profit ${netProfit} and overal summary is ${profit}`)
+            }
+        }
+        var product2={
+            selling:300,
+            buying:150,
+        }
+        var product3={
+            selling:290,
+            buying:300,
+        }
+        var item1=product1.result.bind(product1,5,10)
+        var item2=product1.result.bind(product2,3,23)
+        var item3=product1.result.bind(product3,10,24)
+        item1()
+        item2()
+        item3()
+        
+
+
 
     </script>
 </body>
