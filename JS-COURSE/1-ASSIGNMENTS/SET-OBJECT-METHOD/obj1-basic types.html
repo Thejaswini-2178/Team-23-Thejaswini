@@ -24,6 +24,9 @@
         console.log(myObj.id)
 
         // creating the object using constructor
+        //The new keyword is used to create a new uniqe  object from a constructor function
+        //In a constructor function, this refers to the newly created object. 
+        // It allows you to assign properties and methods to that object.
         function objec(fname, lname, id, place) {
             this.fname = fname
             this.lname = lname
@@ -34,8 +37,6 @@
         console.log(person1)
 
         // Object.create()
-        //In JavaScript, you can create objects using the Object constructor or the object literal syntax.
-        //  Here's an explanation of how to create objects using the Object constructor, along with when and why you might use it.
         const person = Object.create(null)
         person.name = "theju"
         person.age = 21
