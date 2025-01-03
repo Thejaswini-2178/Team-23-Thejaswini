@@ -15,10 +15,19 @@
             fname: "theju", lname: "yel", age: 21, "id-num": 2341
         }
         console.log(person.fname)
+        // console.log(person."id-num")
         // console.lof(person.id-num) >>>>> gives an reference error
         console.log(person["lname"])
-        //advantage of the bracket notation bracke notation is advantage that it can allow the special characters
+        //advantage of the bracket notation is advantage that it can allow the special characters and the dynamic key values
         console.log(person["id-num"])
+
+        // 2 way is
+        let key = "name";
+        let person3 = {
+            [key]: "Theju" // Using variable as key
+        };
+        console.log(person3.name); // Output: Theju
+
 
         //    adding and removing the object
         const data = {
