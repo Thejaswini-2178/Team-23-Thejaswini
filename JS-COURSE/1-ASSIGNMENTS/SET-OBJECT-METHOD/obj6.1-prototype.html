@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //prototype
+        var person = {
+            name: "vishal"
+
+        }
+
+
+
+        //ineritance 
+        // by using create function
+
+        const student = Object.create(person)
+        student.rollno = 32
+        console.log("By using create metod")
+        console.log(student.name)
+        console.log(student.rollno)
+
+
+      
+        // by using es6  class
+        class Product {
+            constructor(buyingPrice, sellingPrice) {
+                this.buyingPrice = buyingPrice;
+                this.sellingPrice = sellingPrice;
+            }
+        }
+        class Product2 extends Product {
+            constructor(buyingPrice, sellingPrice) {
+                super(buyingPrice, sellingPrice);
+                console.log(buyingPrice) // Call the parent class constructor
+            }
+        }
+        const product1 = new Product(100, 120);
+        const product2 = new Product2(200, 290);
+    </script>
+</body>
+
+</html>
