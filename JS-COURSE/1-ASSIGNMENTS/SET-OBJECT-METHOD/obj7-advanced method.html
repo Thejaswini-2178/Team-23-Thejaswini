@@ -9,8 +9,45 @@
 
 <body>
     <script>
-        // What is the difference between for...in and Object.keys()?
-        // for...in iterates over enumerable properties, including inherited ones, while Object.keys() returns only the object's own enumerable properties.
+        //         What is the difference between an object and a Map?
+        // Objects have string or Symbol keys, while Maps allow any data type as keys.
+        // How do you prevent an object from being modified?
+        // Using methods like Object.freeze() or Object.seal().
+        // What is the difference between Object.freeze() and Object.seal()?
+        // Object.freeze() makes an object immutable, while Object.seal() allows modifying existing properties but prevents adding or deleting properties. 
+        var original = {
+            name: "theju", batch: "22-batch", team: "tem22"
+        }
+        console.log(original)
+        original.name="mani"
+        delete original.batch
+        original.state="andhra"
+        original.street="srinagar"
+        console.log(original)
+        Object.freeze(original) // after using th efreez method we canot usemodify the data
+        original.age=24
+        delete original.street
+        console.log(original)
+
+
+        // seal method
+        var original = {
+            name: "theju", batch: "22-batch", team: "tem22"
+        }
+        console.log(original)
+        original.name="mani"
+        delete original.batch
+        original.state="andhra"
+        original.street="srinagar"
+        console.log(original)
+        Object.seal(original) // after using th efreez method we can usemodify the data but canot add or delet the new data or existing data
+        original.age=24
+        delete original.street
+        console.log(original)
+        
+        
+
     </script>
 </body>
+
 </html>
