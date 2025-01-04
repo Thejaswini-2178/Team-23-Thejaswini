@@ -16,22 +16,26 @@
         // __proto__ is the actual prototype of an object, while prototype is a property of constructor functions used for inheritance.
         // How do you implement inheritance in JavaScript?
         // Using prototypes, Object.create(), or ES6 classes.
-        var original={}
+        var original = {}
         console.log(original)
-        
+        console.log(original.__proto__)
 
-        function commonPerties(name,course,sub){
-            this.name="vmr";
-            this.course="front end";
-            this.sub="mernstack"
+        var person = {
+            name: "theju"
         }
-        function newProperties(person,age){
-            this.person=person;
-            this.age=age  
-        }
-        var stu1= new commonPerties("theju",23)
-        console.log(stu1)
-        
+        console.log(person.__proto__)
+
+        const obj = { a: 10 }; // obj is created from Object prototype
+        console.log(obj.a.__proto__)
+
+        // implementing the inheritence in js using the prototype method
+       
+
+
+
+
+
+
     </script>
 </body>
 
