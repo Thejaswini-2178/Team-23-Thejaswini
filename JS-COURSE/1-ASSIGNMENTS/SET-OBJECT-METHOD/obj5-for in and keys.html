@@ -9,9 +9,11 @@
 
 <body>
     <script>
-        //What is the difference between for...in and Object.keys()?
-        //for...in iterates over enumerable properties, including inherited ones, 
-        //while Object.keys() returns only the object's own enumerable properties.
+        //         6. Iterating Over Objects
+        // What is the difference between for...in and Object.keys()?
+        // for...in iterates over enumerable properties, including inherited ones, while Object.keys() returns only the object's own enumerable properties.
+        // How do you iterate over an object's properties?
+        // Using for...in, Object.keys(), Object.entries(), or Object.values()
         var obj = {
             name: "theju",
             address: { place: "mpl", state: "andhra" }
@@ -21,9 +23,9 @@
         }
         //returns only main top level propwrties in array method
         console.log(Object.keys(obj))
-        
-        
-        
+
+
+
         //this will print the objects in  all type of properties
         function findAllKeys(obj) {
             for (var key in obj) {
@@ -37,6 +39,14 @@
             }
         }
         findAllKeys(obj);
+        // using the object.keys method
+        console.log(Object.keys(obj))
+
+        // object.entries()
+        console.log(Object.entries(obj))
+
+        // object.values
+        console.log(Object.values(obj))
     </script>
 </body>
 
