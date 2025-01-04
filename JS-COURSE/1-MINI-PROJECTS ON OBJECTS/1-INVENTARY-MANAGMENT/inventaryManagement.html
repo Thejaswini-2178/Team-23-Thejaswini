@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Inventory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f8f9fa;
+    }
+
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Warehouse Inventory Management</h1>
+
+  <form id="addProductForm">
+    <input type="text" id="itemName" placeholder="Item Name" required>
+    <input type="number" id="quantity" placeholder="Quantity" required>
+    <input type="number" id="cost" placeholder="Cost" required>
+    <button type="submit">Add Product</button>
+  </form>
+
+  <h2>Product List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+  </table>
+
+  <script>
+    let products = {};
+    let productIdCounter = 1;
+
+    const form = document.getElementById("addProductForm");
+    const itemNameInput = document.getElementById("itemName");
+    const quantityInput = document.getElementById("quantity");
+    const costInput = document.getElementById("cost");
+    const productList = document.getElementById("productList");
+
+    // Add product
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const itemName = itemNameInput.value;
+      const quantity = parseInt(quantityInput.value);
+      const cost = parseFloat(costInput.value);
+
+      if (itemName && quantity > 0 && cost > 0) {
+        const productId = productIdCounter++;
+        const total = quantity * cost;
+
+        const product = {
+          id: productId,
+          name: itemName,
+          quantity: quantity,
+          cost: cost,
+          total: total
+        };
+
+        products[productId] = product;
+        updateProductList();
+        form.reset();
+      } else {
+        alert("Please fill out all fields with valid values.");
+      }
+    });
+
+    // Update product list in table
+    function updateProductList() {
+      productList.innerHTML = '';
+      Object.keys(products).forEach(id => {
+        const product = products[id];
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+          <td>${product.name}</td>
+          <td>${product.quantity}</td>
+          <td>$${product.cost}</td>
+          <td>$${product.total}</td>
+          <td>
+            <button onclick="removeProduct(${product.id})">Remove</button>
+            <button onclick="updateProduct(${product.id})">Update</button>
+          </td>
+        `;
+        productList.appendChild(row);
+      });
+    }
+
+    // Remove product
+    function removeProduct(productId) {
+      delete products[productId];
+      updateProductList();
+    }
+
+    // Update product quantity
+    function updateProduct(productId) {
+      const newQuantity = prompt("Enter new quantity:", products[productId].quantity);
+      if (newQuantity && !isNaN(newQuantity) && newQuantity > 0) {
+        products[productId].quantity = parseInt(newQuantity);
+        products[productId].total = products[productId].quantity * products[productId].cost;
+        updateProductList();
+      }
+    }
+  </script>
+
+</body>
+</html>
