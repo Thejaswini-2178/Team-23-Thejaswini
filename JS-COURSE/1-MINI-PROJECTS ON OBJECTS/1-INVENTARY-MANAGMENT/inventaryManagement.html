@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,8 @@
       margin-top: 20px;
     }
 
-    th, td {
+    th,
+    td {
       padding: 10px;
       border: 1px solid #ccc;
       text-align: center;
@@ -28,7 +30,8 @@
       background-color: #f8f9fa;
     }
 
-    input, button {
+    input,
+    button {
       padding: 8px;
       margin: 5px;
     }
@@ -43,8 +46,17 @@
     button:hover {
       background-color: #218838;
     }
+
+    .edit-button {
+      background-color: #007bff;
+    }
+
+    .edit-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
+
 <body>
 
   <h1>Warehouse Inventory Management</h1>
@@ -81,7 +93,7 @@
     const productList = document.getElementById("productList");
 
     // Add product
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
       const itemName = itemNameInput.value;
       const quantity = parseInt(quantityInput.value);
@@ -115,17 +127,51 @@
         const row = document.createElement("tr");
 
         row.innerHTML = `
-          <td>${product.name}</td>
-          <td>${product.quantity}</td>
-          <td>$${product.cost}</td>
-          <td>$${product.total}</td>
+          <td><input type="text" class="item-name" value="${product.name}" disabled></td>
+          <td><input type="number" class="quantity" value="${product.quantity}" disabled></td>
+          <td><input type="number" class="cost" value="${product.cost}" disabled></td>
+          <td><span class="total">$${product.total}</span></td>
           <td>
+            <button class="edit-button" onclick="enableEditing(${product.id})">Edit</button>
+            <button class="update-button" onclick="saveChanges(${product.id})" style="display: none;">Save</button>
             <button onclick="removeProduct(${product.id})">Remove</button>
-            <button onclick="updateProduct(${product.id})">Update</button>
           </td>
         `;
         productList.appendChild(row);
       });
+    }
+
+    // Enable editing of product details
+    function enableEditing(productId) {
+      const row = document.querySelectorAll(`#productList tr`)[productId - 1];
+      const inputs = row.querySelectorAll("input");
+      const saveButton = row.querySelector(".update-button");
+      const editButton = row.querySelector(".edit-button");
+
+      inputs.forEach(input => input.disabled = false); // Enable the inputs
+      saveButton.style.display = "inline-block"; // Show save button
+      editButton.style.display = "none"; // Hide edit button
+    }
+
+    // Save the changes made to a product
+    function saveChanges(productId) {
+      const row = document.querySelectorAll(`#productList tr`)[productId - 1];
+      const inputs = row.querySelectorAll("input");
+
+      const newName = inputs[0].value;
+      const newQuantity = parseInt(inputs[1].value);
+      const newCost = parseFloat(inputs[2].value);
+
+      if (newName && !isNaN(newQuantity) && !isNaN(newCost) && newQuantity > 0 && newCost > 0) {
+        products[productId].name = newName;
+        products[productId].quantity = newQuantity;
+        products[productId].cost = newCost;
+        products[productId].total = newQuantity * newCost;
+
+        updateProductList();
+      } else {
+        alert("Please enter valid values for all fields.");
+      }
     }
 
     // Remove product
@@ -133,17 +179,8 @@
       delete products[productId];
       updateProductList();
     }
-
-    // Update product quantity
-    function updateProduct(productId) {
-      const newQuantity = prompt("Enter new quantity:", products[productId].quantity);
-      if (newQuantity && !isNaN(newQuantity) && newQuantity > 0) {
-        products[productId].quantity = parseInt(newQuantity);
-        products[productId].total = products[productId].quantity * products[productId].cost;
-        updateProductList();
-      }
-    }
   </script>
 
 </body>
+
 </html>
