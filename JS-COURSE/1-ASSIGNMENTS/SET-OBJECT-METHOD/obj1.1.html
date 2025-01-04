@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // normal iteral method it is atraditional method
-        var original={
-            name:'theju',
-            batch:"Team-22",
-            team:23,
-            place:{
-                state:"ap",dist:"chittor"
+        var original = {
+            name: 'theju',
+            batch: "Team-22",
+            team: 23,
+            place: {
+                state: "ap", dist: "chittor"
             },
-            country:"India"
+            country: "India"
         }
         console.log(original.name)
 
         // constructors method
-        function origi(name,age){
-            this.name=name;
-            this.age=age;
+        function origi(name, age) {
+            this.name = name;
+            this.age = age;
         }
-        var obj1=new origi("theju",23)
-        var obj2=new origi("mounisha",24)
+        var obj1 = new origi("theju", 23)
+        var obj2 = new origi("mounisha", 24)
         console.log(obj1)
         console.log(obj2)
+
+        // Object.create()
+        
+
+
+
+
     </script>
 </body>
+
 </html>
