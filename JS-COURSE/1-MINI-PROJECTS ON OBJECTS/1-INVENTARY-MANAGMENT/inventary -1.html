@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Inventory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f8f9fa;
+    }
+
+    .edit-button,
+    .delete-button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .edit-button {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .edit-button:hover {
+      background-color: #0056b3;
+    }
+
+    .delete-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Warehouse Inventory Management</h1>
+
+  <form id="addProductForm">
+    <input type="number" id="productId" placeholder="Product ID (Optional)" />
+    <input type="text" id="itemName" placeholder="Item Name" required />
+    <input type="number" id="quantity" placeholder="Quantity" required />
+    <input type="number" id="cost" placeholder="Cost" required />
+    <button type="submit">Add Product</button>
+  </form>
+
+  <h2>Product List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Total Cost</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+  </table>
+
+  <script>
+    var allProducts = {}; // Store products as an object
+    var uniqueID = 1; // Start ID from 1
+
+    document.getElementById("addProductForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      recordData();
+    });
+
+    function recordData() {
+      var productId = document.getElementById("productId").value;
+      var newProduct = {
+        id: productId ? parseInt(productId) : uniqueID++, // Use custom ID if provided, otherwise auto-generate ID
+        itemName: document.getElementById("itemName").value,
+        quantity: parseInt(document.getElementById("quantity").value),
+        cost: parseFloat(document.getElementById("cost").value),
+      };
+
+      allProducts[newProduct.id] = newProduct; // Store the product using the unique ID as the key
+      displayProducts();
+      clearForm(); // Clear the form after submitting
+    }
+
+    function displayProducts() {
+      var productList = document.getElementById("productList");
+      productList.innerHTML = ""; // Clear the table before displaying new data
+
+      Object.keys(allProducts).forEach(function (productId) {
+        var product = allProducts[productId];
+        var row = document.createElement("tr");
+
+        // Display the ID in the table
+        var idCell = document.createElement("td");
+        idCell.textContent = product.id; // Add product ID
+        row.appendChild(idCell);
+
+        // Loop through other product keys and display each value dynamically, skipping 'id'
+        for (var key in product) {
+           // Skip 'id' since we already display it
+            var cell = document.createElement("td");
+            cell.textContent = product[key]; // Add the value of each product property
+            row.appendChild(cell);
+        }
+
+        // Add the total cost column
+        var totalCostCell = document.createElement("td");
+        totalCostCell.textContent = product.quantity * product.cost; // Calculate total cost
+        row.appendChild(totalCostCell);
+
+        // Add action buttons (Edit and Delete)
+        var actionCell = document.createElement("td");
+
+        var updateButton = document.createElement("button");
+        updateButton.textContent = "Update";
+        updateButton.className = "edit-button"; // Add class for styling
+        updateButton.setAttribute("onclick", "updateProduct(" + product.id + ")");
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-button"; // Add class for styling
+        deleteButton.setAttribute("onclick", "deleteProduct(" + product.id + ")");
+
+        actionCell.appendChild(updateButton);
+        actionCell.appendChild(deleteButton);
+
+        row.appendChild(actionCell);
+
+        // Append the row to the table
+        productList.appendChild(row);
+      });
+    }
+
+    function deleteProduct(id) {
+      delete allProducts[id]; // Delete the product from the object using the ID
+      displayProducts(); // Re-render the product list after deletion
+    }
+
+    function updateProduct(id) {
+      var product = allProducts[id];
+      if (product) {
+        var newQuantity = prompt("Enter new quantity for " + product.itemName + ":", product.quantity);
+        if (newQuantity !== null && !isNaN(newQuantity) && newQuantity >= 0) {
+          product.quantity = parseInt(newQuantity);
+          displayProducts(); // Re-render the product list after updating
+        } else {
+          alert("Invalid quantity!");
+        }
+      } else {
+        alert("Product not found!");
+      }
+    }
+
+    function clearForm() {
+      // Clear all the form fields after submission
+      document.getElementById("productId").value = "";
+      document.getElementById("itemName").value = "";
+      document.getElementById("quantity").value = "";
+      document.getElementById("cost").value = "";
+    }
+  </script>
+</body>
+
+</html>
