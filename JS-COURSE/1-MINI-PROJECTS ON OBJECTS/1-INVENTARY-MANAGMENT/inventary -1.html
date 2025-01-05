@@ -111,8 +111,14 @@
   </table>
 
   <script>
-    var allProducts = {}; // Store products as an object
-    var uniqueID = 1; // Start ID from 1
+    // 1.Store products as an object
+    //The object stores products using unique IDs as keys.
+    //  This makes it easy to access, update, or delete a specific product by its ID.
+    var allProducts = []; 
+    var uniqueID = 0; 
+    // Start ID from 1
+    //While 0 can technically be used as a starting point for IDs, 
+    // it is not recommended because it might create confusion or unintended consequences in some contexts. Starting from 1 is the most intuitive, clear, and standard way to handle unique identifiers, especially for users interacting with the system
 
     document.getElementById("addProductForm").addEventListener("submit", function (event) {
       event.preventDefault();
@@ -148,10 +154,11 @@
 
         // Loop through other product keys and display each value dynamically, skipping 'id'
         for (var key in product) {
-           // Skip 'id' since we already display it
+          if (key !== "id") { // Skip 'id' since we already display it
             var cell = document.createElement("td");
             cell.textContent = product[key]; // Add the value of each product property
             row.appendChild(cell);
+          }
         }
 
         // Add the total cost column
