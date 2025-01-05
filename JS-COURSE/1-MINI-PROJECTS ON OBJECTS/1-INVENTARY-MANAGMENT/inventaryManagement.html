@@ -118,7 +118,6 @@
         alert("Please fill out all fields with valid values.");
       }
     });
-
     // Update product list in table
     function updateProductList() {
       productList.innerHTML = '';
@@ -140,7 +139,6 @@
         productList.appendChild(row);
       });
     }
-
     // Enable editing of product details
     function enableEditing(productId) {
       const row = document.querySelectorAll(`#productList tr`)[productId - 1];
