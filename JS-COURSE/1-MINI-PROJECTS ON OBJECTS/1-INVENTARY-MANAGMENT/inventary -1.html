@@ -92,7 +92,7 @@
     <input type="text" id="itemName" placeholder="Item Name" required />
     <input type="number" id="quantity" placeholder="Quantity" required />
     <input type="number" id="cost" placeholder="Cost" required />
-    <button type="submit">Add Product</button>
+    <button type="button" onclick="recordData(event)">Add Product</button> <!-- Added event parameter to onclick -->
   </form>
 
   <h2>Product List</h2>
@@ -120,12 +120,9 @@
     //While 0 can technically be used as a starting point for IDs, 
     // it is not recommended because it might create confusion or unintended consequences in some contexts. Starting from 1 is the most intuitive, clear, and standard way to handle unique identifiers, especially for users interacting with the system
 
-    document.getElementById("addProductForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-      recordData();
-    });
+    function recordData(event) {
+      event.preventDefault(); // Prevent form submission from refreshing the page
 
-    function recordData() {
       var productId = document.getElementById("productId").value;
       var newProduct = {
         id: productId ? parseInt(productId) : uniqueID++, // Use custom ID if provided, otherwise auto-generate ID
@@ -147,36 +144,32 @@
         var product = allProducts[productId];
         var row = document.createElement("tr");
 
-        // Display the ID in the table
         var idCell = document.createElement("td");
-        idCell.textContent = product.id; // Add product ID
+        idCell.textContent = product.id;
         row.appendChild(idCell);
 
-        // Loop through other product keys and display each value dynamically, skipping 'id'
         for (var key in product) {
-          if (key !== "id") { // Skip 'id' since we already display it
+          if (key !== "id") {
             var cell = document.createElement("td");
-            cell.textContent = product[key]; // Add the value of each product property
+            cell.textContent = product[key];
             row.appendChild(cell);
           }
         }
 
-        // Add the total cost column
         var totalCostCell = document.createElement("td");
         totalCostCell.textContent = product.quantity * product.cost; // Calculate total cost
         row.appendChild(totalCostCell);
 
-        // Add action buttons (Edit and Delete)
         var actionCell = document.createElement("td");
 
         var updateButton = document.createElement("button");
         updateButton.textContent = "Update";
-        updateButton.className = "edit-button"; // Add class for styling
+        updateButton.className = "edit-button";
         updateButton.setAttribute("onclick", "updateProduct(" + product.id + ")");
 
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
-        deleteButton.className = "delete-button"; // Add class for styling
+        deleteButton.className = "delete-button";
         deleteButton.setAttribute("onclick", "deleteProduct(" + product.id + ")");
 
         actionCell.appendChild(updateButton);
@@ -184,13 +177,12 @@
 
         row.appendChild(actionCell);
 
-        // Append the row to the table
         productList.appendChild(row);
       });
     }
 
     function deleteProduct(id) {
-      delete allProducts[id]; // Delete the product from the object using the ID
+      delete allProducts[id];
       displayProducts(); // Re-render the product list after deletion
     }
 
@@ -210,7 +202,6 @@
     }
 
     function clearForm() {
-      // Clear all the form fields after submission
       document.getElementById("productId").value = "";
       document.getElementById("itemName").value = "";
       document.getElementById("quantity").value = "";
