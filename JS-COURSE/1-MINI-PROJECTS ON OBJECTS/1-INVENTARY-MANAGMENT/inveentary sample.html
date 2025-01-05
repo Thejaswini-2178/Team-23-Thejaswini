@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Inventory</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f8f9fa;
+    }
+
+    input,
+    button {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .edit-button {
+      background-color: #007bff;
+    }
+
+    .edit-button:hover {
+      background-color: #0056b3;
+    }
+
+    .delete-button {
+      background-color: #dc3545;
+    }
+
+    .delete-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Warehouse Inventory Management</h1>
+  <form id="addProductForm">
+    <input type="text" id="itemName" placeholder="Item Name" required>
+    <input type="number" id="quantity" placeholder="Quantity" required>
+    <input type="number" id="cost" placeholder="Cost" required>
+    <input type="date" id="date" placeholder="Shipping Date" required>
+    <button type="submit">Add Product</button>
+  </form>
+  <h2>Product List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item Name</th>
+        <th>Quantity</th>
+        <th>Cost</th>
+        <th>Date</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+  </table>
+  <script>
+    var allProducts = {};  // Store products as an object
+    var uniqueID = 0;
+
+    document.getElementById("addProductForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      recordData();
+    });
+
+    function recordData() {
+      var newProduct = {
+        id: uniqueID++,
+        itemName: document.getElementById("itemName").value,
+        quantity: parseInt(document.getElementById("quantity").value),
+        cost: parseFloat(document.getElementById("cost").value),
+        date: document.getElementById("date").value
+      };
+
+      allProducts[newProduct.id] = newProduct;  // Store the product using the unique ID as the key
+      displayProducts();
+    }
+
+    function displayProducts() {
+      var productList = document.getElementById("productList");
+      productList.innerHTML = "";
+
+      // Use Object.keys() to list all products dynamically
+      Object.keys(allProducts).forEach(function (productId) {
+        var product = allProducts[productId];
+        var row = document.createElement("tr");
+
+        var cell1 = document.createElement("td");
+        cell1.textContent = product.itemName;
+        var cell2 = document.createElement("td");
+        cell2.textContent = product.quantity;
+        var cell3 = document.createElement("td");
+        cell3.textContent = product.cost;
+        var cell4 = document.createElement("td");
+        cell4.textContent = product.date;
+        var cell5 =document.createElement('td')
+        cell5.textContent= product.quantity*cost
+        
+
+        var cell6 = document.createElement("td");
+        var updateButton = document.createElement("button");
+        updateButton.className = "edit-button";
+        updateButton.textContent = "Update";
+        updateButton.onclick = function () { updateProduct(product.id); };
+
+        var deleteButton = document.createElement("button");
+        deleteButton.className = "delete-button";
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function () { deleteProduct(product.id); };
+
+        cell5.appendChild(updateButton);
+        cell5.appendChild(deleteButton);
+
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(cell4);
+        row.appendChild(cell5);
+        row.appendChild(cell6)
+
+        productList.appendChild(row);
+      });
+    }
+
+    function deleteProduct(id) {
+      delete allProducts[id];  // Delete the product from the object using the ID
+      displayProducts();
+    }
+  </script>
+</body>
+
+</html>
