@@ -44,10 +44,22 @@
         const uniqueArray = array.filter((item, index) => array.indexOf(item) === index);
         console.log(uniqueArray);
 
-
-
-
         // 5.	Create an array of even numbers from an array of nested arrays.
+        const nestedArrays = [
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9, 10]
+        ];
+
+        // Flatten the nested arrays into a single array
+        const flatArray = nestedArrays.flat();
+
+        // Filter out the even numbers
+        const evenNumbers = flatArray.filter(num => num % 2 === 0);
+
+        console.log(evenNumbers);
+
+
         // 6.	Given an array of products, filter out those with a price below 100 and are not in stock.
         // 7.	Remove falsy values(null, undefined, false, 0, NaN, "") from an array.
         // 8.	Filter elements that start with a specific letter in an array of strings.
