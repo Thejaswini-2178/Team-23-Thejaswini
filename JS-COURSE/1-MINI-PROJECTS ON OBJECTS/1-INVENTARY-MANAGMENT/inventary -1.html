@@ -114,24 +114,28 @@
     // 1.Store products as an object
     //The object stores products using unique IDs as keys.
     //  This makes it easy to access, update, or delete a specific product by its ID.
-    var allProducts = [];
-    var uniqueID = 0;
+    var allProducts = {};
+    var uniqueID = 1;
     // Start ID from 1
+    //If the user does not provide an ID, the uniqueID variable increments automatically to assign a new, distinct ID
     //While 0 can technically be used as a starting point for IDs, 
     // it is not recommended because it might create confusion or unintended consequences in some contexts. Starting from 1 is the most intuitive, clear, and standard way to handle unique identifiers, especially for users interacting with the system
 
     function recordData(event) {
       event.preventDefault(); // Prevent form submission from refreshing the page
-
-      var productId = document.getElementById("productId").value;
       var newProduct = {
-        id: productId ? parseInt(productId) : uniqueID++, // Use custom ID if provided, otherwise auto-generate ID
+        id: parseInt(document.getElementById("productId").value) || uniqueID++,
         itemName: document.getElementById("itemName").value,
         quantity: parseInt(document.getElementById("quantity").value),
-        cost: parseFloat(document.getElementById("cost").value),
+        cost: parseInt(document.getElementById("cost").value),
       };
-
-      allProducts[newProduct.id] = newProduct; // Store the product using the unique ID as the key
+      allProducts[newProduct.id] = newProduct;
+      // Store the product using the unique ID as the keyThis method 
+      // Stores the newProduct in the allProducts object with newProduct.id as the key
+      // (allProducts[newProduct.id] = newProduct) was chosen because:
+      //It provides quick and efficient data access.
+      //Avoids the need to search through arrays.
+      //Keeps the code simple and easy to maintain.
       displayProducts();
       clearForm(); // Clear the form after submitting
     }
@@ -141,15 +145,22 @@
       productList.innerHTML = ""; // Clear the table before displaying new data
 
       Object.keys(allProducts).forEach(function (productId) {
+        //Object.keys(allProducts) retrieves an array of all the keys (product IDs in this case).
+        //The productId parameter refers to the current key (ID)
         var product = allProducts[productId];
         var row = document.createElement("tr");
 
         var idCell = document.createElement("td");
         idCell.textContent = product.id;
+        // product.id gives you the unique identifier
+        //This sets the content of the idCell to the id of the current product.
         row.appendChild(idCell);
 
         for (var key in product) {
+          //this loops over each property in the product object (like name, quantity, cost).
           if (key !== "id") {
+            //This condition checks if the current property is not the id of the product.
+            //  The id is already displayed in the idCell, so we skip adding it again in this loop.
             var cell = document.createElement("td");
             cell.textContent = product[key];
             row.appendChild(cell);
@@ -200,6 +211,35 @@
         alert("Product not found!");
       }
     }
+
+
+
+
+    //     function updateProduct(id) {
+    //   var product = allProducts[id];
+    //   if (!product) {
+    //     alert("Product not found!");
+    //     return;
+    //   }
+
+    //   // Prompt user to update all fields
+    //   var newItemName = prompt("Enter new item name:", product.itemName);
+    //   var newQuantity = prompt("Enter new quantity for " + product.itemName + ":", product.quantity);
+    //   var newCost = prompt("Enter new cost for " + product.itemName + ":", product.cost);
+
+    //   // Validate the new values
+    //   if (newItemName && newQuantity && newCost && !isNaN(newQuantity) && !isNaN(newCost) && newQuantity >= 0 && newCost >= 0) {
+    //     // Update product fields
+    //     product.itemName = newItemName;
+    //     product.quantity = parseInt(newQuantity);
+    //     product.cost = parseFloat(newCost);
+
+    //     displayProducts(); // Re-render the product list after updating
+    //   } else {
+    //     alert("Invalid input!");
+    //   }
+    // }
+
     function clearForm() {
       document.getElementById("productId").value = "";
       document.getElementById("itemName").value = "";

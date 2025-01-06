@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Inventory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 2px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f8f9fa;
+        }
+
+        .edit-button,
+        .delete-button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .edit-button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: white;
+            margin: 10px
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Warehouse Inventory Management</h1>
+
+    <form id="addProductForm">
+        <input type="number" id="productId" placeholder="Product ID (Optional)" />
+        <input type="text" id="itemName" placeholder="Item Name" required />
+        <input type="number" id="quantity" placeholder="Quantity" required />
+        <input type="number" id="cost" placeholder="Cost" required />
+        <button type="button" onclick="recordData(event)">Add Product</button> <!-- Added event parameter to onclick -->
+    </form>
+
+    <h2>Product List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Item Name</th>
+                <th>Quantity</th>
+                <th>Cost</th>
+                <th>Total Cost</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="productList"></tbody>
+    </table>
+</body>
+<script>
+    var allProducts = []
+    var uniqueID = 0
+    function recordData(event) {
+        event.preventDefault()
+        var newProduct = {
+            userId: parseInt(document.getElementById("productId").value) || uniqueID++,
+            itemName: document.getElementById("itemName").value,
+            quantity: document.getElementById("quantity").value,
+            cost: document.getElementById("cost").value
+        }
+        console.log(newProduct.userId)
+        allProducts.push(newProduct)
+        // allProducts[newProduct.userId]=newProduct
+        displayData()
+        clearForm()
+        console.log(allProducts)
+    }
+    function displayData() {
+        var productList = document.getElementById("productList")
+        productList.innerHTML = ""
+        Object.keys(allProducts).forEach(function (productId) { // the object,keys will cover the iterated keyes into array
+            var product = allProducts[productId]
+            var row = document.createElement("tr")
+            var cellid = document.createElement("td")
+            cellid.textContent = product.userId
+            row.appendChild(cellid)
+            for (var key in product) {
+                if (key !== "userId") {
+                    var cell = document.createElement("td")
+                    cell.textContent = product[key]
+                    row.appendChild(cell)
+                }
+            }
+            var totalCostCell = document.createElement("td")
+            totalCostCell.textContent = product.quantity * product.cost
+            row.appendChild(totalCostCell)
+            var action = document.createElement("td")
+            var editButton = document.createElement("button")
+            editButton.textContent = "Edit"
+            editButton.setAttribute("onclick", "editProduct(" + product.userId + ")")
+            action.appendChild(editButton)
+
+            var deleteButton = document.createElement("button")
+            deleteButton.textContent = "Delete"
+            deleteButton.setAttribute("onclick", "deleteProduct(" + product.userId + ")")
+            action.appendChild(deleteButton)
+            row.appendChild(action)
+            productList.appendChild(row)
+        })
+    }
+
+    function deleteProduct(userId) {
+        // delete allProducts[]
+        displayData()
+    }
+    function editProduct(userId) {
+        var product = allProducts.find((prod) => {
+            return prod.userId == userId
+        })
+        if (product) {
+            var newQuantity = prompt("enter the quntity", product.quantity)
+            if (newQuantity !== null && !isNaN(newQuantity) && newQuantity > 0) {
+                product.quantity = parseInt(newQuantity);
+                 
+                displayData()
+            }
+            else{
+                alert("invalid")
+            }
+        }else{
+            alert("not found")
+        }
+    }
+    function clearForm(){
+        document.getElementById("productId").value=""
+        document.getElementById("itemName").value=""
+        document.getElementById("quantity").value=""
+        document.getElementById("cost").value=""
+    }
+
+
+
+
+
+</script>
+
+</html>
