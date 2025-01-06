@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .summary {
+            margin-top: 20px;
+        }
+        .summary p {
+            font-weight: bold;
+        }
+        #message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="food">Food</option>
+            <option value="transport">Transport</option>
+            <option value="entertainment">Entertainment</option>
+        </select>
+        
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount">
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" placeholder="Enter description">
+        
+        <button id="addExpense">Add Expense</button>
+        <div id="message"></div>
+        
+        <div class="summary">
+            <button id="summarize">Summarize Expenses</button>
+            <div id="totals"></div>
+        </div>
+    </div>
+
+    <script>
+        const expenses = {
+            food: [],
+            transport: [],
+            entertainment: [],
+            addExpense(category, amount, description) {
+                if (amount < 0) {
+                    document.getElementById('message').textContent = 'Expense amount cannot be negative.';
+                    return;
+                }
+                this[category].push({ amount, description });
+                document.getElementById('message').textContent = 'Expense added successfully!';
+            },
+            summarizeExpenses() {
+                const totals = Object.keys(this).reduce((summary, category) => {
+                    if (Array.isArray(this[category])) {
+                        const total = this[category].reduce((sum, item) => sum + item.amount, 0);
+                        summary[category] = total;
+                    }
+                    return summary;
+                }, {});
+                return totals;
+            }
+        };
+
+        document.getElementById('addExpense').addEventListener('click', () => {
+            const category = document.getElementById('category').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            const description = document.getElementById('description').value.trim();
+
+            if (!isNaN(amount) && description) {
+                expenses.addExpense(category, amount, description);
+            } else {
+                document.getElementById('message').textContent = 'Please provide valid inputs.';
+            }
+        });
+
+        document.getElementById('summarize').addEventListener('click', () => {
+            const totals = expenses.summarizeExpenses();
+            const totalsDiv = document.getElementById('totals');
+            totalsDiv.innerHTML = ''; // Clear previous results
+            for (const [category, total] of Object.entries(totals)) {
+                totalsDiv.innerHTML += `<p>${category.charAt(0).toUpperCase() + category.slice(1)}: $${total}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
