@@ -155,7 +155,7 @@
         // product.id gives you the unique identifier
         //This sets the content of the idCell to the id of the current product.
         row.appendChild(idCell);
-        
+
         for (var key in product) {
           //this loops over each property in the product object (like name, quantity, cost).
           if (key !== "id") {
@@ -197,6 +197,7 @@
       displayProducts(); // Re-render the product list after deletion
     }
 
+  
     function updateProduct(id) {
       var product = allProducts[id];
       if (product) {
