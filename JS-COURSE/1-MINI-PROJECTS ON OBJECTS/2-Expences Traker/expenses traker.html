@@ -1,135 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #45a049;
-        }
-        .summary {
-            margin-top: 20px;
-        }
-        .summary p {
-            font-weight: bold;
-        }
-        #message {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .categories {
+      margin-top: 20px;
+    }
+    .category {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #e9f5ff;
+      border: 1px solid #b3d8ff;
+      border-radius: 5px;
+    }
+    .category h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Expense Tracker</h1>
-        <label for="category">Category:</label>
-        <select id="category">
-            <option value="food">Food</option>
-            <option value="transport">Transport</option>
-            <option value="entertainment">Entertainment</option>
-        </select>
-        
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" placeholder="Enter amount">
-        
-        <label for="description">Description:</label>
-        <input type="text" id="description" placeholder="Enter description">
-        
-        <button id="addExpense">Add Expense</button>
-        <div id="message"></div>
-        
-        <div class="summary">
-            <button id="summarize">Summarize Expenses</button>
-            <div id="totals"></div>
-        </div>
-    </div>
+  <div class="container">
+    <h2>Expense Tracker</h2>
+    <form id="expenseForm">
+      <label for="category">Category</label>
+      <select id="category" required>
+        <option value="food">Food</option>
+        <option value="transport">Transport</option>
+        <option value="entertainment">Entertainment</option>
+      </select>
 
-    <script>
-        const expenses = {
-            food: [],
-            transport: [],
-            entertainment: [],
-            addExpense(category, amount, description) {
-                if (amount < 0) {
-                    document.getElementById('message').textContent = 'Expense amount cannot be negative.';
-                    return;
-                }
-                this[category].push({ amount, description });
-                document.getElementById('message').textContent = 'Expense added successfully!';
-            },
-            summarizeExpenses() {
-                const totals = Object.keys(this).reduce((summary, category) => {
-                    if (Array.isArray(this[category])) {
-                        const total = this[category].reduce((sum, item) => sum + item.amount, 0);
-                        summary[category] = total;
-                    }
-                    return summary;
-                }, {});
-                return totals;
-            }
-        };
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
 
-        document.getElementById('addExpense').addEventListener('click', () => {
-            const category = document.getElementById('category').value;
-            const amount = parseFloat(document.getElementById('amount').value);
-            const description = document.getElementById('description').value.trim();
+      <label for="description">Description</label>
+      <input type="text" id="description" placeholder="Enter description" required>
 
-            if (!isNaN(amount) && description) {
-                expenses.addExpense(category, amount, description);
-            } else {
-                document.getElementById('message').textContent = 'Please provide valid inputs.';
-            }
-        });
+      <button type="button" onclick="addExpense()">Add Expense</button>
+    </form>
 
-        document.getElementById('summarize').addEventListener('click', () => {
-            const totals = expenses.summarizeExpenses();
-            const totalsDiv = document.getElementById('totals');
-            totalsDiv.innerHTML = ''; // Clear previous results
-            for (const [category, total] of Object.entries(totals)) {
-                totalsDiv.innerHTML += `<p>${category.charAt(0).toUpperCase() + category.slice(1)}: $${total}</p>`;
-            }
-        });
-    </script>
+    <div class="categories" id="categories"></div>
+  </div>
+
+  <script>
+    // Step 1: Initialize an object to store expenses
+    var expenses = {
+      food: [],
+      transport: [],
+      entertainment: []
+    };
+
+    // Step 2: Function to handle adding expenses
+    function addExpense() {
+      // Get input values
+      var category = document.getElementById('category').value;
+      var amount = parseFloat(document.getElementById('amount').value);
+      var description = document.getElementById('description').value;
+
+      // Validate the amount
+      if (amount <= 0) {
+        alert('Amount must be greater than zero.');
+        return;
+      }
+
+      // Add the expense to the selected category
+      expenses[category].push({
+        amount: amount,
+        description: description
+      });
+
+      // Clear the form inputs
+      document.getElementById('expenseForm').reset();
+
+      // Update the categories display
+      updateCategories();
+    }
+
+    // Function to update and display categories
+    function updateCategories() {
+      var categoriesDiv = document.getElementById('categories');
+      categoriesDiv.innerHTML = ''; // Clear existing content
+
+      // Loop through each category in expenses
+      for (var category in expenses) {
+        var total = 0; // Initialize total for this category
+
+        // Calculate the total amount for this category
+        for (var i = 0; i < expenses[category].length; i++) {
+          total += expenses[category][i].amount;
+        }
+
+        // Create a new div for this category
+        var categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+
+        // Add the category name and total as a heading
+        var heading = document.createElement('h3');
+        heading.textContent = formatCategoryName(category) + ' - Total: $' + formatTwoDecimals(total);
+        categoryDiv.appendChild(heading);
+
+        // Add each expense as a list item
+        var ul = document.createElement('ul');
+        for (var j = 0; j < expenses[category].length; j++) {
+          var li = document.createElement('li');
+          li.textContent = expenses[category][j].description + ': $' + formatTwoDecimals(expenses[category][j].amount);
+          ul.appendChild(li);
+        }
+        categoryDiv.appendChild(ul);
+
+        // Append the categoryDiv to the main categoriesDiv
+        categoriesDiv.appendChild(categoryDiv);
+      }
+    }
+
+    // Function to format category names
+    function formatCategoryName(name) {
+      var result = '';
+      for (var i = 0; i < name.length; i++) {
+        if (i === 0) {
+          result += name[i].toUpperCase(); // Capitalize the first letter
+        } else {
+          result += name[i]; // Add the remaining letters
+        }
+      }
+      return result;
+    }
+
+    // Function to format numbers to two decimal places manually
+    function formatTwoDecimals(num) {
+      var numString = num.toString();
+      var parts = numString.split('.'); // Split the number into integer and decimal parts
+      if (parts.length === 1) {
+        // If no decimal part, add ".00"
+        return numString + '.00';
+      } else if (parts[1].length === 1) {
+        // If only one decimal place, add one more zero
+        return parts[0] + '.' + parts[1] + '0';
+      } else {
+        // If more than two decimal places, truncate to two
+        return parts[0] + '.' + parts[1].substring(0, 2);
+      }
+    }
+  </script>
 </body>
 </html>
