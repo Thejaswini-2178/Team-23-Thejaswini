@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main {
+        display: flex;
+    }
+
+    #main div {
+        width: 30px;
+        height: 30px;
+        border: 2px solid;
+        margin-left: 5px;
+        background-color: lightgreen;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+    }
+
+    .booked {
+        color: red;
+        cursor: not-allowed;        
+    }
+</style>
+</head>
+
+<body>
+<h1>Movie Ticket Booking</h1>
+<div id="main">
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+    <div class="five">5</div>
+    <div class="six">6</div>
+    <div class="seven">7</div>
+    <div class="eight">8</div>
+    <div class="nine">9</div>
+    <div class="ten">10</div>
+</div>
+<p id="message"></p>
+
+<script>
+
+    document.getElementById("main").addEventListener("click", function (event) {
+        // Check if the clicked element is a direct child of #main
+
+        if (event.target !== event.currentTarget && event.target.tagName === "DIV") {
+            var clickedBox = event.target;
+
+            // If already booked, show a message
+            if (clickedBox.classList.contains("booked")) {
+                document.getElementById("message").textContent = "This ticket is already booked!";
+            }
+
+            else {
+                // Mark the box as booked
+                clickedBox.classList.add("booked");
+                document.getElementById("message").textContent = "Ticket " + clickedBox.textContent + " is successfully booked!";
+            }
+        }
+    });
+</script>
+</body>
+</html>
