@@ -22,6 +22,9 @@
       text-align: center;
       color: #333;
     }
+    form {
+      margin-bottom: 20px;
+    }
     label {
       display: block;
       margin: 10px 0 5px;
@@ -66,110 +69,56 @@
       <label for="description">Description</label>
       <input type="text" id="description" placeholder="Enter description" required>
 
-      <button type="button" onclick="addExpense()">Add Expense</button>
+      <button type="submit">Add Expense</button>
     </form>
 
     <div class="categories" id="categories"></div>
   </div>
-
   <script>
-    // Step 1: Initialize an object to store expenses
-    var expenses = {
-      food: [],
-      transport: [],
-      entertainment: []
-    };
+    const expensess={
+      food:[],
+      transport:[],
+      entertainment:[]
+    }
+    const form=document.getElementById("expenseForm")
+    const categoriesDiv=document.getElementById("categories")
+    form.addEventListener('submit',function(evnt){
+      evnt.preventDefault()
 
-    // Step 2: Function to handle adding expenses
-    function addExpense() {
-      // Get input values
-      var category = document.getElementById('category').value;
-      var amount = parseFloat(document.getElementById('amount').value);
-      var description = document.getElementById('description').value;
-
-      // Validate the amount
-      if (amount <= 0) {
-        alert('Amount must be greater than zero.');
+      const category=document.getElementById("category").value;
+      const amount=document.getElementById("amount").value;
+      const description=document.getElementById("description").value
+      if(amount<=0){
+        alert("Amount must be greter then 0")
         return;
       }
+      expensess[category].push({amount,description});
+      //expensess.amount.push(amount) && expensess.amount.push(description)
+      console.log(expensess)
+      updateCategories()
+      form.reset()
+    })
+    function updateCategories(){
+      for(const[category,expenseList] of Object.entries(expensess)){
+        const categoryDiv=document.createElement("div");
+         var total=0
+         for(var i=0;i<expenseList.length;i++){
+          total+=expenseList[i].amount
+         }
 
-      // Add the expense to the selected category
-      expenses[category].push({
-        amount: amount,
-        description: description
-      });
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.textContent = category +"-Total : "+total;
+        categoryDiv.appendChild(categoryTitle);
 
-      // Clear the form inputs
-      //document.getElementById('expenseForm').reset();
-      document.getElementById('expenseForm').value.innerHTML="";
+        const expenseListElement = document.createElement('ul');
+        expenseList.forEach(exp => {
+          const listItem = document.createElement('li');
+          listItem.textContent = exp.description + ": $" + exp.amount;
+          expenseListElement.appendChild(listItem);
+        });
 
-      // Update the categories display
-      updateCategories();
-    }
-
-    // Function to update and display categories
-    function updateCategories() {
-      var categoriesDiv = document.getElementById('categories');
-      categoriesDiv.innerHTML = ''; // Clear existing content
-
-      // Loop through each category in expenses
-      for (var category in expenses) {
-        var total = 0; // Initialize total for this category
-
-        // Calculate the total amount for this category
-        for (var i = 0; i < expenses[category].length; i++) {
-          total += expenses[category][i].amount;
-        }
-
-        // Create a new div for this category
-        var categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('category');
-
-        // Add the category name and total as a heading
-        var heading = document.createElement('h3');
-        heading.textContent = formatCategoryName(category) + ' - Total: $' + formatTwoDecimals(total);
-        categoryDiv.appendChild(heading);
-
-        // Add each expense as a list item
-        var ul = document.createElement('ul');
-        for (var j = 0; j < expenses[category].length; j++) {
-          var li = document.createElement('li');
-          li.textContent = expenses[category][j].description + ': $' + formatTwoDecimals(expenses[category][j].amount);
-          ul.appendChild(li);
-        }
-        categoryDiv.appendChild(ul);
-
-        // Append the categoryDiv to the main categoriesDiv
+        categoryDiv.appendChild(expenseListElement);
         categoriesDiv.appendChild(categoryDiv);
-      }
-    }
-
-    // Function to format category names
-    function formatCategoryName(name) {
-      var result = '';
-      for (var i = 0; i < name.length; i++) {
-        if (i === 0) {
-          result += name[i].toUpperCase(); // Capitalize the first letter
-        } else {
-          result += name[i]; // Add the remaining letters
-        }
-      }
-      return result;
-    }
-
-    // Function to format numbers to two decimal places manually
-    function formatTwoDecimals(num) {
-      var numString = num.toString();
-      var parts = numString.split('.'); // Split the number into integer and decimal parts
-      if (parts.length === 1) {
-        // If no decimal part, add ".00"
-        return numString + '.00';
-      } else if (parts[1].length === 1) {
-        // If only one decimal place, add one more zero
-        return parts[0] + '.' + parts[1] + '0';
-      } else {
-        // If more than two decimal places, truncate to two
-        return parts[0] + '.' + parts[1].substring(0, 2);
       }
     }
   </script>
