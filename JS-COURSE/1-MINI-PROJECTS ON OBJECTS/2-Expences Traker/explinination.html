@@ -75,55 +75,5 @@
     <div class="categories" id="categories"></div>
   </div>
 
-  <script>
-    const expenses={
-        food:[],
-        transport:[],
-        entertainment:[]
-    }
-    const form=document.getElementById("expenseForm")
-    const categoriesDiv=document.getElementById("categories")
-
-    form.addEventListener("submit",function(e){
-        e.preventDefault()
-        const category=document.getElementById("category").value;
-        const amount=parseFloat(document.getElementById("amount").value);
-        const description=document.getElementById("description").value;
-
-        if(amount<=0){
-            alert("the amount should be greater then 0")
-            return
-        }
-        expenses[category].push({amount,description})
-        console.log(expenses[category])
-        updateCategories()
-        form.reset()
-    })
-    function updateCategories(){
-        categoriesDiv.innerHTML=""
-        for( const[catagary,expenseList] of Object.entries(expenses)){
-            const catagaryDiv=document.createElement("div")
-
-            var total=0
-            for(var i=0;i<expenseList.length;i++){
-                total+=expenseList[i].amount
-            }
-            const catagaryTitle=document.createElement("h3")
-            catagaryTitle.textContent=catagary+"_Total:"+total;
-            catagaryDiv.appendChild(catagaryTitle)
-            
-            const expenseListItems=document.createElement("Ol")
-            expenseList.forEach(exp=>{
-                const listItem=document.createElement("li")
-                listItem.textContent=exp.description+" cost is :$"+exp.amount
-                expenseListItems.appendChild(listItem)
-            })
-            catagaryDiv.appendChild(expenseListItems)
-            categoriesDiv.appendChild(catagaryDiv)
-        }
-    }
-    
-
-  </script>
 </body>
 </html>
