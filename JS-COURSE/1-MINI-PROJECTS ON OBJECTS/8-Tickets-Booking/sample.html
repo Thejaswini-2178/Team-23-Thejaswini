@@ -43,30 +43,22 @@
         <div class="ten">10</div>
     </div>
     <p id="message"></p>
-
     <script>
-
         document.getElementById("main").addEventListener("click", function (event) {
-            // Check if the clicked element is a direct child of #main and is a div
-            if (event.target !== event.currentTarget && event.target.tagName === "DIV") {
-                var clickedBox = event.target;
-                // console.log("target",event.target)
-                // console.log("current", event.currentTarget)
-                // Check if the ticket is already booked
-                if (clickedBox.classList.contains("booked")) {
-                    document.getElementById("message").textContent = "Ticket " + clickedBox.textContent + " is already booked!";
-                    document.getElementById("message").style.color="red"
-                } else {
-                    // Add the 'booked' class to the ticket
-                    clickedBox.classList.add("booked");
-                    document.getElementById("message").textContent = "Ticket " + clickedBox.textContent + " is successfully booked!";
-                    document.getElementById("message").style.color="green"
+            if (event.target !== event.currentTarget && event.target.tagName == "DIV") {
+                var checkedBox = event.target
+                checkedBox.classList.add="booked"
+                if (!checkedBox.classList.contains("booked")) {
+                    document.getElementById("message").textContent = "Tickets " + checkedBox.textContent + " is alredy booked"
+                    document.getElementById("message").style.color = "red"
+                }
+                else {
+                    checkedBox.classList.add("booked")
+                    document.getElementById("message").textContent = "Tickets " + checkedBox.textContent + "  is booked sucessfully"
+                    document.getElementById("message").style.color = "green"
                 }
             }
-        });
-
-        
-        
+        })
     </script>
 </body>
 
