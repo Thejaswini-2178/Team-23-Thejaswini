@@ -96,7 +96,7 @@
         alert('Amount must be positive!');
         return;
       }
-      expenses[category].push({ amount, description });
+      expenses[category].push({ amount:amount, description:description  });
       updateCategories();
       //expencess is an object wch is having the catogary which is every expences of the propwerty key,
       //amount ,description is an  object which having two properties called the amount and discription 
@@ -126,10 +126,6 @@
         //typeof expenseList returns "object" because, in JavaScript, arrays are a type of object.
         //Array.isArray(expenseList) returns true, which confirms that expenseList is indeed an array
 
-
-
-
-
         // console.log(expenseList)
         // console.log(typeof(expenseList))
 
@@ -148,7 +144,7 @@
     // categoryDiv.classList.add('category'); // Add a class to style the category
     // Step 5: Create the h3 element for the category title and total
     const heading = document.createElement('h3');
-    const categoryTitle = category+" - Total: $" + total;
+    const categoryTitle = category+" -Total: $" + total;
     console.log(category)
     heading.textContent = categoryTitle;
 
@@ -173,20 +169,6 @@
     categoriesDiv.appendChild(categoryDiv);
   }
 }
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
         // categoryDiv.innerHTML = `
         //   <h3>${category.charAt(0).toUpperCase() + category.slice(1)} - Total: $${total.toFixed(2)}</h3>
         //   <ul>
