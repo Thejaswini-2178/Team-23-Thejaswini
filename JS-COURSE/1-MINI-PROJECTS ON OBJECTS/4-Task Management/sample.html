@@ -15,80 +15,17 @@
         <h3>Tasks</h3>
         <div id="tasks"></div>
     </div>
-
     <script>
-        const taskCategories = {
-            pending: [],
-            onProgress: [],
-            completed: []
-        };
-
-        function addTask() {
-            const input = document.getElementById('input').value.trim();
-            if (input) {
-                taskCategories.pending.push(input); // Add the task to the pending category
-                document.getElementById('input').value = ""; // Clear the input field
-                updateTaskDisplay(); // Update the task display
-            } else {
-                alert("Please enter a task."); // Alert for empty input
-            }
+        const taskCategories={
+            pending:[],
+            ongoing:[],
+            completed:[]
         }
-
-     
-
-        function updateTaskDisplay() {
-            const tasksDiv = document.getElementById('tasks');
-            tasksDiv.innerHTML = ""; // Clear the existing display
-
-            // Iterate over categories dynamically
-            for (const category in taskCategories) {
-                const categoryDiv = document.createElement('div');
-                const categoryHeader = document.createElement('h4');
-                categoryHeader.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-                categoryDiv.appendChild(categoryHeader);
-
-                const taskList = document.createElement('ul');
-                taskCategories[category].forEach((task, index) => {
-                    const listItem = document.createElement('li');
-                    listItem.textContent = task;
-
-                    if (category === 'pending') {
-                        const startBtn = document.createElement('button');
-                        startBtn.textContent = "Start";
-                        startBtn.addEventListener("click", () => moveTask('pending', 'onProgress', index));
-                        listItem.appendChild(startBtn);
-                    } else if (category === 'onProgress') {
-                        const completeBtn = document.createElement('button');
-                        completeBtn.textContent = "Complete";
-                        completeBtn.addEventListener("click", () => moveTask('onProgress', 'completed', index));
-                        listItem.appendChild(completeBtn);
-                    } else if (category === 'completed') {
-                        // No buttons for completed tasks
-                        listItem.style.textDecoration = "line-through"; // Strikeout the text
-                    }
-
-                    taskList.appendChild(listItem);
-                });
-
-                categoryDiv.appendChild(taskList);
-                tasksDiv.appendChild(categoryDiv);
-            }
-
-
-
-            function moveTask(categoryFrom, categoryTo, index) {
-                const task = taskCategories[categoryFrom][index];
-                if (categoryTo === 'completed') {
-                    // Freeze task before adding it to completed
-                    const frozenTask = Object.freeze(task);
-                    taskCategories.completed.push(frozenTask);
-                } else {
-                    taskCategories[categoryTo].push(task);
-                }
-                taskCategories[categoryFrom].splice(index, 1); // Remove task from current category
-                updateTaskDisplay(); // Update the task display
-            }
+        function addEvent(){
+            
         }
+        
     </script>
+
 </body>
 </html>
