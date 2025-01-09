@@ -57,10 +57,21 @@
                     const listItem = document.createElement('li');
                     listItem.textContent = task;
 
+
+
+                    
+                   //The purpose of this  below line code is to create a "Start" button for tasks in the "pending" category 
+                   // and add an event listener to that button, so when it is clicked, it triggers the moveTask function,
+                   //  which likely moves the task from the "pending" category to the "onProgress" category.
                     if (category === 'pending') {
                         const startBtn = document.createElement('button');
                         startBtn.textContent = "Start";
                         startBtn.addEventListener("click", () => moveTask('pending', 'onProgress', index));
+                        //The values 'onProgress', 'completed', and index are arguments being passed to the moveTask function when the "Complete" button is clicked.
+                        // pending Represents the current category of the task 
+                        //onprogress Represents the target category where the task will be moved
+                        // and index spesified  position of the current task in the "pending" category array
+                        
                         listItem.appendChild(startBtn);
                     } else if (category === 'onProgress') {
                         const completeBtn = document.createElement('button');
