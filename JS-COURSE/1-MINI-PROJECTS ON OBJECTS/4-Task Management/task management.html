@@ -52,7 +52,7 @@
                 const taskList = document.createElement('ul');
                 taskCategories[category].forEach((task, index) => {
                     //task: The current element in the array, representing a specific task
-                    // index: The position of the current element in the array
+                    //index: The position of the current element in the array
 
                     const listItem = document.createElement('li');
                     listItem.textContent = task;
@@ -68,6 +68,9 @@
                         startBtn.textContent = "Start";
                         startBtn.addEventListener("click", () => moveTask('pending', 'onProgress', index));
                         //The values 'onProgress', 'completed', and index are arguments being passed to the moveTask function when the "Complete" button is clicked.
+                        //The function () => moveTask('onProgress', 'completed', index) is the callback function that gets executed when the "click" event happens. 
+                        // It calls the moveTask function with the specified parameters when the button is clicked.
+                        
                         // pending Represents the current category of the task 
                         //onprogress Represents the target category where the task will be moved
                         // and index spesified  position of the current task in the "pending" category array
@@ -93,10 +96,21 @@
 
             function moveTask(categoryFrom, categoryTo, index) {
                 // we are passing the parameters
+                // categoryFrom: Represents the category from which the task will be moved
+                //Represents the category where the task will be moved
+                // The index of the task within the category that needs to be moved.
+               //index will indicates the task position inside the the array of the cataoryFrom wchi is accesd by the catagories object
+
                 const task = taskCategories[categoryFrom][index];
+                //taskCategories is an object which is accesing the\ categoryFrom keys whichis inside an array is acces through index
+                //Here, you're accessing the taskCategories object using categoryFrom 
+                // (the category from which the task is being moved) and 
+                // index (the position of the task in that category).
                 if (categoryTo === 'completed') {
                     // Freeze task before adding it to completed
                     const frozenTask = Object.freeze(task);
+                    //Object.freeze makes the task object immutable, meaning:
+                    // No one can modify, add, or delete any properties of the task.
                     taskCategories.completed.push(frozenTask);
                 } else {
                     taskCategories[categoryTo].push(task);
