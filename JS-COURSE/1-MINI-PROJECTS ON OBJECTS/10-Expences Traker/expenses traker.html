@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
       padding: 20px;
       background-color: #f4f4f4;
     }
+
     .container {
       max-width: 600px;
       margin: auto;
@@ -18,27 +20,36 @@
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    h2, h1 {
+
+    h2,
+    h1 {
       text-align: center;
       color: #333;
     }
+
     form {
       margin-bottom: 20px;
     }
+
     label {
       display: block;
       margin: 10px 0 5px;
     }
-    input, select, button {
+
+    input,
+    select,
+    button {
       width: 100%;
       padding: 10px;
       margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     .categories {
       margin-top: 20px;
     }
+
     .category {
       margin-bottom: 15px;
       padding: 10px;
@@ -46,12 +57,14 @@
       border: 1px solid #b3d8ff;
       border-radius: 5px;
     }
+
     .category h3 {
       margin: 0 0 5px;
       font-size: 18px;
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h2>Expense Tracker</h2>
@@ -72,71 +85,54 @@
       <button type="submit">Add Expense</button>
     </form>
 
-    <div class="categories" id="categories"></div>
+    <div class="categories" id="allCatagories"></div>
     <h1 id="totalExpenses">Total Expenses: $0</h1>
   </div>
   <script>
     const expenses = {
       food: [],
       transport: [],
-      entertainment: []
-    };
+      entertinement: []
+    }
+    const form = document.getElementById("expenseForm")
+    const categoriesDiv = document.getElementById("allCatagories")
 
-    const form = document.getElementById("expenseForm");
-    const categoriesDiv = document.getElementById("categories");
-    const totalExpensesElement = document.getElementById("totalExpenses");
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
+    form.addEventListener("submit", function (event) {
+      event.preventDefault()
       const category = document.getElementById("category").value;
-      const amount = parseFloat(document.getElementById("amount").value);
+      const amount = document.getElementById("amount").value;
       const description = document.getElementById("description").value;
-
-      if (amount <= 0) {
-        alert("Amount must be greater than 0");
-        return;
-      }
-
-      expenses[category].push({ amount, description });
-      updateCategories();
-      form.reset();
-    });
+      // if (amount <= 0) {
+      //   alert("amount is greater than 0")
+      //   return false
+      // }
+      expenses[category].push({ amount: amount, description: description })
+      updateCategories()
+      form.reset()
+    })
 
     function updateCategories() {
-      categoriesDiv.innerHTML = '';
-      let totalExpensesAmount = 0;
-
-      for (const [category, expenseList] of Object.entries(expenses)) {
-        let categoryTotal = 0;
-
-        expenseList.forEach(exp => {
-          categoryTotal += exp.amount;
-        });
-
-        totalExpensesAmount += categoryTotal;
-
-        const categoryDiv = document.createElement("div");
-        categoryDiv.classList.add("category");
-
-        const heading = document.createElement('h3');
-        heading.textContent = `${category} - Total: $${categoryTotal.toFixed(2)}`;
-        categoryDiv.appendChild(heading);
-
-        const expenseListElement = document.createElement('ul');
-        expenseList.forEach(exp => {
-          const listItem = document.createElement('li');
-          listItem.textContent = `${exp.description}: $${exp.amount.toFixed(2)}`;
-          expenseListElement.appendChild(listItem);
-        });
-
-        categoryDiv.appendChild(expenseListElement);
-        categoriesDiv.appendChild(categoryDiv);
+      for (const [category, expensesList] of Object.entries(expenses)) {
+        const catagoriesDiv = document.createElement("div");
+        var total = 0
+        for (var i = 0; i < expensesList.length; i++) {
+          total += expensesList[i].amount
+        }
+        const heading = document.createElement("h3")
+        heading.textContent = category + "_Total: " + total
+        catagoriesDiv.appendChild(heading)
+        const expensesListUl = document.createElement("ul")
+        expensesList.forEach(exp => {
+          const listItem = document.createElement("li")
+          listItem.textContent = exp.description + "  $:" + exp.amount;
+          expensesListUl.appendChild(listItem)
+        })
+        catagoriesDiv.appendChild(expensesListUl)
+        // categoriesDiv.appendChild(catagoriesDiv1)
+        document.getElementById("allCatagories").appendChild(catagoriesDiv)
       }
-
-      // Update the total expenses for all categories
-      totalExpensesElement.textContent = `Total Expenses: $${totalExpensesAmount.toFixed(2)}`;
     }
   </script>
 </body>
+
 </html>
