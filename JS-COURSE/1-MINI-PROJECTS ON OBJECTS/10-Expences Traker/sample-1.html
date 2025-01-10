@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .categories {
+      margin-top: 20px;
+    }
+    .category {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #e9f5ff;
+      border: 1px solid #b3d8ff;
+      border-radius: 5px;
+    }
+    .category h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Expense Tracker</h2>
+    <form id="expenseForm">
+      <label for="category">Category</label>
+      <select id="category" required>
+        <option value="food">Food</option>
+        <option value="transport">Transport</option>
+        <option value="entertainment">Entertainment</option>
+      </select>
+
+      <label for="amount">Amount</label>
+      <input type="number" id="amount" placeholder="Enter amount" required>
+
+      <label for="description">Description</label>
+      <input type="text" id="description" placeholder="Enter description" required>
+
+      <button type="submit">Add Expense</button>
+    </form>
+
+    <div class="categories" id="categories"></div>
+  </div>
+
+  <script>
+    const expenses = {
+      food: [],
+      transport: [],
+      entertainment: []
+    };
+
+    const form = document.getElementById('expenseForm');
+    const categoriesDiv = document.getElementById('categories');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const category = document.getElementById('category').value;
+      const amount = parseFloat(document.getElementById('amount').value);
+      const description = document.getElementById('description').value;
+
+      if (amount <= 0) {
+        alert('Amount must be positive!');
+        return;
+      }
+      expenses[category].push({ amount:amount, description:description  });
+      updateCategories();
+      //expencess is an object wch is having the catogary which is every expences of the propwerty key,
+      //amount ,description is an  object which having two properties called the amount and discription 
+    //we are adding the two new properties to the array of the catagary whci is present inside the expences object
+
+    form.reset();
+    });
+
+    function updateCategories() {
+  // Step 1: Clear the content of the categoriesDiv before updating
+  categoriesDiv.innerHTML = ''; 
+
+  // Step 2: Iterate over each category and its expense list using Object.entries
+  for (const [category, expenseList] of Object.entries(expenses)) {
+  
+    //expenseList is the value of each key-value pair from the expenses object.
+    //Explain that Object.entries(expenses) is a method that converts the expenses object into an array of key-value pairs.
+        //Point out that for (const [category, expenseList] of ...) is iterating over each key-value pair in the array produced by Object.entries(expenses).
+        //eing used here. Each element in the array is a pair (like ['food', 200]), and the destructuring syntax assigns the first value (food) to category and the second value (200) to expenseList
+        //const total = expenseList.reduce((sum, exp) => sum + exp.amount,0);
+
+        let total = 0;
+        for (let i = 0; i < expenseList.length; i++) {
+          total += expenseList[i].amount;
+        }
+        // console.log(typeof expenseList[i])
+        //typeof expenseList returns "object" because, in JavaScript, arrays are a type of object.
+        //Array.isArray(expenseList) returns true, which confirms that expenseList is indeed an array
+
+        // console.log(expenseList)
+        // console.log(typeof(expenseList))
+
+        // calculate the total sum of a certain property (amount) from an array of objects (expenseList).
+        //The callback function performs an operation on each element of the array, and adds the value of exp.amount to the sum.
+        //sum: The accumulator (it stores the ongoing total value as we go through each element).
+        //exp: The current element of the array (in this case, an object that represents an individual expense)
+
+    // Explanation: The `reduce()` method is used to calculate the total of the `amount` property in the expenseList.
+    // - `sum`: This is the accumulator that keeps track of the ongoing total.
+    // - `exp`: This is the current element (expense) in the expenseList array. The `exp.amount` is added to `sum`.
+    // - `0` is provided as the initial value of the accumulator to ensure it starts at zero.
+
+    // Step 4: Create the div for each category
+    const categoryDiv = document.createElement('div');
+    // categoryDiv.classList.add('category'); // Add a class to style the category
+    // Step 5: Create the h3 element for the category title and total
+    const heading = document.createElement('h3');
+    const categoryTitle = category+" -Total: $" + total;
+    console.log(category)
+    heading.textContent = categoryTitle;
+
+    // Step 6: Append the h3 to the categoryDiv
+    categoryDiv.appendChild(heading);
+
+    // Step 7: Create the unordered list (ul) for the expenses
+    const ul = document.createElement('ul');
+
+    // Step 8: Loop through each expense in expenseList to create list items
+    expenseList.forEach(exp => {
+      console.log(expenseList)
+      const li = document.createElement('li');
+      li.textContent = exp.description + ": $" + exp.amount;
+      ul.appendChild(li);
+    });
+
+    // Step 9: Append the ul to the categoryDiv
+    categoryDiv.appendChild(ul);
+
+    // Step 10: Append the categoryDiv to categoriesDiv
+    categoriesDiv.appendChild(categoryDiv);
+  }
+}
+        // categoryDiv.innerHTML = `
+        //   <h3>${category.charAt(0).toUpperCase() + category.slice(1)} - Total: $${total.toFixed(2)}</h3>
+        //   <ul>
+        //     ${expenseList.map(exp => `<li>${exp.description}: $${exp.amount.toFixed(2)}</li>`).join('')}
+        //   </ul>
+        // `;
+        // categoriesDiv.appendChild(categoryDiv);
+
+  </script>
+</body>
+</html>
