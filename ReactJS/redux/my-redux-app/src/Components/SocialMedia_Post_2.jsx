@@ -6,8 +6,13 @@ const SocialMedia_Post_2 = () => {
   return (
     <div>
         <h2>
-            welcome to SocialMedia_Post_2
+            Welcome to SocialMedia_Post_2
         </h2>
+        <ul>
+          {socialMediaPost.map((post)=>{
+            return <li>{post}</li>
+          })}
+        </ul>
     </div>
   )
 }
