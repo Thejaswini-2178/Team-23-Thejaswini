@@ -65,7 +65,7 @@ function displayStudents() {
 }
 displayStudents()
 
-        function deleteUser(i) {
+    function deleteUser(i) {
     console.log("deleteUser Called !!" + i);
     students.splice(i, 1);
     displayStudents()
