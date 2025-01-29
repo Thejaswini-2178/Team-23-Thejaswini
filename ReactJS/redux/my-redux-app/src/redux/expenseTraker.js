@@ -1,5 +1,5 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
-export const expenseSlice=createSlice({
+import {createSlice  } from "@reduxjs/toolkit";
+const expenseSlice=createSlice({
     name:"expense",
     initialState:["product1","product2","product3"],
     reducers:{}
