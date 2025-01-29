@@ -1,6 +1,7 @@
 import React from 'react'
 
 const ExpenseTraker_10 = () => {
+    const expenses=[discription,amount]
   return ( 
   <div>
     <div className="container mx-auto p-6">
