@@ -165,7 +165,6 @@ const ExpenseTracker = () => {
       setCategory("Food");
     }
   };
-
   const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
 
   return (
