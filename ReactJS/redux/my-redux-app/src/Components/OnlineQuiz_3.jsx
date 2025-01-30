@@ -7,7 +7,7 @@ const OnlineQuiz_3 = () => {
         <div>
             <h2>Welcom to onlineQuize</h2>
             <ul>
-                {onlineQuiz.map((qs)=>{
+                {onlineQuiz.map((qs) => {
                     return <li>{qs}</li>
                 })}
             </ul>
