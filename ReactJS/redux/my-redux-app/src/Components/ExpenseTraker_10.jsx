@@ -232,6 +232,5 @@ const ExpenseTracker = () => {
     </div>
   );
 };
-
 export default ExpenseTracker;
 
