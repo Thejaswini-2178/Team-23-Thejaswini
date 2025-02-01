@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Content</title>
+</head>
+<body>
+    <p id="content">This content will change when you click the button.</p>
+    <button onclick="updateContent()">Update Content</button>
+
+    <script>
+        function updateContent() {
+            document.getElementById("content").innerHTML = "This is the updated content!";
+        }
+    </script>
+</body>
+</html>
