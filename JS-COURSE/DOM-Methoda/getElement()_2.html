@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <div class="div">
         <p class="head" id="head">Para-1</p>
@@ -16,33 +18,34 @@
     </div>
 
     <script>
-        var par=document.getElementsByClassName("para")
-        for(var i=0;i<par.length;i++){
+        var par = document.getElementsByClassName("para")
+        for (var i = 0; i < par.length; i++) {
             console.log(par[i].textContent)
         }
         console.log(".....")
-        var b=document.getElementsByTagName("p")
-            for(var j=0;j<b.length;j++){
-                console.log(b[j].textContent)
+        var b = document.getElementsByTagName("p")
+        for (var j = 0; j < b.length; j++) {
+            console.log(b[j].textContent)
 
-            }
-        var c=document.getElementById("head")
+        }
+        var c = document.getElementById("head")
         console.log(c.textContent)
-        var d=document.getElementsByClassName("head")
-        for(var i=0;i<d.length;i++){
+        var d = document.getElementsByClassName("head")
+        for (var i = 0; i < d.length; i++) {
             console.log(d[i].textContent)
         }
         // div element printing
-        var m=document.getElementsByClassName("div")
-        for(var i=0;i<m.length;i++){
+        var m = document.getElementsByClassName("div")
+        for (var i = 0; i < m.length; i++) {
             console.log(m[i].textContent)
         }
 
         //var div in  h element
-        var n=document.querySelectorAll("div p")
-        for(var i=0;i<n.length;i++){
+        var n = document.querySelectorAll("div p")
+        for (var i = 0; i < n.length; i++) {
             console.log(n[i].textContent)
         }
     </script>
 </body>
+
 </html>
