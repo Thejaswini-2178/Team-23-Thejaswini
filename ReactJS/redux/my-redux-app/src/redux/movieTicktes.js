@@ -5,3 +5,4 @@ export const movieTicketSlice=createSlice({
     reducers:{}
 })
 export default movieTicketSlice.reducer
+
