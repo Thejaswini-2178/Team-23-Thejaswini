@@ -6,7 +6,6 @@ export const inventarySice=createSlice({
 })
 export default inventarySice.reducer
 
-
 // import { createSlice } from '@reduxjs/toolkit'
 
 // const inventorySlice = createSlice({
