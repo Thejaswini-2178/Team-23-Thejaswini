@@ -84,23 +84,29 @@
 
     <script>
         var myData = [];
-        var index = 1;
 
         function enterData() {
             var newData = {
                 fullname: document.getElementById("fullName").value,
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
-                gender: document.querySelector('input[name="gender"]:checked')?.value || "",
+                gender: [],//document.querySelector('input[name="gender"]:checked')?.value || "",
                 jobRole: document.getElementById("jobRole").value,
                 experience: document.getElementById("experience").value,
                 resume: document.getElementById("resume").files[0]?.name || "",
-                subjects: [] 
+                subjects: []
             };
             var allCheckBoxElements = document.getElementsByName("skills");
             for (i = 0; i < allCheckBoxElements.length; i++) {
                 if (allCheckBoxElements[i].checked) {
                     newData.subjects.push(allCheckBoxElements[i].value)
+                    
+                }
+            }
+            var allRadio = document.getElementsByName("gender");
+            for (var j = 0; j < allRadio.length; j++) {
+                if (allRadio[j].checked) {
+                    newData.gender.push(allRadio[j].value)
                 }
             }
             myData.push(newData);
@@ -142,17 +148,18 @@
             myData.splice(i, 1);
             tableData();
         }
-
+        clearForm()
+        var index;
         function editData(i) {
             index = i;
-            var data = myData[i];
+            // var data = myData[i];
 
-            document.getElementById("fullName").value = data.fullname;
-            document.getElementById("email").value = data.email;
-            document.getElementById("password").value = data.password;
-            document.querySelector(`input[name="gender"][value="${data.gender}"]`).checked = true;
-            document.getElementById("jobRole").value = data.jobRole;
-            document.getElementById("experience").value = data.experience;
+            document.getElementById("fullName").value = myData[i].fullname;
+            document.getElementById("email").value = myData[i].email;
+            document.getElementById("password").value = myData[i].password;
+            document.getElementsByName("gender").value = myData[i].gender;
+            document.getElementById("jobRole").value = myData[i].jobRole;
+            document.getElementById("experience").value = myData[i].experience;
         }
 
         function updateData() {
@@ -160,17 +167,24 @@
                 fullname: document.getElementById("fullName").value,
                 email: document.getElementById("email").value,
                 password: document.getElementById("password").value,
-                gender: document.querySelector('input[name="gender"]:checked')?.value || "",
+                gender:[], //document.getElementsByName("gender").value,
                 jobRole: document.getElementById("jobRole").value,
                 experience: document.getElementById("experience").value,
                 resume: document.getElementById("resume").files[0]?.name || "",
-                subjects: [] 
+                subjects: []
             };
 
             var allCheckBoxElements = document.getElementsByName("skills");
             for (i = 0; i < allCheckBoxElements.length; i++) {
                 if (allCheckBoxElements[i].checked) {
                     updatedData.subjects.push(allCheckBoxElements[i].value)
+                }
+            };
+
+            var allRadio = document.getElementsByName("gender");
+            for (var j = 0; j < allRadio.length; j++) {
+                if (allRadio[j].checked) {
+                    updatedData.gender.push(allRadio[j].value)
                 }
             }
 
@@ -183,7 +197,7 @@
             document.getElementById("fullName").value = "";
             document.getElementById("email").value = "";
             document.getElementById("password").value = "";
-            document.querySelectorAll('input[name="gender"]').forEach(input => input.checked = false);
+            document.querySelectorAll("gender").value = "";
             document.getElementById("jobRole").value = "";
             document.getElementById("experience").value = "";
             document.getElementById("resume").value = "";
