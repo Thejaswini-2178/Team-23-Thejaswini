@@ -4,8 +4,6 @@ import LoginPage from './pages/LoginPage';
 import TaskListPage from './pages/TaskListPage';
 import TaskDetailsPage from './pages/TaskDetailsPage';
 import PrivateRoute from './routes/PrivateRoute';
-import
-
 
   function App() {
     return (
