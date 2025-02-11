@@ -10,7 +10,7 @@ const TaskListPage = () => {
     const handleDelete = (id) => {
         dispatch(deleteTask(id)); // Delete task by ID
     };
-
+    
     return (
         <div className="task-list-container">
             <h2>Task List</h2>
