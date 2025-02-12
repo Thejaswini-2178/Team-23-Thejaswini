@@ -1,35 +1,27 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import TaskListPage from './pages/TaskListPage';
-import TaskDetailsPage from './pages/TaskDetailsPage';
-import PrivateRoute from './routes/PrivateRoute';
+import TaskFormPage from './pages/TaskDetailsPage';
 
-  function App() {
+
+const App = () => {
     return (
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/tasks"
-            element={
-              <PrivateRoute>
-                <TaskListPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/task/:id"
-            element={
-              <PrivateRoute>
-                <TaskDetailsPage />
-              </PrivateRoute>
-            }
-          />
-        </Routes>
-      </Router>
+        <Provider store={store}>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<LoginPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+                    <Route path="/tasks" element={<TaskListPage />} />
+                    <Route path="/task/new" element={<TaskFormPage />} />
+                    <Route path="/task/:taskId" element={<TaskFormPage />} />
+                </Routes>
+            </Router>
+        </Provider>
     );
-  }
+};
 
 export default App;
