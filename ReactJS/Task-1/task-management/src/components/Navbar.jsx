@@ -1,25 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logout } from '../redux/authSlice';
+import './Navbar.css'; // Import the CSS file
 
 const Navbar = () => {
-    const dispatch = useDispatch();
-
-    const handleLogout = () => {
-        dispatch(logout());
-    };
-
-    return (
-        <nav>
-            <ul>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/signup">Signup</Link></li>
-                <li><Link to="/tasks">Tasks</Link></li>
-                <li><button onClick={handleLogout}>Logout</button></li>
-            </ul>
-        </nav>
-    );
+  return (
+    <nav className="navbar">
+      <div className="navbar-title">Task Manager</div>
+      <ul className="navbar-links">
+        <li><a href="/tasks">Tasks</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Signup</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Navbar;
