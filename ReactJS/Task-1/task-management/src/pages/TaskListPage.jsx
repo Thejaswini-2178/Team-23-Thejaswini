@@ -30,5 +30,4 @@ const TaskListPage = () => {
         </div>
     );
 };
-
 export default TaskListPage;
