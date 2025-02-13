@@ -138,5 +138,4 @@ const styles = {
         marginBottom: '20px',
     },
 };
-
 export default LoginPage;
