@@ -70,5 +70,4 @@ const TaskFormPage = () => {
         </div>
     );
 };
-
 export default TaskFormPage;
