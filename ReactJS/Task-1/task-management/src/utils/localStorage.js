@@ -8,4 +8,4 @@ export const getFromLocalStorage = (key) => {
 
 export const removeFromLocalStorage = (key) => {
     localStorage.removeItem(key);
-};
+}
