@@ -29,7 +29,6 @@ const Dashboard: React.FC = () => {
 };
 
 export default Dashboard;
-
 const cardsData = [
   {
     id: 1,
