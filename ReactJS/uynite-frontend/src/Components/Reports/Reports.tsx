@@ -55,7 +55,6 @@ const Reports: React.FC = () => {
         console.error("Invalid Action");
         break;
     }
-
     setModalOpen(false);
   };
 
