@@ -7,5 +7,4 @@ const BlockedUsers: React.FC = () => {
     </div>
   );
 };
-
 export default BlockedUsers;
