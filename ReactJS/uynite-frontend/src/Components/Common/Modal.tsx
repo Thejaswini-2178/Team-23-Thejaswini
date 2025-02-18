@@ -62,7 +62,6 @@ const Modal: React.FC<ModalProps> = ({
           >
             {submitButtonLabel}
           </button>
-         
         </div>
       </div>
     </div>
