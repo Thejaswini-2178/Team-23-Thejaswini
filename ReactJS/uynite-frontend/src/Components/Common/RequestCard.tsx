@@ -30,8 +30,7 @@ const RequestCard: React.FC<RequestCardProps> = ({ name, role, status, imageUrl 
                 style={{
                     background: "#B2D6E4 0% 0% no-repeat padding-box",
                     color: "#05A5C3"
-                }}
-            >
+                }}>
                 View
             </div>
         </div>
