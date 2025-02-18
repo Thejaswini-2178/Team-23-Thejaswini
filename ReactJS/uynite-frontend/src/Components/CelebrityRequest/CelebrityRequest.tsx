@@ -32,7 +32,6 @@ const CelebrityRequest: React.FC = () => {
       dispatch(getFilteredVerifications({ filter: "all", index: 0, size: 10 }));
     }
   }, [dispatch, fetchStatus]);
-
   const profiles = data || [];
 
   // Filter profiles based on dropdown selection.
