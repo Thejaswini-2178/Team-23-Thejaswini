@@ -41,8 +41,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                     viewBox="0 0 24 24"
                     strokeWidth={2}
                     stroke="currentColor"
-                    className="w-4 h-4 text-gray-600"
-                >
+                    className="w-4 h-4 text-gray-600">
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
