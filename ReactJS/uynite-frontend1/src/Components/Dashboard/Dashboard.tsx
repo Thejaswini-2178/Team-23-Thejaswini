@@ -73,4 +73,3 @@ const cardsData = [
     navigateTo: "/blocked-users",
   },
 ];
-
