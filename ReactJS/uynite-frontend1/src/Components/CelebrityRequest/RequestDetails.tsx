@@ -18,6 +18,7 @@ interface RequestData {
   comments?: string;
 }
 
+
 const RequestDetails = ({ requestData }: { requestData: RequestData }) => {
   const dispatch = useDispatch<AppDispatch>();
   const [isAccepted, setIsAccepted] = useState(false);
