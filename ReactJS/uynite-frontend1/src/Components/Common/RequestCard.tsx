@@ -7,6 +7,7 @@ type RequestCardProps = {
     imageUrl: string;
 };
 
+
 const RequestCard: React.FC<RequestCardProps> = ({ name, role, status, imageUrl }) => {
     return (
         <div className="flex justify-between items-center bg-blue-50 border border-gray-300 rounded-lg m-2 h-24">
