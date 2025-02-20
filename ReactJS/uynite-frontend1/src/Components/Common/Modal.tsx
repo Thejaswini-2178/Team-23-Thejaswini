@@ -44,7 +44,6 @@ const Modal: React.FC<ModalProps> = ({
           <p className="text-sm text-gray-700 mb-4">{description}</p>
         )}
         <div className="mb-4">{children}</div>
-
         {/* Action Buttons */}
         <div className="flex justify-center gap-2">
           {closeButtonLabel && (
