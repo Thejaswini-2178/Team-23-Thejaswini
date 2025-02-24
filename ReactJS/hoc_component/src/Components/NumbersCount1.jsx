@@ -16,4 +16,5 @@ class NumbersCount1 extends Component {
     )
   }
 }
+
 export default NewData(NumbersCount1)
