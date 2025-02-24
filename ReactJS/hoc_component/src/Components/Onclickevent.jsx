@@ -26,4 +26,5 @@ class Onclickevent extends Component {
     }
 }
 
+
 export default updateData(Onclickevent);
