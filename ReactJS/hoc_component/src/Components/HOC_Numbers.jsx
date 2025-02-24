@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 const NewData = (OriginalComponent1) => {
     class HOCNumbers extends Component {
         constructor(props) {
