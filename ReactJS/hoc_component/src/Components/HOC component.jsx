@@ -26,6 +26,7 @@ const updateData = (OriginalComponent) => {
             }));
         };
 
+        
         onmousehoverDecriment = () => {
             this.setState((prevState) => ({
                 count: prevState.count - 1,
