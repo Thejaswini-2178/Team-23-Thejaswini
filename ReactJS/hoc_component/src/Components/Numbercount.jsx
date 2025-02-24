@@ -17,5 +17,4 @@ class NumberCount extends Component {
     );
   }
 }
-
 export default NewData(NumberCount);
