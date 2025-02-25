@@ -23,5 +23,6 @@ class Ansistor extends Component {
     )
   }
 }
+
 export default Ansistor
 
