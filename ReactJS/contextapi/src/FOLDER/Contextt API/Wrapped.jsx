@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Child from "./Child";
 
-
 class Wrapped extends Component {
   render() {
     return (

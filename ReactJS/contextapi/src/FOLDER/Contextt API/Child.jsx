@@ -20,5 +20,4 @@ class Child extends Component {
   }
 }
 
-
 export default Child;
