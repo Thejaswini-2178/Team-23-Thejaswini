@@ -19,4 +19,5 @@ class Secondparent extends Component {
   }
 }
 
+
 export default Secondparent
