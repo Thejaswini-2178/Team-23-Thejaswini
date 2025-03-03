@@ -10,6 +10,5 @@ export default function Timer() {
 
     return () => clearInterval(interval);
   }, []);
-
   return <p>Timer: {count}</p>;
 }
