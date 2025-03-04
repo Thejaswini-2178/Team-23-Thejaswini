@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 export default function ExpensiveCalculation() {
   const [count, setCount] = useState(0);
   const [num, setNum] = useState(10);
+  
   const squaredNumber = useMemo(() => {
     console.log("Calculating...");
     return num * num;
