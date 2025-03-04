@@ -6,6 +6,7 @@ export default function Counter() {
   const increment = useCallback(() => {
     setCount((prev) => prev + 1);
   }, []);
+  
   return (
     <div>
       <p>Count: {count}</p>
