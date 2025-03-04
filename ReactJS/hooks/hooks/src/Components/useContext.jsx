@@ -9,6 +9,7 @@ export default function App() {
     </ThemeContext.Provider>
   );
 }
+
 function ChildComponent() {
   const theme = useContext(ThemeContext);
   return <p>Current Theme: {theme}</p>;
