@@ -8,7 +8,7 @@ export default class UnmountingPhaseMethod extends Component {
   }
 
   componentWillUnmount() {
-    if (this.state.age === 23 ) {
+    if (this.state.age === 23) {
       console.log("Component is being unmounted...");
     }
   }
@@ -19,8 +19,8 @@ export default class UnmountingPhaseMethod extends Component {
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS75ebrwvgVW5Ks_oLfCbG8Httf3_9g-Ynl_Q&s"
           alt="example"
-        /><br/>
-        <button onClick={()=>this.setState({age:this.state===23})}>CLICK</button>
+        /><br />
+        <button onClick={() => this.setState({ age: this.state === 23 })}>CLICK</button>
       </div>
     );
   }
