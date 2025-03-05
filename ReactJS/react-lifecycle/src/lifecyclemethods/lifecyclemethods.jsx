@@ -11,7 +11,7 @@ class Phases extends Component {
           <li>Mounting</li>
           <li>Updating</li>
           <li>Unmounting</li>
-          <li>Error Handling</li>
+          <li>Error Handling-rare</li>
         </ol>
       </div>
     );
