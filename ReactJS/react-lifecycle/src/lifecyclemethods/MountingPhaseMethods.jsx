@@ -18,7 +18,7 @@ class MountingPhaseMethods extends Component {
     render() {
         return (
             <div>
-               
+                 <h1>Mountin Phase Method</h1>
             </div>
         );
     }
