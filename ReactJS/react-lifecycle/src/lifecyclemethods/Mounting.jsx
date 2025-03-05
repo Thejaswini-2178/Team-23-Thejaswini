@@ -9,7 +9,7 @@ class Mounting extends Component {
   }
 
   handleClick = () => {
-    this.setState({ id: 1256 }); // Update the ID when button is clicked
+    this.setState({ id: 1256 });    // Update the ID when button is clicked
   };
 
   render() {
@@ -35,7 +35,7 @@ class Mounting extends Component {
             <li>Initializing state.</li>
             <li>Directly override this.state (super(props)).</li>
           </ul>
-          
+
 
           <h2>ii Static getDerivedStateFromProps()</h2>
           <ul>
