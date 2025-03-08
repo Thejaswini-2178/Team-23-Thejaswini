@@ -1,77 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //Write a function that takes a string as input and returns the string reversed
-        function reverseStr(str){
-             var str1=str.split("").reverse().join("")
+        function reverseStr(str) {
+            var str1 = str.split("").reverse().join("")
             console.log(str1)
         }
         reverseStr("hellow iam theju")
 
         //Write a function that finds the largest number in an array.
-        function largestNum(num){
-            num.sort((a,b)=>a-b)
-            console.log(num[num.length-1])
+        function largestNum(num) {
+            num.sort((a, b) => a - b)
+            console.log(num[num.length - 1])
         }
-        var array=[12,23,43,45,12,26]
+        var array = [12, 23, 43, 45, 12, 26]
         largestNum(array)
 
         //Write a function to check whether a given string is a palindrome
-        function palindrome(str1){
-            var str2=str1.split("").reverse().join("")
-            if(str1.toLowerCase()===str2.toLowerCase()){
+        function palindrome(str1) {
+            var str2 = str1.split("").reverse().join("")
+            if (str1.toLowerCase() === str2.toLowerCase()) {
                 console.log("Palindrome")
-            }else{
+            } else {
                 console.log("not a palindrome")
             }
         }
-        var str1="madam"
+        var str1 = "madam"
         palindrome(str1)
 
         //Write a function to remove duplicate elements from an array.
-        function duplicateRemove(arr){
-            var array=[]
-            for(i=0;i<arr.length;i++){
-                if(!array.includes(arr[i])){
+        function duplicateRemove(arr) {
+            var array = []
+            for (i = 0; i < arr.length; i++) {
+                if (!array.includes(arr[i])) {
                     array.push(arr[i])
                 }
             }
             console.log(array)
         }
         // var arr=[12,23,12,23,34,45,35,12,23]
-        var arr=[12,23,23,12,23,]
+        var arr = [12, 23, 23, 12, 23,]
         duplicateRemove(arr)
 
 
-         // 5. Write a function that prints numbers from 1 to n with the FizzBuzz logic:
+        // 5. Write a function that prints numbers from 1 to n with the FizzBuzz logic:
         //    - For multiples of 3, print "Fizz".
         //    - For multiples of 5, print "Buzz".
         //    - For multiples of both 3 and 5, print "FizzBuzz".
 
-        function multiples(num){
-            for(var i=0;i<num;i++){
-                if(i%3===0 && i%5===0){
-                    console.log(i,"FizzBuzz")
+        function multiples(num) {
+            for (var i = 0; i < num; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    console.log(i, "FizzBuzz")
                 }
-                else if(i%3===0){
-                    console.log(i,"Fizz")
+                else if (i % 3 === 0) {
+                    console.log(i, "Fizz")
                 }
-                else if(i%5===0){
-                    console.log(i,"buzz")
+                else if (i % 5 === 0) {
+                    console.log(i, "buzz")
                 }
-                else{
+                else {
                     console.log(i)
                 }
             }
         }
         multiples(20)
     </script>
-    
+
 </body>
+
 </html>
