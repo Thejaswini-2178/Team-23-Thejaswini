@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=!, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name){
+            this.name=name;
+        }
+        Person.prototype.sayHellow=function(){
+            console.log(`Hellow,my name is ${this.name}`)
+        }
+        const Person1=new Person("starLight")
+        Person1.sayHellow()
+    </script>
+</body>
+</html>
