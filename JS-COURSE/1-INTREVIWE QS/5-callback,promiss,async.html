@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function fetchData(callback) {
+        //     setTimeout(() => {
+        //         callback("data recived")
+        //     }, 1000)
+        // }
+        // fetchData((data) => console.log(data))
+
+        // example1
+        function fun(theju) {
+            console.log("Hellow",theju())
+        }
+        fun(function theju() {
+            return("theju")
+        })
+
+        // example2
+        function x(y){
+            console.log("theju is friend of ",y())
+        }
+        x(function y(){
+            return ("Gayathri")
+        })
+
+
+        // async and await function 
+        
+        function fetchData(){
+            return new Promise((resolve)=>{
+                setTimeout(()=>resolve("Data receved"),1000)
+            })
+        }
+        fetchData().then((data1=>console.log(data1)))
+    </script>
+</body>
+
+</html>
