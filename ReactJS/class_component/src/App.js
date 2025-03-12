@@ -6,6 +6,7 @@ function App() {
     <div className="App">
      <Normal_Comp/>
      <Normal_Comp1/>
+     <Normal_Comp1/>
     </div>
   );
 }
