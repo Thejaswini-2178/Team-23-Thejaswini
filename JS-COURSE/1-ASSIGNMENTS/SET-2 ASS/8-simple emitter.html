@@ -11,7 +11,6 @@
     <script>
         function EventEmitter() {
             const events = {};
-
             return {
                 on(event, listener) {
                     if (!events[event]) {
@@ -32,14 +31,11 @@
 
         // Example Usage
         const emitter = EventEmitter();
-
         function greet(name) {
             console.log(`Hello, ${name}!`);
         }
-
         emitter.on("greet", greet);
         emitter.emit("greet", "Starlight"); // Output: Hello, Starlight!
-
         emitter.off("greet", greet);
         emitter.emit("greet", "Starlight"); // No output
 
