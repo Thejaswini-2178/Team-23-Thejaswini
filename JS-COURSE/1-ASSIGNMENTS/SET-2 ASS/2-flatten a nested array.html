@@ -21,21 +21,21 @@
 
 
         // withbuiltin function
-        // function flattenArray(arr) {
-        //     let result = [];
+        function flattenArray(arr) {
+            let result = [];
 
-        //     // Iterate through each element of the array
-        //     arr.forEach(item => {
-        //         // If the item is an array, call flattenArray recursively
-        //         if (Array.isArray(item)) {
-        //             result = result.concat(flattenArray(item));
-        //         } else {
-        //             result.push(item);
-        //         }
-        //     });
+            // Iterate through each element of the array
+            arr.forEach(item => {
+                // If the item is an array, call flattenArray recursively
+                if (Array.isArray(item)) {
+                    result = result.concat(flattenArray(item));
+                } else {
+                    result.push(item);
+                }
+            });
 
-        //     return result;
-        // }
+            return result;
+        }
 
         // Example usage
         // var nestedArray = [1, 2, 3, [3, [4, [5, [5, 6, 7], [1, 2, 3]]]]]
