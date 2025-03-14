@@ -43,19 +43,19 @@ function interSection() {
 }
 interSection();
 
-// function interSection() {
-//     var str1 = [12, 23, 34, 45];
-//     var str2 = [31, 23, 25, 45];
-//     var common = [];
+function interSection() {
+    var str1 = [12, 23, 34, 45];
+    var str2 = [31, 23, 25, 45];
+    var common = [];
 
-//     str1.map((val) => {
-//         if (str2.indexOf(val) !== -1 && common.indexOf(val) === -1) {
-//             common.push(val);
-//         }
-//     });
-//     console.log(common);
-// }
-// interSection();
+    str1.map((val) => {
+        if (str2.indexOf(val) !== -1 && common.indexOf(val) === -1) {
+            common.push(val);
+        }
+    });
+    console.log(common);
+}
+interSection();
 
 function arrayIntersection(arr1, arr2) {
     return arr1.reduce((intersection, item) => {
