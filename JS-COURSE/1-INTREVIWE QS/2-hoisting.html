@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        // by using  the var
+        //    by using the var it is hoisted and insilized with undefined
         console.log(a)
-        var a=12;
-        console.log(a)
+        var a = 20
+        // by using the const ,let is not insilized but hoisted
+        // console.log(b)
+        let b=27
+        // console.log(c)
+        const c=13
 
-        // by using the let
-        //console.log(b)-----------referenceError(b cant acessees)
-        let b=30
-        console.log(b)
+        call()
+        function call(){
+            console.log("hellow")
+        }
 
-        // by using  the const
-        // console.log(c)----------referenceError(c cant acesses)
-        const c=12;
-        console.log(c)
+        // say()
+        // var say=function(){
+        //   console.log("hellow world")  
+        // }
+
+        //  real time example
+        console.log(getUserName())
+        function getUserName(){
+            var name=prompt("please enter you name:")
+            return name;
+        }
+
+
     </script>
 </body>
+
 </html>
