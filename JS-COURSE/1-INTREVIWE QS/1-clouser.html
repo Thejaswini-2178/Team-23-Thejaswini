@@ -3,30 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</t itle>
+    <title>Document</title>
 </head>
 <body>
     <script>
-        //clouser
-        function outerFun(){
-            console.log("outerFunction")
-            return function innerFun(){
-                console.log("Innerfunction")
-            }
+        // //clouser
+        // function outerFun(){
+        //     console.log("outerFunction")
+        //     return function innerFun(){
+        //         console.log("Innerfunction")
+        //     }
             
+        // }
+        // var result=outerFun()
+        // result()
+
+        // function outerFun1(){
+        //     console.log(" this is outerFunction")
+        //     function innerFun1(){
+        //         console.log("this is innerfunction")
+        //     }
+        //     return innerFun1
+        // }
+        // var result=outerFun1()
+        // result()
+
+
+    // clouser: use the var and let const cont bcz it canot re assign the varable
+        function outer(){
+            const count=0
+             return function(){
+                count++;
+                console.log(count)
+            }
         }
-        var result=outerFun()
+        const result=outer()
+        result()
+        result()
+        result()
         result()
 
-        function outerFun1(){
-            console.log(" this is outerFunction")
-            function innerFun1(){
-                console.log("this is innerfunction")
-            }
-            return innerFun1
-        }
-        var result=outerFun1()
-        result()
     </script>
 </body>
 </html>
