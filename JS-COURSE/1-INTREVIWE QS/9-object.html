@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // by using the litral ethods 
+        var person1={name:"theju",class:"12th",place:"MPL"}
+        console.log(person1)
+        // by using the new Object()
+        var person=new Object()
+        this.person.name="theju",
+        this.person.city="mpl"
+        console.log(person)
+        //by using the Constructor
+        function Data(item,price,num){
+            this.item=item
+            this.price=price,
+            this.num=num
+        } 
+        var item1=new Data("tv",200,2)
+        console.log(item1)
+        // by using the class
+        class Person1{
+            constructor(name,clas,state){
+                this.name=name,
+                this.clas=clas,
+                this.state=state
+            }
+        }
+        var per=new Person1("theju" ,12,23)
+        console.log(per)
+
+        // diff betweeen the freez and seal
+        var action={
+            greet:function(){
+                console.log("hellow world")
+            }
+        }
+        action.greet()
+    </script>
+</body>
+</html>
