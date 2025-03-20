@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // slice and splice dont change the origenal array they re modifing the array tempararly
+        var arr=[0,1,2,3,4,5,6]
+        var arr1=arr.splice(2,3,2,3)
+        console.log(arr1)
+        console.log(arr)
+
+        // slice
+        var arr2=arr.slice(2,5)
+        console.log(arr2)
+        console.log(arr)
+
+        // include and the indexOf
+
+        var arr3=[12,23,34,34,67]
+        console.log(arr3.includes(23))
+        console.log(arr3.indexOf(23)!==-1)
+        console.log(arr3.indexOf(83)!==-1)
+        // some
+        console.log(arr3.some((n)=>n===12))
+        // push,pop,shift
+        console.log(arr3.push(23))
+        console.log(arr3)
+        console.log(arr3.pop(290))
+        console.log(arr3)
+        console.log(arr3.shift(123))
+        console.log(arr3)
+        
+
+    </script>
+</body>
+</html>
