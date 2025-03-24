@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function debounce(func, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        const search = (query) => console.log(`Searching for: ${query}`);
+
+        const optimizedSearch = debounce(search, 500);
+
+        optimizedSearch("React");
+        optimizedSearch("ReactJS");
+        optimizedSearch("React Developer"); // Only this will be logged after 500ms
+
+    </script>
+</body>
+
+</html>
